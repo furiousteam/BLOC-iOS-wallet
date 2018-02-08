@@ -17,14 +17,20 @@ enum MinerStoreError: Equatable, Error {
     case unknown
 }
 
-typealias MinerStoreStartCompletionHandler = (MinerStoreResult<Bool>) -> Void
 typealias MinerStoreStopCompletionHandler = (MinerStoreResult<Bool>) -> Void
-typealias MinerStoreEvaluateCompletionHandler = (MinerStoreResult<Bool>) -> Void
 
-protocol MinerStore {
-    func start(threadCount: Int, completion: @escaping MinerStoreStartCompletionHandler)
+protocol MinerStore: class {
+    var delegate: MinerStoreDelegate? { get }
+
+    func mine(job: JobModel, threadLimit: Int, delegate: MinerStoreDelegate?)
     func stop(completion: @escaping MinerStoreStopCompletionHandler)
-    func evaluate(job: JobModel, hash: Data, completion: @escaping MinerStoreEvaluateCompletionHandler)
+    func evaluate(job: JobModel, hash: Data) -> Bool
+}
+
+protocol MinerStoreDelegate {
+    func didComplete(job: JobModel)
+    func didHash()
+    func didUpdate(stats: StatsModel)
 }
 
 class MinerWorker {
@@ -34,12 +40,8 @@ class MinerWorker {
         self.store = store
     }
     
-    func start(threadCount: Int, completion: @escaping MinerStoreStartCompletionHandler) {
-        store.start(threadCount: threadCount) { result in
-            DispatchQueue.main.async {
-                completion(result)
-            }
-        }
+    func mine(job: JobModel, threadLimit: Int, delegate: MinerStoreDelegate?) {
+        store.mine(job: job, threadLimit: threadLimit, delegate: delegate)
     }
     
     func stop(completion: @escaping MinerStoreStopCompletionHandler) {
@@ -50,11 +52,7 @@ class MinerWorker {
         }
     }
     
-    func evaluate(job: JobModel, hash: Data, completion: @escaping MinerStoreEvaluateCompletionHandler) {
-        store.evaluate(job: job, hash: hash) { result in
-            DispatchQueue.main.async {
-                completion(result)
-            }
-        }
+    func evaluate(job: JobModel, hash: Data) -> Bool {
+        return store.evaluate(job: job, hash: hash)
     }
 }

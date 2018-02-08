@@ -29,6 +29,7 @@
 		9C04368E202CAFE600671DA2 /* PoolSocketLoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C04368D202CAFE600671DA2 /* PoolSocketLoginRequest.swift */; };
 		9C043692202CB78C00671DA2 /* PoolSocketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C043691202CB78C00671DA2 /* PoolSocketRequest.swift */; };
 		9C043696202CC4DE00671DA2 /* PoolSocketJobResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C043695202CC4DE00671DA2 /* PoolSocketJobResponse.swift */; };
+		9C04369A202CD1EC00671DA2 /* Stats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C043699202CD1EC00671DA2 /* Stats.swift */; };
 		BBCFE2412940BF658F2DA54B /* Pods_BlockChain_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		9C04368D202CAFE600671DA2 /* PoolSocketLoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSocketLoginRequest.swift; sourceTree = "<group>"; };
 		9C043691202CB78C00671DA2 /* PoolSocketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSocketRequest.swift; sourceTree = "<group>"; };
 		9C043695202CC4DE00671DA2 /* PoolSocketJobResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSocketJobResponse.swift; sourceTree = "<group>"; };
+		9C043699202CD1EC00671DA2 /* Stats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stats.swift; sourceTree = "<group>"; };
 		BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockChain_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChain-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -134,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				9C043684202C9DE600671DA2 /* Job.swift */,
+				9C043699202CD1EC00671DA2 /* Stats.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				9C043696202CC4DE00671DA2 /* PoolSocketJobResponse.swift in Sources */,
 				9C043673202C968D00671DA2 /* keccak.c in Sources */,
 				9C043683202C9CD700671DA2 /* PoolWorker.swift in Sources */,
+				9C04369A202CD1EC00671DA2 /* Stats.swift in Sources */,
 				9C043689202CA50F00671DA2 /* PoolSocketClientDelegate.swift in Sources */,
 				9C043675202C968D00671DA2 /* jh_ansi_opt64.c in Sources */,
 				9C043681202C9C7800671DA2 /* CryptonightMiner.swift in Sources */,

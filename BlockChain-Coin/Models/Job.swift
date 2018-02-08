@@ -14,6 +14,7 @@ protocol JobModel {
     var jobId: String { get }
     var blob: Data { get }
     var target: UInt64 { get }
+    var nonce: UInt32 { get set }
 }
 
 class Job: JobModel, Decodable {

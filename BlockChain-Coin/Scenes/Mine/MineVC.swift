@@ -8,14 +8,9 @@
 
 import UIKit
 
-class MineVC: UIViewController {
-
-    /*let poolClient = PoolSocketClient(host: "159.89.180.132",
-                                      port: 4444,
-                                      walletAddress: "b12iFt4XPAu96TUCAXjdznDa3KUWQ1bq4djYZGARRp6b3KYj3RtQeykaXiKC6rqJYk4PiD6qCorWE2i9FCi1Gr8Z29E3Rqx1r",
-                                      password: "password")*/
-    
+class MineVC: UIViewController, MinerStoreDelegate {
     let poolClient = PoolSocketClient()
+    let miner = CryptonightMiner()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,9 +18,27 @@ class MineVC: UIViewController {
         poolClient.connect(host: "miningpool.blockchain-coin.net", port: 4444) { connectResult in
             print("Connected: \(connectResult)")
             
-            self.poolClient.login(username: "b12iFt4XPAu96TUCAXjdznDa3KUWQ1bq4djYZGARRp6b3KYj3RtQeykaXiKC6rqJYk4PiD6qCorWE2i9FCi1Gr8Z29E3Rqx1r", password: "x", completion: { job in
-                print("Job: \(job)")
+            self.poolClient.login(username: "b12iFt4XPAu96TUCAXjdznDa3KUWQ1bq4djYZGARRp6b3KYj3RtQeykaXiKC6rqJYk4PiD6qCorWE2i9FCi1Gr8Z29E3Rqx1r", password: "x", completion: { loginResult in
+                switch loginResult {
+                case .success(let job):
+                    self.miner.mine(job: job, threadLimit: 4, delegate: self)
+                case .failure(let error):
+                    print(error)
+                }
             })
         }
+    }
+    
+    func didHash() {
+        //print("did hash")
+    }
+    
+    func didUpdate(stats: StatsModel) {
+        print("hash rate: \(stats.hashRate)")
+        print("hash rate: \(stats.submittedHashes)")
+    }
+    
+    func didComplete(job: JobModel) {
+        print("complete \(job)")
     }
 }
