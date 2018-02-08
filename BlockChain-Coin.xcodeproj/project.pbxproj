@@ -12,6 +12,15 @@
 		9C04365B202C94B900671DA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C043650202C94B900671DA2 /* LaunchScreen.storyboard */; };
 		9C04365C202C94B900671DA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C043652202C94B900671DA2 /* Main.storyboard */; };
 		9C04365D202C94B900671DA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C043657202C94B900671DA2 /* ViewController.swift */; };
+		9C043673202C968D00671DA2 /* keccak.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C04365F202C968D00671DA2 /* keccak.c */; };
+		9C043674202C968D00671DA2 /* blake.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C043662202C968D00671DA2 /* blake.c */; };
+		9C043675202C968D00671DA2 /* jh_ansi_opt64.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C043667202C968D00671DA2 /* jh_ansi_opt64.c */; };
+		9C043676202C968D00671DA2 /* oaes_lib.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C04366A202C968D00671DA2 /* oaes_lib.c */; };
+		9C043677202C968D00671DA2 /* groestl.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C04366C202C968D00671DA2 /* groestl.c */; };
+		9C043678202C968D00671DA2 /* cryptonight.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C04366F202C968D00671DA2 /* cryptonight.c */; };
+		9C043679202C968D00671DA2 /* skein.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C043670202C968D00671DA2 /* skein.c */; };
+		9C04367A202C968D00671DA2 /* aesb.c in Sources */ = {isa = PBXBuildFile; fileRef = 9C043672202C968D00671DA2 /* aesb.c */; };
+		9C04367D202C975800671DA2 /* HashContext.mm in Sources */ = {isa = PBXBuildFile; fileRef = 9C04367B202C975800671DA2 /* HashContext.mm */; };
 		BBCFE2412940BF658F2DA54B /* Pods_BlockChain_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +34,27 @@
 		9C043651202C94B900671DA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C043653202C94B900671DA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9C043657202C94B900671DA2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9C04365F202C968D00671DA2 /* keccak.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = keccak.c; sourceTree = "<group>"; };
+		9C043660202C968D00671DA2 /* groestl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groestl.h; sourceTree = "<group>"; };
+		9C043661202C968D00671DA2 /* oaes_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oaes_config.h; sourceTree = "<group>"; };
+		9C043662202C968D00671DA2 /* blake.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = blake.c; sourceTree = "<group>"; };
+		9C043663202C968D00671DA2 /* skein.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skein.h; sourceTree = "<group>"; };
+		9C043664202C968D00671DA2 /* skein_port.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = skein_port.h; sourceTree = "<group>"; };
+		9C043666202C968D00671DA2 /* jh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jh.h; sourceTree = "<group>"; };
+		9C043667202C968D00671DA2 /* jh_ansi_opt64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = jh_ansi_opt64.c; sourceTree = "<group>"; };
+		9C043668202C968D00671DA2 /* groestl_tables.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = groestl_tables.h; sourceTree = "<group>"; };
+		9C043669202C968D00671DA2 /* cryptonight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cryptonight.h; sourceTree = "<group>"; };
+		9C04366A202C968D00671DA2 /* oaes_lib.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = oaes_lib.c; sourceTree = "<group>"; };
+		9C04366B202C968D00671DA2 /* aesb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aesb.h; sourceTree = "<group>"; };
+		9C04366C202C968D00671DA2 /* groestl.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = groestl.c; sourceTree = "<group>"; };
+		9C04366D202C968D00671DA2 /* keccak.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keccak.h; sourceTree = "<group>"; };
+		9C04366E202C968D00671DA2 /* oaes_lib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = oaes_lib.h; sourceTree = "<group>"; };
+		9C04366F202C968D00671DA2 /* cryptonight.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = cryptonight.c; sourceTree = "<group>"; };
+		9C043670202C968D00671DA2 /* skein.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = skein.c; sourceTree = "<group>"; };
+		9C043671202C968D00671DA2 /* blake.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blake.h; sourceTree = "<group>"; };
+		9C043672202C968D00671DA2 /* aesb.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = aesb.c; sourceTree = "<group>"; };
+		9C04367B202C975800671DA2 /* HashContext.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = HashContext.mm; sourceTree = "<group>"; };
+		9C04367C202C975800671DA2 /* HashContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HashContext.h; sourceTree = "<group>"; };
 		BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockChain_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChain-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +156,9 @@
 		9C043655202C94B900671DA2 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9C04367C202C975800671DA2 /* HashContext.h */,
+				9C04367B202C975800671DA2 /* HashContext.mm */,
+				9C04365E202C968D00671DA2 /* Cryptonight */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -136,6 +169,40 @@
 				9C043657202C94B900671DA2 /* ViewController.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		9C04365E202C968D00671DA2 /* Cryptonight */ = {
+			isa = PBXGroup;
+			children = (
+				9C04365F202C968D00671DA2 /* keccak.c */,
+				9C043660202C968D00671DA2 /* groestl.h */,
+				9C043661202C968D00671DA2 /* oaes_config.h */,
+				9C043662202C968D00671DA2 /* blake.c */,
+				9C043663202C968D00671DA2 /* skein.h */,
+				9C043664202C968D00671DA2 /* skein_port.h */,
+				9C043665202C968D00671DA2 /* jh */,
+				9C043668202C968D00671DA2 /* groestl_tables.h */,
+				9C043669202C968D00671DA2 /* cryptonight.h */,
+				9C04366A202C968D00671DA2 /* oaes_lib.c */,
+				9C04366B202C968D00671DA2 /* aesb.h */,
+				9C04366C202C968D00671DA2 /* groestl.c */,
+				9C04366D202C968D00671DA2 /* keccak.h */,
+				9C04366E202C968D00671DA2 /* oaes_lib.h */,
+				9C04366F202C968D00671DA2 /* cryptonight.c */,
+				9C043670202C968D00671DA2 /* skein.c */,
+				9C043671202C968D00671DA2 /* blake.h */,
+				9C043672202C968D00671DA2 /* aesb.c */,
+			);
+			path = Cryptonight;
+			sourceTree = "<group>";
+		};
+		9C043665202C968D00671DA2 /* jh */ = {
+			isa = PBXGroup;
+			children = (
+				9C043666202C968D00671DA2 /* jh.h */,
+				9C043667202C968D00671DA2 /* jh_ansi_opt64.c */,
+			);
+			path = jh;
 			sourceTree = "<group>";
 		};
 		E7FB8072BE54AD3A07BF5178 /* Frameworks */ = {
@@ -276,8 +343,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C04367D202C975800671DA2 /* HashContext.mm in Sources */,
+				9C04367A202C968D00671DA2 /* aesb.c in Sources */,
 				9C04365D202C94B900671DA2 /* ViewController.swift in Sources */,
+				9C043678202C968D00671DA2 /* cryptonight.c in Sources */,
+				9C043673202C968D00671DA2 /* keccak.c in Sources */,
+				9C043675202C968D00671DA2 /* jh_ansi_opt64.c in Sources */,
 				9C043658202C94B900671DA2 /* AppDelegate.swift in Sources */,
+				9C043674202C968D00671DA2 /* blake.c in Sources */,
+				9C043679202C968D00671DA2 /* skein.c in Sources */,
+				9C043676202C968D00671DA2 /* oaes_lib.c in Sources */,
+				9C043677202C968D00671DA2 /* groestl.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
