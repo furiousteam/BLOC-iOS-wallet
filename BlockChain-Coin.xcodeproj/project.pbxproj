@@ -7,21 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C043637202C908B00671DA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C043636202C908B00671DA2 /* AppDelegate.swift */; };
-		9C043639202C908B00671DA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C043638202C908B00671DA2 /* ViewController.swift */; };
-		9C04363C202C908B00671DA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C04363A202C908B00671DA2 /* Main.storyboard */; };
-		9C04363E202C908B00671DA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C04363D202C908B00671DA2 /* Assets.xcassets */; };
-		9C043641202C908B00671DA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C04363F202C908B00671DA2 /* LaunchScreen.storyboard */; };
+		9C043658202C94B900671DA2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C04364A202C94B900671DA2 /* AppDelegate.swift */; };
+		9C04365A202C94B900671DA2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C04364F202C94B900671DA2 /* Assets.xcassets */; };
+		9C04365B202C94B900671DA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C043650202C94B900671DA2 /* LaunchScreen.storyboard */; };
+		9C04365C202C94B900671DA2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C043652202C94B900671DA2 /* Main.storyboard */; };
+		9C04365D202C94B900671DA2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C043657202C94B900671DA2 /* ViewController.swift */; };
+		BBCFE2412940BF658F2DA54B /* Pods_BlockChain_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		15AE16556D515C8C91FE1243 /* Pods-BlockChain-Coin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChain-Coin.release.xcconfig"; path = "Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.release.xcconfig"; sourceTree = "<group>"; };
 		9C043633202C908B00671DA2 /* BlockChain-Coin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "BlockChain-Coin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C043636202C908B00671DA2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		9C043638202C908B00671DA2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9C04363B202C908B00671DA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9C04363D202C908B00671DA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9C043640202C908B00671DA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		9C043642202C908B00671DA2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C043648202C94B800671DA2 /* BlockChain-Coin-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BlockChain-Coin-Bridging-Header.h"; sourceTree = "<group>"; };
+		9C04364A202C94B900671DA2 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9C04364C202C94B900671DA2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C04364F202C94B900671DA2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9C043651202C94B900671DA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9C043653202C94B900671DA2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		9C043657202C94B900671DA2 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockChain_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChain-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +34,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBCFE2412940BF658F2DA54B /* Pods_BlockChain_Coin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DB08BF8DD8FDB80CC4DDE0E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */,
+				15AE16556D515C8C91FE1243 /* Pods-BlockChain-Coin.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9C04362A202C908B00671DA2 = {
 			isa = PBXGroup;
 			children = (
 				9C043635202C908B00671DA2 /* BlockChain-Coin */,
 				9C043634202C908B00671DA2 /* Products */,
+				0DB08BF8DD8FDB80CC4DDE0E /* Pods */,
+				E7FB8072BE54AD3A07BF5178 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +71,79 @@
 		9C043635202C908B00671DA2 /* BlockChain-Coin */ = {
 			isa = PBXGroup;
 			children = (
-				9C043636202C908B00671DA2 /* AppDelegate.swift */,
-				9C043638202C908B00671DA2 /* ViewController.swift */,
-				9C04363A202C908B00671DA2 /* Main.storyboard */,
-				9C04363D202C908B00671DA2 /* Assets.xcassets */,
-				9C04363F202C908B00671DA2 /* LaunchScreen.storyboard */,
-				9C043642202C908B00671DA2 /* Info.plist */,
+				9C04364A202C94B900671DA2 /* AppDelegate.swift */,
+				9C043656202C94B900671DA2 /* Scenes */,
+				9C043649202C94B900671DA2 /* Models */,
+				9C04364D202C94B900671DA2 /* Services */,
+				9C043654202C94B900671DA2 /* Workers */,
+				9C043655202C94B900671DA2 /* Common */,
+				9C04364B202C94B900671DA2 /* Supporting Files */,
+				9C04364E202C94B900671DA2 /* Assets */,
+				9C043648202C94B800671DA2 /* BlockChain-Coin-Bridging-Header.h */,
 			);
 			path = "BlockChain-Coin";
+			sourceTree = "<group>";
+		};
+		9C043649202C94B900671DA2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9C04364B202C94B900671DA2 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9C04364C202C94B900671DA2 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9C04364D202C94B900671DA2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9C04364E202C94B900671DA2 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				9C04364F202C94B900671DA2 /* Assets.xcassets */,
+				9C043650202C94B900671DA2 /* LaunchScreen.storyboard */,
+				9C043652202C94B900671DA2 /* Main.storyboard */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		9C043654202C94B900671DA2 /* Workers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Workers;
+			sourceTree = "<group>";
+		};
+		9C043655202C94B900671DA2 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		9C043656202C94B900671DA2 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				9C043657202C94B900671DA2 /* ViewController.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		E7FB8072BE54AD3A07BF5178 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +153,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C043645202C908B00671DA2 /* Build configuration list for PBXNativeTarget "BlockChain-Coin" */;
 			buildPhases = (
+				D81DD7203BF6FFE8B98F5988 /* [CP] Check Pods Manifest.lock */,
 				9C04362F202C908B00671DA2 /* Sources */,
 				9C043630202C908B00671DA2 /* Frameworks */,
 				9C043631202C908B00671DA2 /* Resources */,
+				7BC59555B1269A6EB9FD2305 /* [CP] Embed Pods Frameworks */,
+				A7878BB7F3EAA1350E40CE32 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -96,6 +181,7 @@
 				TargetAttributes = {
 					9C043632202C908B00671DA2 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -123,41 +209,95 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C043641202C908B00671DA2 /* LaunchScreen.storyboard in Resources */,
-				9C04363E202C908B00671DA2 /* Assets.xcassets in Resources */,
-				9C04363C202C908B00671DA2 /* Main.storyboard in Resources */,
+				9C04365B202C94B900671DA2 /* LaunchScreen.storyboard in Resources */,
+				9C04365A202C94B900671DA2 /* Assets.xcassets in Resources */,
+				9C04365C202C94B900671DA2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7BC59555B1269A6EB9FD2305 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7878BB7F3EAA1350E40CE32 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D81DD7203BF6FFE8B98F5988 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlockChain-Coin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9C04362F202C908B00671DA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C043639202C908B00671DA2 /* ViewController.swift in Sources */,
-				9C043637202C908B00671DA2 /* AppDelegate.swift in Sources */,
+				9C04365D202C94B900671DA2 /* ViewController.swift in Sources */,
+				9C043658202C94B900671DA2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		9C04363A202C908B00671DA2 /* Main.storyboard */ = {
+		9C043650202C94B900671DA2 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				9C04363B202C908B00671DA2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9C04363F202C908B00671DA2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9C043640202C908B00671DA2 /* Base */,
+				9C043651202C94B900671DA2 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9C043652202C94B900671DA2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9C043653202C94B900671DA2 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -272,14 +412,21 @@
 		};
 		9C043646202C908B00671DA2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DGNWN6P3PN;
-				INFOPLIST_FILE = "BlockChain-Coin/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/BlockChain-Coin/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.blockchain-coin.ios.BlockChain-Coin";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maximebornemann.blockchain-coin-alpha";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlockChain-Coin/BlockChain-Coin-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -287,14 +434,20 @@
 		};
 		9C043647202C908B00671DA2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15AE16556D515C8C91FE1243 /* Pods-BlockChain-Coin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = DGNWN6P3PN;
-				INFOPLIST_FILE = "BlockChain-Coin/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/BlockChain-Coin/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "net.blockchain-coin.ios.BlockChain-Coin";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.maximebornemann.blockchain-coin-alpha";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BlockChain-Coin/BlockChain-Coin-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -1,0 +1,6 @@
+framework module Pods_BlockChain_Coin {
+  umbrella header "Pods-BlockChain-Coin-umbrella.h"
+
+  export *
+  module * { export * }
+}
