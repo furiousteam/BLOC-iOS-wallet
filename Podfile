@@ -7,4 +7,8 @@ target 'BlockChain-Coin' do
   # Asynchronous socket networking library for Mac and iOS 
   # https://github.com/robbiehanson/CocoaAsyncSocket
   pod 'CocoaAsyncSocket', '~> 7.6.1'
+
+  # Fast hexadecimal string encoding / decoding for NSData 
+  # https://github.com/jmah/NSData-FastHex/releases
+  pod 'NSData+FastHex', '~> 1.0.1'
 end

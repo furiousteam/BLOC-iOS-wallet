@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A49B341418D8B3377C82DC71671DD55"
-               BuildableName = "Pods_BlockChain_Coin.framework"
-               BlueprintName = "Pods-BlockChain-Coin"
+               BlueprintIdentifier = "B46B19D0F974E59FA6AE7F04FF7C7AE3"
+               BuildableName = "NSData_FastHex.framework"
+               BlueprintName = "NSData+FastHex"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,9 +47,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2A49B341418D8B3377C82DC71671DD55"
-            BuildableName = "Pods_BlockChain_Coin.framework"
-            BlueprintName = "Pods-BlockChain-Coin"
+            BlueprintIdentifier = "B46B19D0F974E59FA6AE7F04FF7C7AE3"
+            BuildableName = "NSData_FastHex.framework"
+            BlueprintName = "NSData+FastHex"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

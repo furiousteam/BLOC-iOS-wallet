@@ -10,23 +10,21 @@ import Foundation
 import CocoaAsyncSocket
 
 class PoolSocketClientDelegate: NSObject, GCDAsyncSocketDelegate {
-    enum Tags: Int {
-        case send = 1
-        case read = 2
-    }
-
     var didConnect: () -> Void = { }
     var didDisconnect: () -> Void = { }
-    var didRead: (Data) -> Void = { _ in }
-    
-    func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
+    var didReadJob: (JobModel) -> Void = { _ in }
+    var didFailToRead: (Data) -> Void = { _ in }
+    var didWrite: () -> Void = { }
+
+    func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else { return }
             
             self.didConnect()
         }
+
     }
-    
+        
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else { return }
@@ -35,10 +33,23 @@ class PoolSocketClientDelegate: NSObject, GCDAsyncSocketDelegate {
         }
     }
     
+    func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
+        switch tag {
+        case PoolSocketClient.Tags.write.rawValue:
+            didWrite()
+        default:
+            break
+        }
+    }
+    
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         switch tag {
-        case Tags.read.rawValue:
-            didRead(data)
+        case PoolSocketClient.Tags.read.rawValue:
+            if let jobResponse = try? JSONDecoder().decode(PoolSocketJobResponse.self, from: data) {
+                didReadJob(jobResponse.job)
+            } else {
+                didFailToRead(data)
+            }
         default:
             break
         }

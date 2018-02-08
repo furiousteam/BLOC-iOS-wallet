@@ -7,65 +7,94 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		08D910B1D8E261FBA8E98C664F6E5B64 /* Pods-BlockChain-Coin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9897538155A89556B68B7FFD8B1394FB /* Pods-BlockChain-Coin-dummy.m */; };
+		0022494BDC3EAE6B4DBDDB0C92C33995 /* NSData+FastHex.m in Sources */ = {isa = PBXBuildFile; fileRef = 730AD6FEAFE44C0FA676CBDEEB559963 /* NSData+FastHex.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		2666A8C056D025A0AC459A3500E3047A /* Pods-BlockChain-Coin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 828E5B4256AC7303317A18248D88A2D4 /* Pods-BlockChain-Coin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2847B760F2CFD163B2DDDB44B8F616F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3725257C79D0C80F87B9E2B291C17A /* Foundation.framework */; };
 		2DAA98C8614A6DED26CE8712531AE1FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3725257C79D0C80F87B9E2B291C17A /* Foundation.framework */; };
-		368BEFCF02FD9B38DD0B95CEEC413EEB /* Pods-BlockChain-Coin-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 828E5B4256AC7303317A18248D88A2D4 /* Pods-BlockChain-Coin-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7E4F0161B4D135DA3A0763619A56C2F5 /* CocoaAsyncSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA669EA9DB68616A6ECA64CA78D52EAC /* CocoaAsyncSocket-dummy.m */; };
-		8480493AEC1C7AF1B5C0E0BF2F70FB44 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9509718CFCC3D81230AA7CF02478B7 /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		A882891E5A89CADF96C2CA79606409CA /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = D82B81E88C7D98976B018DB4903B5D0C /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AC7DC2A21843CD99040DCD79FF3BE91B /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 30CCCF41576100268BFA48C3EED9517C /* GCDAsyncUdpSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AEE9644DA0EFCF945438E125BA4F0724 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 9235AEFD042C8D96AF4B4AA61E18C420 /* GCDAsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		B0E7CD334F5CAD7C266E38DD34FD35CB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3725257C79D0C80F87B9E2B291C17A /* Foundation.framework */; };
+		452785B89674C7F2FE91C41E359DE347 /* NSData+FastHex-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BF65F7FE7FA4FDA70D5C2F2C28644208 /* NSData+FastHex-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		472F826024957CDD29925EB3CD5BBC00 /* NSData+FastHex-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B82B9B7D7D783BBA5EE074B56C325A92 /* NSData+FastHex-dummy.m */; };
+		7E4F0161B4D135DA3A0763619A56C2F5 /* CocoaAsyncSocket-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A88607D3093605F375687460C24A976A /* CocoaAsyncSocket-dummy.m */; };
+		83CA741961EC9CB13DD1016EF17583E0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E3725257C79D0C80F87B9E2B291C17A /* Foundation.framework */; };
+		8480493AEC1C7AF1B5C0E0BF2F70FB44 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A96C005A094FD828D274F2A0B72B988 /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		A882891E5A89CADF96C2CA79606409CA /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C24F2DDC8FE7C493F068A4B27FED2B8 /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AC7DC2A21843CD99040DCD79FF3BE91B /* GCDAsyncUdpSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 319FD2095EB1144706F6B53F390C78EF /* GCDAsyncUdpSocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AEE9644DA0EFCF945438E125BA4F0724 /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A8E3D6372D060D34BEF308DEA46FB86 /* GCDAsyncUdpSocket.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		B688B80E8B12B7F6988B29DC592DA94D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50F6DD994291AA39A94BEECAFAF0D785 /* Security.framework */; };
 		D01B2EBC1AB52980422F5A831BBCE3F4 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A847C3B26F9C9E99A5ACEACF501F86DD /* CFNetwork.framework */; };
-		E4230DB0D114C94B081018C1AC1E9972 /* CocoaAsyncSocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A8A7C0B72CB1BFEC20A42E9E5B3E1A5D /* CocoaAsyncSocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DB319D12979D2460D5974745F06E8924 /* NSData+FastHex.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BD0E3CE14AC4FCC989CB4928BC903DA /* NSData+FastHex.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DE4D01890695F6504674B479CFE8E031 /* Pods-BlockChain-Coin-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9897538155A89556B68B7FFD8B1394FB /* Pods-BlockChain-Coin-dummy.m */; };
+		E4230DB0D114C94B081018C1AC1E9972 /* CocoaAsyncSocket-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 35B77433250618059743F9896B7B593A /* CocoaAsyncSocket-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		1E1142F638A93454906ECBC1BE55A665 /* PBXContainerItemProxy */ = {
+		1BDDB3EF36B66053CF402F672B809F4D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = AC0D2D2B4EE7C873431AB3502859CA60;
 			remoteInfo = CocoaAsyncSocket;
 		};
+		A1BE2A6B06EF49025A88F2CA5217B2B0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B46B19D0F974E59FA6AE7F04FF7C7AE3;
+			remoteInfo = "NSData+FastHex";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		024FAD3A9561D2F4CB106D15D9557461 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01AF76304ACF91D49A527B923CE3A7BD /* CocoaAsyncSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CocoaAsyncSocket.modulemap; sourceTree = "<group>"; };
+		0BD0E3CE14AC4FCC989CB4928BC903DA /* NSData+FastHex.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+FastHex.h"; sourceTree = "<group>"; };
 		11FB673F3B97BE2A291746393722B3FE /* Pods-BlockChain-Coin-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BlockChain-Coin-frameworks.sh"; sourceTree = "<group>"; };
-		2E51CC1D919F107617DB826B5CD97B18 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CocoaAsyncSocket.framework; path = CocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		30CCCF41576100268BFA48C3EED9517C /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = Source/GCD/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		283090084A3FDBE17AE11B72C3CA54FE /* NSData+FastHex.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "NSData+FastHex.xcconfig"; sourceTree = "<group>"; };
+		2B8687FAB5986AAA9D2C1D887456B488 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		319FD2095EB1144706F6B53F390C78EF /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncUdpSocket.h; path = Source/GCD/GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
 		33C714540BD5C8338F6E75DCAAC3A7F6 /* Pods-BlockChain-Coin-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-BlockChain-Coin-resources.sh"; sourceTree = "<group>"; };
+		35B77433250618059743F9896B7B593A /* CocoaAsyncSocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-umbrella.h"; sourceTree = "<group>"; };
+		3A96C005A094FD828D274F2A0B72B988 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = Source/GCD/GCDAsyncSocket.m; sourceTree = "<group>"; };
+		4A8E3D6372D060D34BEF308DEA46FB86 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = Source/GCD/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		4A9C6ECA11FD74129C5E218284DCB8D5 /* CocoaAsyncSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-prefix.pch"; sourceTree = "<group>"; };
+		4C24F2DDC8FE7C493F068A4B27FED2B8 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = Source/GCD/GCDAsyncSocket.h; sourceTree = "<group>"; };
 		4C74463317EC57480C0BC8351265E20E /* Pods-BlockChain-Coin-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-BlockChain-Coin-acknowledgements.markdown"; sourceTree = "<group>"; };
 		50F6DD994291AA39A94BEECAFAF0D785 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
-		56387DA55BBF9D5729BB7A1C311C2894 /* CocoaAsyncSocket.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = CocoaAsyncSocket.modulemap; sourceTree = "<group>"; };
-		601E37EDFF15F9E763332F8ED114AF13 /* CocoaAsyncSocket-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-prefix.pch"; sourceTree = "<group>"; };
-		7A200D11617227C3430ADF446C9A26A1 /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BlockChain_Coin.framework; path = "Pods-BlockChain-Coin.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66970AA530165D6DD69BBE543F94FE42 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		730AD6FEAFE44C0FA676CBDEEB559963 /* NSData+FastHex.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSData+FastHex.m"; sourceTree = "<group>"; };
 		7C8100406117E8C94ED03DAD1B2274DF /* Pods-BlockChain-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BlockChain-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 		802D6F9252C408B499DCE20026314567 /* Pods-BlockChain-Coin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-BlockChain-Coin.release.xcconfig"; sourceTree = "<group>"; };
 		828E5B4256AC7303317A18248D88A2D4 /* Pods-BlockChain-Coin-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-BlockChain-Coin-umbrella.h"; sourceTree = "<group>"; };
-		8F9509718CFCC3D81230AA7CF02478B7 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncSocket.m; path = Source/GCD/GCDAsyncSocket.m; sourceTree = "<group>"; };
-		9235AEFD042C8D96AF4B4AA61E18C420 /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GCDAsyncUdpSocket.m; path = Source/GCD/GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		83CF0407113DA8E5A96DBF23DAF49E63 /* NSData+FastHex.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "NSData+FastHex.modulemap"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9897538155A89556B68B7FFD8B1394FB /* Pods-BlockChain-Coin-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-BlockChain-Coin-dummy.m"; sourceTree = "<group>"; };
 		9E3725257C79D0C80F87B9E2B291C17A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		A3AEA9460FDB06659A4E44666F8F5356 /* Pods-BlockChain-Coin-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-BlockChain-Coin-acknowledgements.plist"; sourceTree = "<group>"; };
 		A847C3B26F9C9E99A5ACEACF501F86DD /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
-		A8A7C0B72CB1BFEC20A42E9E5B3E1A5D /* CocoaAsyncSocket-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CocoaAsyncSocket-umbrella.h"; sourceTree = "<group>"; };
-		AEE3A3E21C4B978FE0BCEB9613DABBF6 /* CocoaAsyncSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaAsyncSocket.xcconfig; sourceTree = "<group>"; };
+		A88607D3093605F375687460C24A976A /* CocoaAsyncSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CocoaAsyncSocket-dummy.m"; sourceTree = "<group>"; };
+		B82B9B7D7D783BBA5EE074B56C325A92 /* NSData+FastHex-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSData+FastHex-dummy.m"; sourceTree = "<group>"; };
+		BF65F7FE7FA4FDA70D5C2F2C28644208 /* NSData+FastHex-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+FastHex-umbrella.h"; sourceTree = "<group>"; };
+		C14D54CCF43872570C9AC4BBE78824BA /* NSData_FastHex.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NSData_FastHex.framework; path = "NSData+FastHex.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3757D335D8FDAB203CE51DB1262E572 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C37A4B11FB41835B6F844A4A01FA2FCE /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_BlockChain_Coin.framework; path = "Pods-BlockChain-Coin.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD4E604CDD067581D9405159C4E9923C /* NSData+FastHex-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSData+FastHex-prefix.pch"; sourceTree = "<group>"; };
 		D6FA0892A7D93ECF69CFFC3309FCF2C5 /* Pods-BlockChain-Coin.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-BlockChain-Coin.modulemap"; sourceTree = "<group>"; };
-		D82B81E88C7D98976B018DB4903B5D0C /* GCDAsyncSocket.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GCDAsyncSocket.h; path = Source/GCD/GCDAsyncSocket.h; sourceTree = "<group>"; };
-		FA669EA9DB68616A6ECA64CA78D52EAC /* CocoaAsyncSocket-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CocoaAsyncSocket-dummy.m"; sourceTree = "<group>"; };
+		EF1D1505E4D7457635964E9B75E129C1 /* CocoaAsyncSocket.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CocoaAsyncSocket.xcconfig; sourceTree = "<group>"; };
+		FADEDFE09E754B3BF747605C95753A40 /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CocoaAsyncSocket.framework; path = CocoaAsyncSocket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		421293F5DCDB6607F215B2D16C02DB2A /* Frameworks */ = {
+		21CE15914AEADD0EE2F3FC8E3A1AAEA7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0E7CD334F5CAD7C266E38DD34FD35CB /* Foundation.framework in Frameworks */,
+				83CA741961EC9CB13DD1016EF17583E0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		47D45E9E1294EB2810C7C98347D8829F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2847B760F2CFD163B2DDDB44B8F616F4 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,18 +119,27 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		57B648335473190C3B0747F8DB761F76 /* Support Files */ = {
+		2AACE4D682E1F5AA675A066FFB0D93D8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				56387DA55BBF9D5729BB7A1C311C2894 /* CocoaAsyncSocket.modulemap */,
-				AEE3A3E21C4B978FE0BCEB9613DABBF6 /* CocoaAsyncSocket.xcconfig */,
-				FA669EA9DB68616A6ECA64CA78D52EAC /* CocoaAsyncSocket-dummy.m */,
-				601E37EDFF15F9E763332F8ED114AF13 /* CocoaAsyncSocket-prefix.pch */,
-				A8A7C0B72CB1BFEC20A42E9E5B3E1A5D /* CocoaAsyncSocket-umbrella.h */,
-				024FAD3A9561D2F4CB106D15D9557461 /* Info.plist */,
+				BEBEF629BF1F42CC384FF8384CE42C67 /* CocoaAsyncSocket */,
+				F9B671BC58B59232191560412DA7D1C3 /* NSData+FastHex */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		2FB7BD84F7E875E7F9A740EFCBA61D96 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2B8687FAB5986AAA9D2C1D887456B488 /* Info.plist */,
+				83CF0407113DA8E5A96DBF23DAF49E63 /* NSData+FastHex.modulemap */,
+				283090084A3FDBE17AE11B72C3CA54FE /* NSData+FastHex.xcconfig */,
+				B82B9B7D7D783BBA5EE074B56C325A92 /* NSData+FastHex-dummy.m */,
+				CD4E604CDD067581D9405159C4E9923C /* NSData+FastHex-prefix.pch */,
+				BF65F7FE7FA4FDA70D5C2F2C28644208 /* NSData+FastHex-umbrella.h */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/CocoaAsyncSocket";
+			path = "../Target Support Files/NSData+FastHex";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -109,40 +147,10 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				991819176034B11A99ECC53C250D06AD /* Pods */,
-				8428FAEB3D4F611E1858C1ECE8C0A9B1 /* Products */,
+				2AACE4D682E1F5AA675A066FFB0D93D8 /* Pods */,
+				CBE9C09029845BC667B0FFD1019FC541 /* Products */,
 				D328A5380EDCD6370485AA7245F2D195 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		8428FAEB3D4F611E1858C1ECE8C0A9B1 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				2E51CC1D919F107617DB826B5CD97B18 /* CocoaAsyncSocket.framework */,
-				7A200D11617227C3430ADF446C9A26A1 /* Pods_BlockChain_Coin.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		97CDCB5A0A30A5875BD2674D78A4B922 /* CocoaAsyncSocket */ = {
-			isa = PBXGroup;
-			children = (
-				D82B81E88C7D98976B018DB4903B5D0C /* GCDAsyncSocket.h */,
-				8F9509718CFCC3D81230AA7CF02478B7 /* GCDAsyncSocket.m */,
-				30CCCF41576100268BFA48C3EED9517C /* GCDAsyncUdpSocket.h */,
-				9235AEFD042C8D96AF4B4AA61E18C420 /* GCDAsyncUdpSocket.m */,
-				57B648335473190C3B0747F8DB761F76 /* Support Files */,
-			);
-			name = CocoaAsyncSocket;
-			path = CocoaAsyncSocket;
-			sourceTree = "<group>";
-		};
-		991819176034B11A99ECC53C250D06AD /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				97CDCB5A0A30A5875BD2674D78A4B922 /* CocoaAsyncSocket */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		A143CD4F3773CEE1ED3E9F20E636B0C4 /* Pods-BlockChain-Coin */ = {
@@ -163,6 +171,43 @@
 			path = "Target Support Files/Pods-BlockChain-Coin";
 			sourceTree = "<group>";
 		};
+		AB3D2C8BDD358BD3F7F9DBAB96068008 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				01AF76304ACF91D49A527B923CE3A7BD /* CocoaAsyncSocket.modulemap */,
+				EF1D1505E4D7457635964E9B75E129C1 /* CocoaAsyncSocket.xcconfig */,
+				A88607D3093605F375687460C24A976A /* CocoaAsyncSocket-dummy.m */,
+				4A9C6ECA11FD74129C5E218284DCB8D5 /* CocoaAsyncSocket-prefix.pch */,
+				35B77433250618059743F9896B7B593A /* CocoaAsyncSocket-umbrella.h */,
+				66970AA530165D6DD69BBE543F94FE42 /* Info.plist */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/CocoaAsyncSocket";
+			sourceTree = "<group>";
+		};
+		BEBEF629BF1F42CC384FF8384CE42C67 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				4C24F2DDC8FE7C493F068A4B27FED2B8 /* GCDAsyncSocket.h */,
+				3A96C005A094FD828D274F2A0B72B988 /* GCDAsyncSocket.m */,
+				319FD2095EB1144706F6B53F390C78EF /* GCDAsyncUdpSocket.h */,
+				4A8E3D6372D060D34BEF308DEA46FB86 /* GCDAsyncUdpSocket.m */,
+				AB3D2C8BDD358BD3F7F9DBAB96068008 /* Support Files */,
+			);
+			name = CocoaAsyncSocket;
+			path = CocoaAsyncSocket;
+			sourceTree = "<group>";
+		};
+		CBE9C09029845BC667B0FFD1019FC541 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FADEDFE09E754B3BF747605C95753A40 /* CocoaAsyncSocket.framework */,
+				C14D54CCF43872570C9AC4BBE78824BA /* NSData_FastHex.framework */,
+				C37A4B11FB41835B6F844A4A01FA2FCE /* Pods_BlockChain_Coin.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		D328A5380EDCD6370485AA7245F2D195 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +226,17 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
+		F9B671BC58B59232191560412DA7D1C3 /* NSData+FastHex */ = {
+			isa = PBXGroup;
+			children = (
+				0BD0E3CE14AC4FCC989CB4928BC903DA /* NSData+FastHex.h */,
+				730AD6FEAFE44C0FA676CBDEEB559963 /* NSData+FastHex.m */,
+				2FB7BD84F7E875E7F9A740EFCBA61D96 /* Support Files */,
+			);
+			name = "NSData+FastHex";
+			path = "NSData+FastHex";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -194,17 +250,45 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDF4545A960CF14E4FC71D8D39290B65 /* Headers */ = {
+		1A804A8CBE114F8A0182EBDB5F3AFDD2 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				368BEFCF02FD9B38DD0B95CEEC413EEB /* Pods-BlockChain-Coin-umbrella.h in Headers */,
+				452785B89674C7F2FE91C41E359DE347 /* NSData+FastHex-umbrella.h in Headers */,
+				DB319D12979D2460D5974745F06E8924 /* NSData+FastHex.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3894A9D92AF09AACD7F9BD3C983746CA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2666A8C056D025A0AC459A3500E3047A /* Pods-BlockChain-Coin-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		2A49B341418D8B3377C82DC71671DD55 /* Pods-BlockChain-Coin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3DB2B132FF33FA7DBFFEC54B9005B490 /* Build configuration list for PBXNativeTarget "Pods-BlockChain-Coin" */;
+			buildPhases = (
+				7EAFC6065D3869298E9E449DA0D5E114 /* Sources */,
+				21CE15914AEADD0EE2F3FC8E3A1AAEA7 /* Frameworks */,
+				3894A9D92AF09AACD7F9BD3C983746CA /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				92070FB7AD12E173D412490F76E1FC27 /* PBXTargetDependency */,
+				C38FE617EB850069A1D7435DB358F686 /* PBXTargetDependency */,
+			);
+			name = "Pods-BlockChain-Coin";
+			productName = "Pods-BlockChain-Coin";
+			productReference = C37A4B11FB41835B6F844A4A01FA2FCE /* Pods_BlockChain_Coin.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		AC0D2D2B4EE7C873431AB3502859CA60 /* CocoaAsyncSocket */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = F2A03B912F777B2BFB05E7B9E903B15F /* Build configuration list for PBXNativeTarget "CocoaAsyncSocket" */;
@@ -219,25 +303,24 @@
 			);
 			name = CocoaAsyncSocket;
 			productName = CocoaAsyncSocket;
-			productReference = 2E51CC1D919F107617DB826B5CD97B18 /* CocoaAsyncSocket.framework */;
+			productReference = FADEDFE09E754B3BF747605C95753A40 /* CocoaAsyncSocket.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E6255AAFFFE49D90770A01C82AA2A793 /* Pods-BlockChain-Coin */ = {
+		B46B19D0F974E59FA6AE7F04FF7C7AE3 /* NSData+FastHex */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA196CABE479017CB91CFF5449D2C063 /* Build configuration list for PBXNativeTarget "Pods-BlockChain-Coin" */;
+			buildConfigurationList = 5A43EB4EFD3A3C2E9062A442B87F3F9A /* Build configuration list for PBXNativeTarget "NSData+FastHex" */;
 			buildPhases = (
-				EF4DAE17C6B4CE9A34728BCFD0C37EA6 /* Sources */,
-				421293F5DCDB6607F215B2D16C02DB2A /* Frameworks */,
-				FDF4545A960CF14E4FC71D8D39290B65 /* Headers */,
+				7004A06917900254676FD74BDA03C2BC /* Sources */,
+				47D45E9E1294EB2810C7C98347D8829F /* Frameworks */,
+				1A804A8CBE114F8A0182EBDB5F3AFDD2 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				6BF5177D7CC4749978E9C44BA28652B4 /* PBXTargetDependency */,
 			);
-			name = "Pods-BlockChain-Coin";
-			productName = "Pods-BlockChain-Coin";
-			productReference = 7A200D11617227C3430ADF446C9A26A1 /* Pods_BlockChain_Coin.framework */;
+			name = "NSData+FastHex";
+			productName = "NSData+FastHex";
+			productReference = C14D54CCF43872570C9AC4BBE78824BA /* NSData_FastHex.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -257,22 +340,32 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 8428FAEB3D4F611E1858C1ECE8C0A9B1 /* Products */;
+			productRefGroup = CBE9C09029845BC667B0FFD1019FC541 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				AC0D2D2B4EE7C873431AB3502859CA60 /* CocoaAsyncSocket */,
-				E6255AAFFFE49D90770A01C82AA2A793 /* Pods-BlockChain-Coin */,
+				B46B19D0F974E59FA6AE7F04FF7C7AE3 /* NSData+FastHex */,
+				2A49B341418D8B3377C82DC71671DD55 /* Pods-BlockChain-Coin */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		EF4DAE17C6B4CE9A34728BCFD0C37EA6 /* Sources */ = {
+		7004A06917900254676FD74BDA03C2BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08D910B1D8E261FBA8E98C664F6E5B64 /* Pods-BlockChain-Coin-dummy.m in Sources */,
+				472F826024957CDD29925EB3CD5BBC00 /* NSData+FastHex-dummy.m in Sources */,
+				0022494BDC3EAE6B4DBDDB0C92C33995 /* NSData+FastHex.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7EAFC6065D3869298E9E449DA0D5E114 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE4D01890695F6504674B479CFE8E031 /* Pods-BlockChain-Coin-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,18 +382,24 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6BF5177D7CC4749978E9C44BA28652B4 /* PBXTargetDependency */ = {
+		92070FB7AD12E173D412490F76E1FC27 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = CocoaAsyncSocket;
 			target = AC0D2D2B4EE7C873431AB3502859CA60 /* CocoaAsyncSocket */;
-			targetProxy = 1E1142F638A93454906ECBC1BE55A665 /* PBXContainerItemProxy */;
+			targetProxy = 1BDDB3EF36B66053CF402F672B809F4D /* PBXContainerItemProxy */;
+		};
+		C38FE617EB850069A1D7435DB358F686 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "NSData+FastHex";
+			target = B46B19D0F974E59FA6AE7F04FF7C7AE3 /* NSData+FastHex */;
+			targetProxy = A1BE2A6B06EF49025A88F2CA5217B2B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		18A74452F53D0016BF84CEBB9981437B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEE3A3E21C4B978FE0BCEB9613DABBF6 /* CocoaAsyncSocket.xcconfig */;
+			baseConfigurationReference = EF1D1505E4D7457635964E9B75E129C1 /* CocoaAsyncSocket.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -331,7 +430,7 @@
 		};
 		23D382772C29133EA182C9B45FD4BDE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AEE3A3E21C4B978FE0BCEB9613DABBF6 /* CocoaAsyncSocket.xcconfig */;
+			baseConfigurationReference = EF1D1505E4D7457635964E9B75E129C1 /* CocoaAsyncSocket.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -359,7 +458,7 @@
 			};
 			name = Debug;
 		};
-		61B10D4E2527F69F249ABF2B791FD95C /* Release */ = {
+		4F963248B72CD3F2318A9CA515A6D274 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 802D6F9252C408B499DCE20026314567 /* Pods-BlockChain-Coin.release.xcconfig */;
 			buildSettings = {
@@ -391,6 +490,69 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		703DCA823FB217C4CDF8040BCC64DCDB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 283090084A3FDBE17AE11B72C3CA54FE /* NSData+FastHex.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/NSData+FastHex/NSData+FastHex-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NSData+FastHex/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/NSData+FastHex/NSData+FastHex.modulemap";
+				PRODUCT_NAME = NSData_FastHex;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		71A8BC66567F5AFF746C4693BFEFF062 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7C8100406117E8C94ED03DAD1B2274DF /* Pods-BlockChain-Coin.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-BlockChain-Coin/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_BlockChain_Coin;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		7C07ED8089F70A31B83996A8910D7F18 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -452,38 +614,6 @@
 			};
 			name = Debug;
 		};
-		88972E97EE8654505D450BC65EECA6CC /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C8100406117E8C94ED03DAD1B2274DF /* Pods-BlockChain-Coin.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-BlockChain-Coin/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_BlockChain_Coin;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
 		98F29E7567052F62660DDD7069ADF73C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -539,6 +669,36 @@
 			};
 			name = Release;
 		};
+		D708FE3DD072039C481B1E3A42FB0D28 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 283090084A3FDBE17AE11B72C3CA54FE /* NSData+FastHex.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/NSData+FastHex/NSData+FastHex-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/NSData+FastHex/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/NSData+FastHex/NSData+FastHex.modulemap";
+				PRODUCT_NAME = NSData_FastHex;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -551,20 +711,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		3DB2B132FF33FA7DBFFEC54B9005B490 /* Build configuration list for PBXNativeTarget "Pods-BlockChain-Coin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71A8BC66567F5AFF746C4693BFEFF062 /* Debug */,
+				4F963248B72CD3F2318A9CA515A6D274 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5A43EB4EFD3A3C2E9062A442B87F3F9A /* Build configuration list for PBXNativeTarget "NSData+FastHex" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D708FE3DD072039C481B1E3A42FB0D28 /* Debug */,
+				703DCA823FB217C4CDF8040BCC64DCDB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F2A03B912F777B2BFB05E7B9E903B15F /* Build configuration list for PBXNativeTarget "CocoaAsyncSocket" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				23D382772C29133EA182C9B45FD4BDE7 /* Debug */,
 				18A74452F53D0016BF84CEBB9981437B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FA196CABE479017CB91CFF5449D2C063 /* Build configuration list for PBXNativeTarget "Pods-BlockChain-Coin" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				88972E97EE8654505D450BC65EECA6CC /* Debug */,
-				61B10D4E2527F69F249ABF2B791FD95C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

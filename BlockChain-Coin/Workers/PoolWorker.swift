@@ -18,15 +18,18 @@ enum PoolStoreError: Equatable, Error {
     case couldNotConnect
     case alreadyConnected
     case alreadyDisconnected
+    case cantReadData
 }
 
 typealias PoolStoreConnectCompletionHandler = (PoolStoreResult<Bool>) -> Void
 typealias PoolStoreDisconnectCompletionHandler = (PoolStoreResult<Bool>) -> Void
+typealias PoolStoreLoginCompletionHandler = (PoolStoreResult<JobModel>) -> Void
 typealias PoolStoreSubmitJobCompletionHandler = (PoolStoreResult<Bool>) -> Void
 
 protocol PoolStore {
-    func connect(completion: @escaping PoolStoreConnectCompletionHandler)
+    func connect(host: String, port: Int, completion: @escaping PoolStoreConnectCompletionHandler)
     func disconnect(completion: @escaping PoolStoreDisconnectCompletionHandler)
+    func login(username: String, password: String, completion: @escaping PoolStoreLoginCompletionHandler)
     func submit(job: JobModel, completion: @escaping PoolStoreSubmitJobCompletionHandler)
 }
 
@@ -37,8 +40,8 @@ class PoolWorker {
         self.store = store
     }
     
-    func connect(completion: @escaping PoolStoreConnectCompletionHandler) {
-        store.connect { result in
+    func connect(host: String, port: Int, completion: @escaping PoolStoreConnectCompletionHandler) {
+        store.connect(host: host, port: port) { result in
             DispatchQueue.main.async {
                 completion(result)
             }
@@ -47,6 +50,14 @@ class PoolWorker {
     
     func disconnect(completion: @escaping PoolStoreDisconnectCompletionHandler) {
         store.disconnect { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    func login(username: String, password: String, completion: @escaping PoolStoreLoginCompletionHandler) {
+        store.login(username: username, password: password) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

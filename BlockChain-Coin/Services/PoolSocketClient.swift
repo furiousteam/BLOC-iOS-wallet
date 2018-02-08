@@ -10,37 +10,23 @@ import Foundation
 import CocoaAsyncSocket
 
 class PoolSocketClient: PoolStore {
-    // MARK: Properties
-    
-    fileprivate let url: URL
+    public enum Tags: Int {
+        case write = 1
+        case read = 2
+    }
+
     fileprivate let socket: GCDAsyncSocket
     fileprivate let delegate = PoolSocketClientDelegate()
     
     // MARK: Pool methods
     
-    init?(host: String, port: Int, walletAddress: String, password: String) {
-        var c = URLComponents()
-        c.scheme = "stratum+tcp"
-        c.port = port
-        c.user = walletAddress
-        c.password = password
-
-        guard let url = c.url else {
-            return nil
-        }
-        
-        self.url = url
+    init() {
         self.socket = GCDAsyncSocket(delegate: delegate, delegateQueue: .main)
     }
     
-    func connect(completion: @escaping PoolStoreConnectCompletionHandler) {
+    func connect(host: String, port: Int, completion: @escaping PoolStoreConnectCompletionHandler) {
         guard socket.isDisconnected else {
             completion(.failure(error: .alreadyConnected))
-            return
-        }
-        
-        guard let host = url.host, let port = url.port else {
-            completion(.failure(error: .couldNotConnect))
             return
         }
         
@@ -49,8 +35,9 @@ class PoolSocketClient: PoolStore {
         }
 
         do {
-            try socket.connect(toHost: host, onPort: UInt16(port))
-        } catch {
+            try socket.connect(toHost: host, onPort: UInt16(port), withTimeout: TimeInterval(30.0))
+        } catch let error {
+            print(error)
             completion(.failure(error: .couldNotConnect))
         }
     }
@@ -68,7 +55,41 @@ class PoolSocketClient: PoolStore {
         socket.disconnect()
     }
     
+    func login(username: String, password: String, completion: @escaping PoolStoreLoginCompletionHandler) {
+        let request = PoolSocketLoginRequest(username: username, password: password)
+        
+        delegate.didWrite = { [weak self] in            
+            guard let `self` = self else { return }
+            
+            self.receive()
+        }
+
+        delegate.didReadJob = { job in
+            completion(.success(result: job))
+        }
+        
+        delegate.didFailToRead = { _ in
+            completion(.failure(error: .cantReadData))
+        }
+                
+        send(request: request)
+    }
+    
     func submit(job: JobModel, completion: @escaping PoolStoreSubmitJobCompletionHandler) {
         
+    }
+    
+    // MARK: Socket request
+    
+    func send(request: PoolSocketRequest) {
+        guard let data = try? JSONEncoder().encode(request) else { return }
+        
+        let terminatedData = data + Data(bytes: [0x0A])
+        
+        socket.write(terminatedData, withTimeout: TimeInterval(30), tag: Tags.write.rawValue)
+    }
+    
+    fileprivate func receive() {
+        socket.readData(to: Data(bytes: [0x0A]), withTimeout: -1, tag: Tags.read.rawValue)
     }
 }

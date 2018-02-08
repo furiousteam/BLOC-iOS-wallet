@@ -9,11 +9,20 @@
 import Foundation
 
 class CryptonightMiner: MinerStore {
-    func start(host: String, port: Int, destinationAddress: String, clientIdentifier: String, threadCount: Int, completion: @escaping MinerStoreStartCompletionHandler) {
+    func start(threadCount: Int, completion: @escaping MinerStoreStartCompletionHandler) {
         
     }
     
     func stop(completion: @escaping MinerStoreStopCompletionHandler) {
         
+    }
+    
+    func evaluate(job: JobModel, hash: Data, completion: @escaping MinerStoreEvaluateCompletionHandler) {
+        let start = 24
+        let sd = hash.subdata(in: start ..< start + MemoryLayout<UInt64>.size)
+        let v = sd.withUnsafeBytes { (a: UnsafePointer<UInt64>) -> UInt64 in a.pointee }
+        let result = v < job.target
+        
+        completion(.success(result: result))
     }
 }
