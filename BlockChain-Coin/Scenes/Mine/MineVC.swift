@@ -7,11 +7,18 @@
 //
 
 import UIKit
+import SnapKit
 
 class MineVC: UIViewController, MinerStoreDelegate {
     let poolClient = PoolSocketClient()
     let miner = CryptonightMiner()
     
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.separatorStyle = .none
+        return tableView
+    }()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +37,6 @@ class MineVC: UIViewController, MinerStoreDelegate {
     }
     
     func didHash() {
-        //print("did hash")
     }
     
     func didUpdate(stats: StatsModel) {

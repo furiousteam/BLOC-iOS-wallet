@@ -11,4 +11,8 @@ target 'BlockChain-Coin' do
   # Fast hexadecimal string encoding / decoding for NSData 
   # https://github.com/jmah/NSData-FastHex/releases
   pod 'NSData+FastHex', '~> 1.0.1'
+
+  # A Swift Autolayout DSL for iOS & OS X
+  # https://github.com/SnapKit/SnapKit
+  pod 'SnapKit', '~> 4.0.0'
 end
