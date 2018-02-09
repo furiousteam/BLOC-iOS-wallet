@@ -26,7 +26,7 @@ class CryptonightMiner: MinerStore {
     }
 
     let statsSemaphore = DispatchSemaphore(value: 1)
-    var stats = Stats(hashes: 0, submittedHashes: 0)
+    var stats = Stats(hashes: 0, submittedHashes: 0, allTimeHashes: 0)
 
     func mine(job: JobModel, threadLimit: Int, delegate: MinerStoreDelegate?) {
         self.delegate = delegate
@@ -76,6 +76,7 @@ class CryptonightMiner: MinerStore {
         statsSemaphore.wait()
         
         stats.hashes += 1
+        stats.allTimeHashes += 1
         
         let now = Date()
         
@@ -86,6 +87,7 @@ class CryptonightMiner: MinerStore {
                 self.delegate?.didUpdate(stats: s)
             }
             
+            stats.hashes = 0
             stats.lastUpdate = now
         }
         

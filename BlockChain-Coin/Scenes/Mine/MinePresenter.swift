@@ -44,7 +44,7 @@ class MinePresenter: MinePresentationLogic {
     }
     
     func handlePoolStats(stats: StatsModel) {
-        let viewModel = MinerStatsViewModel(hashRate: stats.hashRate, totalHashes: stats.hashes, sharesFound: stats.submittedHashes)
+        let viewModel = MinerStatsViewModel(hashRate: stats.hashRate, totalHashes: stats.allTimeHashes, sharesFound: stats.submittedHashes)
         
         viewController?.handleMinerStats(viewModel: viewModel)
     }

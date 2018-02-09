@@ -15,9 +15,15 @@ protocol MineDisplayLogic: class {
     func handleMinerStats(viewModel: MinerStatsViewModel)
 }
 
-class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
+class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate, SetWalletDelegate {
     let poolClient = PoolSocketClient()
     let miner = CryptonightMiner()
+    
+    var wallet: String = "b12iFt4XPAu96TUCAXjdznDa3KUWQ1bq4djYZGARRp6b3KYj3RtQeykaXiKC6rqJYk4PiD6qCorWE2i9FCi1Gr8Z29E3Rqx1r" {
+        didSet {
+            interactor.disconnect()
+        }
+    }
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -69,6 +75,12 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
             }
         }
     }
+    
+    let walletButton: UIButton = {
+        let button = UIButton(type: .custom)
+        button.setImage(R.image.wallet(), for: .normal)
+        return button
+    }()
 
     // MARK: - View lifecycle
     
@@ -133,6 +145,12 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
             $0.bottom.equalTo(mineButton.snp.top)
         })
         
+        view.addSubview(walletButton)
+        
+        walletButton.snp.makeConstraints({
+            $0.trailing.bottom.equalToSuperview().inset(15.0)
+        })
+        
         // TableView
         
         MineStatCell.registerWith(tableView)
@@ -142,6 +160,7 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
         // Actions
         
         mineButton.addTarget(self, action: #selector(mineTapped), for: .touchUpInside)
+        walletButton.addTarget(self, action: #selector(walletTapped), for: .touchUpInside)
     }
     
     // MARK: - Display logic
@@ -184,14 +203,24 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
         case .notMining:
             interactor.connect(host: "miningpool.blockchain-coin.net",
                                port: 4444,
-                               wallet: "b12iFt4XPAu96TUCAXjdznDa3KUWQ1bq4djYZGARRp6b3KYj3RtQeykaXiKC6rqJYk4PiD6qCorWE2i9FCi1Gr8Z29E3Rqx1r")
+                               wallet: wallet)
         }
+    }
+    
+    @objc func walletTapped() {
+        router.showWallet(currentAddress: self.wallet, delegate: self)
     }
     
     // MARK: - UITableView delegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 50.0
+    }
+    
+    // MARK: - SetWallet delegate
+    
+    func didSetWallet(wallet: String) {
+        self.wallet = wallet
     }
     
 }

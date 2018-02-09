@@ -45,6 +45,7 @@
 		9C8A8F5F202DFD7900F55736 /* PoolStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F5E202DFD7900F55736 /* PoolStatusView.swift */; };
 		9C8A8F61202DFDF300F55736 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F60202DFDF300F55736 /* UIColor+Hex.swift */; };
 		9C8A8F63202E03B900F55736 /* MineStatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F62202E03B900F55736 /* MineStatCell.swift */; };
+		9C8A8F66202E1B0700F55736 /* SetWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F65202E1B0700F55736 /* SetWalletVC.swift */; };
 		BBCFE2412940BF658F2DA54B /* Pods_BlockChain_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +104,7 @@
 		9C8A8F5E202DFD7900F55736 /* PoolStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolStatusView.swift; sourceTree = "<group>"; };
 		9C8A8F60202DFDF300F55736 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		9C8A8F62202E03B900F55736 /* MineStatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineStatCell.swift; sourceTree = "<group>"; };
+		9C8A8F65202E1B0700F55736 /* SetWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetWalletVC.swift; sourceTree = "<group>"; };
 		BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockChain_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChain-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -228,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				9C04368A202CA88700671DA2 /* Mine */,
+				9C8A8F64202E1AEF00F55736 /* SetWallet */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -315,6 +318,14 @@
 				9C8A8F60202DFDF300F55736 /* UIColor+Hex.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9C8A8F64202E1AEF00F55736 /* SetWallet */ = {
+			isa = PBXGroup;
+			children = (
+				9C8A8F65202E1B0700F55736 /* SetWalletVC.swift */,
+			);
+			path = SetWallet;
 			sourceTree = "<group>";
 		};
 		E7FB8072BE54AD3A07BF5178 /* Frameworks */ = {
@@ -481,6 +492,7 @@
 				9C04369C202CDB9400671DA2 /* MineDataSource.swift in Sources */,
 				9C0436B8202DD52700671DA2 /* PoolSocketSubmitJobRequest.swift in Sources */,
 				9C04368E202CAFE600671DA2 /* PoolSocketLoginRequest.swift in Sources */,
+				9C8A8F66202E1B0700F55736 /* SetWalletVC.swift in Sources */,
 				9C0436A2202CDBAC00671DA2 /* MinePresenter.swift in Sources */,
 				9C0436A5202CDBC000671DA2 /* MineModels.swift in Sources */,
 				9C04367A202C968D00671DA2 /* aesb.c in Sources */,

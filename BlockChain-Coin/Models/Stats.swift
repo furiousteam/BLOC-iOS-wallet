@@ -13,11 +13,13 @@ protocol StatsModel {
     var submittedHashes: UInt { get set }
     var lastUpdate: Date { get set }
     var hashRate: Double { get }
+    var allTimeHashes: UInt { get set }
 }
 
 class Stats: StatsModel {
     var hashes: UInt
     var submittedHashes: UInt
+    var allTimeHashes: UInt
     var lastUpdate: Date = Date()
     
     var hashRate: Double {
@@ -25,8 +27,9 @@ class Stats: StatsModel {
         return TimeInterval(hashes) / interval
     }
     
-    init(hashes: UInt, submittedHashes: UInt) {
+    init(hashes: UInt, submittedHashes: UInt, allTimeHashes: UInt) {
         self.hashes = hashes
         self.submittedHashes = submittedHashes
+        self.allTimeHashes = allTimeHashes
     }
 }
