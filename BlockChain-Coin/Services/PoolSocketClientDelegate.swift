@@ -47,6 +47,8 @@ class PoolSocketClientDelegate: NSObject, GCDAsyncSocketDelegate {
         case PoolSocketClient.Tags.read.rawValue:
             if let jobResponse = try? JSONDecoder().decode(PoolSocketJobResponse.self, from: data) {
                 didReadJob(jobResponse.job)
+            } else if let jobResponse = try? JSONDecoder().decode(PoolSocketJobNotificationResponse.self, from: data) {
+                didReadJob(jobResponse.job)
             } else {
                 didFailToRead(data)
             }

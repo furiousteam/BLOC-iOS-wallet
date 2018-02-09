@@ -24,13 +24,13 @@ enum PoolStoreError: Equatable, Error {
 typealias PoolStoreConnectCompletionHandler = (PoolStoreResult<Bool>) -> Void
 typealias PoolStoreDisconnectCompletionHandler = (PoolStoreResult<Bool>) -> Void
 typealias PoolStoreLoginCompletionHandler = (PoolStoreResult<JobModel>) -> Void
-typealias PoolStoreSubmitJobCompletionHandler = (PoolStoreResult<Bool>) -> Void
+typealias PoolStoreSubmitJobCompletionHandler = (PoolStoreResult<JobModel>) -> Void
 
 protocol PoolStore {
     func connect(host: String, port: Int, completion: @escaping PoolStoreConnectCompletionHandler)
     func disconnect(completion: @escaping PoolStoreDisconnectCompletionHandler)
     func login(username: String, password: String, completion: @escaping PoolStoreLoginCompletionHandler)
-    func submit(job: JobModel, completion: @escaping PoolStoreSubmitJobCompletionHandler)
+    func submit(id: String, jobId: String, result: Data, nonce: UInt32, completion: @escaping PoolStoreSubmitJobCompletionHandler)
 }
 
 class PoolWorker {
@@ -64,8 +64,8 @@ class PoolWorker {
         }
     }
     
-    func submit(job: JobModel, completion: @escaping PoolStoreSubmitJobCompletionHandler) {
-        store.submit(job: job) { result in
+    func submit(id: String, jobId: String, result: Data, nonce: UInt32, completion: @escaping PoolStoreSubmitJobCompletionHandler) {
+        store.submit(id: id, jobId: jobId, result: result, nonce: nonce) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

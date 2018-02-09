@@ -14,7 +14,16 @@ class CryptonightMiner: MinerStore {
     var delegate: MinerStoreDelegate?
     
     let jobSemaphore = DispatchSemaphore(value: 1)
-    var job: JobModel?
+    var job: JobModel? {
+        didSet(oldVal) {
+            if let oldId = oldVal?.id {
+                job?.id = oldId
+            }
+            
+            print("new job")
+        }
+        
+    }
 
     let statsSemaphore = DispatchSemaphore(value: 1)
     var stats = Stats(hashes: 0, submittedHashes: 0)
@@ -84,7 +93,7 @@ class CryptonightMiner: MinerStore {
         statsSemaphore.signal()
         
         if evaluate(job: job, hash: result) {
-            delegate?.didComplete(job: Job(id: job.id, jobId: job.jobId, blob: result, target: UInt64(currentNonce)))
+            delegate?.didComplete(id: job.id, jobId: job.jobId, result: result, nonce: currentNonce)
             
             statsSemaphore.wait()
             

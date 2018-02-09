@@ -10,7 +10,7 @@ import Foundation
 import NSData_FastHex
 
 protocol JobModel {
-    var id: String { get }
+    var id: String { get set }
     var jobId: String { get }
     var blob: Data { get }
     var target: UInt64 { get }
@@ -18,17 +18,13 @@ protocol JobModel {
 }
 
 class Job: JobModel, Decodable {
-    let id: String
+    var id: String
     let jobId: String
     var blob: Data
     let target: UInt64
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
-        case job = "job"
-    }
-    
-    enum JobCodingKeys: String, CodingKey {
         case blob = "blob"
         case jobId = "job_id"
         case target = "target"
@@ -63,16 +59,15 @@ class Job: JobModel, Decodable {
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        id = try values.decode(String.self, forKey: .id)
+        id = try values.decodeIfPresent(String.self, forKey: .id) ?? ""
 
-        let jobValues = try values.nestedContainer(keyedBy: JobCodingKeys.self, forKey: .job)
-        jobId = try jobValues.decode(String.self, forKey: .jobId)
+        jobId = try values.decode(String.self, forKey: .jobId)
         
-        let blobString = try jobValues.decode(String.self, forKey: .blob)
+        let blobString = try values.decode(String.self, forKey: .blob)
         blob = NSData(hexString: blobString) as Data
         
-        let targetString = try jobValues.decode(String.self, forKey: .target)
-        let targetLength = targetString.utf8.count
+        let targetString = try values.decode(String.self, forKey: .target)
+        let targetLength = targetString.characters.count
         let targetData = NSData(hexString: targetString) as Data
         
         if targetLength <= 8 {

@@ -14,7 +14,7 @@ class PoolSocketClient: PoolStore {
         case write = 1
         case read = 2
     }
-
+    
     fileprivate let socket: GCDAsyncSocket
     fileprivate let delegate = PoolSocketClientDelegate()
     
@@ -71,12 +71,24 @@ class PoolSocketClient: PoolStore {
         delegate.didFailToRead = { _ in
             completion(.failure(error: .cantReadData))
         }
-                
+        
         send(request: request)
     }
     
-    func submit(job: JobModel, completion: @escaping PoolStoreSubmitJobCompletionHandler) {
+    func submit(id: String, jobId: String, result: Data, nonce: UInt32, completion: @escaping PoolStoreSubmitJobCompletionHandler) {
+        let request = PoolSocketSubmitJobRequest(id: id, jobId: jobId, result: result, nonce: nonce)
         
+        delegate.didReadJob = { job in
+            completion(.success(result: job))
+        }
+        
+        delegate.didFailToRead = { _ in }
+        
+        /*delegate.didFailToRead = { _ in
+            completion(.failure(error: .cantReadData))
+        }*/
+        
+        send(request: request)
     }
     
     // MARK: Socket request

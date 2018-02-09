@@ -28,7 +28,7 @@ protocol MinerStore: class {
 }
 
 protocol MinerStoreDelegate {
-    func didComplete(job: JobModel)
+    func didComplete(id: String, jobId: String, result: Data, nonce: UInt32)
     func didHash()
     func didUpdate(stats: StatsModel)
 }

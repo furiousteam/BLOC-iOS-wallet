@@ -38,6 +38,8 @@
 		9C0436A7202CDBE500671DA2 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0436A6202CDBE500671DA2 /* TableViewCell.swift */; };
 		9C0436A9202CDC0A00671DA2 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0436A8202CDC0A00671DA2 /* Reusable.swift */; };
 		9C0436AC202CDC5100671DA2 /* UITableView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0436AB202CDC5100671DA2 /* UITableView+Register.swift */; };
+		9C0436B8202DD52700671DA2 /* PoolSocketSubmitJobRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0436B7202DD52700671DA2 /* PoolSocketSubmitJobRequest.swift */; };
+		9C8A8F58202DE7D400F55736 /* PoolSocketJobNotificationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F57202DE7D400F55736 /* PoolSocketJobNotificationResponse.swift */; };
 		BBCFE2412940BF658F2DA54B /* Pods_BlockChain_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +91,8 @@
 		9C0436A6202CDBE500671DA2 /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		9C0436A8202CDC0A00671DA2 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		9C0436AB202CDC5100671DA2 /* UITableView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Register.swift"; sourceTree = "<group>"; };
+		9C0436B7202DD52700671DA2 /* PoolSocketSubmitJobRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSocketSubmitJobRequest.swift; sourceTree = "<group>"; };
+		9C8A8F57202DE7D400F55736 /* PoolSocketJobNotificationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSocketJobNotificationResponse.swift; sourceTree = "<group>"; };
 		BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockChain_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChain-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -269,6 +273,7 @@
 			children = (
 				9C043691202CB78C00671DA2 /* PoolSocketRequest.swift */,
 				9C04368D202CAFE600671DA2 /* PoolSocketLoginRequest.swift */,
+				9C0436B7202DD52700671DA2 /* PoolSocketSubmitJobRequest.swift */,
 			);
 			path = Requests;
 			sourceTree = "<group>";
@@ -277,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				9C043695202CC4DE00671DA2 /* PoolSocketJobResponse.swift */,
+				9C8A8F57202DE7D400F55736 /* PoolSocketJobNotificationResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -439,11 +445,13 @@
 			files = (
 				9C04367D202C975800671DA2 /* HashContext.mm in Sources */,
 				9C04369C202CDB9400671DA2 /* MineDataSource.swift in Sources */,
+				9C0436B8202DD52700671DA2 /* PoolSocketSubmitJobRequest.swift in Sources */,
 				9C04368E202CAFE600671DA2 /* PoolSocketLoginRequest.swift in Sources */,
 				9C0436A2202CDBAC00671DA2 /* MinePresenter.swift in Sources */,
 				9C0436A5202CDBC000671DA2 /* MineModels.swift in Sources */,
 				9C04367A202C968D00671DA2 /* aesb.c in Sources */,
 				9C043687202C9F8B00671DA2 /* PoolSocketClient.swift in Sources */,
+				9C8A8F58202DE7D400F55736 /* PoolSocketJobNotificationResponse.swift in Sources */,
 				9C043678202C968D00671DA2 /* cryptonight.c in Sources */,
 				9C043685202C9DE600671DA2 /* Job.swift in Sources */,
 				9C04368C202CA89B00671DA2 /* MineVC.swift in Sources */,

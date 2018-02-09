@@ -28,7 +28,7 @@ class MineVC: UIViewController, MinerStoreDelegate {
             self.poolClient.login(username: "b12iFt4XPAu96TUCAXjdznDa3KUWQ1bq4djYZGARRp6b3KYj3RtQeykaXiKC6rqJYk4PiD6qCorWE2i9FCi1Gr8Z29E3Rqx1r", password: "x", completion: { loginResult in
                 switch loginResult {
                 case .success(let job):
-                    self.miner.mine(job: job, threadLimit: 4, delegate: self)
+                    self.miner.mine(job: job, threadLimit: ProcessInfo.processInfo.activeProcessorCount, delegate: self)
                 case .failure(let error):
                     print(error)
                 }
@@ -40,11 +40,27 @@ class MineVC: UIViewController, MinerStoreDelegate {
     }
     
     func didUpdate(stats: StatsModel) {
-        print("hash rate: \(stats.hashRate)")
-        print("hash rate: \(stats.submittedHashes)")
     }
     
-    func didComplete(job: JobModel) {
-        print("complete \(job)")
+    func didComplete(id: String, jobId: String, result: Data, nonce: UInt32) {
+        DispatchQueue.main.async {
+            print("hash rate: \(self.miner.stats.hashRate)")
+            print("hash rate: \(self.miner.stats.submittedHashes)")
+
+            print("Has job to send: \(id) \(jobId) \(nonce)")
+            
+            self.poolClient.submit(id: id, jobId: jobId, result: result, nonce: nonce, completion: { result in
+                print("Completed job sending \(result)")
+                
+                switch result {
+                case .success(let job):
+                    self.miner.job = job
+                case .failure:
+                    self.miner.job = nil
+                }
+            })
+        }
+
     }
+
 }

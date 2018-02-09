@@ -19,9 +19,14 @@ class PoolSocketJobResponse: PoolSocketJobResponseModel, Decodable {
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
-        case job = "result"
+        case result = "result"
     }
     
+    enum ResultCodingKeys: String, CodingKey {
+        case id = "id"
+        case job = "job"
+    }
+
     init(id: UInt64, job: Job) {
         self.id = id
         self.job = job
@@ -31,7 +36,11 @@ class PoolSocketJobResponse: PoolSocketJobResponseModel, Decodable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try values.decode(UInt64.self, forKey: .id)
-        job = try values.decode(Job.self, forKey: .job)
+        
+        let resultValues = try values.nestedContainer(keyedBy: ResultCodingKeys.self, forKey: .result)
+        
+        job = try resultValues.decode(Job.self, forKey: .job)
+        job.id = try resultValues.decode(String.self, forKey: .id)
     }
 }
 
