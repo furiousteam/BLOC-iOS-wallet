@@ -15,4 +15,12 @@ target 'BlockChain-Coin' do
   # A Swift Autolayout DSL for iOS & OS X
   # https://github.com/SnapKit/SnapKit
   pod 'SnapKit', '~> 4.0.0'
+
+  # Strongly typed, autocompleted resources (images, fonts, etc.)
+  # https://github.com/mac-cain13/R.swift
+  pod 'R.swift', '~> 4.0.0'
+
+  # An iOS activity indicator view
+  # https://github.com/matej/MBProgressHUD
+  pod 'MBProgressHUD', '~> 1.1.0'
 end

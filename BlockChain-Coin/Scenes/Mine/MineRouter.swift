@@ -6,4 +6,11 @@
 //  Copyright © 2018 BlockChain-Coin.net. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol MineRoutingLogic {
+}
+
+class MineRouter: MineRoutingLogic {
+    weak var viewController: UIViewController?
+}

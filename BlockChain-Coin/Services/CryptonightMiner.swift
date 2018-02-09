@@ -87,7 +87,6 @@ class CryptonightMiner: MinerStore {
             }
             
             stats.lastUpdate = now
-            stats.hashes = 0
         }
         
         statsSemaphore.signal()
@@ -112,6 +111,10 @@ class CryptonightMiner: MinerStore {
         threads = []
         
         completion(.success(result: true))
+    }
+    
+    func updateJob(job: JobModel) {
+        self.job = job
     }
     
     func evaluate(job: JobModel, hash: Data) -> Bool {

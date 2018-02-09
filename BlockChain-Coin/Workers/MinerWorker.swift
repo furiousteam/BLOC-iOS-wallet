@@ -24,6 +24,7 @@ protocol MinerStore: class {
 
     func mine(job: JobModel, threadLimit: Int, delegate: MinerStoreDelegate?)
     func stop(completion: @escaping MinerStoreStopCompletionHandler)
+    func updateJob(job: JobModel)
     func evaluate(job: JobModel, hash: Data) -> Bool
 }
 
@@ -50,6 +51,10 @@ class MinerWorker {
                 completion(result)
             }
         }
+    }
+    
+    func updateJob(job: JobModel) {
+        store.updateJob(job: job)
     }
     
     func evaluate(job: JobModel, hash: Data) -> Bool {
