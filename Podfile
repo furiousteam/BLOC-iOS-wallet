@@ -23,4 +23,7 @@ target 'BlockChain-Coin' do
   # An iOS activity indicator view
   # https://github.com/matej/MBProgressHUD
   pod 'MBProgressHUD', '~> 1.1.0'
+
+  pod 'Fabric'
+  pod 'Crashlytics'
 end
