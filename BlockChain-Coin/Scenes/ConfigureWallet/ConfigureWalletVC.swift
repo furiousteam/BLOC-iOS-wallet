@@ -1,5 +1,5 @@
 //
-//  SetWalletVC.swift
+//  ConfigureWalletVC.swift
 //  BlockChain-Coin
 //
 //  Created by Maxime Bornemann on 09/02/2018.
@@ -8,14 +8,16 @@
 
 import UIKit
 
-protocol SetWalletDelegate: class {
+protocol ConfigureWalletDelegate: class {
     func didSetWallet(wallet: String)
 }
 
-class SetWalletVC: UIViewController {
+class ConfigureWalletVC: UIViewController, WalletStoreDelegate {
+    var walletWorker: WalletWorker
+    
     var wallet: String?
     
-    weak var delegate: SetWalletDelegate?
+    weak var delegate: ConfigureWalletDelegate?
     
     let textField: UITextField = {
         let textField = UITextField()
@@ -26,13 +28,17 @@ class SetWalletVC: UIViewController {
         return textField
     }()
     
-    init(wallet: String?, delegate: SetWalletDelegate?) {
+    init(wallet: String?, delegate: ConfigureWalletDelegate?) {
         self.wallet = wallet
         self.delegate = delegate
         
+        self.walletWorker = WalletWorker(store: WalletSocketClient(delegate: nil))
+
         super.init(nibName: nil, bundle: nil)
         
         self.title = "Configure Wallet"
+        
+        self.walletWorker = WalletWorker(store: WalletSocketClient(delegate: self))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -55,6 +61,8 @@ class SetWalletVC: UIViewController {
             $0.leading.trailing.equalToSuperview().inset(25.0)
             $0.top.equalToSuperview().offset(100.0)
         })
+        
+        makeWallet()
     }
     
     @objc func didTapDone() {
@@ -63,6 +71,32 @@ class SetWalletVC: UIViewController {
         }
         
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Temp
+    
+    func makeWallet() {
+        walletWorker.connect(host: "usa2.blockchain-coin.net", port: 2086)
+    }
+
+    func walletStoreDidConnect() {
+        print("did connect")
+    }
+    
+    func walletStoreDidFailToConnect(error: WalletStoreError) {
+        print("did fail to connect")
+    }
+    
+    func walletStoreDidDisconnect() {
+        print("did disconnect")
+    }
+    
+    func walletStoreDidFailToDisconnectDisconnect(error: WalletStoreError) {
+        print("did fail to disconnect")
+    }
+    
+    func walletStore(didReceiveUnknownResponse: [String : Any]) {
+        print("did receive unknown response")
     }
 
 }
