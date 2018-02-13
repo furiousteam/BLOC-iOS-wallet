@@ -33,14 +33,12 @@ class ConfigureWalletVC: UIViewController, WalletStoreDelegate {
         self.wallet = wallet
         self.delegate = delegate
         
-        self.walletWorker = WalletWorker(store: WalletSocketClient(delegate: nil))
+        self.walletWorker = WalletWorker(store: WalletRPC())
         self.localWalletWorker = WalletWorker(store:WalletDiskStore())
 
         super.init(nibName: nil, bundle: nil)
         
         self.title = "Configure Wallet"
-        
-        self.walletWorker = WalletWorker(store: WalletSocketClient(delegate: self))
     }
     
     required init?(coder aDecoder: NSCoder) {

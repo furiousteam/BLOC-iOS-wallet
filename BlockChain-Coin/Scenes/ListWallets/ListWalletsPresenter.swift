@@ -32,5 +32,3 @@ class ListWalletsPresenter: ListWalletsPresentationLogic {
         viewController?.handleWalletsUpdate(viewModel: viewModel)
     }
 }
-
-

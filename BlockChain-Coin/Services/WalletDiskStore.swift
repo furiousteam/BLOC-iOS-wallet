@@ -9,8 +9,6 @@
 import Foundation
 
 class WalletDiskStore: WalletStore {
-    var delegate: WalletStoreDelegate?
-    
     func generateSeed() -> Seed? {
         do {
             return try Seed()
@@ -39,4 +37,8 @@ class WalletDiskStore: WalletStore {
         return
     }
     
+    func addWallet(keyPair: KeyPair, completion: @escaping WalletStoreAddWalletCompletionHandler) {
+        
+    }
+
 }

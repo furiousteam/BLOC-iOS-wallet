@@ -6,8 +6,6 @@
 //  Copyright © 2018 BlockChain-Coin.net. All rights reserved.
 //
 
-import Foundation
-
 import UIKit
 import SnapKit
 import MBProgressHUD

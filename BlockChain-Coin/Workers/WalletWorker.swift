@@ -19,16 +19,15 @@ enum WalletStoreError: Equatable, Error {
     case alreadyConnected
     case alreadyDisconnected
     case couldNotDisconnect
+    case couldNotCreateWallet
 }
 
 typealias WalletStoreListWalletsCompletionHandler = (WalletStoreResult<[WalletModel]>) -> Void
+typealias WalletStoreAddWalletCompletionHandler = (WalletStoreResult<String>) -> Void
 
 protocol WalletStore {
-    var delegate: WalletStoreDelegate? { get set }
-    
-    func connect(host: String, port: Int)
-    func disconnect()
-    
+    func addWallet(keyPair: KeyPair, completion: @escaping WalletStoreAddWalletCompletionHandler)
+
     func generateSeed() -> Seed?
     func generateKeyPair(seed: Seed) -> KeyPair?
     
@@ -36,13 +35,21 @@ protocol WalletStore {
 }
 
 protocol WalletStoreDelegate: class {
-    //func walletStore(store: WalletStore, didCreateAddress: )
-    
     func walletStoreDidConnect()
     func walletStoreDidFailToConnect(error: WalletStoreError)
     func walletStoreDidDisconnect()
     func walletStoreDidFailToDisconnectDisconnect(error: WalletStoreError)
     func walletStore(didReceiveUnknownResponse: [String: Any])
+    func walletStoreDidAddWallet()
+}
+
+extension WalletStoreDelegate {
+    func walletStoreDidConnect() { }
+    func walletStoreDidFailToConnect(error: WalletStoreError) { }
+    func walletStoreDidDisconnect() { }
+    func walletStoreDidFailToDisconnectDisconnect(error: WalletStoreError) { }
+    func walletStore(didReceiveUnknownResponse: [String: Any]) { }
+    func walletStoreDidAddWallet() { }
 }
 
 class WalletWorker {
@@ -52,13 +59,17 @@ class WalletWorker {
         self.store = store
     }
 
-    func connect(host: String, port: Int) {
-        store.connect(host: host, port: port)
+    // Remote
+        
+    func addWallet(keyPair: KeyPair, completion: @escaping WalletStoreAddWalletCompletionHandler) {
+        store.addWallet(keyPair: keyPair) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
     }
     
-    func disconnect() {
-        store.disconnect()
-    }
+    // Local
     
     func generateSeed() -> Seed? {
         return store.generateSeed()

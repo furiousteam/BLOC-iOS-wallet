@@ -16,6 +16,7 @@ class ListWalletsRouter: ListWalletsRoutingLogic {
     weak var viewController: UIViewController?
     
     func showAddWallet() {
-        // TODO
+        let vc = CreateWalletVC()
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -39,7 +39,10 @@ class WalletSocketClientDelegate: NSObject, GCDAsyncSocketDelegate {
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         switch tag {
         case PoolSocketClient.Tags.read.rawValue:
-            if let json = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String : Any] {
+            if let _ = try? JSONDecoder().decode(WalletSocketAddResponse.self, from: data) {
+                delegate?.walletStoreDidAddWallet()
+            }
+            else if let json = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String : Any] {
                 delegate?.walletStore(didReceiveUnknownResponse: json)
             } else {
                 print("Socket did receive non-JSON response")
