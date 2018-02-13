@@ -41,6 +41,14 @@
 		9C4AA48520332C2B0056152C /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA46C20332C2B0056152C /* Error.swift */; };
 		9C4AA49120332C2B0056152C /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA48120332C2B0056152C /* PrivateKey.swift */; };
 		9C4AA4932033326F0056152C /* WalletDiskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4922033326F0056152C /* WalletDiskStore.swift */; };
+		9C4AA495203335000056152C /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA494203335000056152C /* Wallet.swift */; };
+		9C4AA4982033351D0056152C /* ListWalletsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4972033351D0056152C /* ListWalletsVC.swift */; };
+		9C4AA49A2033353C0056152C /* ListWalletsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4992033353C0056152C /* ListWalletsModels.swift */; };
+		9C4AA49C203335460056152C /* ListWalletsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA49B203335460056152C /* ListWalletsDataSource.swift */; };
+		9C4AA49E2033354F0056152C /* ListWalletsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA49D2033354F0056152C /* ListWalletsRouter.swift */; };
+		9C4AA4A0203335590056152C /* ListWalletsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA49F203335590056152C /* ListWalletsInteractor.swift */; };
+		9C4AA4A2203335610056152C /* ListWalletsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4A1203335610056152C /* ListWalletsPresenter.swift */; };
+		9C4AA4A5203339460056152C /* ListWalletsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4A4203339460056152C /* ListWalletsCell.swift */; };
 		9C8A8F5B202DF90200F55736 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F5A202DF90100F55736 /* R.generated.swift */; };
 		9C8A8F5D202DFD4C00F55736 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F5C202DFD4C00F55736 /* View.swift */; };
 		9C8A8F5F202DFD7900F55736 /* PoolStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F5E202DFD7900F55736 /* PoolStatusView.swift */; };
@@ -110,6 +118,14 @@
 		9C4AA46C20332C2B0056152C /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		9C4AA48120332C2B0056152C /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		9C4AA4922033326F0056152C /* WalletDiskStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDiskStore.swift; sourceTree = "<group>"; };
+		9C4AA494203335000056152C /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		9C4AA4972033351D0056152C /* ListWalletsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWalletsVC.swift; sourceTree = "<group>"; };
+		9C4AA4992033353C0056152C /* ListWalletsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWalletsModels.swift; sourceTree = "<group>"; };
+		9C4AA49B203335460056152C /* ListWalletsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWalletsDataSource.swift; sourceTree = "<group>"; };
+		9C4AA49D2033354F0056152C /* ListWalletsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWalletsRouter.swift; sourceTree = "<group>"; };
+		9C4AA49F203335590056152C /* ListWalletsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWalletsInteractor.swift; sourceTree = "<group>"; };
+		9C4AA4A1203335610056152C /* ListWalletsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWalletsPresenter.swift; sourceTree = "<group>"; };
+		9C4AA4A4203339460056152C /* ListWalletsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListWalletsCell.swift; sourceTree = "<group>"; };
 		9C8A8F5A202DF90100F55736 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		9C8A8F5C202DFD4C00F55736 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		9C8A8F5E202DFD7900F55736 /* PoolStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolStatusView.swift; sourceTree = "<group>"; };
@@ -190,6 +206,7 @@
 			children = (
 				9C043684202C9DE600671DA2 /* Job.swift */,
 				9C043699202CD1EC00671DA2 /* Stats.swift */,
+				9C4AA494203335000056152C /* Wallet.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -256,6 +273,7 @@
 			children = (
 				9C04368A202CA88700671DA2 /* Mine */,
 				9C8A8F64202E1AEF00F55736 /* ConfigureWallet */,
+				9C4AA496203335130056152C /* ListWallets */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -354,6 +372,28 @@
 				9C4AA46B20332C2B0056152C /* Seed.swift */,
 			);
 			path = Ed25519;
+			sourceTree = "<group>";
+		};
+		9C4AA496203335130056152C /* ListWallets */ = {
+			isa = PBXGroup;
+			children = (
+				9C4AA4A32033393D0056152C /* Views */,
+				9C4AA4992033353C0056152C /* ListWalletsModels.swift */,
+				9C4AA4972033351D0056152C /* ListWalletsVC.swift */,
+				9C4AA49B203335460056152C /* ListWalletsDataSource.swift */,
+				9C4AA49D2033354F0056152C /* ListWalletsRouter.swift */,
+				9C4AA49F203335590056152C /* ListWalletsInteractor.swift */,
+				9C4AA4A1203335610056152C /* ListWalletsPresenter.swift */,
+			);
+			path = ListWallets;
+			sourceTree = "<group>";
+		};
+		9C4AA4A32033393D0056152C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C4AA4A4203339460056152C /* ListWalletsCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9C8A8F64202E1AEF00F55736 /* ConfigureWallet */ = {
@@ -575,9 +615,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C4AA495203335000056152C /* Wallet.swift in Sources */,
 				9C04367D202C975800671DA2 /* HashContext.mm in Sources */,
 				9C8A8F7F202EE13D00F55736 /* PoolSocketJobNotificationResponse.swift in Sources */,
 				9C04369C202CDB9400671DA2 /* MineDataSource.swift in Sources */,
+				9C4AA49A2033353C0056152C /* ListWalletsModels.swift in Sources */,
+				9C4AA4A0203335590056152C /* ListWalletsInteractor.swift in Sources */,
 				9C8A8F79202EE13600F55736 /* PoolSocketLoginRequest.swift in Sources */,
 				9C8A8F7E202EE13D00F55736 /* PoolSocketJobResponse.swift in Sources */,
 				9C8A8F66202E1B0700F55736 /* ConfigureWalletVC.swift in Sources */,
@@ -591,6 +634,7 @@
 				9C043685202C9DE600671DA2 /* Job.swift in Sources */,
 				9C04368C202CA89B00671DA2 /* MineVC.swift in Sources */,
 				9C8A8F77202EE13600F55736 /* PoolSocketRequest.swift in Sources */,
+				9C4AA49C203335460056152C /* ListWalletsDataSource.swift in Sources */,
 				9C8A8F76202EE13600F55736 /* WalletSocketRequest.swift in Sources */,
 				9C8A8F63202E03B900F55736 /* MineStatCell.swift in Sources */,
 				9C8A8F61202DFDF300F55736 /* UIColor+Hex.swift in Sources */,
@@ -600,6 +644,7 @@
 				9C043673202C968D00671DA2 /* keccak.c in Sources */,
 				9C043683202C9CD700671DA2 /* PoolWorker.swift in Sources */,
 				9C4AA48320332C2B0056152C /* KeyPair.swift in Sources */,
+				9C4AA4A2203335610056152C /* ListWalletsPresenter.swift in Sources */,
 				9C04369A202CD1EC00671DA2 /* Stats.swift in Sources */,
 				9C043689202CA50F00671DA2 /* PoolSocketClientDelegate.swift in Sources */,
 				9C8A8F6B202EDA6500F55736 /* WalletSocketClient.swift in Sources */,
@@ -607,12 +652,14 @@
 				9C043675202C968D00671DA2 /* jh_ansi_opt64.c in Sources */,
 				9C8A8F5D202DFD4C00F55736 /* View.swift in Sources */,
 				9C4AA48220332C2B0056152C /* PublicKey.swift in Sources */,
+				9C4AA49E2033354F0056152C /* ListWalletsRouter.swift in Sources */,
 				9C043681202C9C7800671DA2 /* CryptonightMiner.swift in Sources */,
 				9C0436A9202CDC0A00671DA2 /* Reusable.swift in Sources */,
 				9C043658202C94B900671DA2 /* AppDelegate.swift in Sources */,
 				9C8A8F6D202EDE0600F55736 /* WalletSocketClientDelegate.swift in Sources */,
 				9C043674202C968D00671DA2 /* blake.c in Sources */,
 				9C0436A0202CDBA400671DA2 /* MineInteractor.swift in Sources */,
+				9C4AA4982033351D0056152C /* ListWalletsVC.swift in Sources */,
 				9C043679202C968D00671DA2 /* skein.c in Sources */,
 				9C8A8F5B202DF90200F55736 /* R.generated.swift in Sources */,
 				9C04367F202C98E900671DA2 /* MinerWorker.swift in Sources */,
@@ -622,6 +669,7 @@
 				9C4AA48520332C2B0056152C /* Error.swift in Sources */,
 				9C0436AC202CDC5100671DA2 /* UITableView+Register.swift in Sources */,
 				9C4AA49120332C2B0056152C /* PrivateKey.swift in Sources */,
+				9C4AA4A5203339460056152C /* ListWalletsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,114 @@
+//
+//  ListWalletsVC.swift
+//  BlockChain-Coin
+//
+//  Created by Maxime Bornemann on 13/02/2018.
+//  Copyright © 2018 BlockChain-Coin.net. All rights reserved.
+//
+
+import Foundation
+
+import UIKit
+import SnapKit
+import MBProgressHUD
+
+protocol ListWalletsDisplayLogic: class {
+    func handleWalletsUpdate(viewModel: ListWalletsViewModel)
+}
+
+class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDelegate {
+    
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = .clear
+        return tableView
+    }()
+    
+    let dataSource = ListWalletsDataSource()
+    
+    let router: ListWalletsRoutingLogic
+    let interactor: ListWalletsBusinessLogic
+    
+    // MARK: - View lifecycle
+    
+    init() {
+        let interactor = ListWalletsInteractor()
+        let presenter = ListWalletsPresenter()
+        let router = ListWalletsRouter()
+        
+        self.router = router
+        self.interactor = interactor
+        
+        super.init(nibName: nil, bundle: nil)
+        
+        interactor.presenter = presenter
+        presenter.viewController = self
+        router.viewController = self
+        
+        self.title = "My Wallets"
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        configure()
+    }
+    
+    // MARK: - Configuration
+    
+    func configure() {
+        // Subviews
+        view.backgroundColor = .white
+        
+        view.addSubview(tableView)
+        
+        tableView.snp.makeConstraints({
+            $0.edges.equalToSuperview()
+        })
+        
+        // TableView
+        
+        ListWalletsCell.registerWith(tableView)
+        tableView.dataSource = dataSource
+        tableView.delegate = self
+        
+        // Actions
+        
+        let addWalletButton = UIBarButtonItem(image: R.image.add(), style: .plain, target: self, action: #selector(addWalletTapped))
+        self.navigationItem.setRightBarButton(addWalletButton, animated: false)
+    }
+    
+    // MARK: - Display logic
+    
+    func handleWalletsUpdate(viewModel: ListWalletsViewModel) {
+        // TODO: Loading state
+        // TODO: Error state
+        
+        switch viewModel.state {
+        case .loaded(let wallets):
+            dataSource.wallets = wallets
+        default:
+            break
+        }
+        
+        tableView.reloadData()
+    }
+    
+    // MARK: - Actions
+    
+    @objc func addWalletTapped() {
+        router.showAddWallet()
+    }
+    
+    // MARK: - UITableView delegate
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50.0
+    }
+    
+}

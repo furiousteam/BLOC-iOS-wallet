@@ -207,7 +207,7 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate, Configure
     }
     
     @objc func walletTapped() {
-        router.showWallet(currentAddress: self.wallet, delegate: self)
+        router.showWallets()
     }
     
     // MARK: - UITableView delegate

@@ -21,7 +21,7 @@ enum WalletStoreError: Equatable, Error {
     case couldNotDisconnect
 }
 
-typealias WalletStoreConnectCompletionHandler = (WalletStoreResult<Bool>) -> Void
+typealias WalletStoreListWalletsCompletionHandler = (WalletStoreResult<[WalletModel]>) -> Void
 
 protocol WalletStore {
     var delegate: WalletStoreDelegate? { get set }
@@ -31,6 +31,8 @@ protocol WalletStore {
     
     func generateSeed() -> Seed?
     func generateKeyPair(seed: Seed) -> KeyPair?
+    
+    func listWallets(completion: @escaping WalletStoreListWalletsCompletionHandler)
 }
 
 protocol WalletStoreDelegate: class {
@@ -64,5 +66,13 @@ class WalletWorker {
     
     func generateKeyPair(seed: Seed) -> KeyPair? {
         return store.generateKeyPair(seed: seed)
+    }
+    
+    func listWallets(completion: @escaping WalletStoreListWalletsCompletionHandler) {
+        store.listWallets { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
     }
 }

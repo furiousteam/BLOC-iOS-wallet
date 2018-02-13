@@ -24,6 +24,11 @@ class WalletDiskStore: WalletStore {
         return KeyPair(seed: seed)
     }
     
+    func listWallets(completion: @escaping WalletStoreListWalletsCompletionHandler) {
+        // TODO
+        completion(.success(result: []))
+    }
+    
     // Ignored methods
     
     func connect(host: String, port: Int) {

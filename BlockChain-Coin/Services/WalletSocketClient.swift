@@ -62,6 +62,10 @@ class WalletSocketClient: WalletStore {
     func generateKeyPair(seed: Seed) -> KeyPair? {
         return nil
     }
+    
+    func listWallets(completion: @escaping WalletStoreListWalletsCompletionHandler) {
+        completion(.success(result: []))
+    }
         
     // MARK: - Socket request
     

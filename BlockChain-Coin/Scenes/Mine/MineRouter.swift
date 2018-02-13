@@ -9,14 +9,14 @@
 import UIKit
 
 protocol MineRoutingLogic {
-    func showWallet(currentAddress: String, delegate: ConfigureWalletDelegate?)
+    func showWallets()
 }
 
 class MineRouter: MineRoutingLogic {
     weak var viewController: UIViewController?
     
-    func showWallet(currentAddress: String, delegate: ConfigureWalletDelegate?) {
-        let vc = ConfigureWalletVC(wallet: currentAddress, delegate: delegate)
+    func showWallets() {
+        let vc = ListWalletsVC()
         let navVC = UINavigationController(rootViewController: vc)
         viewController?.present(navVC, animated: true, completion: nil)
     }
