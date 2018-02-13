@@ -52,6 +52,16 @@ class WalletSocketClient: WalletStore {
         
         socket.disconnect()
     }
+    
+    // MARK: - Ignored methods
+    
+    func generateSeed() -> Seed? {
+        return nil
+    }
+    
+    func generateKeyPair(seed: Seed) -> KeyPair? {
+        return nil
+    }
         
     // MARK: - Socket request
     

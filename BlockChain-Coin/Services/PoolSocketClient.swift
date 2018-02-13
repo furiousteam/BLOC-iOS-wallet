@@ -68,7 +68,9 @@ class PoolSocketClient: PoolStore {
             completion(.success(result: job))
         }
         
-        delegate.didFailToRead = { _ in
+        delegate.didFailToRead = { data in
+            let json = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String : Any]
+            print(json)
             completion(.failure(error: .cantReadData))
         }
         
@@ -82,7 +84,10 @@ class PoolSocketClient: PoolStore {
             completion(.success(result: job))
         }
         
-        delegate.didFailToRead = { _ in }
+        delegate.didFailToRead = { data in
+            let json = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String : Any]
+            print(json)
+        }
         
         /*delegate.didFailToRead = { _ in
             completion(.failure(error: .cantReadData))

@@ -24,6 +24,10 @@ target 'BlockChain-Coin' do
   # https://github.com/matej/MBProgressHUD
   pod 'MBProgressHUD', '~> 1.1.0'
 
+  # An implementation of CEd25519.
+  # https://github.com/CikeQiu/CEd25519
+  pod 'CEd25519', '~> 0.1.0'
+
   pod 'Fabric'
   pod 'Crashlytics'
 end

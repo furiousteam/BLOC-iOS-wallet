@@ -28,6 +28,9 @@ protocol WalletStore {
     
     func connect(host: String, port: Int)
     func disconnect()
+    
+    func generateSeed() -> Seed?
+    func generateKeyPair(seed: Seed) -> KeyPair?
 }
 
 protocol WalletStoreDelegate: class {
@@ -53,5 +56,13 @@ class WalletWorker {
     
     func disconnect() {
         store.disconnect()
+    }
+    
+    func generateSeed() -> Seed? {
+        return store.generateSeed()
+    }
+    
+    func generateKeyPair(seed: Seed) -> KeyPair? {
+        return store.generateKeyPair(seed: seed)
     }
 }

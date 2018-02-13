@@ -14,7 +14,8 @@ protocol ConfigureWalletDelegate: class {
 
 class ConfigureWalletVC: UIViewController, WalletStoreDelegate {
     var walletWorker: WalletWorker
-    
+    var localWalletWorker: WalletWorker
+
     var wallet: String?
     
     weak var delegate: ConfigureWalletDelegate?
@@ -33,6 +34,7 @@ class ConfigureWalletVC: UIViewController, WalletStoreDelegate {
         self.delegate = delegate
         
         self.walletWorker = WalletWorker(store: WalletSocketClient(delegate: nil))
+        self.localWalletWorker = WalletWorker(store:WalletDiskStore())
 
         super.init(nibName: nil, bundle: nil)
         
@@ -76,7 +78,16 @@ class ConfigureWalletVC: UIViewController, WalletStoreDelegate {
     // MARK: - Temp
     
     func makeWallet() {
-        walletWorker.connect(host: "usa2.blockchain-coin.net", port: 2086)
+        //walletWorker.connect(host: "usa2.blockchain-coin.net", port: 2086)
+        
+        if let seed = localWalletWorker.generateSeed() {
+            let keypair = localWalletWorker.generateKeyPair(seed: seed)
+            print(keypair)
+        }
+        
+        /*inline void generate_keys(PublicKey &pub, SecretKey &sec) {
+            crypto_ops::generate_keys(pub, sec);
+        }*/
     }
 
     func walletStoreDidConnect() {

@@ -1,0 +1,6 @@
+framework module CEd25519 {
+  umbrella header "CEd25519-umbrella.h"
+
+  export *
+  module * { export * }
+}

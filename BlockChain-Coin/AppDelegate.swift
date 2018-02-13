@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         Fabric.with([Crashlytics.self])
-
+        
         window?.rootViewController = MineVC()
         
         window?.makeKeyAndVisible()

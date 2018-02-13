@@ -62,8 +62,10 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate, Configure
         didSet {
             switch miningStatus {
             case .mining:
+                UIApplication.shared.isIdleTimerDisabled = true
                 mineButton.isSelected = true
             case .notMining:
+                UIApplication.shared.isIdleTimerDisabled = false
                 mineButton.isSelected = false
                 dataSource.hashRate = 0.0
                 dataSource.sharesFound = 0
