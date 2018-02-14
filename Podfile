@@ -35,7 +35,11 @@ target 'BlockChain-Coin' do
   # A type-safe JSON-RPC 2.0 library
   # https://github.com/bricklife/JSONRPCKit
   pod 'JSONRPCKit', '~> 3.0.0'
-  
+
+  # A simple wrapper for the iOS Keychain
+  # https://github.com/jrendel/SwiftKeychainWrapper
+  pod 'SwiftKeychainWrapper', '~> 3.0.1'
+
   pod 'Fabric'
   pod 'Crashlytics'
 end

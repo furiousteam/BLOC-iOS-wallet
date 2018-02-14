@@ -1,6 +1,6 @@
 import CEd25519
 
-public final class PrivateKey {
+public final class PrivateKey: NSObject, NSCoding {
     private let buffer: [UInt8]
     
     public init(_ bytes: [UInt8]) throws {
@@ -35,5 +35,15 @@ public final class PrivateKey {
         }
         
         return PrivateKey(unchecked: priv)
+    }
+    
+    public init?(coder aDecoder: NSCoder) {
+        guard let bytesData = aDecoder.decodeObject(forKey: "bytes") as? NSData else { return nil }
+        
+        self.buffer = Array(UnsafeBufferPointer(start: bytesData.bytes.assumingMemoryBound(to: UInt8.self), count: bytesData.length))
+    }
+    
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(NSData(bytes: bytes, length: bytes.count), forKey: "bytes")
     }
 }

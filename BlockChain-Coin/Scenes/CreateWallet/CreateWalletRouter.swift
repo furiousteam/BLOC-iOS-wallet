@@ -18,6 +18,7 @@ class CreateWalletRouter: CreateWalletRoutingLogic {
     
     func showMnemonic(mnemonic: String, address: String) {
         // TODO
+        viewController?.navigationController?.popToRootViewController(animated: true)
     }
     
     func showRestoreWallet() {

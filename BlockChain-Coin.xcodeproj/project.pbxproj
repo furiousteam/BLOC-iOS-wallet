@@ -58,6 +58,7 @@
 		9C4AA4B520333DB40056152C /* CreateWalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4B420333DB40056152C /* CreateWalletCell.swift */; };
 		9C4AA4B7203347CE0056152C /* WalletSocketAddRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4B6203347CE0056152C /* WalletSocketAddRequest.swift */; };
 		9C4AA4B920334BB90056152C /* WalletSocketAddResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4B820334BB90056152C /* WalletSocketAddResponse.swift */; };
+		9C4AA4CF203481360056152C /* Date+Format.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4CE203481360056152C /* Date+Format.swift */; };
 		9C8A8F5B202DF90200F55736 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F5A202DF90100F55736 /* R.generated.swift */; };
 		9C8A8F5D202DFD4C00F55736 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F5C202DFD4C00F55736 /* View.swift */; };
 		9C8A8F5F202DFD7900F55736 /* PoolStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F5E202DFD7900F55736 /* PoolStatusView.swift */; };
@@ -144,6 +145,7 @@
 		9C4AA4B420333DB40056152C /* CreateWalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletCell.swift; sourceTree = "<group>"; };
 		9C4AA4B6203347CE0056152C /* WalletSocketAddRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSocketAddRequest.swift; sourceTree = "<group>"; };
 		9C4AA4B820334BB90056152C /* WalletSocketAddResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletSocketAddResponse.swift; sourceTree = "<group>"; };
+		9C4AA4CE203481360056152C /* Date+Format.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Format.swift"; sourceTree = "<group>"; };
 		9C8A8F5A202DF90100F55736 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		9C8A8F5C202DFD4C00F55736 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		9C8A8F5E202DFD7900F55736 /* PoolStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolStatusView.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			children = (
 				9C0436AB202CDC5100671DA2 /* UITableView+Register.swift */,
 				9C8A8F60202DFDF300F55736 /* UIColor+Hex.swift */,
+				9C4AA4CE203481360056152C /* Date+Format.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -591,6 +595,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -716,6 +721,7 @@
 				9C8A8F6D202EDE0600F55736 /* WalletSocketClientDelegate.swift in Sources */,
 				9C043674202C968D00671DA2 /* blake.c in Sources */,
 				9C0436A0202CDBA400671DA2 /* MineInteractor.swift in Sources */,
+				9C4AA4CF203481360056152C /* Date+Format.swift in Sources */,
 				9C4AA4982033351D0056152C /* ListWalletsVC.swift in Sources */,
 				9C043679202C968D00671DA2 /* skein.c in Sources */,
 				9C8A8F5B202DF90200F55736 /* R.generated.swift in Sources */,

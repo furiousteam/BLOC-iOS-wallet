@@ -1,6 +1,6 @@
 import CEd25519
 
-public final class KeyPair {
+public final class KeyPair: NSObject, NSCoding {
     public let publicKey: PublicKey
     public let privateKey: PrivateKey
 
@@ -103,5 +103,18 @@ public final class KeyPair {
         
         return KeyPair(publicKey: PublicKey(unchecked: pub),
                        privateKey: PrivateKey(unchecked: priv))
+    }
+    
+    public init?(coder aDecoder: NSCoder) {
+        guard let publicKey = aDecoder.decodeObject(forKey: "publicKey") as? PublicKey,
+              let privateKey = aDecoder.decodeObject(forKey: "privateKey") as? PrivateKey else { return nil }
+        
+        self.publicKey = publicKey
+        self.privateKey = privateKey
+    }
+    
+    public func encode(with aCoder: NSCoder) {
+        aCoder.encode(publicKey, forKey: "publicKey")
+        aCoder.encode(privateKey, forKey: "privateKey")
     }
 }

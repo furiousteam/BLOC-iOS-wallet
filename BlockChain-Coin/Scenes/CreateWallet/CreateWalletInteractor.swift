@@ -30,10 +30,18 @@ class CreateWalletInteractor: CreateWalletBusinessLogic {
         presenter?.handleShowLoading()
         
         if let seed = localWalletWorker.generateSeed(), let keyPair = localWalletWorker.generateKeyPair(seed: seed) {
-            remoteWalletWorker.addWallet(keyPair: keyPair, completion: { [weak self] result in
+            remoteWalletWorker.addWallet(keyPair: keyPair, address: nil, completion: { [weak self] result in
                 switch result {
                 case .success(let address):
-                    self?.presenter?.handleShowCreated(mnemonic: "TODO", address: address)
+                    self?.localWalletWorker.addWallet(keyPair: keyPair, address: address, completion: { localResult in
+                        switch localResult {
+                        case .success:
+                            print("New wallet created: \(address)")
+                            self?.presenter?.handleShowCreated(mnemonic: "TODO", address: address)
+                        case .failure:
+                            self?.presenter?.handleShowError(error: .couldNotCreateWallet)
+                        }
+                    })
                 case .failure:
                     self?.presenter?.handleShowError(error: .couldNotCreateWallet)
                 }

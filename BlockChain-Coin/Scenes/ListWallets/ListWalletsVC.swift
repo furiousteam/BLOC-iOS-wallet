@@ -57,6 +57,12 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
         configure()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        interactor.fetchWallets()
+    }
+    
     // MARK: - Configuration
     
     func configure() {
@@ -79,6 +85,9 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
         
         let addWalletButton = UIBarButtonItem(image: R.image.add(), style: .plain, target: self, action: #selector(addWalletTapped))
         self.navigationItem.setRightBarButton(addWalletButton, animated: false)
+        
+        let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backTapped))
+        self.navigationItem.setLeftBarButton(backButton, animated: false)
     }
     
     // MARK: - Display logic
@@ -103,10 +112,20 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
         router.showAddWallet()
     }
     
+    @objc func backTapped() {
+        router.goBack()
+    }
+    
     // MARK: - UITableView delegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50.0
+        return 60.0
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        router.showWallet(wallet: dataSource.wallets[indexPath.section])
     }
     
 }

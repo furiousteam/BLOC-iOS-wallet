@@ -15,6 +15,7 @@ PODS:
   - R.swift.Library (4.0.0)
   - Result (3.2.4)
   - SnapKit (4.0.0)
+  - SwiftKeychainWrapper (3.0.1)
 
 DEPENDENCIES:
   - APIKit (~> 3.2.1)
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - NSData+FastHex (~> 1.0.1)
   - R.swift (~> 4.0.0)
   - SnapKit (~> 4.0.0)
+  - SwiftKeychainWrapper (~> 3.0.1)
 
 SPEC CHECKSUMS:
   APIKit: a39ff72ac44efc15513fd1b98800f63c525be61b
@@ -41,7 +43,8 @@ SPEC CHECKSUMS:
   R.swift.Library: c3af34921024333546e23b70e70d0b4e0cffca75
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
 
-PODFILE CHECKSUM: 7f6a330b5a9e313df1c65e209e914dface56f554
+PODFILE CHECKSUM: db2ef0ace999c0f287926981a127432eac86ad7f
 
 COCOAPODS: 1.3.1

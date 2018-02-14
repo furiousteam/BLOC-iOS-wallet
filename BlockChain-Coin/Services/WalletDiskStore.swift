@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 class WalletDiskStore: WalletStore {
+    private let cache = UserDefaults.standard
+
     func generateSeed() -> Seed? {
         do {
             return try Seed()
@@ -23,8 +26,15 @@ class WalletDiskStore: WalletStore {
     }
     
     func listWallets(completion: @escaping WalletStoreListWalletsCompletionHandler) {
-        // TODO
-        completion(.success(result: []))
+        guard let data = KeychainWrapper.standard.data(forKey: "wallets"),
+              let wallets = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Wallet] else {
+                completion(.success(result: []))
+                return
+        }
+        
+        completion(.success(result: wallets.sorted(by: { (a, b) -> Bool in
+            return a.createdAt > b.createdAt
+        })))
     }
     
     // Ignored methods
@@ -37,8 +47,23 @@ class WalletDiskStore: WalletStore {
         return
     }
     
-    func addWallet(keyPair: KeyPair, completion: @escaping WalletStoreAddWalletCompletionHandler) {
+    func addWallet(keyPair: KeyPair, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
+        guard let address = address else {
+            completion(.failure(error: .couldNotCreateWallet))
+            return
+        }
         
+        var wallets: [Wallet] = (KeychainWrapper.standard.object(forKey: "wallets") as? [Wallet]) ?? []
+
+        if wallets.contains(where: { $0.keyPair == keyPair }) == false {
+            let newWallet = Wallet(keyPair: keyPair, address: address, createdAt: Date())
+            wallets.append(newWallet)
+        }
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: wallets)
+        KeychainWrapper.standard.set(data, forKey: "wallets")
+        
+        completion(.success(result: address))
     }
 
 }

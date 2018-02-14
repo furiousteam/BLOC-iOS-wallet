@@ -10,6 +10,8 @@ import UIKit
 
 protocol ListWalletsRoutingLogic {
     func showAddWallet()
+    func showWallet(wallet: WalletModel)
+    func goBack()
 }
 
 class ListWalletsRouter: ListWalletsRoutingLogic {
@@ -18,5 +20,13 @@ class ListWalletsRouter: ListWalletsRoutingLogic {
     func showAddWallet() {
         let vc = CreateWalletVC()
         viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showWallet(wallet: WalletModel) {
+        // TODO
+    }
+    
+    func goBack() {
+        viewController?.dismiss(animated: true, completion: nil)
     }
 }
