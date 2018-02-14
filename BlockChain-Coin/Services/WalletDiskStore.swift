@@ -67,7 +67,7 @@ class WalletDiskStore: WalletStore {
     }
     
     func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler) {
-        completion(.success(result: (0.0, 0.0)))
+        completion(.success(result: []))
     }
     
 }

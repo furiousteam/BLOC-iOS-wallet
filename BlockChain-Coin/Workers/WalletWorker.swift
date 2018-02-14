@@ -24,7 +24,7 @@ enum WalletStoreError: Equatable, Error {
 
 typealias WalletStoreListWalletsCompletionHandler = (WalletStoreResult<[WalletModel]>) -> Void
 typealias WalletStoreAddWalletCompletionHandler = (WalletStoreResult<String>) -> Void
-typealias WalletStoreGetBalanceCompletionHandler = (WalletStoreResult<(Double, Double)>) -> Void
+typealias WalletStoreGetBalanceCompletionHandler = (WalletStoreResult<[Balance]>) -> Void
 
 protocol WalletStore {
     func addWallet(keyPair: KeyPair, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler)

@@ -63,7 +63,10 @@ class WalletRPC: WalletStore {
         Session.send(httpRequest) { result in
             switch result {
             case .success(let response):
-                completion(.success(result: (response.availableBalance, response.lockedBalance)))
+                let availableBalance = Balance(value: response.availableBalance, balanceType: .available)
+                let lockedBalance = Balance(value: response.lockedBalance, balanceType: .locked)
+                
+                completion(.success(result: [ availableBalance, lockedBalance ]))
             case .failure:
                 completion(.failure(error: .couldNotCreateWallet))
             }
