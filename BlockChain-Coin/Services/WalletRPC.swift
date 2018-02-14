@@ -54,6 +54,22 @@ class WalletRPC: WalletStore {
         }
     }
     
+    func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler) {
+        let batchFactory = BatchFactory(version: "2.0", idGenerator: NumberIdGenerator())
+        let request = WalletRPCGetBalanceRequest(address: address)
+        let batch = batchFactory.create(request)
+        let httpRequest = MyServiceRequest(batch: batch)
+        
+        Session.send(httpRequest) { result in
+            switch result {
+            case .success(let response):
+                completion(.success(result: (response.availableBalance, response.lockedBalance)))
+            case .failure:
+                completion(.failure(error: .couldNotCreateWallet))
+            }
+        }
+    }
+    
     // MARK: - Ignored methods
     
     func generateSeed() -> Seed? {
@@ -67,5 +83,5 @@ class WalletRPC: WalletStore {
     func listWallets(completion: @escaping WalletStoreListWalletsCompletionHandler) {
         completion(.success(result: []))
     }
-
+    
 }

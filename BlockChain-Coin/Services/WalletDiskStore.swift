@@ -37,16 +37,6 @@ class WalletDiskStore: WalletStore {
         })))
     }
     
-    // Ignored methods
-    
-    func connect(host: String, port: Int) {
-        return
-    }
-    
-    func disconnect() {
-        return
-    }
-    
     func addWallet(keyPair: KeyPair, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
         guard let address = address else {
             completion(.failure(error: .couldNotCreateWallet))
@@ -54,7 +44,7 @@ class WalletDiskStore: WalletStore {
         }
         
         var wallets: [Wallet] = (KeychainWrapper.standard.object(forKey: "wallets") as? [Wallet]) ?? []
-
+        
         if wallets.contains(where: { $0.keyPair == keyPair }) == false {
             let newWallet = Wallet(keyPair: keyPair, address: address, createdAt: Date())
             wallets.append(newWallet)
@@ -65,5 +55,19 @@ class WalletDiskStore: WalletStore {
         
         completion(.success(result: address))
     }
-
+    
+    // Ignored methods
+    
+    func connect(host: String, port: Int) {
+        return
+    }
+    
+    func disconnect() {
+        return
+    }
+    
+    func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler) {
+        completion(.success(result: (0.0, 0.0)))
+    }
+    
 }

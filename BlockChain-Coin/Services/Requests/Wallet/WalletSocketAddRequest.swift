@@ -15,38 +15,6 @@ import APIKit
 // {"id":"0","jsonrpc":"2.0","result":{"address":"xxx"}}
 // {"error":{"code":-32000,"data":{"application_code":20},"message":"Address already exists"},"id":"0","jsonrpc":"2.0"}
 
-/*protocol WalletSocketAddRequestModel {
-    var publicKey: PublicKey { get }
-}
-
-class WalletSocketAddRequest: WalletSocketRequest, WalletSocketAddRequestModel {
-    let publicKey: PublicKey
-    
-    enum CodingKeys: String, CodingKey {
-        case method = "method"
-        case tag = "id"
-        case params = "params"
-    }
-    
-    enum AddWalletCodingKeys: String, CodingKey {
-        case publicKey = "spendPublicKey"
-    }
-    
-    init(publicKey: PublicKey) {
-        self.publicKey = publicKey
-    }
-    
-    override func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode("login", forKey: .method)
-        try container.encode(1, forKey: .tag)
-        
-        var addWalletInfos = container.nestedContainer(keyedBy: AddWalletCodingKeys.self, forKey: .params)
-        let publicKeyString = publicKey.bytes.reduce("", { $0 + String(format: "%02x", $1) })
-        try addWalletInfos.encode(publicKeyString, forKey: .publicKey)
-    }
-}*/
-
 struct CastError<ExpectedType>: Error {
     let actualValue: Any
     let expectedType: ExpectedType.Type

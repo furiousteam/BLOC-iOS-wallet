@@ -23,7 +23,8 @@ class ListWalletsRouter: ListWalletsRoutingLogic {
     }
     
     func showWallet(wallet: WalletModel) {
-        // TODO
+        let vc = ShowWalletVC(wallet: wallet)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
     
     func goBack() {

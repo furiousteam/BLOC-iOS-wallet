@@ -24,9 +24,11 @@ enum WalletStoreError: Equatable, Error {
 
 typealias WalletStoreListWalletsCompletionHandler = (WalletStoreResult<[WalletModel]>) -> Void
 typealias WalletStoreAddWalletCompletionHandler = (WalletStoreResult<String>) -> Void
+typealias WalletStoreGetBalanceCompletionHandler = (WalletStoreResult<(Double, Double)>) -> Void
 
 protocol WalletStore {
     func addWallet(keyPair: KeyPair, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler)
+    func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler)
 
     func generateSeed() -> Seed?
     func generateKeyPair(seed: Seed) -> KeyPair?
@@ -63,6 +65,14 @@ class WalletWorker {
         
     func addWallet(keyPair: KeyPair, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
         store.addWallet(keyPair: keyPair, address: address) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler) {
+        store.getBalance(address: address) { result in
             DispatchQueue.main.async {
                 completion(result)
             }
