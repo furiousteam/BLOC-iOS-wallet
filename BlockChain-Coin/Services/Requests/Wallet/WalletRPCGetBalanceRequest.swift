@@ -32,7 +32,7 @@ struct WalletRPCGetBalanceRequest: JSONRPCKit.Request {
         if let json = resultObject as? [String: Any],
            let availableBalance = json["availableBalance"] as? UInt64,
            let lockedBalance = json["lockedAmount"] as? UInt64 {
-            let div: Double = 10000000.0
+            let div: Double = 100000000.0
             return WalletRPCGetBalanceResponse(availableBalance: Double(availableBalance) / div, lockedBalance: Double(lockedBalance) / div)
         } else {
             throw CastError(actualValue: resultObject, expectedType: Response.self)
