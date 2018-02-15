@@ -15,8 +15,8 @@ class ListWalletsCell: TableViewCell {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fill
-        stackView.spacing = 2
-        stackView.layoutMargins = UIEdgeInsets(top: 0.0, left: 15.0, bottom: 0.0, right: 15.0)
+        stackView.spacing = 15.0
+        stackView.layoutMargins = UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
@@ -33,6 +33,7 @@ class ListWalletsCell: TableViewCell {
     let addressLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14.0, weight: .bold)
+        label.numberOfLines = 0
         label.textColor = .black
         return label
     }()
