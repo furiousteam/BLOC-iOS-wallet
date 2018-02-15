@@ -10,17 +10,19 @@ import Foundation
 import CocoaAsyncSocket
 
 class PoolSocketClientDelegate: NSObject, GCDAsyncSocketDelegate {
-    var didConnect: () -> Void = { }
-    var didDisconnect: () -> Void = { }
-    var didReadJob: (JobModel) -> Void = { _ in }
-    var didFailToRead: (Data) -> Void = { _ in }
     var didWrite: () -> Void = { }
+    
+    var connectionCallback: PoolStoreConnectCompletionHandler?
+    var disconnectionCallback: PoolStoreDisconnectCompletionHandler?
+    var loginCallback: PoolStoreLoginCompletionHandler?
+    var submitJobCallback: PoolStoreSubmitJobCompletionHandler?
 
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else { return }
             
-            self.didConnect()
+            self.connectionCallback?(.success(result: true))
+            self.connectionCallback = nil
         }
 
     }
@@ -29,7 +31,8 @@ class PoolSocketClientDelegate: NSObject, GCDAsyncSocketDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else { return }
             
-            self.didDisconnect()
+            self.disconnectionCallback?(.success(result: true))
+            self.disconnectionCallback = nil
         }
     }
     
@@ -46,11 +49,25 @@ class PoolSocketClientDelegate: NSObject, GCDAsyncSocketDelegate {
         switch tag {
         case PoolSocketClient.Tags.read.rawValue:
             if let jobResponse = try? JSONDecoder().decode(PoolSocketJobResponse.self, from: data) {
-                didReadJob(jobResponse.job)
+                loginCallback?(.success(result: jobResponse.job))
+                loginCallback = nil
             } else if let jobResponse = try? JSONDecoder().decode(PoolSocketJobNotificationResponse.self, from: data) {
-                didReadJob(jobResponse.job)
+                submitJobCallback?(.success(result: jobResponse.job))
+                submitJobCallback = nil
+            } else if let _ = try? JSONDecoder().decode(PoolSocketOKResponse.self, from: data) {
+                print("Job submitted")
             } else {
-                didFailToRead(data)
+                let json = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String : Any]
+                print("Could not read result data")
+                print(String(describing: json))
+                
+                if let loginCallback = loginCallback {
+                    loginCallback(.failure(error: .cantReadData))
+                    self.loginCallback = nil
+                } else if let submitJobCallback = submitJobCallback {
+                    submitJobCallback(.failure(error: .cantReadData))
+                    self.submitJobCallback = nil
+                }
             }
         default:
             break

@@ -30,9 +30,7 @@ class PoolSocketClient: PoolStore {
             return
         }
         
-        delegate.didConnect = {
-            completion(.success(result: true))
-        }
+        delegate.connectionCallback = completion
 
         do {
             try socket.connect(toHost: host, onPort: UInt16(port), withTimeout: TimeInterval(30.0))
@@ -48,10 +46,8 @@ class PoolSocketClient: PoolStore {
             return
         }
         
-        delegate.didDisconnect = {
-            completion(.success(result: true))
-        }
-
+        delegate.disconnectionCallback = completion
+        
         socket.disconnect()
     }
     
@@ -63,16 +59,8 @@ class PoolSocketClient: PoolStore {
             
             self.receive()
         }
-
-        delegate.didReadJob = { job in
-            completion(.success(result: job))
-        }
         
-        delegate.didFailToRead = { data in
-            let json = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String : Any]
-            print(json)
-            completion(.failure(error: .cantReadData))
-        }
+        delegate.loginCallback = completion
         
         send(request: request)
     }
@@ -80,18 +68,7 @@ class PoolSocketClient: PoolStore {
     func submit(id: String, jobId: String, result: Data, nonce: UInt32, completion: @escaping PoolStoreSubmitJobCompletionHandler) {
         let request = PoolSocketSubmitJobRequest(id: id, jobId: jobId, result: result, nonce: nonce)
         
-        delegate.didReadJob = { job in
-            completion(.success(result: job))
-        }
-        
-        delegate.didFailToRead = { data in
-            let json = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String : Any]
-            print(json)
-        }
-        
-        /*delegate.didFailToRead = { _ in
-            completion(.failure(error: .cantReadData))
-        }*/
+        delegate.submitJobCallback = completion
         
         send(request: request)
     }
