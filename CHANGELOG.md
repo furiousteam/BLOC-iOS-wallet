@@ -6,7 +6,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
-## [0.0.1] - 2018-02-10
+## [0.2.0] - 2018-02-15
+### Added
+- Wallet Worker with JSON-RPC implementation
+- Generated Ed25519 private and public keys on device and store it in the Keychain
+- List Wallets UI and logic
+- Show Wallet UI and logic
+- Get Balance API request
+- Get Transactions API request
+
+## [0.1.0] - 2018-02-10
 ### Added
 - Fresh repository
 - Fresh Xcode project
