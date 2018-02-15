@@ -13,7 +13,8 @@ import APIKit
 // curl -X POST localhost:8070/json_rpc -d '{"jsonrpc":"2.0","id":"0","method":"getBalance", "params":{ "address": "xxx" }}' -H 'Content-Type: application/json'
 //
 // {"id":"0","jsonrpc":"2.0","result":{"address":"xxx"}}
-// {"error":{"code":-32000,"data":{"application_code":20},"message":"Address already exists"},"id":"0","jsonrpc":"2.0"}
+
+// TODO: Handle error responses
 
 struct WalletRPCGetBalanceRequest: JSONRPCKit.Request {
     typealias Response = WalletRPCGetBalanceResponse
@@ -30,13 +31,11 @@ struct WalletRPCGetBalanceRequest: JSONRPCKit.Request {
     
     func response(from resultObject: Any) throws -> Response {
         if let json = resultObject as? [String: Any],
-           let availableBalance = json["availableBalance"] as? UInt64,
-           let lockedBalance = json["lockedAmount"] as? UInt64 {
-            let div: Double = 100000000.0
-            return WalletRPCGetBalanceResponse(availableBalance: Double(availableBalance) / div, lockedBalance: Double(lockedBalance) / div)
+           let data = try? JSONSerialization.data(withJSONObject: json, options: [ ]),
+           let response = try? JSONDecoder().decode(WalletRPCGetBalanceResponse.self, from: data) {
+            return response
         } else {
             throw CastError(actualValue: resultObject, expectedType: Response.self)
         }
-        
     }
 }
