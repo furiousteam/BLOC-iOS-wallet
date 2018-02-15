@@ -73,6 +73,22 @@ class WalletRPC: WalletStore {
         }
     }
     
+    func getTransactions(address: String, completion: @escaping WalletStoreGetTransactionsCompletionHandler) {
+        let batchFactory = BatchFactory(version: "2.0", idGenerator: NumberIdGenerator())
+        let request = WalletRPCGetTransactionsRequest(address: address)
+        let batch = batchFactory.create(request)
+        let httpRequest = MyServiceRequest(batch: batch)
+        
+        Session.send(httpRequest) { result in
+            switch result {
+            case .success(let response):
+                completion(.success(result: response))
+            case .failure:
+                completion(.failure(error: .couldNotCreateWallet))
+            }
+        }
+    }
+    
     // MARK: - Ignored methods
     
     func generateSeed() -> Seed? {

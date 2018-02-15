@@ -12,7 +12,7 @@ protocol ConfigureWalletDelegate: class {
     func didSetWallet(wallet: String)
 }
 
-class ConfigureWalletVC: UIViewController, WalletStoreDelegate {
+class ConfigureWalletVC: UIViewController {
     var walletWorker: WalletWorker
     var localWalletWorker: WalletWorker
 

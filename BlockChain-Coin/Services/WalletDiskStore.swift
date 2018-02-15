@@ -70,4 +70,8 @@ class WalletDiskStore: WalletStore {
         completion(.success(result: []))
     }
     
+    func getTransactions(address: String, completion: @escaping WalletStoreGetTransactionsCompletionHandler) {
+        completion(.success(result: []))
+    }
+    
 }

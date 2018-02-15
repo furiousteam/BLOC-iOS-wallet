@@ -25,33 +25,17 @@ enum WalletStoreError: Equatable, Error {
 typealias WalletStoreListWalletsCompletionHandler = (WalletStoreResult<[WalletModel]>) -> Void
 typealias WalletStoreAddWalletCompletionHandler = (WalletStoreResult<String>) -> Void
 typealias WalletStoreGetBalanceCompletionHandler = (WalletStoreResult<[Balance]>) -> Void
+typealias WalletStoreGetTransactionsCompletionHandler = (WalletStoreResult<[Transaction]>) -> Void
 
 protocol WalletStore {
     func addWallet(keyPair: KeyPair, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler)
     func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler)
+    func getTransactions(address: String, completion: @escaping WalletStoreGetTransactionsCompletionHandler)
 
     func generateSeed() -> Seed?
     func generateKeyPair(seed: Seed) -> KeyPair?
     
     func listWallets(completion: @escaping WalletStoreListWalletsCompletionHandler)
-}
-
-protocol WalletStoreDelegate: class {
-    func walletStoreDidConnect()
-    func walletStoreDidFailToConnect(error: WalletStoreError)
-    func walletStoreDidDisconnect()
-    func walletStoreDidFailToDisconnectDisconnect(error: WalletStoreError)
-    func walletStore(didReceiveUnknownResponse: [String: Any])
-    func walletStoreDidAddWallet()
-}
-
-extension WalletStoreDelegate {
-    func walletStoreDidConnect() { }
-    func walletStoreDidFailToConnect(error: WalletStoreError) { }
-    func walletStoreDidDisconnect() { }
-    func walletStoreDidFailToDisconnectDisconnect(error: WalletStoreError) { }
-    func walletStore(didReceiveUnknownResponse: [String: Any]) { }
-    func walletStoreDidAddWallet() { }
 }
 
 class WalletWorker {
@@ -73,6 +57,14 @@ class WalletWorker {
     
     func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler) {
         store.getBalance(address: address) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    func getTransactions(address: String, completion: @escaping WalletStoreGetTransactionsCompletionHandler) {
+        store.getTransactions(address: address) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

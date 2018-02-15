@@ -14,6 +14,7 @@ import MBProgressHUD
 
 protocol ShowWalletDisplayLogic: class {
     func handleBalancesUpdate(viewModel: ShowWalletBalancesViewModel)
+    func handleTransactionsUpdate(viewModel: ShowWalletTransactionsViewModel)
 }
 
 class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegate {
@@ -67,6 +68,7 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         super.viewWillAppear(animated)
         
         interactor.fetchBalance(address: wallet.address)
+        interactor.fetchTransactions(address: wallet.address)
     }
     
     // MARK: - Configuration
@@ -104,6 +106,19 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         tableView.reloadData()
     }
     
+    func handleTransactionsUpdate(viewModel: ShowWalletTransactionsViewModel) {
+        // TODO: Loading state
+        // TODO: Error state
+        
+        switch viewModel.state {
+        case .loaded(let transactions):
+            dataSource.transactions = transactions
+        default:
+            break
+        }
+        
+        tableView.reloadData()
+    }
     
     // MARK: - UITableView delegate
     

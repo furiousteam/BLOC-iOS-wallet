@@ -15,7 +15,7 @@ protocol MineDisplayLogic: class {
     func handleMinerStats(viewModel: MinerStatsViewModel)
 }
 
-class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate, ConfigureWalletDelegate {    
+class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
     var wallet: String = "b12iFt4XPAu96TUCAXjdznDa3KUWQ1bq4djYZGARRp6b3KYj3RtQeykaXiKC6rqJYk4PiD6qCorWE2i9FCi1Gr8Z29E3Rqx1r" {
         didSet {
             interactor.disconnect()

@@ -12,6 +12,10 @@ protocol ShowWalletPresentationLogic {
     func handleShowBalances(balances: [BalanceModel])
     func handleShowBalancesLoading()
     func handleShowBalancesError(error: WalletStoreError)
+    
+    func handleShowTransactions(transactions: [TransactionModel])
+    func handleShowTransactionsLoading()
+    func handleShowTransactionsError(error: WalletStoreError)
 }
 
 class ShowWalletPresenter: ShowWalletPresentationLogic {
@@ -32,5 +36,22 @@ class ShowWalletPresenter: ShowWalletPresentationLogic {
     func handleShowBalancesError(error: WalletStoreError) {
         let viewModel = ShowWalletBalancesViewModel(state: .error(error.localizedDescription))
         viewController?.handleBalancesUpdate(viewModel: viewModel)
+    }
+    
+    // Transactions
+    
+    func handleShowTransactions(transactions: [TransactionModel]) {
+        let viewModel = ShowWalletTransactionsViewModel(state: .loaded(transactions))
+        viewController?.handleTransactionsUpdate(viewModel: viewModel)
+    }
+    
+    func handleShowTransactionsLoading() {
+        let viewModel = ShowWalletTransactionsViewModel(state: .loading)
+        viewController?.handleTransactionsUpdate(viewModel: viewModel)
+    }
+    
+    func handleShowTransactionsError(error: WalletStoreError) {
+        let viewModel = ShowWalletTransactionsViewModel(state: .error(error.localizedDescription))
+        viewController?.handleTransactionsUpdate(viewModel: viewModel)
     }
 }

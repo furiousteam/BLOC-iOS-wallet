@@ -12,7 +12,8 @@ class ShowWalletDataSource: NSObject, UITableViewDataSource {
     
     var wallet: Wallet? = nil
     var balances: [BalanceModel] = []
-    
+    var transactions: [TransactionModel] = []
+
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }

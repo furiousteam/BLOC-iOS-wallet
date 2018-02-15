@@ -29,3 +29,25 @@ struct ShowWalletBalancesViewModel {
         }
     }
 }
+
+struct ShowWalletTransactionsViewModel {
+    enum State {
+        case loading
+        case loaded([TransactionModel])
+        case error(String)
+    }
+    
+    let state: State
+    let transactions: [TransactionModel]
+    
+    init(state: State) {
+        self.state = state
+        
+        switch state {
+        case .loaded(let transactions):
+            self.transactions = transactions
+        default:
+            self.transactions = []
+        }
+    }
+}
