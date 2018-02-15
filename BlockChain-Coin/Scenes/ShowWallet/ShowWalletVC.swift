@@ -85,9 +85,11 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         
         // TableView
         
-        ShowWalletBalanceCell.registerWith(tableView)
+        ShowWalletTransactionHeaderView.registerWith(tableView)
+        ShowWalletCell.registerWith(tableView)
         tableView.dataSource = dataSource
         tableView.delegate = self
+        tableView.estimatedRowHeight = 60.0
     }
     
     // MARK: - Display logic
@@ -120,11 +122,25 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         tableView.reloadData()
     }
     
-    // MARK: - UITableView delegate
+    // UITableViewDelegate
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60.0
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section >= dataSource.balances.count {
+            return 25.0
+        }
+        
+        return 0.0
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section >= dataSource.balances.count {
+            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ShowWalletTransactionHeaderView.reuseIdentifier()) as! ShowWalletTransactionHeaderView
+            headerView.configure()
+            return headerView
+        }
+        
+        return nil
+    }
+        
 }
 

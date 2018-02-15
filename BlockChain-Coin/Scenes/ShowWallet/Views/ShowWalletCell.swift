@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowWalletBalanceCell: TableViewCell {
+class ShowWalletCell: TableViewCell {
     
     let stackView: UIStackView = {
         let stackView = UIStackView()
@@ -16,7 +16,7 @@ class ShowWalletBalanceCell: TableViewCell {
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.spacing = 2
-        stackView.layoutMargins = UIEdgeInsets(top: 0.0, left: 15.0, bottom: 0.0, right: 15.0)
+        stackView.layoutMargins = UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()
@@ -30,10 +30,11 @@ class ShowWalletBalanceCell: TableViewCell {
         return stackView
     }()
     
-    let balanceLabel: UILabel = {
+    let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 14.0, weight: .bold)
         label.textColor = .black
+        label.numberOfLines = 0
         return label
     }()
     
@@ -41,6 +42,7 @@ class ShowWalletBalanceCell: TableViewCell {
         let label = UILabel()
         label.font = .systemFont(ofSize: 10.0, weight: .regular)
         label.textColor = UIColor.black.withAlphaComponent(0.2)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -62,7 +64,7 @@ class ShowWalletBalanceCell: TableViewCell {
         
         [ textStackView ].forEach(stackView.addArrangedSubview)
         
-        [ balanceLabel, subtitleLabel ].forEach(textStackView.addArrangedSubview)
+        [ titleLabel, subtitleLabel ].forEach(textStackView.addArrangedSubview)
         
         separatorView.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview().inset(15.0)
@@ -71,9 +73,15 @@ class ShowWalletBalanceCell: TableViewCell {
         })
     }
     
-    func configure(balance: Double, subtitle: String) {
-        balanceLabel.text = "\(balance)"
+    func configure(title: String, subtitle: String) {
+        titleLabel.text = title
         subtitleLabel.text = subtitle
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
     }
     
 }
