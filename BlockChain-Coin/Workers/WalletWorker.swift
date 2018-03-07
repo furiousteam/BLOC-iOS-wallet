@@ -28,7 +28,7 @@ typealias WalletStoreGetBalanceCompletionHandler = (WalletStoreResult<[Balance]>
 typealias WalletStoreGetTransactionsCompletionHandler = (WalletStoreResult<[Transaction]>) -> Void
 
 protocol WalletStore {
-    func addWallet(keyPair: KeyPair, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler)
+    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler)
     func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler)
     func getTransactions(address: String, completion: @escaping WalletStoreGetTransactionsCompletionHandler)
 
@@ -47,8 +47,8 @@ class WalletWorker {
 
     // Remote
         
-    func addWallet(keyPair: KeyPair, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
-        store.addWallet(keyPair: keyPair, address: address) { result in
+    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
+        store.addWallet(keyPair: keyPair, uuid: uuid, secretKey: secretKey, address: address) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

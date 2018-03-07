@@ -7,6 +7,7 @@
 
 #import "HashContext.h"
 #import "Cryptonight/cryptonight.h"
+#import "keccak.h"
 
 @interface HashContext()
 
@@ -33,6 +34,12 @@
 
 - (NSData * _Nonnull)hashData:(NSData * _Nonnull)data {
     NSMutableData *output = [NSMutableData dataWithLength:32];
+    cryptonight_hash_ctx(output.mutableBytes, data.bytes, self.ctx);
+    return output;
+}
+
+- (NSData * _Nonnull)keccacHashData:(NSData * _Nonnull)data {
+    NSMutableData *output = [NSMutableData dataWithLength:13];
     cryptonight_hash_ctx(output.mutableBytes, data.bytes, self.ctx);
     return output;
 }

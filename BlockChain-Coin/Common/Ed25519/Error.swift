@@ -5,4 +5,5 @@ public enum Ed25519Error: Error {
     case invalidPublicKeyLength
     case invalidPrivateKeyLength
     case invalidSignatureLength
+    case invalidHashLength
 }

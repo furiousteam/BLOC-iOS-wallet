@@ -18,7 +18,7 @@ protocol ShowWalletBusinessLogic {
 class ShowWalletInteractor: ShowWalletBusinessLogic {
     var presenter: ShowWalletPresentationLogic?
     
-    let walletWorker = WalletWorker(store: WalletRPC())
+    let walletWorker = WalletWorker(store: WalletAPI())
     
     func fetchBalance(address: String) {
         presenter?.handleShowBalancesLoading()

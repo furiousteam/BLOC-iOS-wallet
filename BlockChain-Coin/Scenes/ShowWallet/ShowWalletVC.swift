@@ -7,8 +7,7 @@
 //
 
 import UIKit
-
-import UIKit
+import Foundation
 import SnapKit
 import MBProgressHUD
 
@@ -27,6 +26,8 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
     }()
     
     let wallet: WalletModel
+    
+    let transactionService = TransactionDiskStore()
     
     let dataSource = ShowWalletDataSource()
     
@@ -62,6 +63,14 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         super.viewDidLoad()
         
         configure()
+        
+        let bytes: [UInt8] = wallet.keyPair.publicKey.bytes
+        let data = NSData(bytes: bytes, length: bytes.count)
+        let publicKey = data.hexStringRepresentationUppercase(false)
+        
+        transactionService.send(destinations: [], mixin: 0, paymentId: publicKey, fee: 0, keyPair: wallet.keyPair) { result in
+            print(result)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

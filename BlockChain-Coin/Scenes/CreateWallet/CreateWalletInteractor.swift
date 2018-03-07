@@ -25,15 +25,17 @@ class CreateWalletInteractor: CreateWalletBusinessLogic {
     }
     
     func createWallet() {
-        remoteWalletWorker = WalletWorker(store: WalletRPC())
+        remoteWalletWorker = WalletWorker(store: WalletAPI())
 
         presenter?.handleShowLoading()
         
         if let seed = localWalletWorker.generateSeed(), let keyPair = localWalletWorker.generateKeyPair(seed: seed) {
-            remoteWalletWorker.addWallet(keyPair: keyPair, address: nil, completion: { [weak self] result in
+            let uuid = UUID()
+            
+            remoteWalletWorker.addWallet(keyPair: keyPair, uuid: uuid, secretKey: nil, address: nil, completion: { [weak self] result in
                 switch result {
                 case .success(let address):
-                    self?.localWalletWorker.addWallet(keyPair: keyPair, address: address, completion: { localResult in
+                    self?.localWalletWorker.addWallet(keyPair: keyPair, uuid: uuid, secretKey: nil, address: address, completion: { localResult in
                         switch localResult {
                         case .success:
                             print("New wallet created: \(address)")

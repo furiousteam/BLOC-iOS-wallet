@@ -9,33 +9,39 @@
 import Foundation
 
 protocol WalletModel {
+    var uuid: UUID { get }
     var keyPair: KeyPair { get }
     var address: String { get }
     var createdAt: Date { get }
 }
 
 class Wallet: NSObject, NSCoding, WalletModel {
+    let uuid: UUID
     let keyPair: KeyPair
     let address: String
     let createdAt: Date
     
-    init(keyPair: KeyPair, address: String, createdAt: Date) {
+    init(uuid: UUID, keyPair: KeyPair, address: String, createdAt: Date) {
+        self.uuid = uuid
         self.keyPair = keyPair
         self.address = address
         self.createdAt = createdAt
     }
     
     public required init?(coder aDecoder: NSCoder) {
-        guard let keyPair = aDecoder.decodeObject(forKey: "keyPair") as? KeyPair,
+        guard let uuid = aDecoder.decodeObject(forKey: "uuid") as? UUID,
+              let keyPair = aDecoder.decodeObject(forKey: "keyPair") as? KeyPair,
               let address = aDecoder.decodeObject(forKey: "address") as? String,
               let createdAt = aDecoder.decodeObject(forKey: "createdAt") as? Date else { return nil }
         
+        self.uuid = uuid
         self.keyPair = keyPair
         self.address = address
         self.createdAt = createdAt
     }
     
     public func encode(with aCoder: NSCoder) {
+        aCoder.encode(uuid, forKey: "uuid")
         aCoder.encode(keyPair, forKey: "keyPair")
         aCoder.encode(address, forKey: "address")
         aCoder.encode(createdAt, forKey: "createdAt")

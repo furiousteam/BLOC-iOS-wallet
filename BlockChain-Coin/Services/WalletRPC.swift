@@ -37,8 +37,7 @@ struct MyServiceRequest<Batch: JSONRPCKit.Batch>: APIKit.Request {
 }
 
 class WalletRPC: WalletStore {
-    
-    func addWallet(keyPair: KeyPair, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
+    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
         let batchFactory = BatchFactory(version: "2.0", idGenerator: NumberIdGenerator())
         let request = WalletRPCAddWalletRequest(publicKey: keyPair.publicKey)
         let batch = batchFactory.create(request)

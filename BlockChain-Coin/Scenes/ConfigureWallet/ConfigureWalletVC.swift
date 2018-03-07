@@ -33,7 +33,7 @@ class ConfigureWalletVC: UIViewController {
         self.wallet = wallet
         self.delegate = delegate
         
-        self.walletWorker = WalletWorker(store: WalletRPC())
+        self.walletWorker = WalletWorker(store: WalletAPI())
         self.localWalletWorker = WalletWorker(store:WalletDiskStore())
 
         super.init(nibName: nil, bundle: nil)

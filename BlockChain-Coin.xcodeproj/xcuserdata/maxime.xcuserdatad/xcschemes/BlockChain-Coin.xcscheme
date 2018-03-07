@@ -29,6 +29,16 @@
       language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9C7800982036F1C30089F6EE"
+               BuildableName = "BlockChain-CoinTests.xctest"
+               BlueprintName = "BlockChain-CoinTests"
+               ReferencedContainer = "container:BlockChain-Coin.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
