@@ -83,6 +83,11 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
             $0.edges.equalToSuperview()
         })
         
+        // Navigation Bar
+        
+        let copyButton = UIBarButtonItem(title: "Copy address", style: .plain, target: self, action: #selector(copyTapped))
+        self.navigationItem.setRightBarButton(copyButton, animated: false)
+
         // TableView
         
         ShowWalletTransactionHeaderView.registerWith(tableView)
@@ -90,6 +95,17 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.estimatedRowHeight = 60.0
+    }
+    
+    // MARK: - Actions
+    
+    @objc func copyTapped() {
+        UIPasteboard.general.string = wallet.address
+        
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.mode = .text
+        hud.label.text = "Address copied"
+        hud.hide(animated: true, afterDelay: 2.0)
     }
     
     // MARK: - Display logic
