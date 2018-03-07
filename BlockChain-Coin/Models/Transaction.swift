@@ -50,15 +50,15 @@ struct Transaction: TransactionModel, Decodable {
         
         self.blockIndex = try values.decode(UInt32.self, forKey: .blockIndex)
         
-        let createdAtTimestamp = try values.decode(Double.self, forKey: .createdAt)
-        self.createdAt = Date(timeIntervalSince1970: createdAtTimestamp)
+        let createdAtString = try values.decode(String.self, forKey: .createdAt)
+        self.createdAt = Date.isoDateFormatter.date(from: createdAtString) ?? Date()
         
         self.unlockHeight = try values.decode(UInt64.self, forKey: .unlockHeight)
         
-        let amountInt = try values.decode(UInt64.self, forKey: .amount)
+        let amountInt = try values.decode(Int64.self, forKey: .amount)
         self.amount = Double(amountInt) / Constants.walletCurrencyDivider
         
-        let feeInt = try values.decode(UInt64.self, forKey: .fee)
+        let feeInt = try values.decode(Int64.self, forKey: .fee)
         self.fee = Double(feeInt) / Constants.walletCurrencyDivider
         
         self.extra = try values.decode(String.self, forKey: .extra)
