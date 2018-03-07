@@ -53,39 +53,8 @@ class WalletRPC: WalletStore {
         }
     }
     
-    func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler) {
-        let batchFactory = BatchFactory(version: "2.0", idGenerator: NumberIdGenerator())
-        let request = WalletRPCGetBalanceRequest(address: address)
-        let batch = batchFactory.create(request)
-        let httpRequest = MyServiceRequest(batch: batch)
-        
-        Session.send(httpRequest) { result in
-            switch result {
-            case .success(let response):
-                let availableBalance = Balance(value: response.availableBalance, balanceType: .available)
-                let lockedBalance = Balance(value: response.lockedBalance, balanceType: .locked)
-                
-                completion(.success(result: [ availableBalance, lockedBalance ]))
-            case .failure:
-                completion(.failure(error: .couldNotCreateWallet))
-            }
-        }
-    }
-    
-    func getTransactions(address: String, completion: @escaping WalletStoreGetTransactionsCompletionHandler) {
-        let batchFactory = BatchFactory(version: "2.0", idGenerator: NumberIdGenerator())
-        let request = WalletRPCGetTransactionsRequest(address: address)
-        let batch = batchFactory.create(request)
-        let httpRequest = MyServiceRequest(batch: batch)
-        
-        Session.send(httpRequest) { result in
-            switch result {
-            case .success(let response):
-                completion(.success(result: response))
-            case .failure:
-                completion(.failure(error: .couldNotCreateWallet))
-            }
-        }
+    func getBalanceAndTransactions(address: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
+        completion(.failure(error: .couldNotCreateWallet))
     }
     
     // MARK: - Ignored methods

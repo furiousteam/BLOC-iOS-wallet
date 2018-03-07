@@ -9,49 +9,28 @@
 import UIKit
 
 protocol ShowWalletPresentationLogic {
-    func handleShowBalances(balances: [BalanceModel])
-    func handleShowBalancesLoading()
-    func handleShowBalancesError(error: WalletStoreError)
-    
-    func handleShowTransactions(transactions: [TransactionModel])
-    func handleShowTransactionsLoading()
-    func handleShowTransactionsError(error: WalletStoreError)
+    func handleShowDetails(details: WalletDetails)
+    func handleShowDetailsLoading()
+    func handleShowDetailsError(error: WalletStoreError)
 }
 
-class ShowWalletPresenter: ShowWalletPresentationLogic {
+class ShowWalletPresenter: ShowWalletPresentationLogic {    
     weak var viewController: ShowWalletDisplayLogic?
     
     // Balances
     
-    func handleShowBalances(balances: [BalanceModel]) {
-        let viewModel = ShowWalletBalancesViewModel(state: .loaded(balances))
-        viewController?.handleBalancesUpdate(viewModel: viewModel)
+    func handleShowDetails(details: WalletDetails) {
+        let viewModel = ShowWalletDetailsViewModel(state: .loaded(details))
+        viewController?.handleUpdate(viewModel: viewModel)
     }
     
-    func handleShowBalancesLoading() {
-        let viewModel = ShowWalletBalancesViewModel(state: .loading)
-        viewController?.handleBalancesUpdate(viewModel: viewModel)
+    func handleShowDetailsLoading() {
+        let viewModel = ShowWalletDetailsViewModel(state: .loading)
+        viewController?.handleUpdate(viewModel: viewModel)
     }
     
-    func handleShowBalancesError(error: WalletStoreError) {
-        let viewModel = ShowWalletBalancesViewModel(state: .error(error.localizedDescription))
-        viewController?.handleBalancesUpdate(viewModel: viewModel)
-    }
-    
-    // Transactions
-    
-    func handleShowTransactions(transactions: [TransactionModel]) {
-        let viewModel = ShowWalletTransactionsViewModel(state: .loaded(transactions))
-        viewController?.handleTransactionsUpdate(viewModel: viewModel)
-    }
-    
-    func handleShowTransactionsLoading() {
-        let viewModel = ShowWalletTransactionsViewModel(state: .loading)
-        viewController?.handleTransactionsUpdate(viewModel: viewModel)
-    }
-    
-    func handleShowTransactionsError(error: WalletStoreError) {
-        let viewModel = ShowWalletTransactionsViewModel(state: .error(error.localizedDescription))
-        viewController?.handleTransactionsUpdate(viewModel: viewModel)
+    func handleShowDetailsError(error: WalletStoreError) {
+        let viewModel = ShowWalletDetailsViewModel(state: .error(error.localizedDescription))
+        viewController?.handleUpdate(viewModel: viewModel)
     }
 }

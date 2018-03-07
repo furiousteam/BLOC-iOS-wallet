@@ -9,7 +9,7 @@
 import Foundation
 import SwiftKeychainWrapper
 
-class WalletDiskStore: WalletStore {    
+class WalletDiskStore: WalletStore {
     private let cache = UserDefaults.standard
 
     func generateSeed() -> Seed? {
@@ -66,12 +66,8 @@ class WalletDiskStore: WalletStore {
         return
     }
     
-    func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler) {
-        completion(.success(result: []))
+    func getBalanceAndTransactions(address: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
+        completion(.failure(error: .unknown))
     }
-    
-    func getTransactions(address: String, completion: @escaping WalletStoreGetTransactionsCompletionHandler) {
-        completion(.success(result: []))
-    }
-    
+        
 }

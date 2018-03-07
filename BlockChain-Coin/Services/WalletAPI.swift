@@ -13,6 +13,7 @@ import Alamofire
 
 enum WalletAPITarget: TargetType {
     case createWallet(publicKey: String, uuid: String, walletPrivateKey: String?)
+    case balanceAndTransactions(address: String)
     
     var baseURL: URL {
         return URL(string: "http://localhost:8080/api/v1")!
@@ -22,6 +23,8 @@ enum WalletAPITarget: TargetType {
         switch self {
         case .createWallet:
             return "wallets"
+        case .balanceAndTransactions(let address):
+            return "wallets/\(address)"
         }
     }
     
@@ -34,7 +37,12 @@ enum WalletAPITarget: TargetType {
     }
     
     var method: Moya.Method {
-        return .post
+        switch self {
+        case .createWallet:
+            return .post
+        case .balanceAndTransactions:
+            return .get
+        }
     }
     
     var headers: [String : String]? {
@@ -59,6 +67,8 @@ enum WalletAPITarget: TargetType {
             if let walletPrivateKey = walletPrivateKey { parameters["secretKey"] = walletPrivateKey }
             
             return parameters
+        case .balanceAndTransactions:
+            return nil
         }
     }
     
@@ -86,15 +96,20 @@ class WalletAPI: WalletStore {
         }).disposed(by: disposeBag)
     }
     
+    func getBalanceAndTransactions(address: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
+        let endpoint = WalletAPITarget.balanceAndTransactions(address: address)
+        
+        provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletDetails.self).subscribe(onSuccess: { response in
+            completion(.success(result: response))
+        }, onError: { error in
+            // TODO: Better error handling
+            completion(.failure(error: .unknown))
+        }).disposed(by: disposeBag)
+    }
+
+    // Ignored methods
+    
     func listWallets(completion: @escaping WalletStoreListWalletsCompletionHandler) {
-        completion(.failure(error: .unknown))
-    }
-    
-    func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler) {
-        completion(.failure(error: .unknown))
-    }
-    
-    func getTransactions(address: String, completion: @escaping WalletStoreGetTransactionsCompletionHandler) {
         completion(.failure(error: .unknown))
     }
     

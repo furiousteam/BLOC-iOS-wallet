@@ -24,13 +24,11 @@ enum WalletStoreError: Equatable, Error {
 
 typealias WalletStoreListWalletsCompletionHandler = (WalletStoreResult<[WalletModel]>) -> Void
 typealias WalletStoreAddWalletCompletionHandler = (WalletStoreResult<String>) -> Void
-typealias WalletStoreGetBalanceCompletionHandler = (WalletStoreResult<[Balance]>) -> Void
-typealias WalletStoreGetTransactionsCompletionHandler = (WalletStoreResult<[Transaction]>) -> Void
+typealias WalletStoreGetBalanceAndTransactionsCompletionHandler = (WalletStoreResult<WalletDetails>) -> Void
 
 protocol WalletStore {
     func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler)
-    func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler)
-    func getTransactions(address: String, completion: @escaping WalletStoreGetTransactionsCompletionHandler)
+    func getBalanceAndTransactions(address: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler)
 
     func generateSeed() -> Seed?
     func generateKeyPair(seed: Seed) -> KeyPair?
@@ -55,16 +53,8 @@ class WalletWorker {
         }
     }
     
-    func getBalance(address: String, completion: @escaping WalletStoreGetBalanceCompletionHandler) {
-        store.getBalance(address: address) { result in
-            DispatchQueue.main.async {
-                completion(result)
-            }
-        }
-    }
-    
-    func getTransactions(address: String, completion: @escaping WalletStoreGetTransactionsCompletionHandler) {
-        store.getTransactions(address: address) { result in
+    func getBalanceAndTransactions(address: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
+        store.getBalanceAndTransactions(address: address) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

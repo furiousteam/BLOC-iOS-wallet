@@ -12,8 +12,7 @@ import SnapKit
 import MBProgressHUD
 
 protocol ShowWalletDisplayLogic: class {
-    func handleBalancesUpdate(viewModel: ShowWalletBalancesViewModel)
-    func handleTransactionsUpdate(viewModel: ShowWalletTransactionsViewModel)
+    func handleUpdate(viewModel: ShowWalletDetailsViewModel)
 }
 
 class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegate {
@@ -63,27 +62,19 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         super.viewDidLoad()
         
         configure()
-        
-        let bytes: [UInt8] = wallet.keyPair.publicKey.bytes
-        let data = NSData(bytes: bytes, length: bytes.count)
-        let publicKey = data.hexStringRepresentationUppercase(false)
-        
-        transactionService.send(destinations: [], mixin: 0, paymentId: publicKey, fee: 0, keyPair: wallet.keyPair) { result in
-            print(result)
-        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        interactor.fetchBalance(address: wallet.address)
-        interactor.fetchTransactions(address: wallet.address)
+        interactor.fetchDetails(address: wallet.address)
     }
     
     // MARK: - Configuration
     
     func configure() {
         // Subviews
+        
         view.backgroundColor = .white
         
         view.addSubview(tableView)
@@ -103,34 +94,24 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
     
     // MARK: - Display logic
     
-    func handleBalancesUpdate(viewModel: ShowWalletBalancesViewModel) {
+    func handleUpdate(viewModel: ShowWalletDetailsViewModel) {
         // TODO: Loading state
         // TODO: Error state
         
         switch viewModel.state {
-        case .loaded(let balances):
-            dataSource.balances = balances
+        case .loaded(let details):
+            let availableBalance = Balance(value: Double(details.availableBalance) / Constants.walletCurrencyDivider, balanceType: .available)
+            let lockedBalance = Balance(value: Double(details.lockedBalance) / Constants.walletCurrencyDivider, balanceType: .locked)
+
+            dataSource.balances = [ availableBalance, lockedBalance ]
+            dataSource.transactions = details.transactions
         default:
             break
         }
         
         tableView.reloadData()
     }
-    
-    func handleTransactionsUpdate(viewModel: ShowWalletTransactionsViewModel) {
-        // TODO: Loading state
-        // TODO: Error state
         
-        switch viewModel.state {
-        case .loaded(let transactions):
-            dataSource.transactions = transactions
-        default:
-            break
-        }
-        
-        tableView.reloadData()
-    }
-    
     // UITableViewDelegate
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

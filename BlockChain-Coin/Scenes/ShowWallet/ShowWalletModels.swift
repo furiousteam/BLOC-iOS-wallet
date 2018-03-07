@@ -8,46 +8,24 @@
 
 import Foundation
 
-struct ShowWalletBalancesViewModel {
+struct ShowWalletDetailsViewModel {
     enum State {
         case loading
-        case loaded([BalanceModel])
+        case loaded(WalletDetails)
         case error(String)
     }
     
     let state: State
-    let balances: [BalanceModel]
+    let details: WalletDetails?
     
     init(state: State) {
         self.state = state
         
         switch state {
-        case .loaded(let wallets):
-            self.balances = wallets
+        case .loaded(let details):
+            self.details = details
         default:
-            self.balances = []
-        }
-    }
-}
-
-struct ShowWalletTransactionsViewModel {
-    enum State {
-        case loading
-        case loaded([TransactionModel])
-        case error(String)
-    }
-    
-    let state: State
-    let transactions: [TransactionModel]
-    
-    init(state: State) {
-        self.state = state
-        
-        switch state {
-        case .loaded(let transactions):
-            self.transactions = transactions
-        default:
-            self.transactions = []
+            self.details = nil
         }
     }
 }

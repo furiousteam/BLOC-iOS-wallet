@@ -19,7 +19,7 @@ class ShowWalletDataSource: NSObject, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section < balances.count {
+        else if section < balances.count {
             return 1
         } else {
             let transaction = transactions[section - balances.count]

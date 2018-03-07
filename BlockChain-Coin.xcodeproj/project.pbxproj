@@ -113,6 +113,7 @@
 		9CB6C33C20502C68002E610C /* Observable+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB6C33B20502C68002E610C /* Observable+ErrorHandling.swift */; };
 		9CB6C33E20502C79002E610C /* PrimitiveSequence+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB6C33D20502C79002E610C /* PrimitiveSequence+ErrorHandling.swift */; };
 		9CB6C34020502CD4002E610C /* WalletAPICreateResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB6C33F20502CD4002E610C /* WalletAPICreateResponse.swift */; };
+		9CB6C34220503A70002E610C /* WalletDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB6C34120503A70002E610C /* WalletDetails.swift */; };
 		BBCFE2412940BF658F2DA54B /* Pods_BlockChain_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */; };
 /* End PBXBuildFile section */
 
@@ -251,6 +252,7 @@
 		9CB6C33B20502C68002E610C /* Observable+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+ErrorHandling.swift"; sourceTree = "<group>"; };
 		9CB6C33D20502C79002E610C /* PrimitiveSequence+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PrimitiveSequence+ErrorHandling.swift"; sourceTree = "<group>"; };
 		9CB6C33F20502CD4002E610C /* WalletAPICreateResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAPICreateResponse.swift; sourceTree = "<group>"; };
+		9CB6C34120503A70002E610C /* WalletDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetails.swift; sourceTree = "<group>"; };
 		BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockChain_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChain-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -326,6 +328,7 @@
 				9C043684202C9DE600671DA2 /* Job.swift */,
 				9C043699202CD1EC00671DA2 /* Stats.swift */,
 				9C4AA494203335000056152C /* Wallet.swift */,
+				9CB6C34120503A70002E610C /* WalletDetails.swift */,
 				9C4AA4E4203490390056152C /* Balance.swift */,
 				9C0722672035694A00B012B6 /* Transaction.swift */,
 				9C0722692035695100B012B6 /* Transfer.swift */,
@@ -946,6 +949,7 @@
 				9C8A8F76202EE13600F55736 /* WalletSocketRequest.swift in Sources */,
 				9CB6C34020502CD4002E610C /* WalletAPICreateResponse.swift in Sources */,
 				9C8A8F63202E03B900F55736 /* MineStatCell.swift in Sources */,
+				9CB6C34220503A70002E610C /* WalletDetails.swift in Sources */,
 				9C6623072036E90D0083CE2E /* Hash.swift in Sources */,
 				9C8A8F61202DFDF300F55736 /* UIColor+Hex.swift in Sources */,
 				9C4AA4932033326F0056152C /* WalletDiskStore.swift in Sources */,
