@@ -85,8 +85,10 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         
         // Navigation Bar
         
-        let copyButton = UIBarButtonItem(title: "Copy address", style: .plain, target: self, action: #selector(copyTapped))
-        self.navigationItem.setRightBarButton(copyButton, animated: false)
+        let copyAddressButton = UIBarButtonItem(title: "Copy address", style: .plain, target: self, action: #selector(copyAddressTapped))
+        let copyKeysButton = UIBarButtonItem(title: "Export keys", style: .plain, target: self, action: #selector(copyKeysTapped))
+        
+        self.navigationItem.setRightBarButtonItems([ copyAddressButton, copyKeysButton ], animated: false)
 
         // TableView
         
@@ -99,13 +101,32 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
     
     // MARK: - Actions
     
-    @objc func copyTapped() {
+    @objc func copyAddressTapped() {
         UIPasteboard.general.string = wallet.address
         
         let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
         hud.mode = .text
         hud.label.text = "Address copied"
         hud.hide(animated: true, afterDelay: 2.0)
+    }
+    
+    @objc func copyKeysTapped() {
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.mode = .indeterminate
+        hud.label.text = "Fetching keys..."
+        
+        (interactor as? ShowWalletInteractor)?.walletWorker.getKeys(address: wallet.address, completion: { result in
+            switch result {
+            case .success(let keys):
+                UIPasteboard.general.string = [ keys.spendPublicKey, keys.viewPublicKey, keys.spendPrivateKey, keys.viewPrivateKey ].joined()
+            default:
+                break
+            }
+            
+            hud.label.text = "Keys copied"
+            hud.mode = .text
+            hud.hide(animated: true, afterDelay: 2.0)
+        })
     }
     
     // MARK: - Display logic

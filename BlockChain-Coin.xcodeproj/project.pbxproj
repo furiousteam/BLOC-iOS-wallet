@@ -87,6 +87,9 @@
 		9C6623072036E90D0083CE2E /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6623062036E90D0083CE2E /* Hash.swift */; };
 		9C6623092036EBA90083CE2E /* String+Bytes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6623082036EBA90083CE2E /* String+Bytes.swift */; };
 		9C66230B2036F0A10083CE2E /* Array+BytesString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C66230A2036F0A10083CE2E /* Array+BytesString.swift */; };
+		9C6FEF842050456F00ED7D47 /* RestoreWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FEF822050456F00ED7D47 /* RestoreWalletVC.swift */; };
+		9C6FEF852050456F00ED7D47 /* RestoreWalletVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9C6FEF832050456F00ED7D47 /* RestoreWalletVC.xib */; };
+		9C6FEF872050496900ED7D47 /* WalletKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FEF862050496900ED7D47 /* WalletKeys.swift */; };
 		9C7800A82036F6060089F6EE /* String_BytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7800A62036F6060089F6EE /* String_BytesTests.swift */; };
 		9C7800A92036F6060089F6EE /* Array_BytesStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7800A72036F6060089F6EE /* Array_BytesStringTests.swift */; };
 		9C8A8F5B202DF90200F55736 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F5A202DF90100F55736 /* R.generated.swift */; };
@@ -224,6 +227,9 @@
 		9C6623062036E90D0083CE2E /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
 		9C6623082036EBA90083CE2E /* String+Bytes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Bytes.swift"; sourceTree = "<group>"; };
 		9C66230A2036F0A10083CE2E /* Array+BytesString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+BytesString.swift"; sourceTree = "<group>"; };
+		9C6FEF822050456F00ED7D47 /* RestoreWalletVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreWalletVC.swift; sourceTree = "<group>"; };
+		9C6FEF832050456F00ED7D47 /* RestoreWalletVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestoreWalletVC.xib; sourceTree = "<group>"; };
+		9C6FEF862050496900ED7D47 /* WalletKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletKeys.swift; sourceTree = "<group>"; };
 		9C7800992036F1C30089F6EE /* BlockChain-CoinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BlockChain-CoinTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C78009D2036F1C30089F6EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7800A62036F6060089F6EE /* String_BytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_BytesTests.swift; sourceTree = "<group>"; };
@@ -338,6 +344,7 @@
 				9C6623022036D9DD0083CE2E /* TransactionDestination.swift */,
 				9C9A570020372B1A00B010D5 /* TransactionExtra.swift */,
 				9C9A570E2037419500B010D5 /* Address.swift */,
+				9C6FEF862050496900ED7D47 /* WalletKeys.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -411,6 +418,7 @@
 				9C4AA496203335130056152C /* ListWallets */,
 				9C4AA4A620333D040056152C /* CreateWallet */,
 				9C4AA4D420348B8A0056152C /* ShowWallet */,
+				9C6FEF812050454600ED7D47 /* RestoreWallet */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -593,6 +601,16 @@
 			);
 			name = ConfigureWallet;
 			path = "BlockChain-Coin/Scenes/ConfigureWallet";
+			sourceTree = SOURCE_ROOT;
+		};
+		9C6FEF812050454600ED7D47 /* RestoreWallet */ = {
+			isa = PBXGroup;
+			children = (
+				9C6FEF822050456F00ED7D47 /* RestoreWalletVC.swift */,
+				9C6FEF832050456F00ED7D47 /* RestoreWalletVC.xib */,
+			);
+			name = RestoreWallet;
+			path = "BlockChain-Coin/Scenes/RestoreWallet";
 			sourceTree = SOURCE_ROOT;
 		};
 		9C78009A2036F1C30089F6EE /* BlockChain-CoinTests */ = {
@@ -782,6 +800,7 @@
 			files = (
 				9C04365B202C94B900671DA2 /* LaunchScreen.storyboard in Resources */,
 				9C04365A202C94B900671DA2 /* Assets.xcassets in Resources */,
+				9C6FEF852050456F00ED7D47 /* RestoreWalletVC.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,6 +982,7 @@
 				9C4AA48320332C2B0056152C /* KeyPair.swift in Sources */,
 				9C4AA4A2203335610056152C /* ListWalletsPresenter.swift in Sources */,
 				9C9A570F2037419500B010D5 /* Address.swift in Sources */,
+				9C6FEF842050456F00ED7D47 /* RestoreWalletVC.swift in Sources */,
 				9C04369A202CD1EC00671DA2 /* Stats.swift in Sources */,
 				9C6623012036D3B40083CE2E /* TransactionWorker.swift in Sources */,
 				9C4AA4B920334BB90056152C /* WalletSocketAddResponse.swift in Sources */,
@@ -974,6 +994,7 @@
 				9C07226E20356F3B00B012B6 /* WalletRPCGetBalanceResponse.swift in Sources */,
 				9C0722662035689900B012B6 /* WalletRPCGetTransactionsResponse.swift in Sources */,
 				9C8A8F6B202EDA6500F55736 /* WalletRPC.swift in Sources */,
+				9C6FEF872050496900ED7D47 /* WalletKeys.swift in Sources */,
 				9C8A8F78202EE13600F55736 /* PoolSocketSubmitJobRequest.swift in Sources */,
 				9C043675202C968D00671DA2 /* jh_ansi_opt64.c in Sources */,
 				9CB6C338205027FB002E610C /* WalletAPI.swift in Sources */,

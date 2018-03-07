@@ -54,7 +54,11 @@ class WalletRPC: WalletStore {
     }
     
     func getBalanceAndTransactions(address: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
-        completion(.failure(error: .couldNotCreateWallet))
+        completion(.failure(error: .unknown))
+    }
+    
+    func getKeys(address: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
+        completion(.failure(error: .unknown))
     }
     
     // MARK: - Ignored methods

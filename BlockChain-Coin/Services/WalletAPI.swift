@@ -14,6 +14,7 @@ import Alamofire
 enum WalletAPITarget: TargetType {
     case createWallet(publicKey: String, uuid: String, walletPrivateKey: String?)
     case balanceAndTransactions(address: String)
+    case keys(address: String)
     
     var baseURL: URL {
         return URL(string: "http://localhost:8080/api/v1")!
@@ -25,6 +26,8 @@ enum WalletAPITarget: TargetType {
             return "wallets"
         case .balanceAndTransactions(let address):
             return "wallets/\(address)"
+        case .keys(let address):
+            return "keys/\(address)"
         }
     }
     
@@ -40,7 +43,7 @@ enum WalletAPITarget: TargetType {
         switch self {
         case .createWallet:
             return .post
-        case .balanceAndTransactions:
+        case .balanceAndTransactions, .keys:
             return .get
         }
     }
@@ -67,7 +70,7 @@ enum WalletAPITarget: TargetType {
             if let walletPrivateKey = walletPrivateKey { parameters["secretKey"] = walletPrivateKey }
             
             return parameters
-        case .balanceAndTransactions:
+        default:
             return nil
         }
     }
@@ -81,7 +84,7 @@ enum WalletAPITarget: TargetType {
     }
 }
 
-class WalletAPI: WalletStore {    
+class WalletAPI: WalletStore {
     private let provider = MoyaProvider<WalletAPITarget>()
     private let disposeBag = DisposeBag()
     
@@ -100,6 +103,17 @@ class WalletAPI: WalletStore {
         let endpoint = WalletAPITarget.balanceAndTransactions(address: address)
         
         provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletDetails.self).subscribe(onSuccess: { response in
+            completion(.success(result: response))
+        }, onError: { error in
+            // TODO: Better error handling
+            completion(.failure(error: .unknown))
+        }).disposed(by: disposeBag)
+    }
+    
+    func getKeys(address: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
+        let endpoint = WalletAPITarget.keys(address: address)
+        
+        provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletKeys.self).subscribe(onSuccess: { response in
             completion(.success(result: response))
         }, onError: { error in
             // TODO: Better error handling
