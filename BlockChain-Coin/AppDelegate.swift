@@ -15,15 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
+    var app: AppController!
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        self.window = UIWindow(frame: UIScreen.main.bounds)
+        app = AppController()
         
         Fabric.with([Crashlytics.self])
-        
-        window?.rootViewController = HomeVC()
-        
-        window?.makeKeyAndVisible()
-        
+                
         return true
     }
 

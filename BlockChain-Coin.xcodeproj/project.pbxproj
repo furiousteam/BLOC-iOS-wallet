@@ -92,6 +92,14 @@
 		9C6FEF872050496900ED7D47 /* WalletKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6FEF862050496900ED7D47 /* WalletKeys.swift */; };
 		9C7800A82036F6060089F6EE /* String_BytesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7800A62036F6060089F6EE /* String_BytesTests.swift */; };
 		9C7800A92036F6060089F6EE /* Array_BytesStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7800A72036F6060089F6EE /* Array_BytesStringTests.swift */; };
+		9C78F1A72056C8B7001ADA32 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78F1A12056C8B7001ADA32 /* AppController.swift */; };
+		9C78F1A82056C8B7001ADA32 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78F1A22056C8B7001ADA32 /* App.swift */; };
+		9C78F1AA2056C8B7001ADA32 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78F1A42056C8B7001ADA32 /* AppRouter.swift */; };
+		9C78F1AB2056C8B7001ADA32 /* AppPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78F1A52056C8B7001ADA32 /* AppPresenter.swift */; };
+		9C78F1AC2056C8B7001ADA32 /* AppInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78F1A62056C8B7001ADA32 /* AppInteractor.swift */; };
+		9C78F1AE2056CA45001ADA32 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78F1AD2056CA45001ADA32 /* Environment.swift */; };
+		9C78F1B02056CA8D001ADA32 /* Bundle+Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78F1AF2056CA8D001ADA32 /* Bundle+Keys.swift */; };
+		9C78F1B22056CAB0001ADA32 /* UserDefaultKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78F1B12056CAB0001ADA32 /* UserDefaultKeys.swift */; };
 		9C8A8F5B202DF90200F55736 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F5A202DF90100F55736 /* R.generated.swift */; };
 		9C8A8F5D202DFD4C00F55736 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F5C202DFD4C00F55736 /* View.swift */; };
 		9C8A8F5F202DFD7900F55736 /* PoolStatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8A8F5E202DFD7900F55736 /* PoolStatusView.swift */; };
@@ -245,6 +253,14 @@
 		9C78009D2036F1C30089F6EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C7800A62036F6060089F6EE /* String_BytesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String_BytesTests.swift; sourceTree = "<group>"; };
 		9C7800A72036F6060089F6EE /* Array_BytesStringTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array_BytesStringTests.swift; sourceTree = "<group>"; };
+		9C78F1A12056C8B7001ADA32 /* AppController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		9C78F1A22056C8B7001ADA32 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		9C78F1A42056C8B7001ADA32 /* AppRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		9C78F1A52056C8B7001ADA32 /* AppPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppPresenter.swift; sourceTree = "<group>"; };
+		9C78F1A62056C8B7001ADA32 /* AppInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppInteractor.swift; sourceTree = "<group>"; };
+		9C78F1AD2056CA45001ADA32 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		9C78F1AF2056CA8D001ADA32 /* Bundle+Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Keys.swift"; sourceTree = "<group>"; };
+		9C78F1B12056CAB0001ADA32 /* UserDefaultKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultKeys.swift; sourceTree = "<group>"; };
 		9C8A8F5A202DF90100F55736 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		9C8A8F5C202DFD4C00F55736 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		9C8A8F5E202DFD7900F55736 /* PoolStatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolStatusView.swift; sourceTree = "<group>"; };
@@ -431,6 +447,7 @@
 				9CBB2EFB20567A3100718EBA /* ViewController.swift */,
 				9CBB2EFD20567A6500718EBA /* ArrayDataSource.swift */,
 				9CBB2EFF20567A9000718EBA /* Router.swift */,
+				9C78F1AD2056CA45001ADA32 /* Environment.swift */,
 				9C04365E202C968D00671DA2 /* Cryptonight */,
 				9C4AA46820332BC70056152C /* Ed25519 */,
 			);
@@ -440,6 +457,7 @@
 		9C043656202C94B900671DA2 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				9C78F1A02056C8B7001ADA32 /* App */,
 				9CBB2EEE205679FE00718EBA /* Home */,
 				9C04368A202CA88700671DA2 /* Mine */,
 				9C6622EB2035CB4E0083CE2E /* ConfigureWallet */,
@@ -539,6 +557,8 @@
 				9CB6C33B20502C68002E610C /* Observable+ErrorHandling.swift */,
 				9CB6C33D20502C79002E610C /* PrimitiveSequence+ErrorHandling.swift */,
 				9CBB2F0520567DE100718EBA /* UIFont+BLOC.swift */,
+				9C78F1AF2056CA8D001ADA32 /* Bundle+Keys.swift */,
+				9C78F1B12056CAB0001ADA32 /* UserDefaultKeys.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -669,6 +689,18 @@
 				9C231EF9203B61A400F5EA3E /* TransactionDiskStoreTests.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		9C78F1A02056C8B7001ADA32 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9C78F1A22056C8B7001ADA32 /* App.swift */,
+				9C78F1A12056C8B7001ADA32 /* AppController.swift */,
+				9C78F1A42056C8B7001ADA32 /* AppRouter.swift */,
+				9C78F1A52056C8B7001ADA32 /* AppPresenter.swift */,
+				9C78F1A62056C8B7001ADA32 /* AppInteractor.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		9C8A8F70202EE13600F55736 /* Wallet */ = {
@@ -898,6 +930,7 @@
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -919,6 +952,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -995,6 +1029,7 @@
 			files = (
 				9C4AA4DA20348F2C0056152C /* ShowWalletRouter.swift in Sources */,
 				9C4AA495203335000056152C /* Wallet.swift in Sources */,
+				9C78F1AA2056C8B7001ADA32 /* AppRouter.swift in Sources */,
 				9C04367D202C975800671DA2 /* HashContext.mm in Sources */,
 				9C6623052036DD010083CE2E /* TransactionDiskStore.swift in Sources */,
 				9C4AA4AA20333D260056152C /* CreateWalletModels.swift in Sources */,
@@ -1028,6 +1063,7 @@
 				9C04368C202CA89B00671DA2 /* MineVC.swift in Sources */,
 				9C8A8F77202EE13600F55736 /* PoolSocketRequest.swift in Sources */,
 				9C4AA49C203335460056152C /* ListWalletsDataSource.swift in Sources */,
+				9C78F1AB2056C8B7001ADA32 /* AppPresenter.swift in Sources */,
 				9CBB2F0320567AEF00718EBA /* HomeCell.swift in Sources */,
 				9C8A8F76202EE13600F55736 /* WalletSocketRequest.swift in Sources */,
 				9CB6C34020502CD4002E610C /* WalletAPICreateResponse.swift in Sources */,
@@ -1051,12 +1087,15 @@
 				9C6623012036D3B40083CE2E /* TransactionWorker.swift in Sources */,
 				9C4AA4B920334BB90056152C /* WalletSocketAddResponse.swift in Sources */,
 				9C043689202CA50F00671DA2 /* PoolSocketClientDelegate.swift in Sources */,
+				9C78F1B22056CAB0001ADA32 /* UserDefaultKeys.swift in Sources */,
 				9C6622FB203626A60083CE2E /* PoolSocketOKResponse.swift in Sources */,
 				9C6622FD2036D2F00083CE2E /* Signature.swift in Sources */,
 				9C6622FF2036D3880083CE2E /* NewTransaction.swift in Sources */,
 				9C0722682035694A00B012B6 /* Transaction.swift in Sources */,
 				9C07226E20356F3B00B012B6 /* WalletRPCGetBalanceResponse.swift in Sources */,
+				9C78F1A82056C8B7001ADA32 /* App.swift in Sources */,
 				9C0722662035689900B012B6 /* WalletRPCGetTransactionsResponse.swift in Sources */,
+				9C78F1A72056C8B7001ADA32 /* AppController.swift in Sources */,
 				9CBB2EFA205679FE00718EBA /* HomeDataSource.swift in Sources */,
 				9C8A8F6B202EDA6500F55736 /* WalletRPC.swift in Sources */,
 				9C6FEF872050496900ED7D47 /* WalletKeys.swift in Sources */,
@@ -1071,12 +1110,14 @@
 				9C07226C20356D7300B012B6 /* Constants.swift in Sources */,
 				9C4AA49E2033354F0056152C /* ListWalletsRouter.swift in Sources */,
 				9C043681202C9C7800671DA2 /* CryptonightMiner.swift in Sources */,
+				9C78F1AC2056C8B7001ADA32 /* AppInteractor.swift in Sources */,
 				9CBB2F0620567DE100718EBA /* UIFont+BLOC.swift in Sources */,
 				9CBB2EF8205679FE00718EBA /* HomeModels.swift in Sources */,
 				9CB6C33E20502C79002E610C /* PrimitiveSequence+ErrorHandling.swift in Sources */,
 				9C0436A9202CDC0A00671DA2 /* Reusable.swift in Sources */,
 				9C043658202C94B900671DA2 /* AppDelegate.swift in Sources */,
 				9C0722642035687500B012B6 /* WalletRPCGetTransactionsRequest.swift in Sources */,
+				9C78F1AE2056CA45001ADA32 /* Environment.swift in Sources */,
 				9C4AA4E020348F4D0056152C /* ShowWalletModels.swift in Sources */,
 				9C6622ED2035CB4E0083CE2E /* ConfigureWalletVC.swift in Sources */,
 				9C043674202C968D00671DA2 /* blake.c in Sources */,
@@ -1093,6 +1134,7 @@
 				9CBB2EF6205679FE00718EBA /* HomeRouter.swift in Sources */,
 				9C4AA4B520333DB40056152C /* CreateWalletCell.swift in Sources */,
 				9C043677202C968D00671DA2 /* groestl.c in Sources */,
+				9C78F1B02056CA8D001ADA32 /* Bundle+Keys.swift in Sources */,
 				9C8A8F69202ED7B000F55736 /* WalletWorker.swift in Sources */,
 				9CB6C33C20502C68002E610C /* Observable+ErrorHandling.swift in Sources */,
 				9C4AA48520332C2B0056152C /* Error.swift in Sources */,
