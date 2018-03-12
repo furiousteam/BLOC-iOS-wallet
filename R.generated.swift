@@ -13,6 +13,7 @@ struct R: Rswift.Validatable {
   fileprivate static let hostingBundle = Bundle(for: R.Class.self)
   
   static func validate() throws {
+    try font.validate()
     try intern.validate()
   }
   
@@ -21,22 +22,49 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 0 files.
+  /// This `R.file` struct is generated, and contains static references to 1 files.
   struct file {
+    /// Resource file `RobotoCondensed-Regular.ttf`.
+    static let robotoCondensedRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "RobotoCondensed-Regular", pathExtension: "ttf")
+    
+    /// `bundle.url(forResource: "RobotoCondensed-Regular", withExtension: "ttf")`
+    static func robotoCondensedRegularTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.robotoCondensedRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.font` struct is generated, and contains static references to 0 fonts.
-  struct font {
+  /// This `R.font` struct is generated, and contains static references to 1 fonts.
+  struct font: Rswift.Validatable {
+    /// Font `RobotoCondensed-Regular`.
+    static let robotoCondensedRegular = Rswift.FontResource(fontName: "RobotoCondensed-Regular")
+    
+    /// `UIFont(name: "RobotoCondensed-Regular", size: ...)`
+    static func robotoCondensedRegular(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: robotoCondensedRegular, size: size)
+    }
+    
+    static func validate() throws {
+      if R.font.robotoCondensedRegular(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'RobotoCondensed-Regular' could not be loaded, is 'RobotoCondensed-Regular.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+    }
+    
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 6 images.
+  /// This `R.image` struct is generated, and contains static references to 9 images.
   struct image {
     /// Image `accessory`.
     static let accessory = Rswift.ImageResource(bundle: R.hostingBundle, name: "accessory")
     /// Image `add`.
     static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
+    /// Image `default-bg`.
+    static let defaultBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "default-bg")
+    /// Image `logo-small`.
+    static let logoSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo-small")
+    /// Image `logo-text`.
+    static let logoText = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo-text")
     /// Image `logo`.
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
     /// Image `splash_bg`.
@@ -56,9 +84,24 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.add, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "default-bg", bundle: ..., traitCollection: ...)`
+    static func defaultBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.defaultBg, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
     static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "logo-small", bundle: ..., traitCollection: ...)`
+    static func logoSmall(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logoSmall, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "logo-text", bundle: ..., traitCollection: ...)`
+    static func logoText(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.logoText, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "splash_bg", bundle: ..., traitCollection: ...)`
@@ -115,8 +158,124 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.string` struct is generated, and contains static references to 0 localization tables.
+  /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
+    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
+    struct localizable {
+      /// en translation: About
+      /// 
+      /// Locales: en
+      static let home_menu_about_title = Rswift.StringResource(key: "home_menu_about_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Mining
+      /// 
+      /// Locales: en
+      static let home_menu_mining_title = Rswift.StringResource(key: "home_menu_mining_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Send
+      /// 
+      /// Locales: en
+      static let home_menu_send_title = Rswift.StringResource(key: "home_menu_send_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Transactions
+      /// 
+      /// Locales: en
+      static let home_menu_transactions_title = Rswift.StringResource(key: "home_menu_transactions_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Wallet
+      /// 
+      /// Locales: en
+      static let home_menu_wallet_title = Rswift.StringResource(key: "home_menu_wallet_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: check every transactions
+      /// 
+      /// Locales: en
+      static let home_menu_transactions_subtitle = Rswift.StringResource(key: "home_menu_transactions_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: create, configure, balance
+      /// 
+      /// Locales: en
+      static let home_menu_wallet_subtitle = Rswift.StringResource(key: "home_menu_wallet_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: earn coins in minutes
+      /// 
+      /// Locales: en
+      static let home_menu_mining_subtitle = Rswift.StringResource(key: "home_menu_mining_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: more about us
+      /// 
+      /// Locales: en
+      static let home_menu_about_subtitle = Rswift.StringResource(key: "home_menu_about_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: send coins instantly
+      /// 
+      /// Locales: en
+      static let home_menu_send_subtitle = Rswift.StringResource(key: "home_menu_send_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      
+      /// en translation: About
+      /// 
+      /// Locales: en
+      static func home_menu_about_title(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_about_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Mining
+      /// 
+      /// Locales: en
+      static func home_menu_mining_title(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_mining_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Send
+      /// 
+      /// Locales: en
+      static func home_menu_send_title(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_send_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Transactions
+      /// 
+      /// Locales: en
+      static func home_menu_transactions_title(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_transactions_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Wallet
+      /// 
+      /// Locales: en
+      static func home_menu_wallet_title(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_wallet_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: check every transactions
+      /// 
+      /// Locales: en
+      static func home_menu_transactions_subtitle(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_transactions_subtitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: create, configure, balance
+      /// 
+      /// Locales: en
+      static func home_menu_wallet_subtitle(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_wallet_subtitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: earn coins in minutes
+      /// 
+      /// Locales: en
+      static func home_menu_mining_subtitle(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_mining_subtitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: more about us
+      /// 
+      /// Locales: en
+      static func home_menu_about_subtitle(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_about_subtitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: send coins instantly
+      /// 
+      /// Locales: en
+      static func home_menu_send_subtitle(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_send_subtitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      fileprivate init() {}
+    }
+    
     fileprivate init() {}
   }
   

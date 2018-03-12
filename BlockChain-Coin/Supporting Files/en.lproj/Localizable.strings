@@ -1,0 +1,10 @@
+"home_menu_wallet_title" = "Wallet";
+"home_menu_wallet_subtitle" = "create, configure, balance";
+"home_menu_mining_title" = "Mining";
+"home_menu_mining_subtitle" = "earn coins in minutes";
+"home_menu_send_title" = "Send";
+"home_menu_send_subtitle" = "send coins instantly";
+"home_menu_transactions_title" = "Transactions";
+"home_menu_transactions_subtitle" = "check every transactions";
+"home_menu_about_title" = "About";
+"home_menu_about_subtitle" = "more about us";
