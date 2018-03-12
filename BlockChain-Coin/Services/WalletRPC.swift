@@ -36,7 +36,7 @@ struct MyServiceRequest<Batch: JSONRPCKit.Batch>: APIKit.Request {
     }
 }
 
-class WalletRPC: WalletStore {
+class WalletRPC: WalletStore {    
     func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
         let batchFactory = BatchFactory(version: "2.0", idGenerator: NumberIdGenerator())
         let request = WalletRPCAddWalletRequest(publicKey: keyPair.publicKey)
@@ -53,11 +53,11 @@ class WalletRPC: WalletStore {
         }
     }
     
-    func getBalanceAndTransactions(address: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
+    func getBalanceAndTransactions(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
         completion(.failure(error: .unknown))
     }
     
-    func getKeys(address: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
+    func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
         completion(.failure(error: .unknown))
     }
     

@@ -11,7 +11,7 @@ import Foundation
 protocol ShowWalletBusinessLogic {
     var presenter: ShowWalletPresentationLogic? { get set }
     
-    func fetchDetails(address: String)
+    func fetchDetails(wallet: WalletModel, password: String)
 }
 
 class ShowWalletInteractor: ShowWalletBusinessLogic {
@@ -19,10 +19,10 @@ class ShowWalletInteractor: ShowWalletBusinessLogic {
     
     let walletWorker = WalletWorker(store: WalletAPI())
     
-    func fetchDetails(address: String) {
+    func fetchDetails(wallet: WalletModel, password: String) {
         presenter?.handleShowDetailsLoading()
         
-        walletWorker.getBalanceAndTransactions(address: address) { [weak self] result in
+        walletWorker.getBalanceAndTransactions(wallet: wallet, password: password) { [weak self] result in
             switch result {
             case .success(let details):
                 self?.presenter?.handleShowDetails(details: details)

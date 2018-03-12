@@ -31,10 +31,11 @@ class WalletKeys: WalletKeysModel, Decodable {
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        self.spendPublicKey = try values.decode(String.self, forKey: .spendPublicKey)
-        self.viewPublicKey = try values.decode(String.self, forKey: .viewPublicKey)
         self.spendPrivateKey = try values.decode(String.self, forKey: .spendPrivateKey)
-        self.viewPrivateKey = try values.decode(String.self, forKey: .spendPrivateKey)
+        self.spendPublicKey = try values.decode(String.self, forKey: .spendPublicKey)
+        
+        self.viewPrivateKey = try values.decode(String.self, forKey: .viewPrivateKey)
+        self.viewPublicKey = try values.decode(String.self, forKey: .viewPublicKey)
     }
     
 }

@@ -61,6 +61,10 @@ target 'BlockChain-Coin' do
   # https://github.com/krzyzanowskim/CryptoSwift
   pod 'CryptoSwift', '~> 0.8.1'
 
+  # 🔑  Base64 Additions for NSData and NSString 
+  # https://github.com/ekscrypto/Base64
+  pod 'Base64', '~> 1.1.2'
+
   # 🐛  Crash reporter and beta utilities
   # http://fabric.io
   pod 'Fabric'

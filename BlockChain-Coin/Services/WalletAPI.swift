@@ -10,11 +10,13 @@ import Foundation
 import Moya
 import RxSwift
 import Alamofire
+import CryptoSwift
+import Base64
 
 enum WalletAPITarget: TargetType {
     case createWallet(publicKey: String, uuid: String, walletPrivateKey: String?)
-    case balanceAndTransactions(address: String)
-    case keys(address: String)
+    case balanceAndTransactions(address: String, signature: String)
+    case keys(address: String, signature: String)
     
     var baseURL: URL {
         return URL(string: "http://localhost:8080/api/v1")!
@@ -24,9 +26,9 @@ enum WalletAPITarget: TargetType {
         switch self {
         case .createWallet:
             return "wallets"
-        case .balanceAndTransactions(let address):
+        case .balanceAndTransactions(let address, _):
             return "wallets/\(address)"
-        case .keys(let address):
+        case .keys(let address, _):
             return "keys/\(address)"
         }
     }
@@ -49,7 +51,12 @@ enum WalletAPITarget: TargetType {
     }
     
     var headers: [String : String]? {
-        return nil
+        switch self {
+        case .balanceAndTransactions(_, let signature), .keys(_, let signature):
+            return [ "X-BLOC-Auth": signature ]
+        default:
+            return nil
+        }
     }
     
     var parameterEncoding: ParameterEncoding {
@@ -99,8 +106,13 @@ class WalletAPI: WalletStore {
         }).disposed(by: disposeBag)
     }
     
-    func getBalanceAndTransactions(address: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
-        let endpoint = WalletAPITarget.balanceAndTransactions(address: address)
+    func getBalanceAndTransactions(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
+        guard let signature = generateSignature(uuid: wallet.uuid.uuidString, keyPair: wallet.keyPair, password: password) else {
+            completion(.failure(error: .couldNotConnect))
+            return
+        }
+        
+        let endpoint = WalletAPITarget.balanceAndTransactions(address: wallet.address, signature: signature)
         
         provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletDetails.self).subscribe(onSuccess: { response in
             completion(.success(result: response))
@@ -110,8 +122,13 @@ class WalletAPI: WalletStore {
         }).disposed(by: disposeBag)
     }
     
-    func getKeys(address: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
-        let endpoint = WalletAPITarget.keys(address: address)
+    func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
+        guard let signature = generateSignature(uuid: wallet.uuid.uuidString, keyPair: wallet.keyPair, password: password) else {
+            completion(.failure(error: .couldNotConnect))
+            return
+        }
+
+        let endpoint = WalletAPITarget.keys(address: wallet.address, signature: signature)
         
         provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletKeys.self).subscribe(onSuccess: { response in
             completion(.success(result: response))
@@ -135,4 +152,25 @@ class WalletAPI: WalletStore {
         return nil
     }
     
+    // Signature
+    
+    func generateSignature(uuid: String, keyPair: KeyPair, password: String) -> String? {
+        do {
+            let passwordBytes: Array<UInt8> = Array(password.utf8)
+            let saltBytes: Array<UInt8> = Array(uuid.utf8)
+            
+            let hash = try HKDF(password: passwordBytes, salt: saltBytes, variant: .sha256).calculate()
+            
+            let encHash = keyPair.sign(hash)
+            
+            let hashString = hash.toHexString()
+            let encHashString = encHash.toHexString()
+            
+            let signature = [ uuid, hashString, encHashString ].joined(separator: ":").base64()
+            
+            return signature
+        } catch {
+            return nil
+        }
+    }
 }

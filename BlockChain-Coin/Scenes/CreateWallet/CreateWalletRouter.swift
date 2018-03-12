@@ -22,6 +22,8 @@ class CreateWalletRouter: CreateWalletRoutingLogic {
     }
     
     func showRestoreWallet() {
-        // TODO
+        let restoreVC = RestoreWalletVC()
+        
+        viewController?.navigationController?.pushViewController(restoreVC, animated: true)
     }
 }

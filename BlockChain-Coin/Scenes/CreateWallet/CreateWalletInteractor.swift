@@ -22,11 +22,10 @@ class CreateWalletInteractor: CreateWalletBusinessLogic {
 
     init() {
         localWalletWorker = WalletWorker(store: WalletDiskStore())
+        remoteWalletWorker = WalletWorker(store: WalletAPI())
     }
     
     func createWallet() {
-        remoteWalletWorker = WalletWorker(store: WalletAPI())
-
         presenter?.handleShowLoading()
         
         if let seed = localWalletWorker.generateSeed(), let keyPair = localWalletWorker.generateKeyPair(seed: seed) {

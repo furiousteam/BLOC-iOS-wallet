@@ -67,7 +67,8 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        interactor.fetchDetails(address: wallet.address)
+        // TODO: Real user password
+        interactor.fetchDetails(wallet: wallet, password: "password")
     }
     
     // MARK: - Configuration
@@ -108,6 +109,8 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         hud.mode = .text
         hud.label.text = "Address copied"
         hud.hide(animated: true, afterDelay: 2.0)
+        
+        print(wallet.address)
     }
     
     @objc func copyKeysTapped() {
@@ -115,10 +118,14 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         hud.mode = .indeterminate
         hud.label.text = "Fetching keys..."
         
-        (interactor as? ShowWalletInteractor)?.walletWorker.getKeys(address: wallet.address, completion: { result in
+        // TODO: Real user password
+        (interactor as? ShowWalletInteractor)?.walletWorker.getKeys(wallet: wallet, password: "password", completion: { result in
             switch result {
             case .success(let keys):
-                UIPasteboard.general.string = [ keys.spendPublicKey, keys.viewPublicKey, keys.spendPrivateKey, keys.viewPrivateKey ].joined()
+                let keysString = [ keys.spendPublicKey, keys.viewPublicKey, keys.spendPrivateKey, keys.viewPrivateKey ].joined()
+                UIPasteboard.general.string = keysString
+                print(keysString)
+                print(keys.spendPrivateKey)
             default:
                 break
             }

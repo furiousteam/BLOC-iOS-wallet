@@ -29,8 +29,8 @@ typealias WalletStoreGetKeysCompletionHandler = (WalletStoreResult<WalletKeys>) 
 
 protocol WalletStore {
     func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler)
-    func getBalanceAndTransactions(address: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler)
-    func getKeys(address: String, completion: @escaping WalletStoreGetKeysCompletionHandler)
+    func getBalanceAndTransactions(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler)
+    func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler)
 
     func generateSeed() -> Seed?
     func generateKeyPair(seed: Seed) -> KeyPair?
@@ -55,16 +55,16 @@ class WalletWorker {
         }
     }
     
-    func getBalanceAndTransactions(address: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
-        store.getBalanceAndTransactions(address: address) { result in
+    func getBalanceAndTransactions(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
+        store.getBalanceAndTransactions(wallet: wallet, password: password) { result in
             DispatchQueue.main.async {
                 completion(result)
             }
         }
     }
     
-    func getKeys(address: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
-        store.getKeys(address: address) { result in
+    func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
+        store.getKeys(wallet: wallet, password: password) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

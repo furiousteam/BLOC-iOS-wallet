@@ -16,6 +16,13 @@ extension Date {
         dateFormatter.locale = Locale.current
         return dateFormatter
     }()
+    
+    static let isoDateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
+        dateFormatter.locale = Locale.current
+        return dateFormatter
+    }()
         
     func shortDate() -> String {
         return Date.shortTimeFormatter.string(from: self)
