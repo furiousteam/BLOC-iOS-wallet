@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -11,9 +15,25 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" image="splash_bg" translatesAutoresizingMaskIntoConstraints="NO" id="8HV-ar-efv">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_logo" translatesAutoresizingMaskIntoConstraints="NO" id="yWY-LS-Mlr">
+                                <rect key="frame" x="81" y="299.66666666666669" width="213" height="213.00000000000006"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8HV-ar-efv" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="6bT-yW-qO5"/>
+                            <constraint firstItem="8HV-ar-efv" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="Ge3-DD-sOn"/>
+                            <constraint firstItem="yWY-LS-Mlr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="IIG-an-BFS"/>
+                            <constraint firstItem="yWY-LS-Mlr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="dEO-e3-Xtm"/>
+                            <constraint firstAttribute="trailing" secondItem="8HV-ar-efv" secondAttribute="trailing" id="efz-4a-VBZ"/>
+                            <constraint firstAttribute="bottom" secondItem="8HV-ar-efv" secondAttribute="bottom" id="mpR-Lm-S1O"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
@@ -22,4 +42,8 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="splash_bg" width="375" height="667"/>
+        <image name="splash_logo" width="213" height="213"/>
+    </resources>
 </document>

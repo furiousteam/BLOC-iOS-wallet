@@ -31,7 +31,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 4 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
     /// Image `accessory`.
     static let accessory = Rswift.ImageResource(bundle: R.hostingBundle, name: "accessory")
@@ -39,6 +39,10 @@ struct R: Rswift.Validatable {
     static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
     /// Image `logo`.
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
+    /// Image `splash_bg`.
+    static let splash_bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_bg")
+    /// Image `splash_logo`.
+    static let splash_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_logo")
     /// Image `wallet`.
     static let wallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallet")
     
@@ -55,6 +59,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
     static func logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "splash_bg", bundle: ..., traitCollection: ...)`
+    static func splash_bg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.splash_bg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "splash_logo", bundle: ..., traitCollection: ...)`
+    static func splash_logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.splash_logo, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "wallet", bundle: ..., traitCollection: ...)`
@@ -108,7 +122,7 @@ struct R: Rswift.Validatable {
   
   fileprivate struct intern: Rswift.Validatable {
     fileprivate static func validate() throws {
-      // There are no resources to validate
+      try _R.validate()
     }
     
     fileprivate init() {}
@@ -119,7 +133,11 @@ struct R: Rswift.Validatable {
   fileprivate init() {}
 }
 
-struct _R {
+struct _R: Rswift.Validatable {
+  static func validate() throws {
+    try storyboard.validate()
+  }
+  
   struct nib {
     struct _RestoreWalletVC: Rswift.NibResourceType {
       let bundle = R.hostingBundle
@@ -135,12 +153,21 @@ struct _R {
     fileprivate init() {}
   }
   
-  struct storyboard {
-    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType {
+  struct storyboard: Rswift.Validatable {
+    static func validate() throws {
+      try launchScreen.validate()
+    }
+    
+    struct launchScreen: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
       typealias InitialController = UIKit.UIViewController
       
       let bundle = R.hostingBundle
       let name = "LaunchScreen"
+      
+      static func validate() throws {
+        if UIKit.UIImage(named: "splash_bg") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'splash_bg' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "splash_logo") == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'splash_logo' is used in storyboard 'LaunchScreen', but couldn't be loaded.") }
+      }
       
       fileprivate init() {}
     }
