@@ -96,6 +96,12 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
         interactor.presenter = presenter
         presenter.viewController = self
         router.viewController = self
+        
+        commonInit()
+    }
+    
+    func commonInit() {
+        tabBarItem = UITabBarItem(title: R.string.localizable.tabs_mining(), image: R.image.tabBarMining(), selectedImage: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -45,6 +45,12 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
         router.viewController = self
         
         self.title = "My Wallets"
+        
+        commonInit()
+    }
+    
+    func commonInit() {
+        tabBarItem = UITabBarItem(title: R.string.localizable.tabs_wallet(), image: R.image.tabBarWallet(), selectedImage: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {

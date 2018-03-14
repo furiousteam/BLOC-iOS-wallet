@@ -10,6 +10,7 @@ import UIKit
 
 protocol AppRoutingLogic {
     func showHome()
+    func showApp()
 }
 
 class AppRouter: Router, AppRoutingLogic {
@@ -17,8 +18,16 @@ class AppRouter: Router, AppRoutingLogic {
 
     func showHome() {
         guard let window = window else { return }
+
+        let homeVC = HomeVC()
         
-        window.rootViewController = HomeVC()
+        window.rootViewController?.present(homeVC, animated: false, completion: nil)
+    }
+    
+    func showApp() {
+        guard let window = window else { return }
+        
+        window.rootViewController = TabBarVC()
         window.makeKeyAndVisible()
     }
 }

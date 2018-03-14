@@ -115,6 +115,19 @@ class HomeVC: ViewController, UITableViewDelegate, HomeDisplayLogic {
     // MARK: TableView delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Route to corresponding scene
+        switch indexPath.row {
+        case Tab.wallets.rawValue:
+            router.showWallet()
+        case Tab.mining.rawValue:
+            router.showMining()
+        case Tab.send.rawValue:
+            router.showSend()
+        case Tab.transactions.rawValue:
+            router.showTransactions()
+        case Tab.about.rawValue:
+            router.showAbout()
+        default:
+            break
+        }
     }
 }

@@ -53,7 +53,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 9 images.
+  /// This `R.image` struct is generated, and contains static references to 16 images.
   struct image {
     /// Image `accessory`.
     static let accessory = Rswift.ImageResource(bundle: R.hostingBundle, name: "accessory")
@@ -71,6 +71,20 @@ struct R: Rswift.Validatable {
     static let splash_bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_bg")
     /// Image `splash_logo`.
     static let splash_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_logo")
+    /// Image `tab-bar-about`.
+    static let tabBarAbout = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-about")
+    /// Image `tab-bar-bg`.
+    static let tabBarBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-bg")
+    /// Image `tab-bar-marker`.
+    static let tabBarMarker = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-marker")
+    /// Image `tab-bar-mining`.
+    static let tabBarMining = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-mining")
+    /// Image `tab-bar-send`.
+    static let tabBarSend = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-send")
+    /// Image `tab-bar-transactions`.
+    static let tabBarTransactions = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-transactions")
+    /// Image `tab-bar-wallet`.
+    static let tabBarWallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-wallet")
     /// Image `wallet`.
     static let wallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallet")
     
@@ -112,6 +126,41 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "splash_logo", bundle: ..., traitCollection: ...)`
     static func splash_logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.splash_logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tab-bar-about", bundle: ..., traitCollection: ...)`
+    static func tabBarAbout(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabBarAbout, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tab-bar-bg", bundle: ..., traitCollection: ...)`
+    static func tabBarBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabBarBg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tab-bar-marker", bundle: ..., traitCollection: ...)`
+    static func tabBarMarker(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabBarMarker, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tab-bar-mining", bundle: ..., traitCollection: ...)`
+    static func tabBarMining(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabBarMining, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tab-bar-send", bundle: ..., traitCollection: ...)`
+    static func tabBarSend(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabBarSend, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tab-bar-transactions", bundle: ..., traitCollection: ...)`
+    static func tabBarTransactions(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabBarTransactions, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "tab-bar-wallet", bundle: ..., traitCollection: ...)`
+    static func tabBarWallet(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabBarWallet, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "wallet", bundle: ..., traitCollection: ...)`
@@ -160,7 +209,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 10 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 14 localization keys.
     struct localizable {
       /// en translation: About
       /// 
@@ -170,10 +219,22 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let home_menu_mining_title = Rswift.StringResource(key: "home_menu_mining_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Mining
+      /// 
+      /// Locales: en
+      static let tabs_mining = Rswift.StringResource(key: "tabs_mining", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Send
       /// 
       /// Locales: en
       static let home_menu_send_title = Rswift.StringResource(key: "home_menu_send_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Send
+      /// 
+      /// Locales: en
+      static let tabs_send = Rswift.StringResource(key: "tabs_send", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Transact.
+      /// 
+      /// Locales: en
+      static let tabs_transactions = Rswift.StringResource(key: "tabs_transactions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Transactions
       /// 
       /// Locales: en
@@ -182,6 +243,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let home_menu_wallet_title = Rswift.StringResource(key: "home_menu_wallet_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Wallet
+      /// 
+      /// Locales: en
+      static let tabs_wallet = Rswift.StringResource(key: "tabs_wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: check every transactions
       /// 
       /// Locales: en
@@ -217,11 +282,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("home_menu_mining_title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Mining
+      /// 
+      /// Locales: en
+      static func tabs_mining(_: Void = ()) -> String {
+        return NSLocalizedString("tabs_mining", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Send
       /// 
       /// Locales: en
       static func home_menu_send_title(_: Void = ()) -> String {
         return NSLocalizedString("home_menu_send_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Send
+      /// 
+      /// Locales: en
+      static func tabs_send(_: Void = ()) -> String {
+        return NSLocalizedString("tabs_send", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Transact.
+      /// 
+      /// Locales: en
+      static func tabs_transactions(_: Void = ()) -> String {
+        return NSLocalizedString("tabs_transactions", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Transactions
@@ -236,6 +322,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func home_menu_wallet_title(_: Void = ()) -> String {
         return NSLocalizedString("home_menu_wallet_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Wallet
+      /// 
+      /// Locales: en
+      static func tabs_wallet(_: Void = ()) -> String {
+        return NSLocalizedString("tabs_wallet", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: check every transactions

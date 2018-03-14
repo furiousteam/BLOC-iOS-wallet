@@ -6,7 +6,7 @@
 //  Copyright © 2018 BlockChain-Coin.net. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol SendMoneyDisplayLogic: class {
     func handleUpdate(viewModel: SendMoneyViewModel)
@@ -34,13 +34,8 @@ class SendMoneyVC: ViewController, SendMoneyDisplayLogic {
         interactor.presenter = presenter
         presenter.viewController = self
         router.viewController = self
-    }
-    
-    init(router: SendMoneyRoutingLogic, interactor: SendMoneyBusinessLogic) {
-        self.router = router
-        self.interactor = interactor
         
-        super.init(nibName: nil, bundle: nil)
+        tabBarItem = UITabBarItem(title: R.string.localizable.tabs_send(), image: R.image.tabBarSend(), selectedImage: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {

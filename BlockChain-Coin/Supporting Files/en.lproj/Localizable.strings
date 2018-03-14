@@ -8,3 +8,7 @@
 "home_menu_transactions_subtitle" = "check every transactions";
 "home_menu_about_title" = "About";
 "home_menu_about_subtitle" = "more about us";
+"tabs_wallet" = "Wallet";
+"tabs_mining" = "Mining";
+"tabs_send" = "Send";
+"tabs_transactions" = "Transact.";

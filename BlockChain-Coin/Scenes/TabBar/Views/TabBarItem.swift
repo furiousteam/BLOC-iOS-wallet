@@ -10,19 +10,34 @@ import UIKit
 
 class TabBarItem: View {
     
-    static let height: CGFloat = 73.0
+    static let height: CGFloat = 53.0
     
+    let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        stackView.spacing = 0
+        return stackView
+    }()
+
     var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = UIColor.white.withAlphaComponent(0.5)
         return imageView
+    }()
+    
+    let nameLabel: UILabel = {
+        let label = UILabel()
+        label.font = .regular(size: 8.0)
+        label.textColor = UIColor(hex: 0x00ffff)
+        return label
     }()
     
     var markerImageView: UIImageView = {
         let imageView = UIImageView(image: R.image.tabBarMarker())
         imageView.contentMode = .center
-        imageView.tintColor = .trx_blue
+        imageView.tintColor = UIColor(hex: 0x00ffff)
         return imageView
     }()
     
@@ -30,41 +45,23 @@ class TabBarItem: View {
         return CGSize(width: super.intrinsicContentSize.width, height: TabBarItem.height)
     }
     
-    // MARK: - Variables
-    
-    static var initialAnimationDuration: Double = 0.6
-    static var updateAnimationDuration: Double = 0.3
-    static var dismissAnimationDuration: Double = 0.3
-    
-    enum NotificationAnimation {
-        case initial
-        case update
-        case dismiss
-        
-        var duration: Double {
-            switch self {
-            case .initial:
-                return TabBarItem.initialAnimationDuration
-            case .update:
-                return TabBarItem.updateAnimationDuration
-            case .dismiss:
-                return TabBarItem.dismissAnimationDuration
-            }
-        }
-    }
-    
-    var notificationsCount: Int = 0 {
+    var isSelected: Bool = false {
         didSet {
-            updateNotificationsCount(oldValue: oldValue, newValue: notificationsCount)
+            UIView.animate(withDuration: 0.15) { [weak self] in
+                guard let `self` = self else { return }
+                self.markerImageView.alpha = self.isSelected ? 1.0 : 0.0
+            }
         }
     }
     
     // MARK: - View lifecycle
     
-    init(image: UIImage?, notificationsCount: Int = 0) {
+    init(image: UIImage?, title: String?, tintColor: UIColor) {
         super.init()
         
         imageView.image = image
+        imageView.tintColor = tintColor
+        nameLabel.text = title?.localizedUppercase
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -74,108 +71,31 @@ class TabBarItem: View {
     override func commonInit() {
         super.commonInit()
         
-        addSubview(imageView)
+        addSubview(stackView)
         addSubview(markerImageView)
-        addSubview(bubbleView)
         
         markerImageView.alpha = 0.0
-        bubbleView.alpha = 0.0
     }
     
     override func createConstraints() {
         super.createConstraints()
         
-        imageView.snp.makeConstraints({
-            $0.top.equalTo(37.0)
-            $0.height.equalTo(25.0)
+        stackView.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview()
+            $0.top.equalToSuperview().inset(6.0)
+            $0.bottom.equalToSuperview().inset(9.0)
         })
         
+        imageView.snp.makeConstraints({
+            $0.width.width.equalTo(26.0)
+        })
+                
+        [ imageView, nameLabel ].forEach(stackView.addArrangedSubview)
+                
         markerImageView.snp.makeConstraints({
             $0.bottom.equalTo(-5.0)
             $0.width.height.equalTo(3.0)
             $0.centerX.equalToSuperview()
         })
-        
-        bubbleView.snp.makeConstraints({
-            $0.top.equalToSuperview()
-            $0.centerX.equalToSuperview()
-        })
-    }
-    
-    // MARK: - Configuration
-    
-    func updateNotificationsCount(oldValue: Int, newValue: Int) {
-        guard oldValue != newValue else { return }
-        
-        let animationType: NotificationAnimation = {
-            let isInitialAnimation = (oldValue == 0)
-            let isDismissAnimation = (newValue == 0)
-            
-            if isInitialAnimation { return .initial }
-            if isDismissAnimation { return .dismiss }
-            
-            return .update
-        }()
-        
-        switch animationType {
-        case .initial:
-            performInitialAnimation()
-        case .update:
-            performUpdateAnimation()
-        case .dismiss:
-            performDismissAnimation()
-        }
-    }
-    
-    // MARK: - Animations
-    
-    func performInitialAnimation() {
-        bubbleView.alpha = 0.0
-        bubbleView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        markerImageView.alpha = 0.0
-        
-        bubbleView.configure(count: notificationsCount)
-        
-        UIView.animate(withDuration: NotificationAnimation.initial.duration) { [weak self] in
-            self?.bubbleView.alpha = 1.0
-            self?.markerImageView.alpha = 1.0
-        }
-        
-        UIView.animate(withDuration: NotificationAnimation.initial.duration,
-                       delay: 0.0,
-                       usingSpringWithDamping: 0.75,
-                       initialSpringVelocity: 0.0,
-                       options: [ .beginFromCurrentState ],
-                       animations: { [weak self] in
-                        self?.bubbleView.transform = CGAffineTransform.identity
-            }, completion: nil)
-    }
-    
-    func performUpdateAnimation() {
-        bubbleView.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
-        
-        bubbleView.configure(count: notificationsCount)
-        
-        UIView.animate(withDuration: NotificationAnimation.update.duration,
-                       delay: 0.0,
-                       usingSpringWithDamping: 0.75,
-                       initialSpringVelocity: 0.0,
-                       options: [ .beginFromCurrentState ],
-                       animations: { [weak self] in
-                        self?.bubbleView.transform = CGAffineTransform.identity
-            }, completion: nil)
-    }
-    
-    func performDismissAnimation() {
-        let count = notificationsCount
-        
-        UIView.animate(withDuration: NotificationAnimation.dismiss.duration, animations: { [weak self] in
-            self?.bubbleView.alpha = 0.0
-            self?.markerImageView.alpha = 0.0
-            self?.bubbleView.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-        }) { [weak self] _ in
-            self?.bubbleView.configure(count: count)
-        }
     }
 }

@@ -32,9 +32,6 @@ final class TabBarView: View {
         return stackView
     }()
     
-    let activeIndicator = ActiveTabIndicator()
-    var activeIndicatorWidth = 20.0
-    
     // MARK: - View lifecycke
     
     override func commonInit() {
@@ -42,7 +39,6 @@ final class TabBarView: View {
         
         addSubview(backgroundView)
         addSubview(stackView)
-        addSubview(activeIndicator)
     }
     
     override func createConstraints() {
@@ -50,20 +46,13 @@ final class TabBarView: View {
         
         backgroundView.snp.makeConstraints({
             $0.leading.trailing.bottom.equalToSuperview()
-            $0.height.equalTo(50.0)
+            $0.height.equalTo(53.0)
         })
         
         stackView.snp.makeConstraints({
             $0.bottom.top.equalToSuperview()
             $0.width.equalToSuperview().inset(20.0)
             $0.centerX.equalToSuperview()
-        })
-        
-        activeIndicator.snp.makeConstraints({
-            $0.height.equalTo(3.0)
-            $0.width.equalTo(activeIndicatorWidth)
-            $0.bottom.equalTo(stackView)
-            $0.leading.equalTo(stackView).inset(0.0)
         })
     }
     
@@ -76,7 +65,7 @@ final class TabBarView: View {
         })
         
         let subviews: [TabBarItem] = items.enumerated().map({ (index, item) -> TabBarItem in
-            let tabItem = TabBarItem(image: item.image)
+            let tabItem = TabBarItem(image: item.image, title: item.title, tintColor: (index == 2 ? UIColor.white : UIColor.white.withAlphaComponent(0.5)))
             tabItem.tag = index
             tabItem.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapTapped(tap:))))
             return tabItem
@@ -96,26 +85,8 @@ final class TabBarView: View {
     // MARK: - UI
     
     func setActiveTab(index: Int) {
-        guard index < stackView.arrangedSubviews.count else { return }
-        
-        let offset = Double(stackView.arrangedSubviews[index].frame.minX)
-        let width = Double(stackView.arrangedSubviews[index].frame.width)
-        
-        moveIndicator(offset: offset, targetWidth: width)
-    }
-    
-    fileprivate func moveIndicator(offset: Double, targetWidth: Double, animated: Bool = true) {
-        let additionalOffsetToCenter = max(0.0, targetWidth - self.activeIndicatorWidth) / 2.0
-        
-        UIView.animate(withDuration: 0.15, animations: { [weak self] in
-            guard let `self` = self else { return }
-            
-            self.activeIndicator.snp.updateConstraints({
-                $0.leading.equalTo(self.stackView).inset(offset + additionalOffsetToCenter)
-                $0.width.equalTo(self.activeIndicatorWidth)
-            })
-            
-            self.layoutIfNeeded()
-        }, completion: nil)
+        stackView.subviews.flatMap({ $0 as? TabBarItem }).enumerated().forEach { offset, element in
+            element.isSelected = (offset == index)
+        }
     }
 }

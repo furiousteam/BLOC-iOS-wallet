@@ -6,7 +6,7 @@
 //  Copyright © 2018 BlockChain-Coin.net. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol AboutDisplayLogic: class {
     func handleUpdate(viewModel: AboutViewModel)
@@ -34,6 +34,8 @@ class AboutVC: ViewController, AboutDisplayLogic {
         interactor.presenter = presenter
         presenter.viewController = self
         router.viewController = self
+        
+        commonInit()
     }
     
     init(router: AboutRoutingLogic, interactor: AboutBusinessLogic) {
@@ -41,6 +43,12 @@ class AboutVC: ViewController, AboutDisplayLogic {
         self.interactor = interactor
         
         super.init(nibName: nil, bundle: nil)
+        
+        commonInit()
+    }
+    
+    func commonInit() {
+        tabBarItem = UITabBarItem(title: nil, image: R.image.tabBarAbout(), selectedImage: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {

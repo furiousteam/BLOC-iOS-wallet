@@ -55,6 +55,7 @@ class AppController: AppDisplayLogic {
     fileprivate func postInit() {
         configure()
         
+        router.showApp()
         router.showHome()
     }
 

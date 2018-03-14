@@ -9,15 +9,15 @@
 import UIKit
 import SnapKit
 
+enum Tab: Int {
+    case wallets = 0
+    case mining = 1
+    case about = 2
+    case send = 3
+    case transactions = 4
+}
+
 final class TabBarVC: ViewController {
-    
-    enum Tab: Int {
-        case wallets = 0
-        case mining = 1
-        case about = 2
-        case send = 3
-        case transactions = 4
-    }
     
     let walletsVC = ListWalletsVC()
     let miningVC = MineVC()
@@ -26,7 +26,7 @@ final class TabBarVC: ViewController {
     let aboutVC = AboutVC()
     
     let tabBar = TabBarView()
-    let container = TabBarContainer()
+    let container = HomeContainer()
     let safeAreaFiller: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(hex: 0x000021)
