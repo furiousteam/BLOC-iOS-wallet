@@ -31,7 +31,13 @@ class NavigationController: UINavigationController {
     // Apperance setup is done here for playground compatiblity
     fileprivate static func configureNavigationBarApperance() {
         let navigationBar = UINavigationBar.appearance(whenContainedInInstancesOf: [ NavigationController.self ])
-        navigationBar.tintColor = .clear
+        navigationBar.setBackgroundImage(R.image.navBarBg(), for: .default)
+        navigationBar.shadowImage = UIImage()
+        navigationBar.backgroundColor = .clear
+        navigationBar.isTranslucent = true
+        
+        let barButtonItem = UIBarButtonItem.appearance(whenContainedInInstancesOf: [ NavigationController.self ])
+        barButtonItem.tintColor = UIColor.white.withAlphaComponent(0.5)
     }
     
 }

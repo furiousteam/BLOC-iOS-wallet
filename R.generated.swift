@@ -53,20 +53,30 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 16 images.
+  /// This `R.image` struct is generated, and contains static references to 21 images.
   struct image {
     /// Image `accessory`.
     static let accessory = Rswift.ImageResource(bundle: R.hostingBundle, name: "accessory")
+    /// Image `add-icon`.
+    static let addIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "add-icon")
     /// Image `add`.
     static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
     /// Image `default-bg`.
     static let defaultBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "default-bg")
+    /// Image `home-bg`.
+    static let homeBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "home-bg")
     /// Image `logo-small`.
     static let logoSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo-small")
     /// Image `logo-text`.
     static let logoText = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo-text")
     /// Image `logo`.
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
+    /// Image `menu-icon`.
+    static let menuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "menu-icon")
+    /// Image `nav-bar-bg`.
+    static let navBarBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "nav-bar-bg")
+    /// Image `right-arrow`.
+    static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "right-arrow")
     /// Image `splash_bg`.
     static let splash_bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_bg")
     /// Image `splash_logo`.
@@ -98,9 +108,19 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.add, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "add-icon", bundle: ..., traitCollection: ...)`
+    static func addIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.addIcon, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "default-bg", bundle: ..., traitCollection: ...)`
     static func defaultBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.defaultBg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "home-bg", bundle: ..., traitCollection: ...)`
+    static func homeBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.homeBg, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
@@ -116,6 +136,21 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "logo-text", bundle: ..., traitCollection: ...)`
     static func logoText(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.logoText, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "menu-icon", bundle: ..., traitCollection: ...)`
+    static func menuIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menuIcon, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "nav-bar-bg", bundle: ..., traitCollection: ...)`
+    static func navBarBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.navBarBg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "right-arrow", bundle: ..., traitCollection: ...)`
+    static func rightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.rightArrow, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "splash_bg", bundle: ..., traitCollection: ...)`

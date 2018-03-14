@@ -19,7 +19,7 @@ class HomeVC: ViewController, UITableViewDelegate, HomeDisplayLogic {
     
     let backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = R.image.defaultBg()
+        imageView.image = R.image.homeBg()
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()

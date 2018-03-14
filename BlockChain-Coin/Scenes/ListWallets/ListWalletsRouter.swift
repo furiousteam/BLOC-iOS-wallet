@@ -12,6 +12,7 @@ protocol ListWalletsRoutingLogic {
     func showAddWallet()
     func showWallet(wallet: WalletModel)
     func goBack()
+    func showHome()
 }
 
 class ListWalletsRouter: ListWalletsRoutingLogic {
@@ -29,5 +30,10 @@ class ListWalletsRouter: ListWalletsRoutingLogic {
     
     func goBack() {
         viewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func showHome() {
+        let homeVC = HomeVC()
+        viewController?.navigationController?.present(homeVC, animated: true, completion: nil)
     }
 }

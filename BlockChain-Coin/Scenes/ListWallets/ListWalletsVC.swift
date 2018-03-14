@@ -22,7 +22,7 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
         tableView.backgroundColor = .clear
         return tableView
     }()
-    
+        
     let dataSource = ListWalletsDataSource()
     
     let router: ListWalletsRoutingLogic
@@ -73,7 +73,7 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
     
     func configure() {
         // Subviews
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         
         view.addSubview(tableView)
         
@@ -87,14 +87,18 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
         tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.estimatedRowHeight = 60.0
+        tableView.backgroundColor = .clear
         
-        // Actions
+        // Navigation Bar
         
-        let addWalletButton = UIBarButtonItem(image: R.image.add(), style: .plain, target: self, action: #selector(addWalletTapped))
+        let titleView = TitleView(title: R.string.localizable.home_menu_wallet_title(), subtitle: R.string.localizable.home_menu_wallet_subtitle())
+        self.navigationItem.titleView = titleView
+        
+        let addWalletButton = UIBarButtonItem(image: R.image.addIcon(), style: .plain, target: self, action: #selector(addWalletTapped))
         self.navigationItem.setRightBarButton(addWalletButton, animated: false)
         
-        let backButton = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(backTapped))
-        self.navigationItem.setLeftBarButton(backButton, animated: false)
+        let menuButton = UIBarButtonItem(image: R.image.menuIcon(), style: .plain, target: self, action: #selector(menuTapped))
+        self.navigationItem.setLeftBarButton(menuButton, animated: false)
     }
     
     // MARK: - Display logic
@@ -121,6 +125,10 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
     
     @objc func backTapped() {
         router.goBack()
+    }
+    
+    @objc func menuTapped() {
+        router.showHome()
     }
     
     // MARK: - UITableView delegate
