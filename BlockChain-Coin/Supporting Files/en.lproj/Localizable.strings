@@ -12,3 +12,5 @@
 "tabs_mining" = "Mining";
 "tabs_send" = "Send";
 "tabs_transactions" = "Transact.";
+"wallet_list_item_title" = "Wallet #%d";
+"wallet_list_item_balance" = "Total balance: %@ BLOC";

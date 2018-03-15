@@ -15,10 +15,16 @@ class ListWalletsCell: TableViewCell {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fill
-        stackView.spacing = 15.0
-        stackView.layoutMargins = UIEdgeInsets(top: 15.0, left: 15.0, bottom: 15.0, right: 15.0)
+        stackView.spacing = 5.0
+        stackView.layoutMargins = UIEdgeInsets(top: 15.0, left: 5.0, bottom: 15.0, right: 20.0)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
+    }()
+    
+    let leftImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.wallet()
+        return imageView
     }()
     
     let textStackView: UIStackView = {
@@ -30,35 +36,38 @@ class ListWalletsCell: TableViewCell {
         return stackView
     }()
     
-    let addressLabel: UILabel = {
+    let topLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14.0, weight: .bold)
+        label.font = .regular(size: 17.5)
         label.numberOfLines = 0
-        label.textColor = .black
+        label.textColor = .white
         return label
     }()
     
-    let createdAtLabel: UILabel = {
+    let bottomLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 10.0, weight: .regular)
-        label.textColor = UIColor.black.withAlphaComponent(0.2)
+        label.font = .regular(size: 10.0)
+        label.textColor = UIColor.white.withAlphaComponent(0.3)
         return label
     }()
     
     let accessoryImageView: UIImageView = {
-        let imageView = UIImageView(image: R.image.accessory())
-        imageView.tintColor = UIColor.black.withAlphaComponent(0.2)
+        let imageView = UIImageView(image: R.image.rightArrow())
+        imageView.tintColor = UIColor(hex: 0x00ffff)
         return imageView
     }()
     
     let separatorView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(hex: 0xEEEEEE)
+        view.backgroundColor = UIColor(patternImage: R.image.separatorDash()!)
         return view
     }()
     
     override func commonInit() {
         super.commonInit()
+        
+        contentView.backgroundColor = .clear
+        backgroundColor = contentView.backgroundColor
         
         contentView.addSubview(separatorView)
         contentView.addSubview(stackView)
@@ -67,13 +76,13 @@ class ListWalletsCell: TableViewCell {
             $0.edges.equalToSuperview()
         })
         
-        [ textStackView, accessoryImageView ].forEach(stackView.addArrangedSubview)
+        [ leftImageView, textStackView, accessoryImageView ].forEach(stackView.addArrangedSubview)
         
-        [ addressLabel, createdAtLabel ].forEach(textStackView.addArrangedSubview)
+        [ topLabel, bottomLabel ].forEach(textStackView.addArrangedSubview)
         
         accessoryImageView.snp.makeConstraints({
-            $0.height.equalTo(11.0)
-            $0.width.equalTo(6.2)
+            $0.height.equalTo(8.5)
+            $0.width.equalTo(20.5)
         })
         
         separatorView.snp.makeConstraints({
@@ -83,9 +92,15 @@ class ListWalletsCell: TableViewCell {
         })
     }
     
-    func configure(address: String, createdAt: Date) {
-        addressLabel.text = address
-        createdAtLabel.text = createdAt.shortDate()
+    override func setSelected(_ selected: Bool, animated: Bool) {
+    }
+    
+    override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+    }
+    
+    func configure(name: String, balance: Double) {
+        topLabel.text = name
+        bottomLabel.text = R.string.localizable.wallet_list_item_balance(balance.blocCurrency())
     }
 
 }

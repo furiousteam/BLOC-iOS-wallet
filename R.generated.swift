@@ -53,7 +53,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 21 images.
+  /// This `R.image` struct is generated, and contains static references to 22 images.
   struct image {
     /// Image `accessory`.
     static let accessory = Rswift.ImageResource(bundle: R.hostingBundle, name: "accessory")
@@ -77,6 +77,8 @@ struct R: Rswift.Validatable {
     static let navBarBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "nav-bar-bg")
     /// Image `right-arrow`.
     static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "right-arrow")
+    /// Image `separator-dash`.
+    static let separatorDash = Rswift.ImageResource(bundle: R.hostingBundle, name: "separator-dash")
     /// Image `splash_bg`.
     static let splash_bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_bg")
     /// Image `splash_logo`.
@@ -151,6 +153,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "right-arrow", bundle: ..., traitCollection: ...)`
     static func rightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.rightArrow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "separator-dash", bundle: ..., traitCollection: ...)`
+    static func separatorDash(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.separatorDash, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "splash_bg", bundle: ..., traitCollection: ...)`
@@ -244,7 +251,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 14 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 16 localization keys.
     struct localizable {
       /// en translation: About
       /// 
@@ -266,6 +273,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let tabs_send = Rswift.StringResource(key: "tabs_send", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Total balance: %@ BLOC
+      /// 
+      /// Locales: en
+      static let wallet_list_item_balance = Rswift.StringResource(key: "wallet_list_item_balance", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Transact.
       /// 
       /// Locales: en
@@ -282,6 +293,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let tabs_wallet = Rswift.StringResource(key: "tabs_wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Wallet #%d
+      /// 
+      /// Locales: en
+      static let wallet_list_item_title = Rswift.StringResource(key: "wallet_list_item_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: check every transactions
       /// 
       /// Locales: en
@@ -338,6 +353,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tabs_send", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Total balance: %@ BLOC
+      /// 
+      /// Locales: en
+      static func wallet_list_item_balance(_ value1: String) -> String {
+        return String(format: NSLocalizedString("wallet_list_item_balance", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
       /// en translation: Transact.
       /// 
       /// Locales: en
@@ -364,6 +386,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func tabs_wallet(_: Void = ()) -> String {
         return NSLocalizedString("tabs_wallet", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Wallet #%d
+      /// 
+      /// Locales: en
+      static func wallet_list_item_title(_ value1: Int) -> String {
+        return String(format: NSLocalizedString("wallet_list_item_title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: check every transactions

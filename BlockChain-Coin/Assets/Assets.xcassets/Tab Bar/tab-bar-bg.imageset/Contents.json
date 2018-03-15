@@ -4,12 +4,15 @@
       "idiom" : "universal",
       "filename" : "tab-bar-bg.pdf",
       "resizing" : {
-        "mode" : "3-part-horizontal",
+        "mode" : "9-part",
         "center" : {
           "mode" : "tile",
-          "width" : 13
+          "width" : 6,
+          "height" : 1
         },
         "cap-insets" : {
+          "bottom" : 26,
+          "top" : 26,
           "right" : 0,
           "left" : 0
         }
