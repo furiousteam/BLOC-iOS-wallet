@@ -37,7 +37,7 @@ class SetWalletPasswordPresenter: SetWalletPasswordPresentationLogic {
     }
     
     func handleWalletCreated(response: SetWalletPasswordResponse) {
-        let viewModel = SetWalletPasswordViewModel(state: .completed(response.address))
+        let viewModel = SetWalletPasswordViewModel(state: .completed(response.wallet))
         
         viewController?.handleUpdate(viewModel: viewModel)
     }

@@ -34,7 +34,7 @@ struct SetWalletPasswordViewModel {
         case validForm
         case loading
         case error(String)
-        case completed(String)
+        case completed(WalletModel)
     }
     
     let isNextButtonEnabled: Bool
@@ -77,5 +77,5 @@ struct SetWalletPasswordRequest {
 }
 
 struct SetWalletPasswordResponse {
-    let address: String
+    let wallet: WalletModel
 }

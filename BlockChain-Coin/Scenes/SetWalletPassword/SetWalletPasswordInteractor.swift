@@ -40,7 +40,8 @@ class SetWalletPasswordInteractor: SetWalletPasswordBusinessLogic {
                         case .success:
                             log.info("New wallet created: \(address)")
                             
-                            self?.presenter?.handleWalletCreated(response: SetWalletPasswordResponse(address: address))
+                            let wallet = Wallet(uuid: uuid, keyPair: keyPair, address: address, password: request.form.password ?? "", createdAt: Date())
+                            self?.presenter?.handleWalletCreated(response: SetWalletPasswordResponse(wallet: wallet))
                         case .failure:
                             self?.presenter?.handleShowError(error: .couldNotCreateWallet)
                         }

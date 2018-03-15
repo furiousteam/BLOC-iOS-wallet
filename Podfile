@@ -45,6 +45,10 @@ target 'BlockChain-Coin' do
   # https://github.com/matej/MBProgressHUD
   pod 'MBProgressHUD', '~> 1.1.0'
 
+  # 🖼 A lightweight, pure-Swift library for generating pretty QRCode
+  # https://github.com/EyreFree/EFQRCode
+  pod 'EFQRCode', '~> 4.2.1'
+
   # 🔑 An implementation of CEd25519.
   # https://github.com/CikeQiu/CEd25519
   pod 'CEd25519', '~> 0.1.0'

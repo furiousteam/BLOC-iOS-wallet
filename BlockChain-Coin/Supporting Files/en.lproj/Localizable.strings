@@ -24,4 +24,21 @@
 "create_wallet_password_placeholder" = "Password";
 "create_wallet_password_bis_placeholder" = "Re-type your password";
 "create_wallet_password_next" = "Next step";
-"common_ok" = "OK";
+"common_ok" = "Ok";
+"wallet_created_title_first_line" = "Your wallet has been created!";
+"wallet_created_title_second_line" = "BACKUP YOUR KEY (below)";
+"wallet_created_title_third_line" = "Very important";
+"wallet_created_infos" = "You must understand that this private key is very sensitive. NEVER SHARE this with anyone. With this key, you can recover your wallet on any computer, smartphone or table. If someone finds or steals it, he will be able to recover your wallet and transfer funds out of it without your knowledge.\
+\
+The best way to backup your wallet is to print on paper 2 copies of this key and hide them in 2 different safe places. If you lose this key and your wallet is deleted from this device, you will never be able to recover it. Your funds will be lost forever. This key is essential to backup your wallet and funds.";
+"wallet_created_infos_last_line" = "Do not store it on your smartphone, tablet, or computer. You are the sole responsible for the security of this key.\
+Note: the key does not contain spaces.";
+"wallet_created_qr_code" = "Your wallet key below";
+"wallet_created_print" = "Print the key";
+"wallet_created_go_to_wallet" = "Go to your wallet";
+"import_wallet_key_title" = "Please enter your private key below";
+"import_wallet_key_placeholder" = "Your key here";
+"import_wallet_key_action" = "Next step";
+"create_wallet_alert_create" = "Create a new wallet";
+"create_wallet_alert_import_key" = "Import a wallet (using a private key)";
+"create_wallet_alert_import_qr" = "Import a wallet (using a QR code)";

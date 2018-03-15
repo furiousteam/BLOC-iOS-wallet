@@ -14,6 +14,7 @@ protocol WalletModel {
     var keyPair: KeyPair { get }
     var address: String { get }
     var createdAt: Date { get }
+    var password: String? { get }
 }
 
 class Wallet: NSObject, NSCoding, WalletModel {

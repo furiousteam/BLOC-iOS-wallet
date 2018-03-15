@@ -24,7 +24,9 @@ class ListWalletsRouter: ListWalletsRoutingLogic {
     }
     
     func showWallet(wallet: WalletModel) {
-        let vc = ShowWalletVC(wallet: wallet)
+        //let vc = ShowWalletVC(wallet: wallet)
+        let vc = ExportWalletKeysVC(wallet: wallet, mode: .creation)
+        
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
     

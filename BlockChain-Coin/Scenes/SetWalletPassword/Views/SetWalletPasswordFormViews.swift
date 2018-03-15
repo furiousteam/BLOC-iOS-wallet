@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginFormViews {
+class SetWalletFormViews {
     let orderedViews: [UIView]
     
     let logo: UIImageView = {

@@ -10,7 +10,7 @@ import UIKit
 
 protocol SetWalletPasswordRoutingLogic {
     func goBack()
-    func showWallet(address: String)
+    func showWalletKeys(wallet: WalletModel)
 }
 
 class SetWalletPasswordRouter: Router, SetWalletPasswordRoutingLogic {
@@ -20,9 +20,10 @@ class SetWalletPasswordRouter: Router, SetWalletPasswordRoutingLogic {
         viewController?.navigationController?.popViewController(animated: true)
     }
     
-    func showWallet(address: String) {
-        // TODO: Show wallet VC
-        log.info("Showing wallet infos for \(address)")
+    func showWalletKeys(wallet: WalletModel) {
+        let walletKeysVC = ExportWalletKeysVC(wallet: wallet, mode: .creation)
+        
+        viewController?.navigationController?.pushViewController(walletKeysVC, animated: true)
     }
 }
 

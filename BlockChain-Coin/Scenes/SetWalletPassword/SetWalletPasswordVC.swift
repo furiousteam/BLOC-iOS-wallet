@@ -16,7 +16,7 @@ protocol SetWalletPasswordDisplayLogic: class {
 class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
     
     let formView = ScrollableStackView()
-    let formFields = LoginFormViews()
+    let formFields = SetWalletFormViews()
     let toolbar = FormToolbar()
     
     let router: SetWalletPasswordRoutingLogic
@@ -128,9 +128,9 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
         formFields.nextButton.isEnabled = viewModel.isNextButtonEnabled
         
         switch viewModel.state {
-        case .completed(let address):
+        case .completed(let wallet):
             self.view.endEditing(true)
-            router.showWallet(address: address)
+            router.showWalletKeys(wallet: wallet)
         default:
             break
         }

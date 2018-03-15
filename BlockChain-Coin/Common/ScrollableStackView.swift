@@ -58,7 +58,6 @@ class ScrollableStackView: View {
             $0.bottom.equalToSuperview()
             $0.top.equalToSuperview()
             $0.width.equalToSuperview()
-            $0.height.lessThanOrEqualToSuperview()
         })
     }
     
