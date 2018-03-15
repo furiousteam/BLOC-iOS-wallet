@@ -22,10 +22,26 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 1 files.
+  /// This `R.file` struct is generated, and contains static references to 3 files.
   struct file {
+    /// Resource file `RobotoCondensed-Bold.ttf`.
+    static let robotoCondensedBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "RobotoCondensed-Bold", pathExtension: "ttf")
+    /// Resource file `RobotoCondensed-Light.ttf`.
+    static let robotoCondensedLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "RobotoCondensed-Light", pathExtension: "ttf")
     /// Resource file `RobotoCondensed-Regular.ttf`.
     static let robotoCondensedRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "RobotoCondensed-Regular", pathExtension: "ttf")
+    
+    /// `bundle.url(forResource: "RobotoCondensed-Bold", withExtension: "ttf")`
+    static func robotoCondensedBoldTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.robotoCondensedBoldTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "RobotoCondensed-Light", withExtension: "ttf")`
+    static func robotoCondensedLightTtf(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.robotoCondensedLightTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
     
     /// `bundle.url(forResource: "RobotoCondensed-Regular", withExtension: "ttf")`
     static func robotoCondensedRegularTtf(_: Void = ()) -> Foundation.URL? {
@@ -36,10 +52,24 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.font` struct is generated, and contains static references to 1 fonts.
+  /// This `R.font` struct is generated, and contains static references to 3 fonts.
   struct font: Rswift.Validatable {
+    /// Font `RobotoCondensed-Bold`.
+    static let robotoCondensedBold = Rswift.FontResource(fontName: "RobotoCondensed-Bold")
+    /// Font `RobotoCondensed-Light`.
+    static let robotoCondensedLight = Rswift.FontResource(fontName: "RobotoCondensed-Light")
     /// Font `RobotoCondensed-Regular`.
     static let robotoCondensedRegular = Rswift.FontResource(fontName: "RobotoCondensed-Regular")
+    
+    /// `UIFont(name: "RobotoCondensed-Bold", size: ...)`
+    static func robotoCondensedBold(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: robotoCondensedBold, size: size)
+    }
+    
+    /// `UIFont(name: "RobotoCondensed-Light", size: ...)`
+    static func robotoCondensedLight(size: CGFloat) -> UIKit.UIFont? {
+      return UIKit.UIFont(resource: robotoCondensedLight, size: size)
+    }
     
     /// `UIFont(name: "RobotoCondensed-Regular", size: ...)`
     static func robotoCondensedRegular(size: CGFloat) -> UIKit.UIFont? {
@@ -48,15 +78,19 @@ struct R: Rswift.Validatable {
     
     static func validate() throws {
       if R.font.robotoCondensedRegular(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'RobotoCondensed-Regular' could not be loaded, is 'RobotoCondensed-Regular.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.robotoCondensedBold(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'RobotoCondensed-Bold' could not be loaded, is 'RobotoCondensed-Bold.ttf' added to the UIAppFonts array in this targets Info.plist?") }
+      if R.font.robotoCondensedLight(size: 42) == nil { throw Rswift.ValidationError(description:"[R.swift] Font 'RobotoCondensed-Light' could not be loaded, is 'RobotoCondensed-Light.ttf' added to the UIAppFonts array in this targets Info.plist?") }
     }
     
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 22 images.
+  /// This `R.image` struct is generated, and contains static references to 23 images.
   struct image {
     /// Image `accessory`.
     static let accessory = Rswift.ImageResource(bundle: R.hostingBundle, name: "accessory")
+    /// Image `action-button-bg`.
+    static let actionButtonBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "action-button-bg")
     /// Image `add-icon`.
     static let addIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "add-icon")
     /// Image `add`.
@@ -103,6 +137,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "accessory", bundle: ..., traitCollection: ...)`
     static func accessory(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.accessory, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "action-button-bg", bundle: ..., traitCollection: ...)`
+    static func actionButtonBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.actionButtonBg, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "add", bundle: ..., traitCollection: ...)`
@@ -251,12 +290,24 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 16 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 21 localization keys.
     struct localizable {
       /// en translation: About
       /// 
       /// Locales: en
       static let home_menu_about_title = Rswift.StringResource(key: "home_menu_about_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Create a new wallet
+      /// 
+      /// Locales: en
+      static let wallet_list_no_wallet_create = Rswift.StringResource(key: "wallet_list_no_wallet_create", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Import a wallet (using QR code)
+      /// 
+      /// Locales: en
+      static let wallet_list_no_wallet_import_qr_code = Rswift.StringResource(key: "wallet_list_no_wallet_import_qr_code", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Import a wallet (using private key)
+      /// 
+      /// Locales: en
+      static let wallet_list_no_wallet_import_key = Rswift.StringResource(key: "wallet_list_no_wallet_import_key", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Mining
       /// 
       /// Locales: en
@@ -297,6 +348,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_list_item_title = Rswift.StringResource(key: "wallet_list_item_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: You have no wallet for now
+      /// 
+      /// Locales: en
+      static let wallet_list_no_wallet_title = Rswift.StringResource(key: "wallet_list_no_wallet_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: You need to create a new wallet or import a wallet using your private key or a QR code
+      /// 
+      /// Locales: en
+      static let wallet_list_no_wallet_instructions = Rswift.StringResource(key: "wallet_list_no_wallet_instructions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: check every transactions
       /// 
       /// Locales: en
@@ -323,6 +382,27 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func home_menu_about_title(_: Void = ()) -> String {
         return NSLocalizedString("home_menu_about_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Create a new wallet
+      /// 
+      /// Locales: en
+      static func wallet_list_no_wallet_create(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_list_no_wallet_create", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Import a wallet (using QR code)
+      /// 
+      /// Locales: en
+      static func wallet_list_no_wallet_import_qr_code(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_list_no_wallet_import_qr_code", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Import a wallet (using private key)
+      /// 
+      /// Locales: en
+      static func wallet_list_no_wallet_import_key(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_list_no_wallet_import_key", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Mining
@@ -393,6 +473,20 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_list_item_title(_ value1: Int) -> String {
         return String(format: NSLocalizedString("wallet_list_item_title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: You have no wallet for now
+      /// 
+      /// Locales: en
+      static func wallet_list_no_wallet_title(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_list_no_wallet_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: You need to create a new wallet or import a wallet using your private key or a QR code
+      /// 
+      /// Locales: en
+      static func wallet_list_no_wallet_instructions(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_list_no_wallet_instructions", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: check every transactions

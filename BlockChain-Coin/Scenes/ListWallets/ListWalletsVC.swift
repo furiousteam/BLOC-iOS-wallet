@@ -84,8 +84,13 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
         // TableView
         
         ListWalletsCell.registerWith(tableView)
+        NoWalletTitleCell.registerWith(tableView)
+        NoWalletInstructionsCell.registerWith(tableView)
+        ActionCell.registerWith(tableView)
+        
         tableView.dataSource = dataSource
         tableView.delegate = self
+        tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60.0
         tableView.backgroundColor = .clear
         
@@ -135,6 +140,10 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        guard dataSource.wallets.count > 0 else {
+            return
+        }
         
         router.showWallet(wallet: dataSource.wallets[indexPath.section])
     }

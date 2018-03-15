@@ -12,4 +12,12 @@ extension UIFont {
     static func regular(size: CGFloat) -> UIFont {
         return R.font.robotoCondensedRegular(size: size)!
     }
+    
+    static func bold(size: CGFloat) -> UIFont {
+        return R.font.robotoCondensedBold(size: size)!
+    }
+    
+    static func light(size: CGFloat) -> UIFont {
+        return R.font.robotoCondensedLight(size: size)!
+    }
 }
