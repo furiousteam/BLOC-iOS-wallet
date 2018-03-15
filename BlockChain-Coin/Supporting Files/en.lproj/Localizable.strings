@@ -19,3 +19,9 @@
 "wallet_list_no_wallet_create" = "Create a new wallet";
 "wallet_list_no_wallet_import_key" = "Import a wallet (using private key)";
 "wallet_list_no_wallet_import_qr_code" = "Import a wallet (using QR code)";
+"create_wallet_password_title" = "Please type a password for this new wallet";
+"create_wallet_password_instructions" = "This password will be required each time you make a transaction with someone and to export your private key";
+"create_wallet_password_placeholder" = "Password";
+"create_wallet_password_bis_placeholder" = "Re-type your password";
+"create_wallet_password_next" = "Next step";
+"common_ok" = "OK";

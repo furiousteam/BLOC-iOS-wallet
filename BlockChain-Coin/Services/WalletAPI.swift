@@ -95,7 +95,7 @@ class WalletAPI: WalletStore {
     private let provider = MoyaProvider<WalletAPITarget>()
     private let disposeBag = DisposeBag()
     
-    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
+    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, password: String?, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
         let endpoint = WalletAPITarget.createWallet(publicKey: keyPair.publicKey.bytes.toHexString(), uuid: uuid.uuidString, walletPrivateKey: secretKey)
 
         provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletAPICreateResponse.self).subscribe(onSuccess: { response in

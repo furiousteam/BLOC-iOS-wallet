@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 protocol WalletModel {
     var uuid: UUID { get }
@@ -21,11 +22,17 @@ class Wallet: NSObject, NSCoding, WalletModel {
     let address: String
     let createdAt: Date
     
-    init(uuid: UUID, keyPair: KeyPair, address: String, createdAt: Date) {
+    var password: String? {
+        return KeychainWrapper.standard.string(forKey: uuid.uuidString)
+    }
+    
+    init(uuid: UUID, keyPair: KeyPair, address: String, password: String, createdAt: Date) {
         self.uuid = uuid
         self.keyPair = keyPair
         self.address = address
         self.createdAt = createdAt
+        
+        KeychainWrapper.standard.set(password, forKey: uuid.uuidString)
     }
     
     public required init?(coder aDecoder: NSCoder) {

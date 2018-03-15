@@ -36,6 +36,7 @@ class ActionButton: UIButton {
         setBackgroundImage(R.image.actionButtonBg(), for: .normal)
         tintColor = UIColor(hex: 0x00ffff)
         setTitleColor(UIColor(hex: 0x000029), for: .normal)
+        setTitleColor(UIColor(hex: 0x000029).withAlphaComponent(0.3), for: .disabled)
         titleLabel?.font = .regular(size: 13.5)
         
         layer.masksToBounds = false

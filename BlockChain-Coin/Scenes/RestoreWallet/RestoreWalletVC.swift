@@ -28,10 +28,10 @@ class RestoreWalletVC: UIViewController {
         if let seed = localWalletWorker.generateSeed(), let keyPair = localWalletWorker.generateKeyPair(seed: seed) {
             let uuid = UUID()
             
-            remoteWalletWorker.addWallet(keyPair: keyPair, uuid: uuid, secretKey: spendPrivateKey, address: nil, completion: { [weak self] result in
+            remoteWalletWorker.addWallet(keyPair: keyPair, uuid: uuid, secretKey: spendPrivateKey, password: nil, address: nil, completion: { [weak self] result in
                 switch result {
                 case .success(let address):
-                    self?.localWalletWorker.addWallet(keyPair: keyPair, uuid: uuid, secretKey: spendPrivateKey, address: address, completion: { localResult in
+                    self?.localWalletWorker.addWallet(keyPair: keyPair, uuid: uuid, secretKey: spendPrivateKey, password: nil, address: address, completion: { localResult in
                         switch localResult {
                         case .success:
                             print("New wallet created: \(address)")

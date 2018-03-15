@@ -85,7 +85,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 23 images.
+  /// This `R.image` struct is generated, and contains static references to 27 images.
   struct image {
     /// Image `accessory`.
     static let accessory = Rswift.ImageResource(bundle: R.hostingBundle, name: "accessory")
@@ -95,10 +95,14 @@ struct R: Rswift.Validatable {
     static let addIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "add-icon")
     /// Image `add`.
     static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
+    /// Image `bottom-arrow`.
+    static let bottomArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "bottom-arrow")
     /// Image `default-bg`.
     static let defaultBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "default-bg")
     /// Image `home-bg`.
     static let homeBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "home-bg")
+    /// Image `left-arrow`.
+    static let leftArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "left-arrow")
     /// Image `logo-small`.
     static let logoSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo-small")
     /// Image `logo-text`.
@@ -131,6 +135,10 @@ struct R: Rswift.Validatable {
     static let tabBarTransactions = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-transactions")
     /// Image `tab-bar-wallet`.
     static let tabBarWallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-wallet")
+    /// Image `top-arrow`.
+    static let topArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "top-arrow")
+    /// Image `wallet-medium`.
+    static let walletMedium = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallet-medium")
     /// Image `wallet`.
     static let wallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallet")
     
@@ -154,6 +162,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.addIcon, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "bottom-arrow", bundle: ..., traitCollection: ...)`
+    static func bottomArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.bottomArrow, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "default-bg", bundle: ..., traitCollection: ...)`
     static func defaultBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.defaultBg, compatibleWith: traitCollection)
@@ -162,6 +175,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "home-bg", bundle: ..., traitCollection: ...)`
     static func homeBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.homeBg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "left-arrow", bundle: ..., traitCollection: ...)`
+    static func leftArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.leftArrow, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "logo", bundle: ..., traitCollection: ...)`
@@ -244,9 +262,19 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.tabBarWallet, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "top-arrow", bundle: ..., traitCollection: ...)`
+    static func topArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.topArrow, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "wallet", bundle: ..., traitCollection: ...)`
     static func wallet(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.wallet, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "wallet-medium", bundle: ..., traitCollection: ...)`
+    static func walletMedium(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.walletMedium, compatibleWith: traitCollection)
     }
     
     fileprivate init() {}
@@ -290,7 +318,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 21 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 27 localization keys.
     struct localizable {
       /// en translation: About
       /// 
@@ -316,6 +344,26 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let tabs_mining = Rswift.StringResource(key: "tabs_mining", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Next step
+      /// 
+      /// Locales: en
+      static let create_wallet_password_next = Rswift.StringResource(key: "create_wallet_password_next", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: OK
+      /// 
+      /// Locales: en
+      static let common_ok = Rswift.StringResource(key: "common_ok", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Password
+      /// 
+      /// Locales: en
+      static let create_wallet_password_placeholder = Rswift.StringResource(key: "create_wallet_password_placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Please type a password for this new wallet
+      /// 
+      /// Locales: en
+      static let create_wallet_password_title = Rswift.StringResource(key: "create_wallet_password_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Re-type your password
+      /// 
+      /// Locales: en
+      static let create_wallet_password_bis_placeholder = Rswift.StringResource(key: "create_wallet_password_bis_placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Send
       /// 
       /// Locales: en
@@ -324,6 +372,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let tabs_send = Rswift.StringResource(key: "tabs_send", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: This password will be required each time you make a transaction with someone and to export your private key
+      /// 
+      /// Locales: en
+      static let create_wallet_password_instructions = Rswift.StringResource(key: "create_wallet_password_instructions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Total balance: %@ BLOC
       /// 
       /// Locales: en
@@ -419,6 +471,41 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tabs_mining", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Next step
+      /// 
+      /// Locales: en
+      static func create_wallet_password_next(_: Void = ()) -> String {
+        return NSLocalizedString("create_wallet_password_next", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: OK
+      /// 
+      /// Locales: en
+      static func common_ok(_: Void = ()) -> String {
+        return NSLocalizedString("common_ok", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Password
+      /// 
+      /// Locales: en
+      static func create_wallet_password_placeholder(_: Void = ()) -> String {
+        return NSLocalizedString("create_wallet_password_placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Please type a password for this new wallet
+      /// 
+      /// Locales: en
+      static func create_wallet_password_title(_: Void = ()) -> String {
+        return NSLocalizedString("create_wallet_password_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Re-type your password
+      /// 
+      /// Locales: en
+      static func create_wallet_password_bis_placeholder(_: Void = ()) -> String {
+        return NSLocalizedString("create_wallet_password_bis_placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Send
       /// 
       /// Locales: en
@@ -431,6 +518,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func tabs_send(_: Void = ()) -> String {
         return NSLocalizedString("tabs_send", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: This password will be required each time you make a transaction with someone and to export your private key
+      /// 
+      /// Locales: en
+      static func create_wallet_password_instructions(_: Void = ()) -> String {
+        return NSLocalizedString("create_wallet_password_instructions", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Total balance: %@ BLOC

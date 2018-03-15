@@ -64,7 +64,7 @@ class ListWalletsDataSource: NSObject, UITableViewDataSource {
         
         let wallet = wallets[indexPath.section]
         
-        cell.configure(name: R.string.localizable.wallet_list_item_title(indexPath.section + 1), balance: 10.000896876)
+        cell.configure(name: R.string.localizable.wallet_list_item_title(indexPath.section + 1), balance: 0.0)
         
         return cell
     }

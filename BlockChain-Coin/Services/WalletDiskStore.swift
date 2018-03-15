@@ -9,7 +9,7 @@
 import Foundation
 import SwiftKeychainWrapper
 
-class WalletDiskStore: WalletStore {    
+class WalletDiskStore: WalletStore {
     private let cache = UserDefaults.standard
 
     func generateSeed() -> Seed? {
@@ -37,8 +37,8 @@ class WalletDiskStore: WalletStore {
         })))
     }
     
-    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
-        guard let address = address else {
+    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, password: String?, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
+        guard let address = address, let password = password else {
             completion(.failure(error: .couldNotCreateWallet))
             return
         }
@@ -46,7 +46,7 @@ class WalletDiskStore: WalletStore {
         var wallets: [Wallet] = (KeychainWrapper.standard.object(forKey: "wallets") as? [Wallet]) ?? []
         
         if wallets.contains(where: { $0.keyPair == keyPair }) == false {
-            let newWallet = Wallet(uuid: uuid, keyPair: keyPair, address: address, createdAt: Date())
+            let newWallet = Wallet(uuid: uuid, keyPair: keyPair, address: address, password: password, createdAt: Date())
             wallets.append(newWallet)
         }
         
