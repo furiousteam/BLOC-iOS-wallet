@@ -42,3 +42,4 @@ Note: the key does not contain spaces.";
 "create_wallet_alert_create" = "Create a new wallet";
 "create_wallet_alert_import_key" = "Import a wallet (using a private key)";
 "create_wallet_alert_import_qr" = "Import a wallet (using a QR code)";
+"common_cancel" = "Cancel";

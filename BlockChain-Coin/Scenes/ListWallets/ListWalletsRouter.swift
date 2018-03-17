@@ -13,6 +13,8 @@ protocol ListWalletsRoutingLogic {
     func showWallet(wallet: WalletModel)
     func goBack()
     func showHome()
+    func showImportWalletWithKey()
+    func showImportWalletWithQRCode()
 }
 
 class ListWalletsRouter: ListWalletsRoutingLogic {
@@ -24,8 +26,20 @@ class ListWalletsRouter: ListWalletsRoutingLogic {
     }
     
     func showWallet(wallet: WalletModel) {
-        //let vc = ShowWalletVC(wallet: wallet)
-        let vc = ExportWalletKeysVC(wallet: wallet, mode: .creation)
+        let vc = ShowWalletVC(wallet: wallet)
+        
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showImportWalletWithKey() {
+        let vc = ImportWalletKeyVC()
+        
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showImportWalletWithQRCode() {
+        // TODO: QR Code import
+        let vc = ImportWalletKeyVC()
         
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }

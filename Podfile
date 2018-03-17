@@ -49,6 +49,10 @@ target 'BlockChain-Coin' do
   # https://github.com/EyreFree/EFQRCode
   pod 'EFQRCode', '~> 4.2.1'
 
+  # 🖼 A drop-in UITextView replacement with a placeholder
+  # https://github.com/glaszig/SZTextView
+  pod 'SZTextView', '~> 1.3.0'
+
   # 🔑 An implementation of CEd25519.
   # https://github.com/CikeQiu/CEd25519
   pod 'CEd25519', '~> 0.1.0'

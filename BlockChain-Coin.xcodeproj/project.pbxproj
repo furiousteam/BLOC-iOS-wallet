@@ -174,6 +174,8 @@
 		9C9A575F203AAFAA00B010D5 /* Base58.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A575E203AAFAA00B010D5 /* Base58.swift */; };
 		9C9A5762203AB9F500B010D5 /* Base58Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A5761203AB9F500B010D5 /* Base58Tests.swift */; };
 		9C9A5764203AC7F200B010D5 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A5763203AC7F200B010D5 /* AddressTests.swift */; };
+		9CA7FB7C205C11A000D48D5F /* CreateWalletAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FB7B205C11A000D48D5F /* CreateWalletAlertController.swift */; };
+		9CA7FB7F205C151C00D48D5F /* ImportWalletKeyFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FB7E205C151C00D48D5F /* ImportWalletKeyFormViews.swift */; };
 		9CB6C338205027FB002E610C /* WalletAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB6C337205027FB002E610C /* WalletAPI.swift */; };
 		9CB6C33A20502C20002E610C /* Response+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB6C33920502C20002E610C /* Response+ErrorHandling.swift */; };
 		9CB6C33C20502C68002E610C /* Observable+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB6C33B20502C68002E610C /* Observable+ErrorHandling.swift */; };
@@ -390,6 +392,8 @@
 		9C9A575E203AAFAA00B010D5 /* Base58.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base58.swift; sourceTree = "<group>"; };
 		9C9A5761203AB9F500B010D5 /* Base58Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base58Tests.swift; sourceTree = "<group>"; };
 		9C9A5763203AC7F200B010D5 /* AddressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
+		9CA7FB7B205C11A000D48D5F /* CreateWalletAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletAlertController.swift; sourceTree = "<group>"; };
+		9CA7FB7E205C151C00D48D5F /* ImportWalletKeyFormViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletKeyFormViews.swift; sourceTree = "<group>"; };
 		9CB6C337205027FB002E610C /* WalletAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAPI.swift; sourceTree = "<group>"; };
 		9CB6C33920502C20002E610C /* Response+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+ErrorHandling.swift"; sourceTree = "<group>"; };
 		9CB6C33B20502C68002E610C /* Observable+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+ErrorHandling.swift"; sourceTree = "<group>"; };
@@ -736,6 +740,7 @@
 				9C4AA49D2033354F0056152C /* ListWalletsRouter.swift */,
 				9C4AA49F203335590056152C /* ListWalletsInteractor.swift */,
 				9C4AA4A1203335610056152C /* ListWalletsPresenter.swift */,
+				9CA7FB7B205C11A000D48D5F /* CreateWalletAlertController.swift */,
 			);
 			path = ListWallets;
 			sourceTree = "<group>";
@@ -937,6 +942,7 @@
 		9C85E3A3205ADA7200208DF6 /* ImportWalletKey */ = {
 			isa = PBXGroup;
 			children = (
+				9CA7FB7D205C150C00D48D5F /* Views */,
 				9C85E3A4205ADA7200208DF6 /* ImportWalletKeyModels.swift */,
 				9C85E3A6205ADA7200208DF6 /* ImportWalletKeyVC.swift */,
 				9C85E3A5205ADA7200208DF6 /* ImportWalletKeyInteractor.swift */,
@@ -1003,6 +1009,14 @@
 				9C9A5761203AB9F500B010D5 /* Base58Tests.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		9CA7FB7D205C150C00D48D5F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CA7FB7E205C151C00D48D5F /* ImportWalletKeyFormViews.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9CBB2EEE205679FE00718EBA /* Home */ = {
@@ -1175,6 +1189,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SZTextView/SZTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
@@ -1198,6 +1213,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SZTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
@@ -1351,6 +1367,7 @@
 				9C043683202C9CD700671DA2 /* PoolWorker.swift in Sources */,
 				9C85E38E205A6DAF00208DF6 /* SpacerView.swift in Sources */,
 				9C07226A2035695100B012B6 /* Transfer.swift in Sources */,
+				9CA7FB7C205C11A000D48D5F /* CreateWalletAlertController.swift in Sources */,
 				9C4AA48320332C2B0056152C /* KeyPair.swift in Sources */,
 				9C4AA4A2203335610056152C /* ListWalletsPresenter.swift in Sources */,
 				9C78F1C32056CD36001ADA32 /* SendMoneyModels.swift in Sources */,
@@ -1381,6 +1398,7 @@
 				9C8A8F6B202EDA6500F55736 /* WalletRPC.swift in Sources */,
 				9C6FEF872050496900ED7D47 /* WalletKeys.swift in Sources */,
 				9C8A8F78202EE13600F55736 /* PoolSocketSubmitJobRequest.swift in Sources */,
+				9CA7FB7F205C151C00D48D5F /* ImportWalletKeyFormViews.swift in Sources */,
 				9C043675202C968D00671DA2 /* jh_ansi_opt64.c in Sources */,
 				9C85E368205A55CD00208DF6 /* NoWalletInstructionsCell.swift in Sources */,
 				9CB6C338205027FB002E610C /* WalletAPI.swift in Sources */,

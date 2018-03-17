@@ -125,7 +125,26 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
     // MARK: - Actions
     
     @objc func addWalletTapped() {
-        router.showAddWallet()
+        if dataSource.wallets.count > 1 {
+            let createAlert = CreateWalletAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+            createAlert.setup(title: nil, message: nil)
+            
+            createAlert.didTapNewWallet = { [weak self] in
+                self?.router.showAddWallet()
+            }
+            
+            createAlert.didTapImportWalletWithKey = { [weak self] in
+                self?.router.showImportWalletWithKey()
+            }
+            
+            createAlert.didTapImportWalletWithQRCode = { [weak self] in
+                self?.router.showImportWalletWithQRCode()
+            }
+            
+            self.present(createAlert, animated: true, completion: nil)
+        } else {
+            router.showAddWallet()
+        }
     }
     
     @objc func backTapped() {
