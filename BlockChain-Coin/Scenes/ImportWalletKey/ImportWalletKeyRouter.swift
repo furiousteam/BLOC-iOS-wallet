@@ -10,18 +10,13 @@ import UIKit
 
 protocol ImportWalletKeyRoutingLogic {
     func goBack()
-    func showWalletSetPassword(wallet: WalletModel)
 }
 
 class ImportWalletKeyRouter: Router, ImportWalletKeyRoutingLogic {
     weak var viewController: UIViewController?
     
     func goBack() {
-        viewController?.dismiss(animated: true, completion: nil)
-    }
-    
-    func showWalletSetPassword(wallet: WalletModel) {
-        // TODO
+        viewController?.navigationController?.popToRootViewController(animated: true)
     }
 }
 

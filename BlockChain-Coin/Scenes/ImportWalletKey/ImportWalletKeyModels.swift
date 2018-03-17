@@ -10,6 +10,7 @@ import Foundation
 
 struct ImportWalletKeyForm {
     var keysString: String?
+    var password: String
     
     var spendPrivateKey: String? {
         guard let keysString = keysString else { return nil }

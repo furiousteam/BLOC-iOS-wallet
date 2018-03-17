@@ -15,6 +15,12 @@ protocol SetWalletPasswordDisplayLogic: class {
 
 class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
     
+    enum Mode {
+        case create
+        case restorePrivateKey
+        case restoreQRCode
+    }
+    
     let formView = ScrollableStackView()
     let formFields = SetWalletFormViews()
     let toolbar = FormToolbar()
@@ -22,17 +28,21 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
     let router: SetWalletPasswordRoutingLogic
     let interactor: SetWalletPasswordBusinessLogic
     
+    let mode: Mode
+    
     fileprivate let disposeBag = DisposeBag()
 
     // MARK: - View lifecycle
     
-    init() {
+    init(mode: Mode) {
         let interactor = SetWalletPasswordInteractor()
         let presenter = SetWalletPasswordPresenter()
         let router = SetWalletPasswordRouter()
         
         self.router = router
         self.interactor = interactor
+        
+        self.mode = mode
         
         super.init(nibName: nil, bundle: nil)
         
@@ -41,9 +51,11 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
         router.viewController = self
     }
     
-    init(router: SetWalletPasswordRoutingLogic, interactor: SetWalletPasswordBusinessLogic) {
+    init(router: SetWalletPasswordRoutingLogic, interactor: SetWalletPasswordBusinessLogic, mode: Mode) {
         self.router = router
         self.interactor = interactor
+        
+        self.mode = mode
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -114,7 +126,15 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
     @objc func nextTapped() {
         let form = SetWalletPasswordForm(password: formFields.passwordField.textField.text, passwordBis: formFields.passwordBisField.textField.text)
         
-        interactor.setPassword(request: SetWalletPasswordRequest(form: form))
+        guard let password = form.password else { return }
+        
+        if mode == .create {
+            interactor.setPassword(request: SetWalletPasswordRequest(form: form))
+        } else if mode == .restorePrivateKey {
+            router.showImportWalletWithKey(password: password)
+        } else if mode == .restoreQRCode {
+            router.showImportWalletWithQRCode(password: password)
+        }
     }
     
     // MARK: UI Update

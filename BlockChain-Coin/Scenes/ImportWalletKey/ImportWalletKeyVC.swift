@@ -20,15 +20,19 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
     let router: ImportWalletKeyRoutingLogic
     let interactor: ImportWalletKeyBusinessLogic
     
+    let password: String
+    
     // MARK: - View lifecycle
     
-    init() {
+    init(password: String) {
         let interactor = ImportWalletKeyInteractor()
         let presenter = ImportWalletKeyPresenter()
         let router = ImportWalletKeyRouter()
         
         self.router = router
         self.interactor = interactor
+        
+        self.password = password
         
         super.init(nibName: nil, bundle: nil)
         
@@ -37,9 +41,11 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
         router.viewController = self
     }
     
-    init(router: ImportWalletKeyRoutingLogic, interactor: ImportWalletKeyBusinessLogic) {
+    init(router: ImportWalletKeyRoutingLogic, interactor: ImportWalletKeyBusinessLogic, password: String) {
         self.router = router
         self.interactor = interactor
+        
+        self.password = password
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -89,7 +95,7 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
     @objc func nextTapped() {
         log.info("Restoring wallet from key...")
         
-        let form = ImportWalletKeyForm(keysString: formFields.textView.text)
+        let form = ImportWalletKeyForm(keysString: formFields.textView.text, password: password)
         
         interactor.validateForm(request: ImportWalletKeyRequest(form: form))
     }
@@ -104,12 +110,12 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
         
         switch viewModel.state {
         case .validForm:
-            let form = ImportWalletKeyForm(keysString: formFields.textView.text)
+            let form = ImportWalletKeyForm(keysString: formFields.textView.text, password: password)
             
             interactor.importWallet(request: ImportWalletKeyRequest(form: form))
-        case .completed(let wallet):
+        case .completed:
             self.view.endEditing(true)
-            router.showWalletSetPassword(wallet: wallet)
+            router.goBack()
         default:
             break
         }

@@ -21,7 +21,7 @@ class ListWalletsRouter: ListWalletsRoutingLogic {
     weak var viewController: UIViewController?
     
     func showAddWallet() {
-        let vc = SetWalletPasswordVC()
+        let vc = SetWalletPasswordVC(mode: .create)
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -32,14 +32,13 @@ class ListWalletsRouter: ListWalletsRoutingLogic {
     }
     
     func showImportWalletWithKey() {
-        let vc = ImportWalletKeyVC()
+        let vc = SetWalletPasswordVC(mode: .restorePrivateKey)
         
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
     
     func showImportWalletWithQRCode() {
-        // TODO: QR Code import
-        let vc = ImportWalletKeyVC()
+        let vc = SetWalletPasswordVC(mode: .restoreQRCode)
         
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
