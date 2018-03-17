@@ -93,8 +93,6 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
     }
     
     @objc func nextTapped() {
-        log.info("Restoring wallet from key...")
-        
         let form = ImportWalletKeyForm(keysString: formFields.textView.text, password: password)
         
         interactor.validateForm(request: ImportWalletKeyRequest(form: form))

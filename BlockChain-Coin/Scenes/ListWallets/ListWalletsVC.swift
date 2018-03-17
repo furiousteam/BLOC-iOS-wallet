@@ -130,15 +130,21 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
             createAlert.setup(title: nil, message: nil)
             
             createAlert.didTapNewWallet = { [weak self] in
-                self?.router.showAddWallet()
+                DispatchQueue.main.async {
+                    self?.router.showAddWallet()
+                }
             }
             
             createAlert.didTapImportWalletWithKey = { [weak self] in
-                self?.router.showImportWalletWithKey()
+                DispatchQueue.main.async {
+                    self?.router.showImportWalletWithKey()
+                }
             }
             
             createAlert.didTapImportWalletWithQRCode = { [weak self] in
-                self?.router.showImportWalletWithQRCode()
+                DispatchQueue.main.async {
+                    self?.router.showImportWalletWithQRCode()
+                }
             }
             
             self.present(createAlert, animated: true, completion: nil)
@@ -160,11 +166,17 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
-        guard dataSource.wallets.count > 0 else {
-            return
+        if dataSource.wallets.count == 0 {
+            if indexPath.row == 0 {
+                router.showAddWallet()
+            } else if indexPath.row == 1 {
+                router.showImportWalletWithKey()
+            } else if indexPath.row == 2 {
+                router.showImportWalletWithQRCode()
+            }
+        } else {
+            router.showWallet(wallet: dataSource.wallets[indexPath.section])
         }
-        
-        router.showWallet(wallet: dataSource.wallets[indexPath.section])
     }
     
 }

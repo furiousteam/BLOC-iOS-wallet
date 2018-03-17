@@ -35,7 +35,9 @@ class SetWalletPasswordRouter: Router, SetWalletPasswordRoutingLogic {
     }
     
     func showImportWalletWithQRCode(password: String) {
+        let vc = ImportWalletQRCodeVC(password: password)
         
+        viewController?.navigationController?.present(vc, animated: true, completion: nil)
     }
 }
 

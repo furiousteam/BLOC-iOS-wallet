@@ -176,6 +176,11 @@
 		9C9A5764203AC7F200B010D5 /* AddressTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9A5763203AC7F200B010D5 /* AddressTests.swift */; };
 		9CA7FB7C205C11A000D48D5F /* CreateWalletAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FB7B205C11A000D48D5F /* CreateWalletAlertController.swift */; };
 		9CA7FB7F205C151C00D48D5F /* ImportWalletKeyFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FB7E205C151C00D48D5F /* ImportWalletKeyFormViews.swift */; };
+		9CA7FB89205D6DA300D48D5F /* ImportWalletQRCodeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FB83205D6DA300D48D5F /* ImportWalletQRCodeInteractor.swift */; };
+		9CA7FB8A205D6DA300D48D5F /* ImportWalletQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FB84205D6DA300D48D5F /* ImportWalletQRCodeVC.swift */; };
+		9CA7FB8B205D6DA300D48D5F /* ImportWalletQRCodeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FB85205D6DA300D48D5F /* ImportWalletQRCodeModels.swift */; };
+		9CA7FB8C205D6DA300D48D5F /* ImportWalletQRCodePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FB86205D6DA300D48D5F /* ImportWalletQRCodePresenter.swift */; };
+		9CA7FB8E205D6DA300D48D5F /* ImportWalletQRCodeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA7FB88205D6DA300D48D5F /* ImportWalletQRCodeRouter.swift */; };
 		9CB6C338205027FB002E610C /* WalletAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB6C337205027FB002E610C /* WalletAPI.swift */; };
 		9CB6C33A20502C20002E610C /* Response+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB6C33920502C20002E610C /* Response+ErrorHandling.swift */; };
 		9CB6C33C20502C68002E610C /* Observable+ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB6C33B20502C68002E610C /* Observable+ErrorHandling.swift */; };
@@ -394,6 +399,11 @@
 		9C9A5763203AC7F200B010D5 /* AddressTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressTests.swift; sourceTree = "<group>"; };
 		9CA7FB7B205C11A000D48D5F /* CreateWalletAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateWalletAlertController.swift; sourceTree = "<group>"; };
 		9CA7FB7E205C151C00D48D5F /* ImportWalletKeyFormViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportWalletKeyFormViews.swift; sourceTree = "<group>"; };
+		9CA7FB83205D6DA300D48D5F /* ImportWalletQRCodeInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportWalletQRCodeInteractor.swift; sourceTree = "<group>"; };
+		9CA7FB84205D6DA300D48D5F /* ImportWalletQRCodeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportWalletQRCodeVC.swift; sourceTree = "<group>"; };
+		9CA7FB85205D6DA300D48D5F /* ImportWalletQRCodeModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportWalletQRCodeModels.swift; sourceTree = "<group>"; };
+		9CA7FB86205D6DA300D48D5F /* ImportWalletQRCodePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportWalletQRCodePresenter.swift; sourceTree = "<group>"; };
+		9CA7FB88205D6DA300D48D5F /* ImportWalletQRCodeRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportWalletQRCodeRouter.swift; sourceTree = "<group>"; };
 		9CB6C337205027FB002E610C /* WalletAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAPI.swift; sourceTree = "<group>"; };
 		9CB6C33920502C20002E610C /* Response+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Response+ErrorHandling.swift"; sourceTree = "<group>"; };
 		9CB6C33B20502C68002E610C /* Observable+ErrorHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+ErrorHandling.swift"; sourceTree = "<group>"; };
@@ -616,6 +626,7 @@
 				9C78F1C92056CD59001ADA32 /* ListTransactions */,
 				9C85E391205AB40400208DF6 /* ExportWalletKeys */,
 				9C85E3A3205ADA7200208DF6 /* ImportWalletKey */,
+				9CA7FB82205D6DA300D48D5F /* ImportWalletQRCode */,
 				9C0325992056CDAE0009FA3B /* About */,
 			);
 			path = Scenes;
@@ -946,8 +957,8 @@
 				9C85E3A4205ADA7200208DF6 /* ImportWalletKeyModels.swift */,
 				9C85E3A6205ADA7200208DF6 /* ImportWalletKeyVC.swift */,
 				9C85E3A5205ADA7200208DF6 /* ImportWalletKeyInteractor.swift */,
-				9C85E3A7205ADA7200208DF6 /* ImportWalletKeyRouter.swift */,
 				9C85E3A8205ADA7200208DF6 /* ImportWalletKeyPresenter.swift */,
+				9C85E3A7205ADA7200208DF6 /* ImportWalletKeyRouter.swift */,
 			);
 			path = ImportWalletKey;
 			sourceTree = "<group>";
@@ -1017,6 +1028,18 @@
 				9CA7FB7E205C151C00D48D5F /* ImportWalletKeyFormViews.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9CA7FB82205D6DA300D48D5F /* ImportWalletQRCode */ = {
+			isa = PBXGroup;
+			children = (
+				9CA7FB85205D6DA300D48D5F /* ImportWalletQRCodeModels.swift */,
+				9CA7FB84205D6DA300D48D5F /* ImportWalletQRCodeVC.swift */,
+				9CA7FB83205D6DA300D48D5F /* ImportWalletQRCodeInteractor.swift */,
+				9CA7FB86205D6DA300D48D5F /* ImportWalletQRCodePresenter.swift */,
+				9CA7FB88205D6DA300D48D5F /* ImportWalletQRCodeRouter.swift */,
+			);
+			path = ImportWalletQRCode;
 			sourceTree = "<group>";
 		};
 		9CBB2EEE205679FE00718EBA /* Home */ = {
@@ -1113,7 +1136,7 @@
 					9C043632202C908B00671DA2 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					9C7800982036F1C30089F6EE = {
 						CreatedOnToolsVersion = 9.2;
@@ -1185,6 +1208,7 @@
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/NSData+FastHex/NSData_FastHex.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCodeReader.swift/QRCodeReader.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -1209,6 +1233,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NSData_FastHex.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCodeReader.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -1299,6 +1324,7 @@
 				9C78F1D22056CD5A001ADA32 /* ListTransactionsModels.swift in Sources */,
 				9C04367D202C975800671DA2 /* HashContext.mm in Sources */,
 				9C6623052036DD010083CE2E /* TransactionDiskStore.swift in Sources */,
+				9CA7FB8E205D6DA300D48D5F /* ImportWalletQRCodeRouter.swift in Sources */,
 				9C4AA4AA20333D260056152C /* CreateWalletModels.swift in Sources */,
 				9C6622F52035DB8B0083CE2E /* ShowWalletTransactionHeaderView.swift in Sources */,
 				9C8A8F7F202EE13D00F55736 /* PoolSocketJobNotificationResponse.swift in Sources */,
@@ -1312,6 +1338,7 @@
 				9C4AA4D620348BA70056152C /* ShowWalletVC.swift in Sources */,
 				9C6623092036EBA90083CE2E /* String+Bytes.swift in Sources */,
 				9C78F1B52056CB9A001ADA32 /* TabBarVC.swift in Sources */,
+				9CA7FB89205D6DA300D48D5F /* ImportWalletQRCodeInteractor.swift in Sources */,
 				9C85E3AC205ADA7200208DF6 /* ImportWalletKeyVC.swift in Sources */,
 				9C4AA4E320348F670056152C /* ShowWalletCell.swift in Sources */,
 				9C8A8F79202EE13600F55736 /* PoolSocketLoginRequest.swift in Sources */,
@@ -1333,7 +1360,9 @@
 				9C4AA4D1203485420056152C /* WalletRPCGetBalanceRequest.swift in Sources */,
 				9C0325A22056CDAE0009FA3B /* AboutInteractor.swift in Sources */,
 				9C85E381205A6A6800208DF6 /* SetWalletPasswordModels.swift in Sources */,
+				9CA7FB8C205D6DA300D48D5F /* ImportWalletQRCodePresenter.swift in Sources */,
 				9C04367A202C968D00671DA2 /* aesb.c in Sources */,
+				9CA7FB8A205D6DA300D48D5F /* ImportWalletQRCodeVC.swift in Sources */,
 				9C78F1D52056CD5A001ADA32 /* ListTransactionsPresenter.swift in Sources */,
 				9C043687202C9F8B00671DA2 /* PoolSocketClient.swift in Sources */,
 				9C85E399205AB40400208DF6 /* ExportWalletKeysPresenter.swift in Sources */,
@@ -1369,6 +1398,7 @@
 				9C07226A2035695100B012B6 /* Transfer.swift in Sources */,
 				9CA7FB7C205C11A000D48D5F /* CreateWalletAlertController.swift in Sources */,
 				9C4AA48320332C2B0056152C /* KeyPair.swift in Sources */,
+				9CA7FB8B205D6DA300D48D5F /* ImportWalletQRCodeModels.swift in Sources */,
 				9C4AA4A2203335610056152C /* ListWalletsPresenter.swift in Sources */,
 				9C78F1C32056CD36001ADA32 /* SendMoneyModels.swift in Sources */,
 				9C9A570F2037419500B010D5 /* Address.swift in Sources */,
@@ -1624,16 +1654,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UV2JYV8RQQ;
 				INFOPLIST_FILE = "$(SRCROOT)/BlockChain-Coin/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.blockchain-coin.ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "09f65fac-bbb3-4548-9c6f-16ddd64f1106";
-				PROVISIONING_PROFILE_SPECIFIER = "BlockChain Coin";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BlockChain-Coin/BlockChain-Coin-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -1647,16 +1677,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UV2JYV8RQQ;
 				INFOPLIST_FILE = "$(SRCROOT)/BlockChain-Coin/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.blockchain-coin.ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "09f65fac-bbb3-4548-9c6f-16ddd64f1106";
-				PROVISIONING_PROFILE_SPECIFIER = "BlockChain Coin";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BlockChain-Coin/BlockChain-Coin-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

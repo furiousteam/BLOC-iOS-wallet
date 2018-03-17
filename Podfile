@@ -49,6 +49,10 @@ target 'BlockChain-Coin' do
   # https://github.com/EyreFree/EFQRCode
   pod 'EFQRCode', '~> 4.2.1'
 
+  # 🖼 A simple code reader for iOS
+  # https://github.com/yannickl/QRCodeReader.swift.git
+  pod 'QRCodeReader.swift', '~> 8.1.1'
+
   # 🖼 A drop-in UITextView replacement with a placeholder
   # https://github.com/glaszig/SZTextView
   pod 'SZTextView', '~> 1.3.0'
