@@ -28,6 +28,8 @@ class ExportWalletKeysVC: ViewController, ExportWalletKeysDisplayLogic {
     let wallet: WalletModel
     let mode: Mode
     
+    var keys: String?
+    
     // MARK: - View lifecycle
     
     init(wallet: WalletModel, mode: Mode) {
@@ -105,7 +107,9 @@ class ExportWalletKeysVC: ViewController, ExportWalletKeysDisplayLogic {
     // MARK: Actions
     
     @objc func printTapped() {
-        router.showPrintPreview()
+        if let keys = keys {
+            router.showPrintPreview(keys: keys)
+        }
     }
     
     @objc func goToWalletTapped() {
@@ -120,6 +124,8 @@ class ExportWalletKeysVC: ViewController, ExportWalletKeysDisplayLogic {
         
         switch viewModel.state {
         case .loaded(let keys):
+            self.keys = keys
+            
             if let qrCode = EFQRCode.generate(content: keys, size: EFIntSize(width: Int(200 * UIScreen.main.scale), height: Int(200 * UIScreen.main.scale)), backgroundColor: UIColor.black.cgColor, foregroundColor: UIColor.white.cgColor, watermark: nil) {
                 formFields.walletQRCodeImageView.image = UIImage(cgImage: qrCode)
             }

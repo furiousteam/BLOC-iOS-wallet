@@ -198,6 +198,7 @@
 		9CBB2F0620567DE100718EBA /* UIFont+BLOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBB2F0520567DE100718EBA /* UIFont+BLOC.swift */; };
 		9CBB2F0B2056BBDC00718EBA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9CBB2F0D2056BBDC00718EBA /* Localizable.strings */; };
 		9CBB2F0F2056C54800718EBA /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9CBB2F0E2056C54400718EBA /* RobotoCondensed-Regular.ttf */; };
+		9CBCC98B2060E9A00006FBA7 /* PrintableWalletKeysView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC98A2060E9A00006FBA7 /* PrintableWalletKeysView.swift */; };
 		BBCFE2412940BF658F2DA54B /* Pods_BlockChain_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */; };
 /* End PBXBuildFile section */
 
@@ -421,6 +422,7 @@
 		9CBB2F0520567DE100718EBA /* UIFont+BLOC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+BLOC.swift"; sourceTree = "<group>"; };
 		9CBB2F0C2056BBDC00718EBA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9CBB2F0E2056C54400718EBA /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		9CBCC98A2060E9A00006FBA7 /* PrintableWalletKeysView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintableWalletKeysView.swift; sourceTree = "<group>"; };
 		BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockChain_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChain-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -946,6 +948,7 @@
 			isa = PBXGroup;
 			children = (
 				9C85E39F205AB59000208DF6 /* ExportWalletKeysFormViews.swift */,
+				9CBCC98A2060E9A00006FBA7 /* PrintableWalletKeysView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1449,6 +1452,7 @@
 				9CBB2F0620567DE100718EBA /* UIFont+BLOC.swift in Sources */,
 				9CBB2EF8205679FE00718EBA /* HomeModels.swift in Sources */,
 				9C85E3AB205ADA7200208DF6 /* ImportWalletKeyInteractor.swift in Sources */,
+				9CBCC98B2060E9A00006FBA7 /* PrintableWalletKeysView.swift in Sources */,
 				9CB6C33E20502C79002E610C /* PrimitiveSequence+ErrorHandling.swift in Sources */,
 				9C78F1D02056CD5A001ADA32 /* ListTransactionsRouter.swift in Sources */,
 				9C0436A9202CDC0A00671DA2 /* Reusable.swift in Sources */,
