@@ -17,8 +17,20 @@ extension Double {
         return numberFormatter
     }()
     
-    func blocCurrency() -> String {
-        return Double.blocNumberFormatter.string(from: NSNumber(value: self)) ?? "0 BLOC"
+    fileprivate static let blocWithoutCurrencyNumberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.maximumFractionDigits = 8
+        numberFormatter.currencySymbol = ""
+        numberFormatter.locale = Locale.current
+        return numberFormatter
+    }()
+    
+    func blocCurrency(includeCurrency: Bool = true) -> String {
+        if includeCurrency {
+            return Double.blocNumberFormatter.string(from: NSNumber(value: self)) ?? "0 BLOC"
+        } else {
+            return Double.blocWithoutCurrencyNumberFormatter.string(from: NSNumber(value: self)) ?? "0"
+        }
     }
 
 }

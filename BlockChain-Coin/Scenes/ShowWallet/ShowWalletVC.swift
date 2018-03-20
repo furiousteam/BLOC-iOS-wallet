@@ -10,6 +10,7 @@ import UIKit
 import Foundation
 import SnapKit
 import MBProgressHUD
+import EFQRCode
 
 protocol ShowWalletDisplayLogic: class {
     func handleUpdate(viewModel: ShowWalletDetailsViewModel)
@@ -23,6 +24,8 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         tableView.backgroundColor = .clear
         return tableView
     }()
+    
+    var hud: MBProgressHUD?
     
     let wallet: WalletModel
     
@@ -104,6 +107,11 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.estimatedRowHeight = 60.0
+        
+        // Actions
+        
+        dataSource.didTapQRCode = { self.showAddressAsQRCode() }
+        dataSource.didTapCopy = { self.copyAddress() }
     }
     
     // MARK: - Actions
@@ -114,6 +122,37 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
     
     @objc func backTapped() {
         router.goBack()
+    }
+    
+    func showAddressAsQRCode() {
+        if let qrCode = EFQRCode.generate(content: wallet.address, size: EFIntSize(width: Int(200 * UIScreen.main.scale), height: Int(200 * UIScreen.main.scale)), backgroundColor: UIColor.black.cgColor, foregroundColor: UIColor.white.cgColor, watermark: nil), let window = UIApplication.shared.keyWindow {
+            self.hud = MBProgressHUD.showAdded(to: window, animated: true)
+            hud?.mode = .customView
+            
+            let imageView = UIImageView(image: UIImage(cgImage: qrCode))
+            
+            imageView.snp.makeConstraints({
+                $0.width.height.equalTo(200.0)
+            })
+            
+            hud?.backgroundColor = UIColor.black.withAlphaComponent(0.7)
+            hud?.customView = imageView
+            hud?.bezelView.backgroundColor = .black
+            hud?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideHud)))
+        }
+    }
+    
+    @objc func hideHud() {
+        hud?.hide(animated: true)
+    }
+    
+    func copyAddress() {
+        UIPasteboard.general.string = wallet.address
+        
+        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+        hud.mode = .text
+        hud.label.text = R.string.localizable.wallet_address_copied()
+        hud.hide(animated: true, afterDelay: 2.0)
     }
     
     // MARK: - Display logic

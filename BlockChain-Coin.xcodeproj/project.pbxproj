@@ -201,6 +201,8 @@
 		9CBCC991206101EF0006FBA7 /* ShowWalletExportKeysCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC990206101EF0006FBA7 /* ShowWalletExportKeysCell.swift */; };
 		9CBCC993206102020006FBA7 /* ShowWalletTransactionsHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC992206102020006FBA7 /* ShowWalletTransactionsHeaderCell.swift */; };
 		9CBCC995206102260006FBA7 /* ShowWalletTransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC994206102260006FBA7 /* ShowWalletTransactionCell.swift */; };
+		9CBCC99720610A130006FBA7 /* ShowWalletBalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC99620610A130006FBA7 /* ShowWalletBalanceView.swift */; };
+		9CBCC99920613D250006FBA7 /* SmallButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC99820613D250006FBA7 /* SmallButton.swift */; };
 		BBCFE2412940BF658F2DA54B /* Pods_BlockChain_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */; };
 /* End PBXBuildFile section */
 
@@ -427,6 +429,8 @@
 		9CBCC990206101EF0006FBA7 /* ShowWalletExportKeysCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWalletExportKeysCell.swift; sourceTree = "<group>"; };
 		9CBCC992206102020006FBA7 /* ShowWalletTransactionsHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWalletTransactionsHeaderCell.swift; sourceTree = "<group>"; };
 		9CBCC994206102260006FBA7 /* ShowWalletTransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWalletTransactionCell.swift; sourceTree = "<group>"; };
+		9CBCC99620610A130006FBA7 /* ShowWalletBalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWalletBalanceView.swift; sourceTree = "<group>"; };
+		9CBCC99820613D250006FBA7 /* SmallButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallButton.swift; sourceTree = "<group>"; };
 		BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockChain_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChain-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -604,6 +608,7 @@
 				9C78F1AD2056CA45001ADA32 /* Environment.swift */,
 				9C85E35F205967B300208DF6 /* TitleView.swift */,
 				9C85E36D205A5B2900208DF6 /* ActionButton.swift */,
+				9CBCC99820613D250006FBA7 /* SmallButton.swift */,
 				9C85E371205A6A0700208DF6 /* ScrollableStackView.swift */,
 				9C85E387205A6B6200208DF6 /* FormTextField.swift */,
 				9C85E389205A6BBF00208DF6 /* TextField.swift */,
@@ -817,6 +822,7 @@
 				9CBCC990206101EF0006FBA7 /* ShowWalletExportKeysCell.swift */,
 				9CBCC992206102020006FBA7 /* ShowWalletTransactionsHeaderCell.swift */,
 				9CBCC994206102260006FBA7 /* ShowWalletTransactionCell.swift */,
+				9CBCC99620610A130006FBA7 /* ShowWalletBalanceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1353,6 +1359,7 @@
 				9C78F1D32056CD5A001ADA32 /* ListTransactionsDataSource.swift in Sources */,
 				9C6622F72035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift in Sources */,
 				9C85E388205A6B6200208DF6 /* FormTextField.swift in Sources */,
+				9CBCC99920613D250006FBA7 /* SmallButton.swift in Sources */,
 				9C66230B2036F0A10083CE2E /* Array+BytesString.swift in Sources */,
 				9C85E398205AB40400208DF6 /* ExportWalletKeysInteractor.swift in Sources */,
 				9C0325A82056CE440009FA3B /* TabBarView.swift in Sources */,
@@ -1379,6 +1386,7 @@
 				9C043678202C968D00671DA2 /* cryptonight.c in Sources */,
 				9C0325A42056CDAE0009FA3B /* AboutPresenter.swift in Sources */,
 				9C8A8F5F202DFD7900F55736 /* PoolStatusView.swift in Sources */,
+				9CBCC99720610A130006FBA7 /* ShowWalletBalanceView.swift in Sources */,
 				9C78F1D12056CD5A001ADA32 /* ListTransactionsVC.swift in Sources */,
 				9C043685202C9DE600671DA2 /* Job.swift in Sources */,
 				9C04368C202CA89B00671DA2 /* MineVC.swift in Sources */,

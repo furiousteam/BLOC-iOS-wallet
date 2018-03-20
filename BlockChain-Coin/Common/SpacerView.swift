@@ -10,16 +10,29 @@ import UIKit
 
 class SpacerView: View {
     
-    var height: CGFloat = 10.0
-    
+    var height: CGFloat?
+    var width: CGFloat?
+
     override var intrinsicContentSize: CGSize {
-        return CGSize(width: super.intrinsicContentSize.width, height: height)
+        if let height = height {
+            return CGSize(width: super.intrinsicContentSize.width, height: height)
+        } else if let width = width {
+            return CGSize(width: width, height: super.intrinsicContentSize.height)
+        }
+        
+        return super.intrinsicContentSize
     }
     
     init(height: CGFloat) {
         super.init()
         
         self.height = height
+    }
+    
+    init(width: CGFloat) {
+        super.init()
+        
+        self.width = width
     }
     
     required init?(coder aDecoder: NSCoder) {

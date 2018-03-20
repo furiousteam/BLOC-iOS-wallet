@@ -10,6 +10,9 @@ import UIKit
 
 class ShowWalletDataSource: NSObject, UITableViewDataSource {
     
+    var didTapCopy: () -> Void = { }
+    var didTapQRCode: () -> Void = { }
+
     var wallet: WalletModel? = nil
     var balances: [BalanceModel] = []
     var transactions: [TransactionModel] = []
@@ -42,9 +45,21 @@ class ShowWalletDataSource: NSObject, UITableViewDataSource {
         if indexPath.section == Section.balance.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletBalanceCell.reuseIdentifier(), for: indexPath) as! ShowWalletBalanceCell
             
+            let availableBalance = balances.first(where: { $0.balanceType == .available })?.value ?? 0.0
+            let lockedBalance = balances.first(where: { $0.balanceType == .locked })?.value ?? 0.0
+
+            cell.configure(availableBalance: availableBalance, lockedBalance: lockedBalance)
+            
             return cell
         } else if indexPath.section == Section.export.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletExportKeysCell.reuseIdentifier(), for: indexPath) as! ShowWalletExportKeysCell
+            
+            if let wallet = wallet {
+                cell.configure(address: wallet.address)
+                
+                cell.didTapCopy = { self.didTapCopy() }
+                cell.didTapQRCode = { self.didTapQRCode() }
+            }
             
             return cell
         } else if indexPath.section == Section.transactionHeader.rawValue {

@@ -85,7 +85,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 32 images.
+  /// This `R.image` struct is generated, and contains static references to 33 images.
   struct image {
     /// Image `accessory`.
     static let accessory = Rswift.ImageResource(bundle: R.hostingBundle, name: "accessory")
@@ -113,6 +113,8 @@ struct R: Rswift.Validatable {
     static let menuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "menu-icon")
     /// Image `nav-bar-bg`.
     static let navBarBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "nav-bar-bg")
+    /// Image `qr-code-small`.
+    static let qrCodeSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "qr-code-small")
     /// Image `right-arrow`.
     static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "right-arrow")
     /// Image `separator-dash`.
@@ -215,6 +217,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "nav-bar-bg", bundle: ..., traitCollection: ...)`
     static func navBarBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.navBarBg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "qr-code-small", bundle: ..., traitCollection: ...)`
+    static func qrCodeSmall(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.qrCodeSmall, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "right-arrow", bundle: ..., traitCollection: ...)`
@@ -353,12 +360,16 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 52 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 54 localization keys.
     struct localizable {
       /// en translation: About
       /// 
       /// Locales: en
       static let home_menu_about_title = Rswift.StringResource(key: "home_menu_about_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Address copied
+      /// 
+      /// Locales: en
+      static let wallet_address_copied = Rswift.StringResource(key: "wallet_address_copied", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: BACKUP YOUR KEY (below)
       /// 
       /// Locales: en
@@ -375,6 +386,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let common_cancel = Rswift.StringResource(key: "common_cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Copied
+      /// 
+      /// Locales: en
+      static let wallet_keys_copied = Rswift.StringResource(key: "wallet_keys_copied", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Copy
+      /// 
+      /// Locales: en
+      static let wallet_keys_copy = Rswift.StringResource(key: "wallet_keys_copy", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Create a new wallet
       /// 
       /// Locales: en
@@ -387,10 +406,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_created_infos_last_line = Rswift.StringResource(key: "wallet_created_infos_last_line", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Export keys
-      /// 
-      /// Locales: en
-      static let wallet_export_keys = Rswift.StringResource(key: "wallet_export_keys", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Go to your wallet
       /// 
       /// Locales: en
@@ -571,6 +586,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("home_menu_about_title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Address copied
+      /// 
+      /// Locales: en
+      static func wallet_address_copied(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_address_copied", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: BACKUP YOUR KEY (below)
       /// 
       /// Locales: en
@@ -599,6 +621,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("common_cancel", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Copied
+      /// 
+      /// Locales: en
+      static func wallet_keys_copied(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_keys_copied", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Copy
+      /// 
+      /// Locales: en
+      static func wallet_keys_copy(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_keys_copy", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Create a new wallet
       /// 
       /// Locales: en
@@ -618,13 +654,6 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_created_infos_last_line(_: Void = ()) -> String {
         return NSLocalizedString("wallet_created_infos_last_line", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Export keys
-      /// 
-      /// Locales: en
-      static func wallet_export_keys(_: Void = ()) -> String {
-        return NSLocalizedString("wallet_export_keys", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Go to your wallet
