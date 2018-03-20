@@ -76,7 +76,7 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
     func configure() {
         // Subviews
         
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         
         view.addSubview(tableView)
         
@@ -86,15 +86,21 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         
         // Navigation Bar
         
-        let copyAddressButton = UIBarButtonItem(title: "Copy address", style: .plain, target: self, action: #selector(copyAddressTapped))
-        let copyKeysButton = UIBarButtonItem(title: "Export keys", style: .plain, target: self, action: #selector(copyKeysTapped))
+        let titleView = TitleView(title: R.string.localizable.home_menu_wallet_title(), subtitle: R.string.localizable.home_menu_wallet_subtitle())
+        self.navigationItem.titleView = titleView
         
-        self.navigationItem.setRightBarButtonItems([ copyAddressButton, copyKeysButton ], animated: false)
+        let backButton = UIBarButtonItem(image: R.image.leftArrow(), style: .plain, target: self, action: #selector(backTapped))
+        self.navigationItem.setLeftBarButton(backButton, animated: false)
+
+        let settingsButton = UIBarButtonItem(image: R.image.settingsIcon(), style: .plain, target: self, action: #selector(settingsTapped))
+        self.navigationItem.setRightBarButtonItems([ settingsButton ], animated: false)
 
         // TableView
         
-        ShowWalletTransactionHeaderView.registerWith(tableView)
-        ShowWalletCell.registerWith(tableView)
+        ShowWalletBalanceCell.registerWith(tableView)
+        ShowWalletExportKeysCell.registerWith(tableView)
+        ShowWalletTransactionsHeaderCell.registerWith(tableView)
+        ShowWalletTransactionCell.registerWith(tableView)
         tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.estimatedRowHeight = 60.0
@@ -102,38 +108,12 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
     
     // MARK: - Actions
     
-    @objc func copyAddressTapped() {
-        UIPasteboard.general.string = wallet.address
-        
-        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        hud.mode = .text
-        hud.label.text = "Address copied"
-        hud.hide(animated: true, afterDelay: 2.0)
-        
-        print(wallet.address)
+    @objc func settingsTapped() {
+        router.showSettings(wallet: wallet)
     }
     
-    @objc func copyKeysTapped() {
-        let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
-        hud.mode = .indeterminate
-        hud.label.text = "Fetching keys..."
-        
-        // TODO: Real user password
-        (interactor as? ShowWalletInteractor)?.walletWorker.getKeys(wallet: wallet, password: "password", completion: { result in
-            switch result {
-            case .success(let keys):
-                let keysString = [ keys.spendPublicKey, keys.viewPublicKey, keys.spendPrivateKey, keys.viewPrivateKey ].joined()
-                UIPasteboard.general.string = keysString
-                print(keysString)
-                print(keys.spendPrivateKey)
-            default:
-                break
-            }
-            
-            hud.label.text = "Keys copied"
-            hud.mode = .text
-            hud.hide(animated: true, afterDelay: 2.0)
-        })
+    @objc func backTapped() {
+        router.goBack()
     }
     
     // MARK: - Display logic
@@ -147,6 +127,7 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
             let availableBalance = Balance(value: Double(details.availableBalance) / Constants.walletCurrencyDivider, balanceType: .available)
             let lockedBalance = Balance(value: Double(details.lockedBalance) / Constants.walletCurrencyDivider, balanceType: .locked)
 
+            dataSource.wallet = wallet
             dataSource.balances = [ availableBalance, lockedBalance ]
             dataSource.transactions = details.transactions
         default:
@@ -155,26 +136,11 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         
         tableView.reloadData()
     }
-        
-    // UITableViewDelegate
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section >= dataSource.balances.count {
-            return 25.0
-        }
-        
-        return 0.0
-    }
+    // MARK: - UITableView delegate
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section >= dataSource.balances.count {
-            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: ShowWalletTransactionHeaderView.reuseIdentifier()) as! ShowWalletTransactionHeaderView
-            headerView.configure()
-            return headerView
-        }
-        
-        return nil
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: Handle row selection
     }
-        
 }
 

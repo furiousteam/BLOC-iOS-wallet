@@ -10,59 +10,49 @@ import UIKit
 
 class ShowWalletDataSource: NSObject, UITableViewDataSource {
     
-    var wallet: Wallet? = nil
+    var wallet: WalletModel? = nil
     var balances: [BalanceModel] = []
     var transactions: [TransactionModel] = []
 
+    enum Section: Int {
+        case balance
+        case export
+        case transactionHeader
+        case transactions
+        case count
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return balances.count + transactions.count
+        return Section.count.rawValue
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section < balances.count {
-            return 1
+        if section == Section.balance.rawValue {
+            return balances.isEmpty ? 0 : 1
+        } else if section == Section.export.rawValue {
+            return wallet == nil ? 0 : 1
+        } else if section == Section.transactionHeader.rawValue {
+            return transactions.isEmpty ? 0 : 1
         } else {
-            let transaction = transactions[section - balances.count]
-            return 8 + transaction.transfers.count
+            return transactions.count
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section < balances.count {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletCell.reuseIdentifier(), for: indexPath) as! ShowWalletCell
-            
-            let balance = balances[indexPath.section]
-            
-            cell.configure(title: "\(balance.value)", subtitle: balance.balanceType.name)
+        if indexPath.section == Section.balance.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletBalanceCell.reuseIdentifier(), for: indexPath) as! ShowWalletBalanceCell
             
             return cell
-        }
-        else {
-            let transaction = transactions[indexPath.section - balances.count]
+        } else if indexPath.section == Section.export.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletExportKeysCell.reuseIdentifier(), for: indexPath) as! ShowWalletExportKeysCell
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletCell.reuseIdentifier(), for: indexPath) as! ShowWalletCell
+            return cell
+        } else if indexPath.section == Section.transactionHeader.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletTransactionsHeaderCell.reuseIdentifier(), for: indexPath) as! ShowWalletTransactionsHeaderCell
             
-            switch indexPath.row {
-            case 0:
-                cell.configure(title: transaction.hash, subtitle: "Transaction Hash")
-            case 1:
-                cell.configure(title: "\(transaction.blockIndex)", subtitle: "Block Index")
-            case 2:
-                cell.configure(title: transaction.createdAt.shortDate(), subtitle: "Date")
-            case 3:
-                cell.configure(title: "\(transaction.unlockHeight)", subtitle: "Unlock Height")
-            case 4:
-                cell.configure(title: "\(transaction.amount)", subtitle: "Amount")
-            case 5:
-                cell.configure(title: "\(transaction.fee)", subtitle: "Fee")
-            case 6:
-                cell.configure(title: transaction.extra, subtitle: "Extra")
-            case 7:
-                cell.configure(title: transaction.paymentId, subtitle: "Payment ID")
-            default:
-                let transfer = transaction.transfers[indexPath.row - 8]
-                cell.configure(title: "\(transfer.amount)", subtitle: transfer.address)
-            }
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletTransactionCell.reuseIdentifier(), for: indexPath) as! ShowWalletTransactionCell
             
             return cell
         }
