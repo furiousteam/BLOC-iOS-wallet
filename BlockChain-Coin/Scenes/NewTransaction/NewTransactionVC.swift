@@ -17,7 +17,7 @@ protocol NewTransactionDisplayLogic: class {
     func handleWalletsUpdate(viewModel: NewTransactionWalletsViewModel)
 }
 
-class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, QRCodeReaderViewControllerDelegate {
+class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, QRCodeReaderViewControllerDelegate, CheckPasswordVCDelegate {
     
     let formView = ScrollableStackView()
     let formFields = NewTransactionsFormViews()
@@ -136,6 +136,7 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         (formFields.walletsCollectionView.collectionViewLayout as? CenterAlignedCollectionViewFlowLayout)?.minimumInteritemSpacing = itemSpacing
 
         formFields.qrCodeButton.addTarget(self, action: #selector(didTapQRCode), for: .touchUpInside)
+        formFields.sendButton.addTarget(self, action: #selector(didTapSend), for: .touchUpInside)
         
         dotBgImageView.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview()
@@ -152,7 +153,7 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         
         // Values
         
-        self.form = NewTransactionForm(amount: nil, address: nil, sourceAddress: nil)
+        self.form = NewTransactionForm(amount: nil, address: nil, sourceWallet: nil)
         self.lastUpdateForm = self.form
         
         self.interactor.validateForm(request: NewTransactionRequest(form: self.form!))
@@ -171,7 +172,7 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
             return nil
         }()
         
-        let form = NewTransactionForm(amount: amount, address: address, sourceAddress: wallet?.address)
+        let form = NewTransactionForm(amount: amount, address: address, sourceWallet: wallet)
         
         self.form = form
         
@@ -188,6 +189,23 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
     
     @objc func didTapQRCode() {
         self.present(readerVC, animated: true, completion: nil)
+    }
+    
+    @objc func didTapSend() {
+        guard let wallet = form?.sourceWallet, let form = form, form.isValid, let titleView = self.navigationItem.titleView as? TitleView else {
+            return
+        }
+        
+        let vc = CheckPasswordVC(wallet: wallet, titleView: titleView, delegate: self)
+        present(vc, animated: true, completion: nil)
+    }
+    
+    func didEnterPassword(string: String) {
+        guard let wallet = form?.sourceWallet, let wp = wallet.password, let form = form, form.isValid, string == wp else {
+            return
+        }
+        
+        log.info("Present transaction confirmation")
     }
     
     // MARK: - UICollectionView delegate
@@ -295,7 +313,7 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
                 formFields.walletsCollectionView.deselectItem(at: $0, animated: false)
             })
             
-            self.form?.sourceAddress = nil
+            self.form?.sourceWallet = nil
         }
         
         self.lastUpdateForm = self.form

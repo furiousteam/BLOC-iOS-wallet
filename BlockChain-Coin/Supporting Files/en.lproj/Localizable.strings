@@ -64,3 +64,4 @@ Note: the key does not contain spaces.";
 "send_select_wallet" = "Select the wallet to use for this transaction";
 "send_action" = "Send the coins";
 "send_no_wallet" = "You don't any wallets with enough funds for this transaction";
+"password_required_title" = "Please enter the password for this wallet";

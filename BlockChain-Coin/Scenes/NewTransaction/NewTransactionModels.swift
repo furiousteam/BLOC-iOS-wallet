@@ -33,7 +33,7 @@ struct NewTransactionWalletsViewModel {
 struct NewTransactionForm {
     var amount: Double?
     var address: String?
-    var sourceAddress: String?
+    var sourceWallet: WalletModel?
     
     var isValid: Bool {
         let isAmountValid: Bool = {
@@ -57,10 +57,10 @@ struct NewTransactionForm {
         }()
         
         let isSourceAddressValid: Bool = {
-            guard let sourceAddress = sourceAddress, !sourceAddress.isEmpty else { return false }
+            guard let sourceWallet = sourceWallet, !sourceWallet.address.isEmpty else { return false }
             
             do {
-                let address = try Address(addressString: sourceAddress)
+                let address = try Address(addressString: sourceWallet.address)
                 
                 return try address.validate()
             } catch {
