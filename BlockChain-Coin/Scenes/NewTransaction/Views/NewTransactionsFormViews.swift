@@ -149,7 +149,7 @@ class NewTransactionsFormViews: NSObject, UITextViewDelegate {
         button.setTitle(R.string.localizable.send_action(), for: .normal)
         return button
     }()
-    
+        
     override init() {
         amountSeparatorView.snp.makeConstraints({
             $0.height.equalTo(1.0)

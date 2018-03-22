@@ -42,6 +42,13 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         return QRCodeReaderViewController(builder: builder)
     }()
     
+    let dotBgImageView: UIImageView = {
+        let imageView = UIImageView(image: R.image.dotBg())
+        imageView.tintColor = UIColor.white.withAlphaComponent(0.3)
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+    
     // MARK: - View lifecycle
     
     init() {
@@ -103,6 +110,8 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
             $0.edges.equalToSuperview()
         })
         
+        view.insertSubview(dotBgImageView, belowSubview: formView.scrollView)
+        
         // Form
         
         formView.stackView.layoutMargins = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0)
@@ -128,6 +137,11 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
 
         formFields.qrCodeButton.addTarget(self, action: #selector(didTapQRCode), for: .touchUpInside)
         
+        dotBgImageView.snp.makeConstraints({
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(formFields.sendButton.snp.bottom).offset(20.0)
+        })
+
         // Navigation Bar
         
         let titleView = TitleView(title: R.string.localizable.home_menu_send_title(), subtitle: R.string.localizable.home_menu_send_subtitle())
