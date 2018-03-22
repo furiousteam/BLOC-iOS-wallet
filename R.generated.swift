@@ -85,7 +85,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 33 images.
+  /// This `R.image` struct is generated, and contains static references to 34 images.
   struct image {
     /// Image `accessory`.
     static let accessory = Rswift.ImageResource(bundle: R.hostingBundle, name: "accessory")
@@ -97,6 +97,8 @@ struct R: Rswift.Validatable {
     static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
     /// Image `bottom-arrow`.
     static let bottomArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "bottom-arrow")
+    /// Image `checkmark-small`.
+    static let checkmarkSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "checkmark-small")
     /// Image `default-bg`.
     static let defaultBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "default-bg")
     /// Image `home-bg`.
@@ -177,6 +179,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "bottom-arrow", bundle: ..., traitCollection: ...)`
     static func bottomArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.bottomArrow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "checkmark-small", bundle: ..., traitCollection: ...)`
+    static func checkmarkSmall(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.checkmarkSmall, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "default-bg", bundle: ..., traitCollection: ...)`
@@ -322,16 +329,8 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.nib` struct is generated, and contains static references to 1 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 0 nibs.
   struct nib {
-    /// Nib `RestoreWalletVC`.
-    static let restoreWalletVC = _R.nib._RestoreWalletVC()
-    
-    /// `UINib(name: "RestoreWalletVC", in: bundle)`
-    static func restoreWalletVC(_: Void = ()) -> UIKit.UINib {
-      return UIKit.UINib(resource: R.nib.restoreWalletVC)
-    }
-    
     fileprivate init() {}
   }
   
@@ -360,7 +359,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 54 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 63 localization keys.
     struct localizable {
       /// en translation: About
       /// 
@@ -370,6 +369,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_address_copied = Rswift.StringResource(key: "wallet_address_copied", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Anonymity: 10 (very anonymous)
+      /// 
+      /// Locales: en
+      static let send_anonymity = Rswift.StringResource(key: "send_anonymity", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: BACKUP YOUR KEY (below)
       /// 
       /// Locales: en
@@ -406,6 +409,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_created_infos_last_line = Rswift.StringResource(key: "wallet_created_infos_last_line", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Enter the amount of BLOC you want to send
+      /// 
+      /// Locales: en
+      static let send_amount_title = Rswift.StringResource(key: "send_amount_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Fees for this transactions: %@
+      /// 
+      /// Locales: en
+      static let send_amount_fees = Rswift.StringResource(key: "send_amount_fees", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Go to your wallet
       /// 
       /// Locales: en
@@ -450,6 +461,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let create_wallet_password_placeholder = Rswift.StringResource(key: "create_wallet_password_placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Paste here the address of the recipient
+      /// 
+      /// Locales: en
+      static let send_paste_address = Rswift.StringResource(key: "send_paste_address", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Please enter your private key below
       /// 
       /// Locales: en
@@ -478,10 +493,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_recent_transactions = Rswift.StringResource(key: "wallet_recent_transactions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Recipient's address
+      /// 
+      /// Locales: en
+      static let send_recipient_title = Rswift.StringResource(key: "send_recipient_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: See full history
       /// 
       /// Locales: en
       static let wallet_full_history = Rswift.StringResource(key: "wallet_full_history", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Select the wallet to use for this transaction
+      /// 
+      /// Locales: en
+      static let send_select_wallet = Rswift.StringResource(key: "send_select_wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Send
       /// 
       /// Locales: en
@@ -490,6 +513,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let tabs_send = Rswift.StringResource(key: "tabs_send", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Send the coins
+      /// 
+      /// Locales: en
+      static let send_action = Rswift.StringResource(key: "send_action", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Sent
       /// 
       /// Locales: en
@@ -514,6 +541,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let home_menu_transactions_title = Rswift.StringResource(key: "home_menu_transactions_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Use QR code
+      /// 
+      /// Locales: en
+      static let send_use_qr_code = Rswift.StringResource(key: "send_use_qr_code", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Very important
       /// 
       /// Locales: en
@@ -530,6 +561,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_list_item_title = Rswift.StringResource(key: "wallet_list_item_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: You don't any wallets with enough funds for this transaction
+      /// 
+      /// Locales: en
+      static let send_no_wallet = Rswift.StringResource(key: "send_no_wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: You have no wallet for now
       /// 
       /// Locales: en
@@ -593,6 +628,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_address_copied", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Anonymity: 10 (very anonymous)
+      /// 
+      /// Locales: en
+      static func send_anonymity(_: Void = ()) -> String {
+        return NSLocalizedString("send_anonymity", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: BACKUP YOUR KEY (below)
       /// 
       /// Locales: en
@@ -654,6 +696,20 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_created_infos_last_line(_: Void = ()) -> String {
         return NSLocalizedString("wallet_created_infos_last_line", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Enter the amount of BLOC you want to send
+      /// 
+      /// Locales: en
+      static func send_amount_title(_: Void = ()) -> String {
+        return NSLocalizedString("send_amount_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Fees for this transactions: %@
+      /// 
+      /// Locales: en
+      static func send_amount_fees(_ value1: String) -> String {
+        return String(format: NSLocalizedString("send_amount_fees", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: Go to your wallet
@@ -733,6 +789,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("create_wallet_password_placeholder", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Paste here the address of the recipient
+      /// 
+      /// Locales: en
+      static func send_paste_address(_: Void = ()) -> String {
+        return NSLocalizedString("send_paste_address", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Please enter your private key below
       /// 
       /// Locales: en
@@ -782,11 +845,25 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_recent_transactions", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Recipient's address
+      /// 
+      /// Locales: en
+      static func send_recipient_title(_: Void = ()) -> String {
+        return NSLocalizedString("send_recipient_title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: See full history
       /// 
       /// Locales: en
       static func wallet_full_history(_: Void = ()) -> String {
         return NSLocalizedString("wallet_full_history", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Select the wallet to use for this transaction
+      /// 
+      /// Locales: en
+      static func send_select_wallet(_: Void = ()) -> String {
+        return NSLocalizedString("send_select_wallet", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Send
@@ -801,6 +878,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func tabs_send(_: Void = ()) -> String {
         return NSLocalizedString("tabs_send", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Send the coins
+      /// 
+      /// Locales: en
+      static func send_action(_: Void = ()) -> String {
+        return NSLocalizedString("send_action", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Sent
@@ -845,6 +929,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("home_menu_transactions_title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Use QR code
+      /// 
+      /// Locales: en
+      static func send_use_qr_code(_: Void = ()) -> String {
+        return NSLocalizedString("send_use_qr_code", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Very important
       /// 
       /// Locales: en
@@ -871,6 +962,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_list_item_title(_ value1: Int) -> String {
         return String(format: NSLocalizedString("wallet_list_item_title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: You don't any wallets with enough funds for this transaction
+      /// 
+      /// Locales: en
+      static func send_no_wallet(_: Void = ()) -> String {
+        return NSLocalizedString("send_no_wallet", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: You have no wallet for now
@@ -982,17 +1080,6 @@ struct _R: Rswift.Validatable {
   }
   
   struct nib {
-    struct _RestoreWalletVC: Rswift.NibResourceType {
-      let bundle = R.hostingBundle
-      let name = "RestoreWalletVC"
-      
-      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [NSObject : AnyObject]? = nil) -> UIKit.UIView? {
-        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? UIKit.UIView
-      }
-      
-      fileprivate init() {}
-    }
-    
     fileprivate init() {}
   }
   

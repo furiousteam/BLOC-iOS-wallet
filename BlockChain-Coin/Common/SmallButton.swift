@@ -39,6 +39,7 @@ class SmallButton: UIButton {
         tintColor = UIColor.white.withAlphaComponent(0.5)
         setTitleColor(UIColor.white.withAlphaComponent(0.5), for: .normal)
         setTitleColor(UIColor.white.withAlphaComponent(0.5), for: .disabled)
+        setTitleColor(.white, for: .selected)
         titleLabel?.font = .regular(size: 10.0)
         
         layer.masksToBounds = true

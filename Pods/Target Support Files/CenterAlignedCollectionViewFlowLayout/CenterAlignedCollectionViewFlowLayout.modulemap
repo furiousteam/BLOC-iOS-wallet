@@ -1,0 +1,6 @@
+framework module CenterAlignedCollectionViewFlowLayout {
+  umbrella header "CenterAlignedCollectionViewFlowLayout-umbrella.h"
+
+  export *
+  module * { export * }
+}

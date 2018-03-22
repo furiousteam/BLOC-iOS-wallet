@@ -13,7 +13,7 @@ protocol TransferModel {
     var amount: Double { get }
 }
 
-struct Transfer: TransferModel, Decodable {
+struct Transfer: TransferModel, Codable {
     let address: String
     let amount: Double
     
@@ -22,12 +22,19 @@ struct Transfer: TransferModel, Decodable {
         case amount = "amount"
     }
 
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(address, forKey: .address)
+        try container.encode(amount, forKey: .amount)
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.address = try values.decode(String.self, forKey: .address)
         
-        let amountInt = try values.decode(Int64.self, forKey: .amount)
-        self.amount = Double(amountInt) / Constants.walletCurrencyDivider
+        let amountInt = try values.decode(Double.self, forKey: .amount)
+        self.amount = amountInt / Constants.walletCurrencyDivider
     }
 }

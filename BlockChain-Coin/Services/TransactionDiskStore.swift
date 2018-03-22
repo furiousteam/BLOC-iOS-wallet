@@ -35,7 +35,7 @@ class TransactionDiskStore: TransactionStore {
         return doSendTransaction(context, events);
     }*/
     
-    func send(destinations: [TransactionDestinationModel], mixin: UInt, paymentId: String?, fee: UInt64, keyPair: KeyPair, completion: @escaping TransactionStoreSendCompletionHandler) {
+    func send(destinations: [TransactionDestinationModel], mixin: UInt, paymentId: String?, fee: Double, keyPair: KeyPair, completion: @escaping TransactionStoreSendCompletionHandler) {
         completion(.success(result: true))
         
         guard fee >= Constants.minimumFee else {
@@ -64,7 +64,7 @@ class TransactionDiskStore: TransactionStore {
         
         let paymentExtraField = parse(paymentId: paymentId)
         
-        let neededMoney = destinations.map({ $0.amount }).reduce(0, +) + fee
+        //let neededMoney = destinations.map({ $0.amount }).reduce(0, +) + fee
 
         // TODO: Get balance for wallet and check if there's enough money
         

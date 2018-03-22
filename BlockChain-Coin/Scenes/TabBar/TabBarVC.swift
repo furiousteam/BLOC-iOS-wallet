@@ -21,7 +21,7 @@ final class TabBarVC: ViewController {
     
     let walletsVC = ListWalletsVC()
     let miningVC = MineVC()
-    let sendVC = SendMoneyVC()
+    let sendVC = NewTransactionVC()
     let transactionsVC = ListTransactionsVC()
     let aboutVC = AboutVC()
     

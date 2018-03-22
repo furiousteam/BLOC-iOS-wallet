@@ -17,15 +17,25 @@ protocol ShowWalletBusinessLogic {
 class ShowWalletInteractor: ShowWalletBusinessLogic {
     var presenter: ShowWalletPresentationLogic?
     
-    let walletWorker = WalletWorker(store: WalletAPI())
-    
+    let remoteWalletWorker = WalletWorker(store: WalletAPI())
+    let localWalletWorker = WalletWorker(store: WalletDiskStore())
+
     func fetchDetails(wallet: WalletModel, password: String) {
         presenter?.handleShowDetailsLoading()
         
-        walletWorker.getBalanceAndTransactions(wallet: wallet, password: password) { [weak self] result in
+        remoteWalletWorker.getBalanceAndTransactions(wallet: wallet, password: password) { [weak self] result in
             switch result {
             case .success(let details):
-                self?.presenter?.handleShowDetails(details: details)
+                let w = Wallet(uuid: wallet.uuid, keyPair: wallet.keyPair, address: wallet.address, password: wallet.password ?? "", details: details, createdAt: wallet.createdAt)
+                
+                self?.localWalletWorker.getBalanceAndTransactions(wallet: w, password: password, completion: { [weak self] result in
+                    switch result {
+                    case .success(let details):
+                        self?.presenter?.handleShowDetails(details: details)
+                    case .failure(let error):
+                        self?.presenter?.handleShowDetailsError(error: error)
+                    }
+                })
             case .failure(let error):
                 self?.presenter?.handleShowDetailsError(error: error)
             }

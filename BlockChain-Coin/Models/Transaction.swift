@@ -17,10 +17,10 @@ protocol TransactionModel {
     var fee: Double { get }
     var extra: String { get }
     var paymentId: String { get }
-    var transfers: [TransferModel] { get }
+    var transfers: [Transfer] { get }
 }
 
-struct Transaction: TransactionModel, Decodable {
+struct Transaction: TransactionModel, Codable {
     let hash: String
     let blockIndex: UInt32
     let createdAt: Date
@@ -29,7 +29,7 @@ struct Transaction: TransactionModel, Decodable {
     let fee: Double
     let extra: String
     let paymentId: String
-    let transfers: [TransferModel]
+    let transfers: [Transfer]
     
     enum CodingKeys: String, CodingKey {
         case hash = "transactionHash"
@@ -41,6 +41,20 @@ struct Transaction: TransactionModel, Decodable {
         case extra = "extra"
         case paymentId = "paymentId"
         case transfers = "transfers"
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(hash, forKey: .hash)
+        try container.encode(blockIndex, forKey: .blockIndex)
+        try container.encode(Date.isoDateFormatter.string(from: createdAt), forKey: .createdAt)
+        try container.encode(unlockHeight, forKey: .unlockHeight)
+        try container.encode(amount, forKey: .amount)
+        try container.encode(fee, forKey: .fee)
+        try container.encode(extra, forKey: .extra)
+        try container.encode(paymentId, forKey: .paymentId)
+        try container.encode(transfers, forKey: .transfers)
     }
     
     init(from decoder: Decoder) throws {
@@ -55,11 +69,11 @@ struct Transaction: TransactionModel, Decodable {
         
         self.unlockHeight = try values.decode(UInt64.self, forKey: .unlockHeight)
         
-        let amountInt = try values.decode(Int64.self, forKey: .amount)
-        self.amount = Double(amountInt) / Constants.walletCurrencyDivider
+        let amountInt = try values.decode(Double.self, forKey: .amount)
+        self.amount = amountInt / Constants.walletCurrencyDivider
         
-        let feeInt = try values.decode(Int64.self, forKey: .fee)
-        self.fee = Double(feeInt) / Constants.walletCurrencyDivider
+        let feeInt = try values.decode(Double.self, forKey: .fee)
+        self.fee = feeInt / Constants.walletCurrencyDivider
         
         self.extra = try values.decode(String.self, forKey: .extra)
         self.paymentId = try values.decode(String.self, forKey: .paymentId)

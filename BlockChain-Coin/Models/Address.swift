@@ -130,6 +130,7 @@ struct Address: AddressModel {
         guard checksumBytes.toHexString == checksum.toHexString else {
             throw AddressError.checksumFailed
         }
+        
         return true
     }
 }

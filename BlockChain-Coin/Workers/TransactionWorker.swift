@@ -26,7 +26,7 @@ enum TransactionStoreError: Equatable, Error {
 typealias TransactionStoreSendCompletionHandler = (TransactionStoreResult<Bool>) -> Void
 
 protocol TransactionStore {
-    func send(destinations: [TransactionDestinationModel], mixin: UInt, paymentId: String?, fee: UInt64, keyPair: KeyPair, completion: @escaping TransactionStoreSendCompletionHandler)
+    func send(destinations: [TransactionDestinationModel], mixin: UInt, paymentId: String?, fee: Double, keyPair: KeyPair, completion: @escaping TransactionStoreSendCompletionHandler)
 }
 
 class TransactionWorker {
@@ -36,7 +36,7 @@ class TransactionWorker {
         self.store = store
     }
     
-    func send(destinations: [TransactionDestinationModel], mixin: UInt, paymentId: String?, fee: UInt64, keyPair: KeyPair, completion: @escaping TransactionStoreSendCompletionHandler) {
+    func send(destinations: [TransactionDestinationModel], mixin: UInt, paymentId: String?, fee: Double, keyPair: KeyPair, completion: @escaping TransactionStoreSendCompletionHandler) {
         store.send(destinations: destinations, mixin: mixin, paymentId: paymentId, fee: fee, keyPair: keyPair) { result in
             DispatchQueue.main.async {
                 completion(result)

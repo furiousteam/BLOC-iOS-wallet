@@ -26,34 +26,55 @@ class WalletDiskStore: WalletStore {
     }
     
     func listWallets(completion: @escaping WalletStoreListWalletsCompletionHandler) {
-        guard let data = KeychainWrapper.standard.data(forKey: "wallets"),
-              let wallets = NSKeyedUnarchiver.unarchiveObject(with: data) as? [Wallet] else {
-                completion(.success(result: []))
-                return
+        do {
+            guard let data = KeychainWrapper.standard.data(forKey: "wallets"), let walletsData = NSKeyedUnarchiver.unarchiveObject(with: data) as? Data else {
+                    completion(.success(result: []))
+                    return
+            }
+            
+            let wallets = try JSONDecoder().decode([Wallet].self, from: walletsData)
+            
+            completion(.success(result: wallets.sorted(by: { (a, b) -> Bool in
+                return a.createdAt > b.createdAt
+            })))
+        } catch {
+            completion(.success(result: []))
         }
         
-        completion(.success(result: wallets.sorted(by: { (a, b) -> Bool in
-            return a.createdAt > b.createdAt
-        })))
     }
     
-    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, password: String?, address: String?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
+    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, password: String?, address: String?, details: WalletDetails?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
         guard let address = address, let password = password else {
             completion(.failure(error: .couldNotCreateWallet))
             return
         }
         
-        var wallets: [Wallet] = (KeychainWrapper.standard.object(forKey: "wallets") as? [Wallet]) ?? []
+        var wallets: [Wallet] = {
+            guard let data = KeychainWrapper.standard.data(forKey: "wallets"), let walletsData = NSKeyedUnarchiver.unarchiveObject(with: data) as? Data else {
+                return []
+            }
+            
+            do {
+                return try JSONDecoder().decode([Wallet].self, from: walletsData)
+            } catch {
+                return []
+            }
+        }()
         
-        if wallets.contains(where: { $0.keyPair == keyPair }) == false {
-            let newWallet = Wallet(uuid: uuid, keyPair: keyPair, address: address, password: password, createdAt: Date())
+        if wallets.contains(where: { $0.uuid == uuid }) == false {
+            let newWallet = Wallet(uuid: uuid, keyPair: keyPair, address: address, password: password, details: details, createdAt: Date())
             wallets.append(newWallet)
         }
         
-        let data = NSKeyedArchiver.archivedData(withRootObject: wallets)
-        KeychainWrapper.standard.set(data, forKey: "wallets")
-        
-        completion(.success(result: address))
+        do {
+            let walletsData = try JSONEncoder().encode(wallets)
+            let data = NSKeyedArchiver.archivedData(withRootObject: walletsData)
+            KeychainWrapper.standard.set(data, forKey: "wallets")
+            
+            completion(.success(result: address))
+        } catch {
+            completion(.failure(error: .couldNotCreateWallet))
+        }
     }
     
     // Ignored methods
@@ -67,7 +88,34 @@ class WalletDiskStore: WalletStore {
     }
     
     func getBalanceAndTransactions(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
-        completion(.failure(error: .unknown))
+        var wallets: [Wallet] = {
+            guard let data = KeychainWrapper.standard.data(forKey: "wallets"), let walletsData = NSKeyedUnarchiver.unarchiveObject(with: data) as? Data else {
+                return []
+            }
+            
+            do {
+                return try JSONDecoder().decode([Wallet].self, from: walletsData)
+            } catch {
+                return []
+            }
+        }()
+
+        guard let walletIndex = wallets.index(where: { $0.uuid == wallet.uuid }), let updatedWallet = (wallet as? Wallet), let details = updatedWallet.details else {
+            completion(.failure(error: .unknown))
+            return
+        }
+        
+        wallets[walletIndex] = updatedWallet
+        
+        do {
+            let walletsData = try JSONEncoder().encode(wallets)
+            let data = NSKeyedArchiver.archivedData(withRootObject: walletsData)
+            KeychainWrapper.standard.set(data, forKey: "wallets")
+            
+            completion(.success(result: details))
+        } catch {
+            completion(.failure(error: .unknown))
+        }
     }
     
     func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
