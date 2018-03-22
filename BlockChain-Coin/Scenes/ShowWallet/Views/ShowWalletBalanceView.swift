@@ -63,7 +63,7 @@ class ShowWalletBalanceView: View {
     func configure(value: Double, title: String, alignment: UIStackViewAlignment) {
         stackView.alignment = alignment
         
-        balanceLabel.text = value.blocCurrency()
+        balanceLabel.text = value.blocCurrency(includeCurrency: false)
         
         titleLabel.text = title
     }

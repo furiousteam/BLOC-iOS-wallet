@@ -6,7 +6,30 @@
 //  Copyright © 2018 BlockChain-Coin.net. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+enum TransactionType: String {
+    case sent = "sent"
+    case received = "received"
+    
+    var text: String {
+        switch self {
+        case .sent:
+            return R.string.localizable.wallet_sent()
+        case .received:
+            return R.string.localizable.wallet_received()
+        }
+    }
+    
+    var smallImage: UIImage? {
+        switch self {
+        case .sent:
+            return R.image.sentSmall()
+        case .received:
+            return R.image.receivedSmall()
+        }
+    }
+}
 
 protocol TransactionModel {
     var hash: String { get }
@@ -18,6 +41,7 @@ protocol TransactionModel {
     var extra: String { get }
     var paymentId: String { get }
     var transfers: [Transfer] { get }
+    var transactionType: TransactionType { get }
 }
 
 struct Transaction: TransactionModel, Codable {
@@ -31,6 +55,10 @@ struct Transaction: TransactionModel, Codable {
     let paymentId: String
     let transfers: [Transfer]
     
+    var transactionType: TransactionType {
+        return .received
+    }
+    
     enum CodingKeys: String, CodingKey {
         case hash = "transactionHash"
         case blockIndex = "blockIndex"
@@ -41,6 +69,7 @@ struct Transaction: TransactionModel, Codable {
         case extra = "extra"
         case paymentId = "paymentId"
         case transfers = "transfers"
+        case transactionType = "transactionType"
     }
     
     func encode(to encoder: Encoder) throws {

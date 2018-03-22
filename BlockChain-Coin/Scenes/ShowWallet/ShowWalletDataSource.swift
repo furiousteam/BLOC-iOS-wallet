@@ -69,6 +69,8 @@ class ShowWalletDataSource: NSObject, UITableViewDataSource {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletTransactionCell.reuseIdentifier(), for: indexPath) as! ShowWalletTransactionCell
             
+            cell.configure(transaction: transactions[indexPath.row])
+            
             return cell
         }
     }

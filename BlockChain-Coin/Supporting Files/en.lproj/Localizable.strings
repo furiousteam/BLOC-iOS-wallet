@@ -13,7 +13,7 @@
 "tabs_send" = "Send";
 "tabs_transactions" = "Transact.";
 "wallet_list_item_title" = "Wallet #%d";
-"wallet_list_item_balance" = "Total balance: %@ BLOC";
+"wallet_list_item_balance" = "Total balance: %@";
 "wallet_list_no_wallet_title" = "You have no wallet for now";
 "wallet_list_no_wallet_instructions" = "You need to create a new wallet or import a wallet using your private key or a QR code";
 "wallet_list_no_wallet_create" = "Create a new wallet";

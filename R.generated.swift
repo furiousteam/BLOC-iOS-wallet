@@ -85,7 +85,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 35 images.
+  /// This `R.image` struct is generated, and contains static references to 37 images.
   struct image {
     /// Image `accessory`.
     static let accessory = Rswift.ImageResource(bundle: R.hostingBundle, name: "accessory")
@@ -119,8 +119,12 @@ struct R: Rswift.Validatable {
     static let navBarBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "nav-bar-bg")
     /// Image `qr-code-small`.
     static let qrCodeSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "qr-code-small")
+    /// Image `received-small`.
+    static let receivedSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "received-small")
     /// Image `right-arrow`.
     static let rightArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "right-arrow")
+    /// Image `sent-small`.
+    static let sentSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "sent-small")
     /// Image `separator-dash`.
     static let separatorDash = Rswift.ImageResource(bundle: R.hostingBundle, name: "separator-dash")
     /// Image `settings-icon`.
@@ -238,9 +242,19 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.qrCodeSmall, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "received-small", bundle: ..., traitCollection: ...)`
+    static func receivedSmall(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.receivedSmall, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "right-arrow", bundle: ..., traitCollection: ...)`
     static func rightArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.rightArrow, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "sent-small", bundle: ..., traitCollection: ...)`
+    static func sentSmall(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.sentSmall, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "separator-dash", bundle: ..., traitCollection: ...)`
@@ -536,7 +550,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_total_balance = Rswift.StringResource(key: "wallet_total_balance", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Total balance: %@ BLOC
+      /// en translation: Total balance: %@
       /// 
       /// Locales: en
       static let wallet_list_item_balance = Rswift.StringResource(key: "wallet_list_item_balance", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -915,7 +929,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_total_balance", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Total balance: %@ BLOC
+      /// en translation: Total balance: %@
       /// 
       /// Locales: en
       static func wallet_list_item_balance(_ value1: String) -> String {
