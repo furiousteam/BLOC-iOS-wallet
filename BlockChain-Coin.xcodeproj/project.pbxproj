@@ -80,6 +80,10 @@
 		9C5756C420640DF9002BD079 /* ConfirmTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756BD20640D73002BD079 /* ConfirmTransactionVC.swift */; };
 		9C5756C720640FB3002BD079 /* ConfirmTransactionFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756C620640FB3002BD079 /* ConfirmTransactionFormViews.swift */; };
 		9C63A354206419AC00E9C33D /* WalletAPITransferResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A353206419AC00E9C33D /* WalletAPITransferResponse.swift */; };
+		9C63A35E2064F2FC00E9C33D /* TransactionResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3582064F2FC00E9C33D /* TransactionResultVC.swift */; };
+		9C63A3622064F2FC00E9C33D /* TransactionResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A35C2064F2FC00E9C33D /* TransactionResultRouter.swift */; };
+		9C63A3662064F39800E9C33D /* TransactionResultFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3652064F39800E9C33D /* TransactionResultFormViews.swift */; };
+		9C63A3682065008600E9C33D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3672065008600E9C33D /* APIError.swift */; };
 		9C6622ED2035CB4E0083CE2E /* ConfigureWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6622EC2035CB4E0083CE2E /* ConfigureWalletVC.swift */; };
 		9C6622F72035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6622F62035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift */; };
 		9C6622FB203626A60083CE2E /* PoolSocketOKResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6622FA203626A60083CE2E /* PoolSocketOKResponse.swift */; };
@@ -311,6 +315,10 @@
 		9C5756BD20640D73002BD079 /* ConfirmTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionVC.swift; sourceTree = "<group>"; };
 		9C5756C620640FB3002BD079 /* ConfirmTransactionFormViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionFormViews.swift; sourceTree = "<group>"; };
 		9C63A353206419AC00E9C33D /* WalletAPITransferResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAPITransferResponse.swift; sourceTree = "<group>"; };
+		9C63A3582064F2FC00E9C33D /* TransactionResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionResultVC.swift; sourceTree = "<group>"; };
+		9C63A35C2064F2FC00E9C33D /* TransactionResultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionResultRouter.swift; sourceTree = "<group>"; };
+		9C63A3652064F39800E9C33D /* TransactionResultFormViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResultFormViews.swift; sourceTree = "<group>"; };
+		9C63A3672065008600E9C33D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		9C6622EC2035CB4E0083CE2E /* ConfigureWalletVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureWalletVC.swift; sourceTree = "<group>"; };
 		9C6622F62035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+Register.swift"; sourceTree = "<group>"; };
 		9C6622FA203626A60083CE2E /* PoolSocketOKResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSocketOKResponse.swift; sourceTree = "<group>"; };
@@ -550,6 +558,7 @@
 				9C9A570020372B1A00B010D5 /* TransactionExtra.swift */,
 				9C9A570E2037419500B010D5 /* Address.swift */,
 				9C6FEF862050496900ED7D47 /* WalletKeys.swift */,
+				9C63A3672065008600E9C33D /* APIError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -650,6 +659,7 @@
 				9CBCC9AE206224E40006FBA7 /* NewTransaction */,
 				9C5756A720640323002BD079 /* CheckPassword */,
 				9C5756BF20640D73002BD079 /* ConfirmTransaction */,
+				9C63A3572064F2FC00E9C33D /* TransactionResult */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -851,6 +861,24 @@
 			isa = PBXGroup;
 			children = (
 				9C5756C620640FB3002BD079 /* ConfirmTransactionFormViews.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9C63A3572064F2FC00E9C33D /* TransactionResult */ = {
+			isa = PBXGroup;
+			children = (
+				9C63A3642064F38D00E9C33D /* Views */,
+				9C63A3582064F2FC00E9C33D /* TransactionResultVC.swift */,
+				9C63A35C2064F2FC00E9C33D /* TransactionResultRouter.swift */,
+			);
+			path = TransactionResult;
+			sourceTree = "<group>";
+		};
+		9C63A3642064F38D00E9C33D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C63A3652064F39800E9C33D /* TransactionResultFormViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1435,6 +1463,7 @@
 				9C5756C320640DF9002BD079 /* ConfirmTransactionRouter.swift in Sources */,
 				9C78F1D12056CD5A001ADA32 /* ListTransactionsVC.swift in Sources */,
 				9C043685202C9DE600671DA2 /* Job.swift in Sources */,
+				9C63A35E2064F2FC00E9C33D /* TransactionResultVC.swift in Sources */,
 				9C04368C202CA89B00671DA2 /* MineVC.swift in Sources */,
 				9C8A8F77202EE13600F55736 /* PoolSocketRequest.swift in Sources */,
 				9C4AA49C203335460056152C /* ListWalletsDataSource.swift in Sources */,
@@ -1502,6 +1531,7 @@
 				9C85E38A205A6BBF00208DF6 /* TextField.swift in Sources */,
 				9C043681202C9C7800671DA2 /* CryptonightMiner.swift in Sources */,
 				9C78F1AC2056C8B7001ADA32 /* AppInteractor.swift in Sources */,
+				9C63A3662064F39800E9C33D /* TransactionResultFormViews.swift in Sources */,
 				9C0325A02056CDAE0009FA3B /* AboutRouter.swift in Sources */,
 				9C0325AA2056CE610009FA3B /* TabBarItem.swift in Sources */,
 				9CBB2F0620567DE100718EBA /* UIFont+BLOC.swift in Sources */,
@@ -1513,10 +1543,12 @@
 				9CBCC991206101EF0006FBA7 /* ShowWalletExportKeysCell.swift in Sources */,
 				9C78F1D02056CD5A001ADA32 /* ListTransactionsRouter.swift in Sources */,
 				9C0436A9202CDC0A00671DA2 /* Reusable.swift in Sources */,
+				9C63A3622064F2FC00E9C33D /* TransactionResultRouter.swift in Sources */,
 				9C043658202C94B900671DA2 /* AppDelegate.swift in Sources */,
 				9C85E386205A6AC400208DF6 /* SetWalletPasswordFormViews.swift in Sources */,
 				9C78F1AE2056CA45001ADA32 /* Environment.swift in Sources */,
 				9C85E36C205A57F800208DF6 /* ActionCell.swift in Sources */,
+				9C63A3682065008600E9C33D /* APIError.swift in Sources */,
 				9C4AA4E020348F4D0056152C /* ShowWalletModels.swift in Sources */,
 				9C6622ED2035CB4E0083CE2E /* ConfigureWalletVC.swift in Sources */,
 				9CBCC9C32062357F0006FBA7 /* NewTransactionDataSource.swift in Sources */,

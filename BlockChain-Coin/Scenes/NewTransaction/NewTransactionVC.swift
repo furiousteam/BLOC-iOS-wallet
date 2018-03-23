@@ -93,6 +93,12 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         readerVC.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        resetForm()
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -115,7 +121,7 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         // Form
         
         formView.stackView.layoutMargins = UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0)
-        formView.scrollView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 60.0, right: 0.0)
+        formView.scrollView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 100.0, right: 0.0)
         formFields.orderedViews.forEach(formView.stackView.addArrangedSubview)
         
         formFields.walletsCollectionView.dataSource = dataSource
@@ -153,13 +159,12 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         
         // Values
         
-        self.form = NewTransactionForm(amount: nil, address: nil, sourceWallet: nil)
-        self.lastUpdateForm = self.form
+        resetForm()
         
         self.interactor.validateForm(request: NewTransactionRequest(form: self.form!))
         
-        Observable.combineLatest(formFields.amountTextField.rx.text, formFields.addressTextView.rx.text.asObservable(), formFields.walletsCollectionView.rx.itemSelected.asObservable()).subscribe(onNext: { [weak self] amount, address, indexPath in
-            self?.updateForm(amount: Double(amount ?? ""), address: address, indexPath: indexPath)
+        Observable.combineLatest(formFields.amountTextField.rx.text.asObservable(), formFields.addressTextView.rx.text.asObservable()).subscribe(onNext: { [weak self] amount, address in
+            self?.updateForm(amount: Double(amount ?? ""), address: address, indexPath: self?.formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
         }).disposed(by: disposeBag)
     }
     
@@ -181,6 +186,20 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         self.interactor.validateForm(request: NewTransactionRequest(form: form))
     }
     
+    func resetForm() {
+        self.formFields.amountTextField.text = nil
+        self.formFields.addressTextView.text = nil
+        
+        self.formFields.amountTextField.rx.text.onNext("")
+
+        self.form = NewTransactionForm(amount: nil, address: nil, sourceWallet: nil)
+        self.lastUpdateForm = self.form
+        
+        self.updateForm(amount: nil, address: nil, indexPath: nil)
+        
+        self.updateWalletsList()
+    }
+    
     // MARK: - Actions
     
     @objc func menuTapped() {
@@ -197,7 +216,7 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         }
         
         let vc = CheckPasswordVC(wallet: wallet, titleView: titleView, delegate: self)
-        present(vc, animated: true, completion: nil)
+        present(NavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     
     func didEnterPassword(checkPasswordVC: CheckPasswordVC, string: String) {
@@ -233,6 +252,10 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return itemSpacing
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.updateForm(amount: Double(formFields.amountTextField.text ?? ""), address: formFields.addressTextView.text, indexPath: self.formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
     }
     
     // MARK: - UI Update

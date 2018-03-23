@@ -10,6 +10,7 @@ import UIKit
 
 protocol ConfirmTransactionRoutingLogic {
     func goBack()
+    func showResult(error: String?)
 }
 
 class ConfirmTransactionRouter: Router, ConfirmTransactionRoutingLogic {
@@ -17,6 +18,20 @@ class ConfirmTransactionRouter: Router, ConfirmTransactionRoutingLogic {
     
     func goBack() {
         viewController?.navigationController?.popViewController(animated: true)
+    }
+    
+    func showResult(error: String?) {
+        let result: TransactionResultVC.Result = {
+            if let error = error {
+                return .error(error: error)
+            }
+            
+            return .success
+        }()
+        
+        let vc = TransactionResultVC(result: result)
+        
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

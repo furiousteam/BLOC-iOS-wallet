@@ -77,11 +77,11 @@ class CheckPasswordVC: ViewController {
         }).disposed(by: disposeBag)
         
         // Navigation Bar
-        
-        self.navigationItem.titleView = titleView
-        
+                
         let backButton = UIBarButtonItem(image: R.image.leftArrow(), style: .plain, target: self, action: #selector(backTapped))
         self.navigationItem.setLeftBarButton(backButton, animated: false)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
     }
     
     @objc func nextTapped() {

@@ -164,7 +164,11 @@ class WalletAPI: WalletStore {
         provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletAPITransferResponse.self).subscribe(onSuccess: { response in
             completion(.success(result: response.transactionHash))
         }, onError: { error in
-            // TODO: Better error handling
+            if let apiError = error as? NSError, let message = apiError.userInfo["message"] as? String {
+                completion(.failure(error: .raw(string: "\(message) (code: \(apiError.code))")))
+                return
+            }
+            
             completion(.failure(error: .unknown))
         }).disposed(by: disposeBag)
     }

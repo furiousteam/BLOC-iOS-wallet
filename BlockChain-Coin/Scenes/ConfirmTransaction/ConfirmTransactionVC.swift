@@ -124,14 +124,12 @@ class ConfirmTransactionVC: ViewController, ConfirmTransactionDisplayLogic {
         // TODO: Error state
         
         switch viewModel.state {
-        case .loaded(let hash):
-            // TODO: Push transaction successful screen
-            log.info("Hash: \(hash)")
+        case .loaded:
+            router.showResult(error: nil)
         case.loading:
             log.info("Loading")
         case .error(let errorText):
-            // TODO: Push transaction failed screen
-            log.error(errorText)
+            router.showResult(error: errorText)
         }
     }
 }

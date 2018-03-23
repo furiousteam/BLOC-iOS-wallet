@@ -14,12 +14,36 @@ enum WalletStoreResult<T> {
 }
 
 enum WalletStoreError: Equatable, Error {
+    static func ==(lhs: WalletStoreError, rhs: WalletStoreError) -> Bool {
+        switch lhs {
+        case .raw(let lhsString):
+            switch rhs {
+            case .raw(let rhsString):
+                return lhsString == rhsString
+            default:
+                return false
+            }
+        default:
+            return lhs == rhs
+        }
+    }
+    
     case unknown
     case couldNotConnect
     case alreadyConnected
     case alreadyDisconnected
     case couldNotDisconnect
     case couldNotCreateWallet
+    case raw(string: String)
+    
+    var localizedDescription: String {
+        switch self {
+        case .raw(let string):
+            return string
+        default:
+            return R.string.localizable.error_unknown()
+        }
+    }
 }
 
 typealias WalletStoreListWalletsCompletionHandler = (WalletStoreResult<[WalletModel]>) -> Void

@@ -85,7 +85,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 38 images.
+  /// This `R.image` struct is generated, and contains static references to 40 images.
   struct image {
     /// Image `accessory`.
     static let accessory = Rswift.ImageResource(bundle: R.hostingBundle, name: "accessory")
@@ -149,6 +149,10 @@ struct R: Rswift.Validatable {
     static let tabBarWallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-wallet")
     /// Image `top-arrow`.
     static let topArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "top-arrow")
+    /// Image `transaction_error`.
+    static let transaction_error = Rswift.ImageResource(bundle: R.hostingBundle, name: "transaction_error")
+    /// Image `transaction_success`.
+    static let transaction_success = Rswift.ImageResource(bundle: R.hostingBundle, name: "transaction_success")
     /// Image `wallet-balance`.
     static let walletBalance = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallet-balance")
     /// Image `wallet-export-keys`.
@@ -319,6 +323,16 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.topArrow, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "transaction_error", bundle: ..., traitCollection: ...)`
+    static func transaction_error(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.transaction_error, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "transaction_success", bundle: ..., traitCollection: ...)`
+    static func transaction_success(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.transaction_success, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "wallet", bundle: ..., traitCollection: ...)`
     static func wallet(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.wallet, compatibleWith: traitCollection)
@@ -387,8 +401,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 69 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 89 localization keys.
     struct localizable {
+      /// en translation: A problem has occured!
+      /// 
+      /// Locales: en
+      static let send_error_title = Rswift.StringResource(key: "send_error_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: About
       /// 
       /// Locales: en
@@ -397,6 +415,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_address_copied = Rswift.StringResource(key: "wallet_address_copied", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Amount: %@
+      /// 
+      /// Locales: en
+      static let transaction_details_amount = Rswift.StringResource(key: "transaction_details_amount", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: An unknown error has occured. Please try again.
+      /// 
+      /// Locales: en
+      static let error_unknown = Rswift.StringResource(key: "error_unknown", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Anonymity: 10 (very anonymous)
       /// 
       /// Locales: en
@@ -405,6 +431,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_created_title_second_line = Rswift.StringResource(key: "wallet_created_title_second_line", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: BLOC
+      /// 
+      /// Locales: en
+      static let about_us_bloc = Rswift.StringResource(key: "about_us_bloc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: BLOC - TO
       /// 
       /// Locales: en
@@ -417,6 +447,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_bloc_locked = Rswift.StringResource(key: "wallet_bloc_locked", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Block height: %@
+      /// 
+      /// Locales: en
+      static let transaction_details_block_height = Rswift.StringResource(key: "transaction_details_block_height", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Cancel
       /// 
       /// Locales: en
@@ -437,6 +471,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_list_no_wallet_create = Rswift.StringResource(key: "wallet_list_no_wallet_create", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Date: %@
+      /// 
+      /// Locales: en
+      static let transaction_details_date = Rswift.StringResource(key: "transaction_details_date", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Details
+      /// 
+      /// Locales: en
+      static let transaction_details_nav = Rswift.StringResource(key: "transaction_details_nav", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Do not store it on your smartphone, tablet, or computer. You are the sole responsible for the security of this key. Note: the key does not contain spaces.
       /// 
       /// Locales: en
@@ -449,6 +491,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_confirm_fee = Rswift.StringResource(key: "send_confirm_fee", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Fee: %@
+      /// 
+      /// Locales: en
+      static let transaction_details_fee = Rswift.StringResource(key: "transaction_details_fee", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Fees for this transactions: %@
       /// 
       /// Locales: en
@@ -473,6 +519,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_list_no_wallet_import_key = Rswift.StringResource(key: "wallet_list_no_wallet_import_key", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Meet the Blockchain Coin
+      /// 
+      /// Locales: en
+      static let about_us_meet = Rswift.StringResource(key: "about_us_meet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Mining
       /// 
       /// Locales: en
@@ -501,6 +551,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_paste_address = Rswift.StringResource(key: "send_paste_address", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Payment ID: %@
+      /// 
+      /// Locales: en
+      static let transaction_details_payment_id = Rswift.StringResource(key: "transaction_details_payment_id", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Please enter the password for this wallet
       /// 
       /// Locales: en
@@ -537,10 +591,22 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_recipient_title = Rswift.StringResource(key: "send_recipient_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Remember: some time is required for the network to confirm the transaction
+      /// 
+      /// Locales: en
+      static let send_success_subtitle = Rswift.StringResource(key: "send_success_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Secure Private Decentralized Untraceable Fungible
+      /// 
+      /// Locales: en
+      static let about_us_tagline = Rswift.StringResource(key: "about_us_tagline", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: See full history
       /// 
       /// Locales: en
       static let wallet_full_history = Rswift.StringResource(key: "wallet_full_history", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: See the full transaction details on the Blockchain Coin Explorer
+      /// 
+      /// Locales: en
+      static let transaction_details_explorer = Rswift.StringResource(key: "transaction_details_explorer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Select the wallet to use for this transaction
       /// 
       /// Locales: en
@@ -561,14 +627,26 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_sent = Rswift.StringResource(key: "wallet_sent", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Sent to:
+      /// 
+      /// Locales: en
+      static let transaction_details_sent_to = Rswift.StringResource(key: "transaction_details_sent_to", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Slide to confirm
       /// 
       /// Locales: en
       static let send_confirm_slide_to_confirm = Rswift.StringResource(key: "send_confirm_slide_to_confirm", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Status: %@
+      /// 
+      /// Locales: en
+      static let transaction_details_status = Rswift.StringResource(key: "transaction_details_status", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Summary
       /// 
       /// Locales: en
       static let send_confirm_title_view = Rswift.StringResource(key: "send_confirm_title_view", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: The BlockChain Coin has been founded in 2018 by a group of talented friends and partners that has been working together for more than 10 years on IT, smartphone technology, web, API, hardware products, applications and many more. Experimented, smart, ambitious, fun and hard working are some of our main qualities. We love cryptocurrencies, we are early bitcoin investors, we are (still) amazed by the possibilities that the Blockchain technology brings to the world and we want to be a fundamental actor of this revolution. Visit our website to discover our universe, our application, our ecostystem, our roadmap and be a part of it; join us!
+      /// 
+      /// Locales: en
+      static let about_us_content = Rswift.StringResource(key: "about_us_content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: This password will be required each time you make a transaction with someone and to export your private key
       /// 
       /// Locales: en
@@ -585,10 +663,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let tabs_transactions = Rswift.StringResource(key: "tabs_transactions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Transaction hash:
+      /// 
+      /// Locales: en
+      static let transaction_details_hash = Rswift.StringResource(key: "transaction_details_hash", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Transactions
       /// 
       /// Locales: en
       static let home_menu_transactions_title = Rswift.StringResource(key: "home_menu_transactions_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Transfers: %@
+      /// 
+      /// Locales: en
+      static let transaction_details_transfers = Rswift.StringResource(key: "transaction_details_transfers", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Use QR code
       /// 
       /// Locales: en
@@ -629,6 +715,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_list_no_wallet_instructions = Rswift.StringResource(key: "wallet_list_no_wallet_instructions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your Blockchain Coins has been sent!
+      /// 
+      /// Locales: en
+      static let send_success_title = Rswift.StringResource(key: "send_success_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Your address
       /// 
       /// Locales: en
@@ -665,6 +755,17 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let home_menu_send_subtitle = Rswift.StringResource(key: "home_menu_send_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: www.blockchain-coin.net
+      /// 
+      /// Locales: en
+      static let about_us_url = Rswift.StringResource(key: "about_us_url", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      
+      /// en translation: A problem has occured!
+      /// 
+      /// Locales: en
+      static func send_error_title(_: Void = ()) -> String {
+        return NSLocalizedString("send_error_title", bundle: R.hostingBundle, comment: "")
+      }
       
       /// en translation: About
       /// 
@@ -680,6 +781,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_address_copied", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Amount: %@
+      /// 
+      /// Locales: en
+      static func transaction_details_amount(_ value1: String) -> String {
+        return String(format: NSLocalizedString("transaction_details_amount", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: An unknown error has occured. Please try again.
+      /// 
+      /// Locales: en
+      static func error_unknown(_: Void = ()) -> String {
+        return NSLocalizedString("error_unknown", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Anonymity: 10 (very anonymous)
       /// 
       /// Locales: en
@@ -692,6 +807,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_created_title_second_line(_: Void = ()) -> String {
         return NSLocalizedString("wallet_created_title_second_line", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: BLOC
+      /// 
+      /// Locales: en
+      static func about_us_bloc(_: Void = ()) -> String {
+        return NSLocalizedString("about_us_bloc", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: BLOC - TO
@@ -713,6 +835,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_bloc_locked(_: Void = ()) -> String {
         return NSLocalizedString("wallet_bloc_locked", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Block height: %@
+      /// 
+      /// Locales: en
+      static func transaction_details_block_height(_ value1: String) -> String {
+        return String(format: NSLocalizedString("transaction_details_block_height", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: Cancel
@@ -750,6 +879,20 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_list_no_wallet_create", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Date: %@
+      /// 
+      /// Locales: en
+      static func transaction_details_date(_ value1: String) -> String {
+        return String(format: NSLocalizedString("transaction_details_date", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: Details
+      /// 
+      /// Locales: en
+      static func transaction_details_nav(_: Void = ()) -> String {
+        return NSLocalizedString("transaction_details_nav", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Do not store it on your smartphone, tablet, or computer. You are the sole responsible for the security of this key. Note: the key does not contain spaces.
       /// 
       /// Locales: en
@@ -769,6 +912,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func send_confirm_fee(_ value1: String) -> String {
         return String(format: NSLocalizedString("send_confirm_fee", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: Fee: %@
+      /// 
+      /// Locales: en
+      static func transaction_details_fee(_ value1: String) -> String {
+        return String(format: NSLocalizedString("transaction_details_fee", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: Fees for this transactions: %@
@@ -811,6 +961,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_list_no_wallet_import_key(_: Void = ()) -> String {
         return NSLocalizedString("wallet_list_no_wallet_import_key", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Meet the Blockchain Coin
+      /// 
+      /// Locales: en
+      static func about_us_meet(_: Void = ()) -> String {
+        return NSLocalizedString("about_us_meet", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Mining
@@ -860,6 +1017,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func send_paste_address(_: Void = ()) -> String {
         return NSLocalizedString("send_paste_address", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Payment ID: %@
+      /// 
+      /// Locales: en
+      static func transaction_details_payment_id(_ value1: String) -> String {
+        return String(format: NSLocalizedString("transaction_details_payment_id", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: Please enter the password for this wallet
@@ -925,11 +1089,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send_recipient_title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Remember: some time is required for the network to confirm the transaction
+      /// 
+      /// Locales: en
+      static func send_success_subtitle(_: Void = ()) -> String {
+        return NSLocalizedString("send_success_subtitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Secure Private Decentralized Untraceable Fungible
+      /// 
+      /// Locales: en
+      static func about_us_tagline(_: Void = ()) -> String {
+        return NSLocalizedString("about_us_tagline", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: See full history
       /// 
       /// Locales: en
       static func wallet_full_history(_: Void = ()) -> String {
         return NSLocalizedString("wallet_full_history", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: See the full transaction details on the Blockchain Coin Explorer
+      /// 
+      /// Locales: en
+      static func transaction_details_explorer(_: Void = ()) -> String {
+        return NSLocalizedString("transaction_details_explorer", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Select the wallet to use for this transaction
@@ -967,6 +1152,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_sent", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Sent to:
+      /// 
+      /// Locales: en
+      static func transaction_details_sent_to(_: Void = ()) -> String {
+        return NSLocalizedString("transaction_details_sent_to", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Slide to confirm
       /// 
       /// Locales: en
@@ -974,11 +1166,25 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send_confirm_slide_to_confirm", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Status: %@
+      /// 
+      /// Locales: en
+      static func transaction_details_status(_ value1: String) -> String {
+        return String(format: NSLocalizedString("transaction_details_status", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
       /// en translation: Summary
       /// 
       /// Locales: en
       static func send_confirm_title_view(_: Void = ()) -> String {
         return NSLocalizedString("send_confirm_title_view", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The BlockChain Coin has been founded in 2018 by a group of talented friends and partners that has been working together for more than 10 years on IT, smartphone technology, web, API, hardware products, applications and many more. Experimented, smart, ambitious, fun and hard working are some of our main qualities. We love cryptocurrencies, we are early bitcoin investors, we are (still) amazed by the possibilities that the Blockchain technology brings to the world and we want to be a fundamental actor of this revolution. Visit our website to discover our universe, our application, our ecostystem, our roadmap and be a part of it; join us!
+      /// 
+      /// Locales: en
+      static func about_us_content(_: Void = ()) -> String {
+        return NSLocalizedString("about_us_content", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: This password will be required each time you make a transaction with someone and to export your private key
@@ -1009,11 +1215,25 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tabs_transactions", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Transaction hash:
+      /// 
+      /// Locales: en
+      static func transaction_details_hash(_: Void = ()) -> String {
+        return NSLocalizedString("transaction_details_hash", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Transactions
       /// 
       /// Locales: en
       static func home_menu_transactions_title(_: Void = ()) -> String {
         return NSLocalizedString("home_menu_transactions_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Transfers: %@
+      /// 
+      /// Locales: en
+      static func transaction_details_transfers(_ value1: String) -> String {
+        return String(format: NSLocalizedString("transaction_details_transfers", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: Use QR code
@@ -1086,6 +1306,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_list_no_wallet_instructions", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Your Blockchain Coins has been sent!
+      /// 
+      /// Locales: en
+      static func send_success_title(_: Void = ()) -> String {
+        return NSLocalizedString("send_success_title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Your address
       /// 
       /// Locales: en
@@ -1147,6 +1374,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func home_menu_send_subtitle(_: Void = ()) -> String {
         return NSLocalizedString("home_menu_send_subtitle", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: www.blockchain-coin.net
+      /// 
+      /// Locales: en
+      static func about_us_url(_: Void = ()) -> String {
+        return NSLocalizedString("about_us_url", bundle: R.hostingBundle, comment: "")
       }
       
       fileprivate init() {}
