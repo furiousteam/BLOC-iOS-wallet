@@ -49,7 +49,7 @@ final class TabBarVC: ViewController {
         
         setControllers([ NavigationController(rootViewController: walletsVC),
                          NavigationController(rootViewController: miningVC),
-                         NavigationController(rootViewController: aboutVC),
+                         aboutVC,
                          NavigationController(rootViewController: sendVC),
                          NavigationController(rootViewController: transactionsVC) ])
         

@@ -14,10 +14,17 @@ protocol AboutDisplayLogic: class {
 
 class AboutVC: ViewController, AboutDisplayLogic {
     
-    let dataSource = AboutDataSource()
-    
+    let formView = ScrollableStackView()
+    let formFields = AboutFormViews()
+
     let router: AboutRoutingLogic
     let interactor: AboutBusinessLogic
+    
+    let backgroundImageView: UIImageView = {
+        let imageView = UIImageView(image: R.image.aboutUsBg())
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     
     // MARK: - View lifecycle
     
@@ -64,10 +71,39 @@ class AboutVC: ViewController, AboutDisplayLogic {
     // MARK: - Configuration
     
     func configure() {
-        view.backgroundColor = .white
-    }
+        view.backgroundColor = .clear
+        
+        view.addSubview(backgroundImageView)
 
-    // MARK: UI Update
+        view.addSubview(formView)
+        
+        formView.snp.makeConstraints({
+            $0.edges.equalToSuperview()
+        })
+        
+        backgroundImageView.snp.makeConstraints({
+            $0.edges.equalToSuperview()
+        })
+        
+        // Form
+        
+        formView.scrollView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 60.0, right: 0.0)
+        formFields.orderedViews.forEach(formView.stackView.addArrangedSubview)
+        
+        formFields.logo.snp.makeConstraints({
+            $0.height.equalTo(160.0)
+        })
+        
+        formFields.websiteButton.addTarget(self, action: #selector(websiteTapped), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+
+    @objc func websiteTapped() {
+        UIApplication.shared.open(URL(string: "http://www.blockchain-coin.net")!, options: [:], completionHandler: nil)
+    }
+    
+    // MARK: - UI Update
     
     func handleUpdate(viewModel: AboutViewModel) {
         
