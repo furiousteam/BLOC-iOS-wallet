@@ -56,6 +56,10 @@ struct Transaction: TransactionModel, Codable {
     let transfers: [Transfer]
     
     var transactionType: TransactionType {
+        if amount < 0 {
+            return .sent
+        }
+        
         return .received
     }
     

@@ -121,5 +121,9 @@ class WalletDiskStore: WalletStore {
     func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
         completion(.failure(error: .unknown))
     }
-        
+    
+    func transfer(wallet: WalletModel, password: String, destination: String, amount: Int64, fee: UInt64, anonymity: UInt64, unlockHeight: UInt64?, paymentId: String?, completion: @escaping WalletStoreTransferCompletionHandler) {
+        completion(.failure(error: .unknown))
+    }
+
 }

@@ -17,6 +17,7 @@ enum WalletAPITarget: TargetType {
     case createWallet(publicKey: String, uuid: String, walletPrivateKey: String?)
     case balanceAndTransactions(address: String, signature: String)
     case keys(address: String, signature: String)
+    case transfer(sourceAddress: String, destinationAddress: String, amount: Int64, fee: UInt64, anonymity: UInt64, unlockHeight: UInt64?, paymentId: String?, signature: String)
     
     var baseURL: URL {
         return URL(string: "http://localhost:8080/api/v1")!
@@ -30,6 +31,8 @@ enum WalletAPITarget: TargetType {
             return "wallets/\(address)"
         case .keys(let address, _):
             return "keys/\(address)"
+        case .transfer:
+            return "transfer"
         }
     }
     
@@ -43,7 +46,7 @@ enum WalletAPITarget: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .createWallet:
+        case .createWallet, .transfer:
             return .post
         case .balanceAndTransactions, .keys:
             return .get
@@ -52,7 +55,7 @@ enum WalletAPITarget: TargetType {
     
     var headers: [String : String]? {
         switch self {
-        case .balanceAndTransactions(_, let signature), .keys(_, let signature):
+        case .balanceAndTransactions(_, let signature), .keys(_, let signature), .transfer(_, _, _, _, _, _, _, let signature):
             return [ "X-BLOC-Auth": signature ]
         default:
             return nil
@@ -76,6 +79,18 @@ enum WalletAPITarget: TargetType {
             
             if let walletPrivateKey = walletPrivateKey { parameters["secretKey"] = walletPrivateKey }
             
+            return parameters
+        case .transfer(let sourceAddress, let destinationAddress, let amount, let fee, let anonymity, let unlockHeight, let paymentId, _):
+            var parameters: [String: Any] = [ "sourceAddress": sourceAddress,
+                                              "destinationAddress": destinationAddress,
+                                              "amount": amount,
+                                              "fee": fee,
+                                              "anonymity": anonymity ]
+            
+            if let unlockHeight = unlockHeight { parameters["unlockHeight"] = unlockHeight }
+
+            if let paymentId = paymentId { parameters["paymentId"] = paymentId }
+
             return parameters
         default:
             return nil
@@ -132,6 +147,22 @@ class WalletAPI: WalletStore {
         
         provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletKeys.self).subscribe(onSuccess: { response in
             completion(.success(result: response))
+        }, onError: { error in
+            // TODO: Better error handling
+            completion(.failure(error: .unknown))
+        }).disposed(by: disposeBag)
+    }
+    
+    func transfer(wallet: WalletModel, password: String, destination: String, amount: Int64, fee: UInt64, anonymity: UInt64, unlockHeight: UInt64?, paymentId: String?, completion: @escaping WalletStoreTransferCompletionHandler) {
+        guard let signature = generateSignature(uuid: wallet.uuid.uuidString, keyPair: wallet.keyPair, password: password) else {
+            completion(.failure(error: .couldNotConnect))
+            return
+        }
+        
+        let endpoint = WalletAPITarget.transfer(sourceAddress: wallet.address, destinationAddress: destination, amount: amount, fee: fee, anonymity: anonymity, unlockHeight: unlockHeight, paymentId: paymentId, signature: signature)
+        
+        provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletAPITransferResponse.self).subscribe(onSuccess: { response in
+            completion(.success(result: response.transactionHash))
         }, onError: { error in
             // TODO: Better error handling
             completion(.failure(error: .unknown))

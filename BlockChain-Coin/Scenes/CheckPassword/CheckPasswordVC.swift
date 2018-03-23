@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 
 protocol CheckPasswordVCDelegate: class {
-    func didEnterPassword(string: String)
+    func didEnterPassword(checkPasswordVC: CheckPasswordVC, string: String)
 }
 
 class CheckPasswordVC: ViewController {
@@ -88,7 +88,7 @@ class CheckPasswordVC: ViewController {
         do {
             guard let password = wallet.password, let userPassword = try formFields.passwordField.rx_text.value(), password == userPassword else { return }
             
-            delegate?.didEnterPassword(string: userPassword)
+            delegate?.didEnterPassword(checkPasswordVC: self, string: userPassword)
         } catch {
             
         }

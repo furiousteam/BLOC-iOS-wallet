@@ -26,12 +26,14 @@ typealias WalletStoreListWalletsCompletionHandler = (WalletStoreResult<[WalletMo
 typealias WalletStoreAddWalletCompletionHandler = (WalletStoreResult<String>) -> Void
 typealias WalletStoreGetBalanceAndTransactionsCompletionHandler = (WalletStoreResult<WalletDetails>) -> Void
 typealias WalletStoreGetKeysCompletionHandler = (WalletStoreResult<WalletKeys>) -> Void
+typealias WalletStoreTransferCompletionHandler = (WalletStoreResult<String>) -> Void
 
 protocol WalletStore {
     func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, password: String?, address: String?, details: WalletDetails?, completion: @escaping WalletStoreAddWalletCompletionHandler)
     func getBalanceAndTransactions(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler)
     func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler)
-
+    func transfer(wallet: WalletModel, password: String, destination: String, amount: Int64, fee: UInt64, anonymity: UInt64, unlockHeight: UInt64?, paymentId: String?, completion: @escaping WalletStoreTransferCompletionHandler)
+    
     func generateSeed() -> Seed?
     func generateKeyPair(seed: Seed) -> KeyPair?
     
@@ -65,6 +67,14 @@ class WalletWorker {
     
     func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
         store.getKeys(wallet: wallet, password: password) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    func transfer(wallet: WalletModel, password: String, destination: String, amount: Int64, fee: UInt64, anonymity: UInt64, unlockHeight: UInt64?, paymentId: String?, completion: @escaping WalletStoreTransferCompletionHandler) {
+        store.transfer(wallet: wallet, password: password, destination: destination, amount: amount, fee: fee, anonymity: anonymity, unlockHeight: unlockHeight, paymentId: paymentId) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

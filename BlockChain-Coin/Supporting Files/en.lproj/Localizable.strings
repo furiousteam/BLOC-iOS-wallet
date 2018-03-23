@@ -65,3 +65,32 @@ Note: the key does not contain spaces.";
 "send_action" = "Send the coins";
 "send_no_wallet" = "You don't any wallets with enough funds for this transaction";
 "password_required_title" = "Please enter the password for this wallet";
+"send_confirm_title" = "You are going to send";
+"send_confirm_subtitle" = "BLOC - TO";
+"send_confirm_fee" = "Fee for this transaction: %@";
+"send_confirm_title_view" = "Summary";
+"send_confirm_slide_to_confirm" = "Slide to confirm";
+"send_success_title" = "Your Blockchain Coins has been sent!";
+"send_success_subtitle" = "Remember: some time is required for the network to confirm the transaction";
+"send_error_title" = "A problem has occured!";
+"transaction_details_nav" = "Details";
+"transaction_details_amount" = "Amount: %@";
+"transaction_details_date" = "Date: %@";
+"transaction_details_status" = "Status: %@";
+"transaction_details_sent_to" = "Sent to:";
+"transaction_details_hash" = "Transaction hash:";
+"transaction_details_block_height" = "Block height: %@";
+"transaction_details_transfers" = "Transfers: %@";
+"transaction_details_fee" = "Fee: %@";
+"transaction_details_payment_id" = "Payment ID: %@";
+"transaction_details_explorer" = "See the full transaction details on the Blockchain Coin Explorer";
+"about_us_tagline" = "Secure\
+Private\
+Decentralized\
+Untraceable\
+Fungible";
+"about_us_meet" = "Meet the\
+Blockchain Coin";
+"about_us_bloc" = "BLOC";
+"about_us_url" = "www.blockchain-coin.net";
+"about_us_content" = "The BlockChain Coin has been founded in 2018 by a group of talented friends and partners that has been working together for more than 10 years on IT, smartphone technology, web, API, hardware products, applications and many more. Experimented, smart, ambitious, fun and hard working are some of our main qualities. We love cryptocurrencies, we are early bitcoin investors, we are (still) amazed by the possibilities that the Blockchain technology brings to the world and we want to be a fundamental actor of this revolution. Visit our website to discover our universe, our application, our ecostystem, our roadmap and be a part of it; join us!";

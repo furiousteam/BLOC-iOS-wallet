@@ -200,12 +200,14 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         present(vc, animated: true, completion: nil)
     }
     
-    func didEnterPassword(string: String) {
+    func didEnterPassword(checkPasswordVC: CheckPasswordVC, string: String) {
         guard let wallet = form?.sourceWallet, let wp = wallet.password, let form = form, form.isValid, string == wp else {
             return
         }
         
-        log.info("Present transaction confirmation")
+        checkPasswordVC.dismiss(animated: true) {
+            self.router.showConfirmTransaction(form: form)
+        }
     }
     
     // MARK: - UICollectionView delegate

@@ -10,6 +10,7 @@ import UIKit
 
 protocol NewTransactionRoutingLogic {
     func showHome()
+    func showConfirmTransaction(form: NewTransactionForm)
 }
 
 class NewTransactionRouter: Router, NewTransactionRoutingLogic {
@@ -18,6 +19,11 @@ class NewTransactionRouter: Router, NewTransactionRoutingLogic {
     func showHome() {
         let homeVC = HomeVC()
         viewController?.navigationController?.present(homeVC, animated: true, completion: nil)
+    }
+    
+    func showConfirmTransaction(form: NewTransactionForm) {
+        let vc = ConfirmTransactionVC(form: form)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
