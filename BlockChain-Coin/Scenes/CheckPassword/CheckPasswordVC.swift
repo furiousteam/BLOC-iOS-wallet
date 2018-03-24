@@ -49,8 +49,6 @@ class CheckPasswordVC: ViewController {
     // MARK: - Configuration
     
     override func configure() {
-        super.configure()
-
         view.backgroundColor = .black
         
         view.addSubview(formView)
@@ -84,6 +82,7 @@ class CheckPasswordVC: ViewController {
         self.navigationItem.setLeftBarButton(backButton, animated: false)
         
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     @objc func nextTapped() {

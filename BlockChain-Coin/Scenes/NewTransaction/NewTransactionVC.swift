@@ -263,27 +263,14 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
     // MARK: - UI Update
     
     func handleUpdate(viewModel: NewTransactionViewModel) {
-        // TODO: Loading state
-        // TODO: Error state
-        
         log.info("State update: \(viewModel.state)")
         
         formFields.sendButton.isEnabled = viewModel.isNextButtonEnabled
         
         updateWalletsList()
-        
-        /*switch viewModel.state {
-        case .completed(let transaction):
-            router.showWalletKeys(wallet: wallet)
-        default:
-            break
-        }*/
     }
     
     func handleWalletsUpdate(viewModel: NewTransactionWalletsViewModel) {
-        // TODO: Loading state
-        // TODO: Error state
-        
         switch viewModel.state {
         case .loaded(let wallets):
             dataSource.availableWallets = wallets
