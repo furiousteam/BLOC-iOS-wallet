@@ -415,7 +415,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 91 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 92 localization keys.
     struct localizable {
       /// en translation: A problem has occured!
       /// 
@@ -537,6 +537,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_list_no_wallet_import_key = Rswift.StringResource(key: "wallet_list_no_wallet_import_key", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Importing your wallet...
+      /// 
+      /// Locales: en
+      static let import_wallet_loading = Rswift.StringResource(key: "import_wallet_loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Meet the Blockchain Coin
       /// 
       /// Locales: en
@@ -990,6 +994,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_list_no_wallet_import_key(_: Void = ()) -> String {
         return NSLocalizedString("wallet_list_no_wallet_import_key", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Importing your wallet...
+      /// 
+      /// Locales: en
+      static func import_wallet_loading(_: Void = ()) -> String {
+        return NSLocalizedString("import_wallet_loading", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Meet the Blockchain Coin

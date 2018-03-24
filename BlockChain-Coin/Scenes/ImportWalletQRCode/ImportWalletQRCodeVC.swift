@@ -9,6 +9,7 @@
 import UIKit
 import AVFoundation
 import QRCodeReader
+import MBProgressHUD
 
 protocol ImportWalletQRCodeDisplayLogic: class {
     func handleUpdate(viewModel: ImportWalletQRCodeViewModel)
@@ -23,6 +24,8 @@ class ImportWalletQRCodeVC: ViewController, ImportWalletQRCodeDisplayLogic, QRCo
         
         return QRCodeReaderViewController(builder: builder)
     }()
+    
+    var hud: MBProgressHUD?
     
     let router: ImportWalletQRCodeRoutingLogic
     let interactor: ImportWalletQRCodeBusinessLogic
@@ -108,10 +111,9 @@ class ImportWalletQRCodeVC: ViewController, ImportWalletQRCodeDisplayLogic, QRCo
 
     // MARK: - UI Update
     
-    func handleUpdate(viewModel: ImportWalletQRCodeViewModel) {
-        // TODO: Loading state
-        // TODO: Error state
-        
+    func handleUpdate(viewModel: ImportWalletQRCodeViewModel) {        
+        self.hud?.hide(animated: true)
+
         log.info("State update: \(viewModel.state)")
         
         switch viewModel.state {
@@ -122,8 +124,20 @@ class ImportWalletQRCodeVC: ViewController, ImportWalletQRCodeDisplayLogic, QRCo
         case .completed:
             self.view.endEditing(true)
             router.goBack()
-        default:
-            break
+        case .loading:
+            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud?.mode = .indeterminate
+            hud?.label.text = R.string.localizable.create_wallet_loading()
+        case .invalidForm:
+            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud?.mode = .text
+            hud?.detailsLabel.text = R.string.localizable.import_wallet_key_invalid_key()
+            hud?.hide(animated: true, afterDelay: 3.0)
+        case .error(let error):
+            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud?.mode = .text
+            hud?.detailsLabel.text = error
+            hud?.hide(animated: true, afterDelay: 3.0)
         }
     }
 }

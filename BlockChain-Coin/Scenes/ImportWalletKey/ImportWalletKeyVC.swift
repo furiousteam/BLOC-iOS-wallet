@@ -132,8 +132,6 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
             hud?.mode = .text
             hud?.detailsLabel.text = error
             hud?.hide(animated: true, afterDelay: 3.0)
-        default:
-            break
         }
     }
 }
