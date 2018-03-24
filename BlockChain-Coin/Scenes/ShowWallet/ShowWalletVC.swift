@@ -22,6 +22,7 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         let tableView = UITableView()
         tableView.separatorStyle = .none
         tableView.backgroundColor = .clear
+        tableView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 20.0, right: 0.0)
         return tableView
     }()
     
@@ -112,6 +113,7 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
         
         dataSource.didTapQRCode = { self.showAddressAsQRCode() }
         dataSource.didTapCopy = { self.copyAddress() }
+        dataSource.didTapFullHistory = { self.showFullHistory() }
     }
     
     // MARK: - Actions
@@ -122,6 +124,10 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
     
     @objc func backTapped() {
         router.goBack()
+    }
+    
+    @objc func showFullHistory() {
+        router.showTransactionsHistory(wallet: wallet)
     }
     
     func showAddressAsQRCode() {
@@ -168,7 +174,7 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
 
             dataSource.wallet = wallet
             dataSource.balances = [ availableBalance, lockedBalance ]
-            dataSource.transactions = details.transactions
+            dataSource.transactions = Array(details.transactions.prefix(10))
         default:
             break
         }

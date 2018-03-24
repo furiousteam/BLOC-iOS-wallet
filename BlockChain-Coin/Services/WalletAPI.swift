@@ -137,6 +137,29 @@ class WalletAPI: WalletStore {
         }).disposed(by: disposeBag)
     }
     
+    func getAllWalletDetails(wallets: [WalletModel], completion: @escaping WalletStoreGetAllWalletDetailsCompletionHandler) {
+        let requests: [Observable<WalletModel>] = wallets.flatMap { wallet -> Observable<WalletModel>? in
+            guard let password = wallet.password, let signature = generateSignature(uuid: wallet.uuid.uuidString, keyPair: wallet.keyPair, password: wallet.password ?? "") else {
+                completion(.failure(error: .couldNotConnect))
+                return nil
+            }
+
+            let endpoint = WalletAPITarget.balanceAndTransactions(address: wallet.address, signature: signature)
+
+            let request = provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletDetails.self).map({ details -> WalletModel in
+                return Wallet(uuid: wallet.uuid, keyPair: wallet.keyPair, address: wallet.address, password: password, details: details, createdAt: wallet.createdAt)
+            })
+            
+            return request.asObservable().catchErrorJustReturn(wallet)
+        }
+        
+        Observable.merge(requests).toArray().subscribe(onNext: { wallets in
+            completion(.success(result: wallets))
+        }, onError: { error in
+            completion(.failure(error: .unknown))
+        }).disposed(by: disposeBag)
+    }
+    
     func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
         guard let signature = generateSignature(uuid: wallet.uuid.uuidString, keyPair: wallet.keyPair, password: password) else {
             completion(.failure(error: .couldNotConnect))

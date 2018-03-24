@@ -51,10 +51,12 @@ typealias WalletStoreAddWalletCompletionHandler = (WalletStoreResult<String>) ->
 typealias WalletStoreGetBalanceAndTransactionsCompletionHandler = (WalletStoreResult<WalletDetails>) -> Void
 typealias WalletStoreGetKeysCompletionHandler = (WalletStoreResult<WalletKeys>) -> Void
 typealias WalletStoreTransferCompletionHandler = (WalletStoreResult<String>) -> Void
+typealias WalletStoreGetAllWalletDetailsCompletionHandler = (WalletStoreResult<[WalletModel]>) -> Void
 
 protocol WalletStore {
     func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, password: String?, address: String?, details: WalletDetails?, completion: @escaping WalletStoreAddWalletCompletionHandler)
     func getBalanceAndTransactions(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler)
+    func getAllWalletDetails(wallets: [WalletModel], completion: @escaping WalletStoreGetAllWalletDetailsCompletionHandler)
     func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler)
     func transfer(wallet: WalletModel, password: String, destination: String, amount: Int64, fee: UInt64, anonymity: UInt64, unlockHeight: UInt64?, paymentId: String?, completion: @escaping WalletStoreTransferCompletionHandler)
     
@@ -83,6 +85,14 @@ class WalletWorker {
     
     func getBalanceAndTransactions(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetBalanceAndTransactionsCompletionHandler) {
         store.getBalanceAndTransactions(wallet: wallet, password: password) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    func getAllWalletDetails(wallets: [WalletModel], completion: @escaping WalletStoreGetAllWalletDetailsCompletionHandler) {
+        store.getAllWalletDetails(wallets: wallets) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

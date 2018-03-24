@@ -11,6 +11,7 @@ import UIKit
 protocol ShowWalletRoutingLogic {
     func showSettings(wallet: WalletModel)
     func goBack()
+    func showTransactionsHistory(wallet: WalletModel)
 }
 
 class ShowWalletRouter: ShowWalletRoutingLogic {
@@ -22,5 +23,10 @@ class ShowWalletRouter: ShowWalletRoutingLogic {
     
     func goBack() {
         viewController?.navigationController?.popViewController(animated: true)
+    }
+    
+    func showTransactionsHistory(wallet: WalletModel) {
+        let vc = ListTransactionsVC(wallets: [ wallet ])
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

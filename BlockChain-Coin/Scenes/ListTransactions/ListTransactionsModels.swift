@@ -8,13 +8,29 @@
 
 import Foundation
 
-struct ListTransactionsViewModel {
-    
-    init() {
-        
-    }
+struct ListTransactionItemViewModel {
+    let name: String
+    let transaction: TransactionModel
 }
 
-struct ListTransactionsRequest {
-
+struct ListTransactionsViewModel {
+    enum State {
+        case loading
+        case loaded([ListTransactionItemViewModel])
+        case error(String)
+    }
+    
+    let state: State
+    let transactions: [ListTransactionItemViewModel]
+    
+    init(state: State) {
+        self.state = state
+        
+        switch state {
+        case .loaded(let transactions):
+            self.transactions = transactions
+        default:
+            self.transactions = []
+        }
+    }
 }

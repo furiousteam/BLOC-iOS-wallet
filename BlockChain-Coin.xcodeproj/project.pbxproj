@@ -84,6 +84,8 @@
 		9C63A3662064F39800E9C33D /* TransactionResultFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3652064F39800E9C33D /* TransactionResultFormViews.swift */; };
 		9C63A3682065008600E9C33D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3672065008600E9C33D /* APIError.swift */; };
 		9C63A36D206540BC00E9C33D /* AboutFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A36C206540BC00E9C33D /* AboutFormViews.swift */; };
+		9C63A3702066B18900E9C33D /* ListTransactionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A36F2066B18900E9C33D /* ListTransactionsCell.swift */; };
+		9C63A3722066B1DE00E9C33D /* ListTransactionsEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3712066B1DE00E9C33D /* ListTransactionsEmptyCell.swift */; };
 		9C6622ED2035CB4E0083CE2E /* ConfigureWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6622EC2035CB4E0083CE2E /* ConfigureWalletVC.swift */; };
 		9C6622F72035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6622F62035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift */; };
 		9C6622FB203626A60083CE2E /* PoolSocketOKResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6622FA203626A60083CE2E /* PoolSocketOKResponse.swift */; };
@@ -319,6 +321,8 @@
 		9C63A3652064F39800E9C33D /* TransactionResultFormViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionResultFormViews.swift; sourceTree = "<group>"; };
 		9C63A3672065008600E9C33D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		9C63A36C206540BC00E9C33D /* AboutFormViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutFormViews.swift; sourceTree = "<group>"; };
+		9C63A36F2066B18900E9C33D /* ListTransactionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransactionsCell.swift; sourceTree = "<group>"; };
+		9C63A3712066B1DE00E9C33D /* ListTransactionsEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransactionsEmptyCell.swift; sourceTree = "<group>"; };
 		9C6622EC2035CB4E0083CE2E /* ConfigureWalletVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureWalletVC.swift; sourceTree = "<group>"; };
 		9C6622F62035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+Register.swift"; sourceTree = "<group>"; };
 		9C6622FA203626A60083CE2E /* PoolSocketOKResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSocketOKResponse.swift; sourceTree = "<group>"; };
@@ -891,6 +895,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9C63A36E2066B17A00E9C33D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C63A36F2066B18900E9C33D /* ListTransactionsCell.swift */,
+				9C63A3712066B1DE00E9C33D /* ListTransactionsEmptyCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9C6622EB2035CB4E0083CE2E /* ConfigureWallet */ = {
 			isa = PBXGroup;
 			children = (
@@ -953,6 +966,7 @@
 		9C78F1C92056CD59001ADA32 /* ListTransactions */ = {
 			isa = PBXGroup;
 			children = (
+				9C63A36E2066B17A00E9C33D /* Views */,
 				9C78F1CA2056CD59001ADA32 /* ListTransactionsRouter.swift */,
 				9C78F1CB2056CD59001ADA32 /* ListTransactionsVC.swift */,
 				9C78F1CC2056CD59001ADA32 /* ListTransactionsModels.swift */,
@@ -1463,6 +1477,7 @@
 				9C85E399205AB40400208DF6 /* ExportWalletKeysPresenter.swift in Sources */,
 				9C4AA48420332C2B0056152C /* Seed.swift in Sources */,
 				9C85E37E205A6A6800208DF6 /* SetWalletPasswordVC.swift in Sources */,
+				9C63A3722066B1DE00E9C33D /* ListTransactionsEmptyCell.swift in Sources */,
 				9C043678202C968D00671DA2 /* cryptonight.c in Sources */,
 				9C0325A42056CDAE0009FA3B /* AboutPresenter.swift in Sources */,
 				9C8A8F5F202DFD7900F55736 /* PoolStatusView.swift in Sources */,
@@ -1585,6 +1600,7 @@
 				9CBB2EF6205679FE00718EBA /* HomeRouter.swift in Sources */,
 				9C043677202C968D00671DA2 /* groestl.c in Sources */,
 				9C78F1B02056CA8D001ADA32 /* Bundle+Keys.swift in Sources */,
+				9C63A3702066B18900E9C33D /* ListTransactionsCell.swift in Sources */,
 				9C8A8F69202ED7B000F55736 /* WalletWorker.swift in Sources */,
 				9C5756C420640DF9002BD079 /* ConfirmTransactionVC.swift in Sources */,
 				9CB6C33C20502C68002E610C /* Observable+ErrorHandling.swift in Sources */,

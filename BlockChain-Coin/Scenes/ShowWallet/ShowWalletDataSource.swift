@@ -12,6 +12,7 @@ class ShowWalletDataSource: NSObject, UITableViewDataSource {
     
     var didTapCopy: () -> Void = { }
     var didTapQRCode: () -> Void = { }
+    var didTapFullHistory: () -> Void = { }
 
     var wallet: WalletModel? = nil
     var balances: [BalanceModel] = []
@@ -64,6 +65,8 @@ class ShowWalletDataSource: NSObject, UITableViewDataSource {
             return cell
         } else if indexPath.section == Section.transactionHeader.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletTransactionsHeaderCell.reuseIdentifier(), for: indexPath) as! ShowWalletTransactionsHeaderCell
+            
+            cell.didTapFullHistory = { self.didTapFullHistory() }
             
             return cell
         } else {

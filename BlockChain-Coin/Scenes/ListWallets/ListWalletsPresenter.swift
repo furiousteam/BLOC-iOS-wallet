@@ -18,7 +18,8 @@ class ListWalletsPresenter: ListWalletsPresentationLogic {
     weak var viewController: ListWalletsDisplayLogic?
     
     func handleShowWallets(wallets: [WalletModel]) {
-        let viewModel = ListWalletsViewModel(state: .loaded(wallets))
+        let sortedWallets = wallets.sorted(by: { a, b in return a.createdAt < b.createdAt })
+        let viewModel = ListWalletsViewModel(state: .loaded(sortedWallets))
         viewController?.handleWalletsUpdate(viewModel: viewModel)
     }
     

@@ -118,6 +118,10 @@ class WalletDiskStore: WalletStore {
         }
     }
     
+    func getAllWalletDetails(wallets: [WalletModel], completion: @escaping WalletStoreGetAllWalletDetailsCompletionHandler) {
+        completion(.failure(error: .unknown))
+    }
+    
     func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler) {
         completion(.failure(error: .unknown))
     }

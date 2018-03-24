@@ -86,6 +86,12 @@ class ShowWalletTransactionsHeaderCell: TableViewCell {
         separatorView.snp.makeConstraints({
             $0.height.equalTo(1.0)
         })
+        
+        fullHistoryButton.addTarget(self, action: #selector(fullHistoryTapped), for: .touchUpInside)
+    }
+    
+    @objc func fullHistoryTapped() {
+        didTapFullHistory()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
