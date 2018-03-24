@@ -9,7 +9,7 @@
 import UIKit
 
 class ActionCell: TableViewCell {
-
+    
     let button = ActionButton()
 
     override func commonInit() {
@@ -19,6 +19,8 @@ class ActionCell: TableViewCell {
         contentView.backgroundColor = .clear
         
         contentView.addSubview(button)
+        
+        button.isUserInteractionEnabled = false
         
         button.snp.makeConstraints({
             $0.leading.trailing.equalToSuperview().inset(80.0)

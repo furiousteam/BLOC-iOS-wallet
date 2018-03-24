@@ -170,6 +170,8 @@ class ListWalletsVC: ViewController, ListWalletsDisplayLogic, UITableViewDelegat
         tableView.deselectRow(at: indexPath, animated: true)
 
         if dataSource.wallets.count == 0 {
+            guard indexPath.section == 2 else { return }
+            
             if indexPath.row == 0 {
                 router.showAddWallet()
             } else if indexPath.row == 1 {
