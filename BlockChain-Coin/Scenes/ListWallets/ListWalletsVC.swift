@@ -23,6 +23,8 @@ class ListWalletsVC: ViewController, ListWalletsDisplayLogic, UITableViewDelegat
         tableView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 20.0, right: 0.0)
         return tableView
     }()
+    
+    var refreshControl: RefreshControl!
         
     let dataSource = ListWalletsDataSource()
     
@@ -90,12 +92,22 @@ class ListWalletsVC: ViewController, ListWalletsDisplayLogic, UITableViewDelegat
         NoWalletTitleCell.registerWith(tableView)
         NoWalletInstructionsCell.registerWith(tableView)
         ActionCell.registerWith(tableView)
+        LoadingTableViewCell.registerWith(tableView)
+        ErrorTableViewCell.registerWith(tableView)
         
         tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60.0
         tableView.backgroundColor = .clear
+        
+        refreshControl = RefreshControl(target: self, action: #selector(refresh))
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
         
         // Navigation Bar
         
@@ -112,14 +124,19 @@ class ListWalletsVC: ViewController, ListWalletsDisplayLogic, UITableViewDelegat
     // MARK: - Display logic
     
     func handleWalletsUpdate(viewModel: ListWalletsViewModel) {
-        // TODO: Loading state
-        // TODO: Error state
-        
+        refreshControl.endRefreshing()
+
         switch viewModel.state {
         case .loaded(let wallets):
+            dataSource.isLoading = false
+            dataSource.errorText = nil
             dataSource.wallets = wallets
-        default:
-            break
+        case .loading:
+            dataSource.errorText = nil
+            dataSource.isLoading = true
+        case .error(let error):
+            dataSource.errorText = error
+            dataSource.isLoading = false
         }
         
         tableView.reloadData()
@@ -127,6 +144,10 @@ class ListWalletsVC: ViewController, ListWalletsDisplayLogic, UITableViewDelegat
     
     // MARK: - Actions
     
+    @objc func refresh() {
+        interactor.fetchWallets()
+    }
+
     @objc func addWalletTapped() {
         if dataSource.wallets.count > 1 {
             let createAlert = CreateWalletAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
@@ -169,6 +190,8 @@ class ListWalletsVC: ViewController, ListWalletsDisplayLogic, UITableViewDelegat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 
+        guard dataSource.isLoading == false, dataSource.errorText == nil else { return }
+        
         if dataSource.wallets.count == 0 {
             guard indexPath.section == 2 else { return }
             

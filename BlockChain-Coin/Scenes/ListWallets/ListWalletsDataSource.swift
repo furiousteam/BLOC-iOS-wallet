@@ -8,11 +8,15 @@
 
 import UIKit
 
-class ListWalletsDataSource: NSObject, UITableViewDataSource {
+class ListWalletsDataSource: ArrayDataSource {
     
     var wallets: [WalletModel] = []
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if isLoading || errorText != nil {
+            return super.numberOfSections(in: tableView)
+        }
+
         if wallets.count == 0 {
             return 3
         }
@@ -20,7 +24,11 @@ class ListWalletsDataSource: NSObject, UITableViewDataSource {
         return wallets.count
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isLoading || errorText != nil {
+            return super.tableView(tableView, numberOfRowsInSection: section)
+        }
+        
         if wallets.count == 0 {
             switch section {
             case 0, 1:
@@ -35,7 +43,11 @@ class ListWalletsDataSource: NSObject, UITableViewDataSource {
         return 1
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if isLoading || errorText != nil {
+            return super.tableView(tableView, cellForRowAt: indexPath)
+        }
+        
         if wallets.count == 0 {
             if indexPath.section == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: NoWalletTitleCell.reuseIdentifier(), for: indexPath) as! NoWalletTitleCell

@@ -12,7 +12,6 @@ protocol ListWalletsBusinessLogic {
     var presenter: ListWalletsPresentationLogic? { get set }
     
     func fetchWallets()
-    func refreshWallets()
 }
 
 class ListWalletsInteractor: ListWalletsBusinessLogic {
@@ -31,9 +30,5 @@ class ListWalletsInteractor: ListWalletsBusinessLogic {
                 self?.presenter?.handleShowError(error: error)
             }
         }
-    }
-    
-    func refreshWallets() {
-        // TODO
     }
 }

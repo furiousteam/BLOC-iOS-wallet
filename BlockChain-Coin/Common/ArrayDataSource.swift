@@ -10,18 +10,46 @@ import UIKit
 
 class ArrayDataSource : NSObject {
     var items: [[Any]] = []
+    var isLoading: Bool = false
+    var errorText: String?
 }
 
 extension ArrayDataSource: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        if isLoading || errorText != nil{
+            return 1
+        }
+        
         return items.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isLoading || errorText != nil {
+            return 1
+        }
+        
         return items[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if isLoading {
+            let cell = tableView.dequeueReusableCell(withIdentifier: LoadingTableViewCell.reuseIdentifier(), for: indexPath) as! LoadingTableViewCell
+            
+            cell.loadingView.startAnimating()
+            cell.contentView.backgroundColor = .clear
+            cell.backgroundColor = .clear
+            
+            return cell
+        }
+        
+        if let errorText = errorText {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ErrorTableViewCell.reuseIdentifier(), for: indexPath) as! ErrorTableViewCell
+            
+            cell.configure(error: errorText)
+            
+            return cell
+        }
+
         fatalError("Must be implemented by subclass")
     }
 }
