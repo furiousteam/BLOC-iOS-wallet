@@ -83,7 +83,9 @@ class ListTransactionsVC: ViewController, ListTransactionsDisplayLogic, UITableV
 
     // MARK: - Configuration
     
-    func configure() {
+    override func configure() {
+        super.configure()
+
         // Subviews
         view.backgroundColor = .clear
         
@@ -108,15 +110,24 @@ class ListTransactionsVC: ViewController, ListTransactionsDisplayLogic, UITableV
         
         let titleView = TitleView(title: R.string.localizable.home_menu_transactions_title(), subtitle: R.string.localizable.home_menu_transactions_subtitle())
         self.navigationItem.titleView = titleView
-                
-        let menuButton = UIBarButtonItem(image: R.image.menuIcon(), style: .plain, target: self, action: #selector(menuTapped))
-        self.navigationItem.setLeftBarButton(menuButton, animated: false)
+        
+        if let _ = wallets {
+            let backButton = UIBarButtonItem(image: R.image.leftArrow(), style: .plain, target: self, action: #selector(backTapped))
+            self.navigationItem.setLeftBarButton(backButton, animated: false)
+        } else {
+            let menuButton = UIBarButtonItem(image: R.image.menuIcon(), style: .plain, target: self, action: #selector(menuTapped))
+            self.navigationItem.setLeftBarButton(menuButton, animated: false)
+        }
     }
     
     // MARK: - Actions
     
     @objc func menuTapped() {
         router.showHome()
+    }
+    
+    @objc func backTapped() {
+        router.goBack()
     }
 
     // MARK: - UI Update

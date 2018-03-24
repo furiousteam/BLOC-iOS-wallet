@@ -70,7 +70,9 @@ class AboutVC: ViewController, AboutDisplayLogic {
 
     // MARK: - Configuration
     
-    func configure() {
+    override func configure() {
+        super.configure()
+
         view.backgroundColor = .clear
         
         view.addSubview(backgroundImageView)

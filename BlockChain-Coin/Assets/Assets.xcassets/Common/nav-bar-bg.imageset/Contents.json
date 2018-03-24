@@ -7,14 +7,14 @@
         "mode" : "9-part",
         "center" : {
           "mode" : "tile",
-          "width" : 1,
+          "width" : 7,
           "height" : 1
         },
         "cap-insets" : {
-          "bottom" : 2,
-          "top" : 7,
-          "right" : 22,
-          "left" : 20
+          "bottom" : 3,
+          "top" : 41,
+          "right" : 21,
+          "left" : 21
         }
       }
     }

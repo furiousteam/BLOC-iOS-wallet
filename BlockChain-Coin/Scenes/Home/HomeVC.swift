@@ -69,7 +69,9 @@ class HomeVC: ViewController, UITableViewDelegate, HomeDisplayLogic {
 
     // MARK: - Configuration
     
-    func configure() {
+    override func configure() {
+        super.configure()
+
         view.backgroundColor = .white
         
         // Subviews

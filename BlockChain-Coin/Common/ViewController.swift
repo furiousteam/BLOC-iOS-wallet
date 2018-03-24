@@ -13,6 +13,21 @@ class ViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    func configure() {
+        let backgroundImageView: UIImageView = {
+            let imageView = UIImageView()
+            imageView.image = R.image.defaultBg()
+            imageView.contentMode = .scaleAspectFill
+            return imageView
+        }()
+        
+        view.addSubview(backgroundImageView)
+        
+        backgroundImageView.snp.makeConstraints({
+            $0.edges.equalToSuperview()
+        })
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

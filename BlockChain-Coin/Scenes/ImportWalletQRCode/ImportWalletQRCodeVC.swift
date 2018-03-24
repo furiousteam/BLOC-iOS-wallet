@@ -72,7 +72,9 @@ class ImportWalletQRCodeVC: ViewController, ImportWalletQRCodeDisplayLogic, QRCo
 
     // MARK: - Configuration
     
-    func configure() {
+    override func configure() {
+        super.configure()
+
         view.backgroundColor = .clear
         
         addChildViewController(readerVC)

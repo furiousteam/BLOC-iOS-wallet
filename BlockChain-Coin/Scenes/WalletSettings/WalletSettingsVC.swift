@@ -68,7 +68,9 @@ class WalletSettingsVC: ViewController, WalletSettingsDisplayLogic, UITableViewD
 
     // MARK: - Configuration
     
-    func configure() {
+    override func configure() {
+        super.configure()
+
         // Subviews
         view.backgroundColor = .clear
         

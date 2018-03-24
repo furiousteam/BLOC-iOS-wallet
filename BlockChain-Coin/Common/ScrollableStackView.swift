@@ -16,6 +16,7 @@ class ScrollableStackView: View {
         scrollView.alwaysBounceVertical = true
         scrollView.keyboardDismissMode = .interactive
         scrollView.preservesSuperviewLayoutMargins = false
+        scrollView.clipsToBounds = true
         return scrollView
     }()
     

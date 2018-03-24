@@ -74,7 +74,9 @@ class ExportWalletKeysVC: ViewController, ExportWalletKeysDisplayLogic {
 
     // MARK: - Configuration
     
-    func configure() {
+    override func configure() {
+        super.configure()
+
         view.backgroundColor = .clear
         
         view.addSubview(formView)

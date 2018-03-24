@@ -34,7 +34,7 @@ class NavigationController: UINavigationController {
         navigationBar.setBackgroundImage(R.image.navBarBg(), for: .default)
         navigationBar.shadowImage = UIImage()
         navigationBar.backgroundColor = .clear
-        navigationBar.isTranslucent = true
+        navigationBar.isTranslucent = false
         
         let barButtonItem = UIBarButtonItem.appearance(whenContainedInInstancesOf: [ NavigationController.self ])
         barButtonItem.tintColor = UIColor.white.withAlphaComponent(0.5)

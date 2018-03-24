@@ -25,13 +25,6 @@ final class TabBarVC: ViewController {
     let transactionsVC = ListTransactionsVC()
     let aboutVC = AboutVC()
     
-    let backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = R.image.defaultBg()
-        imageView.contentMode = .scaleAspectFill
-        return imageView
-    }()
-    
     let tabBar = TabBarView()
     let container = HomeContainer()
     let safeAreaFiller: UIView = {
@@ -68,20 +61,20 @@ final class TabBarVC: ViewController {
     
     // MARK: - Configuration
     
-    fileprivate func configure() {
-        view.backgroundColor = .white
+    override func configure() {
+        super.configure()
         
-        view.addSubview(backgroundImageView)
+        edgesForExtendedLayout = []
+        
+        container.view.clipsToBounds = true
+
+        view.backgroundColor = .white
         
         view.addSubview(container.view)
         addChildViewController(container)
         
         view.addSubview(tabBar)
-        
-        backgroundImageView.snp.makeConstraints({
-            $0.edges.equalToSuperview()
-        })
-        
+                
         container.view.snp.makeConstraints({
             $0.leading.trailing.top.equalToSuperview()
             

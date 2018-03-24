@@ -16,7 +16,7 @@ protocol ShowWalletDisplayLogic: class {
     func handleUpdate(viewModel: ShowWalletDetailsViewModel)
 }
 
-class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegate {
+class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate {
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -77,9 +77,10 @@ class ShowWalletVC: UIViewController, ShowWalletDisplayLogic, UITableViewDelegat
     
     // MARK: - Configuration
     
-    func configure() {
-        // Subviews
+    override func configure() {
+        super.configure()
         
+        // Subviews
         view.backgroundColor = .clear
         
         view.addSubview(tableView)

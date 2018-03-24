@@ -48,7 +48,9 @@ class CheckPasswordVC: ViewController {
 
     // MARK: - Configuration
     
-    func configure() {
+    override func configure() {
+        super.configure()
+
         view.backgroundColor = .black
         
         view.addSubview(formView)

@@ -14,7 +14,7 @@ protocol ListWalletsDisplayLogic: class {
     func handleWalletsUpdate(viewModel: ListWalletsViewModel)
 }
 
-class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDelegate {
+class ListWalletsVC: ViewController, ListWalletsDisplayLogic, UITableViewDelegate {
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -72,7 +72,9 @@ class ListWalletsVC: UIViewController, ListWalletsDisplayLogic, UITableViewDeleg
     
     // MARK: - Configuration
     
-    func configure() {
+    override func configure() {
+        super.configure()
+        
         // Subviews
         view.backgroundColor = .clear
         

@@ -10,6 +10,7 @@ import UIKit
 
 protocol ListTransactionsRoutingLogic {
     func showHome()
+    func goBack()
 }
 
 class ListTransactionsRouter: Router, ListTransactionsRoutingLogic {
@@ -18,6 +19,10 @@ class ListTransactionsRouter: Router, ListTransactionsRoutingLogic {
     func showHome() {
         let homeVC = HomeVC()
         viewController?.navigationController?.present(homeVC, animated: true, completion: nil)
+    }
+    
+    func goBack() {
+        viewController?.navigationController?.popViewController(animated: true)
     }
 }
 
