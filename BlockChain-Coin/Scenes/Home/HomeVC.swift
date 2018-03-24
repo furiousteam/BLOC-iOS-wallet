@@ -118,15 +118,15 @@ class HomeVC: ViewController, UITableViewDelegate, HomeDisplayLogic {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
-        case Tab.wallets.rawValue:
+        case 0:
             router.showWallet()
-        case Tab.mining.rawValue:
+        case 1:
             router.showMining()
-        case Tab.send.rawValue:
+        case 2:
             router.showSend()
-        case Tab.transactions.rawValue:
+        case 3:
             router.showTransactions()
-        case Tab.about.rawValue:
+        case 4:
             router.showAbout()
         default:
             break

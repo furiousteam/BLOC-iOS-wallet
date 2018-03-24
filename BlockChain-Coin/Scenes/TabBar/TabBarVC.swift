@@ -57,6 +57,12 @@ final class TabBarVC: ViewController {
             
             self?.setSelectedTab(tab: tab)
         }
+        
+        NotificationCenter.default.addObserver(forName: .selectWalletTab, object: nil, queue: nil, using: handleSelectWalletTab)
+        NotificationCenter.default.addObserver(forName: .selectMiningTab, object: nil, queue: nil, using: handleSelectMiningTab)
+        NotificationCenter.default.addObserver(forName: .selectSendTab, object: nil, queue: nil, using: handleSelectSendTab)
+        NotificationCenter.default.addObserver(forName: .selectTransactionsTab, object: nil, queue: nil, using: handleSelectTransactionsTab)
+        NotificationCenter.default.addObserver(forName: .selectAboutTab, object: nil, queue: nil, using: handleSelectAboutTab)
     }
     
     // MARK: - Configuration
@@ -115,6 +121,28 @@ final class TabBarVC: ViewController {
     func setSelectedTab(tab: Tab) {
         tabBar.setActiveTab(index: tab.rawValue)
         container.setSelectedIndex(index: tab.rawValue)
+    }
+    
+    // MARK: - Actions
+    
+    @objc func handleSelectWalletTab(notification: Notification) {
+        setSelectedTab(tab: .wallets)
+    }
+    
+    @objc func handleSelectMiningTab(notification: Notification) {
+        setSelectedTab(tab: .mining)
+    }
+    
+    @objc func handleSelectSendTab(notification: Notification) {
+        setSelectedTab(tab: .send)
+    }
+    
+    @objc func handleSelectTransactionsTab(notification: Notification) {
+        setSelectedTab(tab: .transactions)
+    }
+    
+    @objc func handleSelectAboutTab(notification: Notification) {
+        setSelectedTab(tab: .about)
     }
     
 }

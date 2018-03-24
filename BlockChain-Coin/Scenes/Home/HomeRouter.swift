@@ -20,27 +20,32 @@ class HomeRouter: Router, HomeRoutingLogic {
     weak var viewController: UIViewController?
     
     func showWallet() {
-        // TODO: Show right tab, show wallet setup if needed
+        NotificationCenter.default.post(name: .selectWalletTab, object: nil)
+        
         viewController?.dismiss(animated: true, completion: nil)
     }
     
     func showMining() {
-        // TODO: Show right tab, show wallet setup if needed
+        NotificationCenter.default.post(name: .selectMiningTab, object: nil)
+
         viewController?.dismiss(animated: true, completion: nil)
     }
     
     func showSend() {
-        // TODO: Show right tab, show wallet setup if needed
+        NotificationCenter.default.post(name: .selectSendTab, object: nil)
+        
         viewController?.dismiss(animated: true, completion: nil)
     }
     
     func showTransactions() {
-        // TODO: Show right tab, show wallet setup if needed
+        NotificationCenter.default.post(name: .selectTransactionsTab, object: nil)
+
         viewController?.dismiss(animated: true, completion: nil)
     }
     
     func showAbout() {
-        // TODO: Show right tab, show wallet setup if needed
+        NotificationCenter.default.post(name: .selectAboutTab, object: nil)
+        
         viewController?.dismiss(animated: true, completion: nil)
     }
 }
