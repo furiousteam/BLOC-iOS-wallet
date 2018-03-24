@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol ImportWalletKeyDisplayLogic: class {
     func handleUpdate(viewModel: ImportWalletKeyViewModel)
@@ -22,6 +23,8 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
     
     let password: String
     
+    var hud: MBProgressHUD?
+
     // MARK: - View lifecycle
     
     init(password: String) {
@@ -103,9 +106,8 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
     // MARK: UI Update
     
     func handleUpdate(viewModel: ImportWalletKeyViewModel) {
-        // TODO: Loading state
-        // TODO: Error state
-        
+        self.hud?.hide(animated: true)
+
         log.info("State update: \(viewModel.state)")
         
         switch viewModel.state {
@@ -116,6 +118,20 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
         case .completed:
             self.view.endEditing(true)
             router.goBack()
+        case .loading:
+            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud?.mode = .indeterminate
+            hud?.label.text = R.string.localizable.create_wallet_loading()
+        case .invalidForm:
+            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud?.mode = .text
+            hud?.detailsLabel.text = R.string.localizable.import_wallet_key_invalid_key()
+            hud?.hide(animated: true, afterDelay: 3.0)
+        case .error(let error):
+            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud?.mode = .text
+            hud?.detailsLabel.text = error
+            hud?.hide(animated: true, afterDelay: 3.0)
         default:
             break
         }

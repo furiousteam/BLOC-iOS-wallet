@@ -415,7 +415,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 90 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 91 localization keys.
     struct localizable {
       /// en translation: A problem has occured!
       /// 
@@ -665,6 +665,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let about_us_content = Rswift.StringResource(key: "about_us_content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: The specified key is not in the right format or contains invalid data
+      /// 
+      /// Locales: en
+      static let import_wallet_key_invalid_key = Rswift.StringResource(key: "import_wallet_key_invalid_key", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: This password will be required each time you make a transaction with someone and to export your private key
       /// 
       /// Locales: en
@@ -1210,6 +1214,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func about_us_content(_: Void = ()) -> String {
         return NSLocalizedString("about_us_content", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: The specified key is not in the right format or contains invalid data
+      /// 
+      /// Locales: en
+      static func import_wallet_key_invalid_key(_: Void = ()) -> String {
+        return NSLocalizedString("import_wallet_key_invalid_key", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: This password will be required each time you make a transaction with someone and to export your private key

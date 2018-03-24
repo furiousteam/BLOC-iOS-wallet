@@ -159,7 +159,6 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
             self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
             hud?.mode = .indeterminate
             hud?.label.text = R.string.localizable.create_wallet_loading()
-            hud?.hide(animated: true, afterDelay: 3.0)
         case .error(let error):
             self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
             hud?.mode = .text
