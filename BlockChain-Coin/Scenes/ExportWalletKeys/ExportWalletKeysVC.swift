@@ -8,6 +8,7 @@
 
 import UIKit
 import EFQRCode
+import MBProgressHUD
 
 protocol ExportWalletKeysDisplayLogic: class {
     func handleUpdate(viewModel: ExportWalletKeysViewModel)
@@ -28,6 +29,8 @@ class ExportWalletKeysVC: ViewController, ExportWalletKeysDisplayLogic {
     let wallet: WalletModel
     let mode: Mode
     
+    var hud: MBProgressHUD?
+
     var keys: String?
     
     // MARK: - View lifecycle
@@ -121,9 +124,8 @@ class ExportWalletKeysVC: ViewController, ExportWalletKeysDisplayLogic {
     // MARK: UI Update
     
     func handleUpdate(viewModel: ExportWalletKeysViewModel) {
-        // TODO: Loading state
-        // TODO: Error state
-        
+        self.hud?.hide(animated: true)
+
         switch viewModel.state {
         case .loaded(let keys):
             self.keys = keys
@@ -133,8 +135,14 @@ class ExportWalletKeysVC: ViewController, ExportWalletKeysDisplayLogic {
             }
             
             formFields.walletKeyLabel.text = keys
-        default:
-            break
+        case .loading:
+            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud?.mode = .indeterminate
+        case .error(let error):
+            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud?.mode = .text
+            hud?.detailsLabel.text = error
+            hud?.hide(animated: true, afterDelay: 3.0)
         }
         
         view.layoutSubviews()

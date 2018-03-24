@@ -108,7 +108,7 @@ class WalletSettingsVC: ViewController, WalletSettingsDisplayLogic, UITableViewD
     // MARK: - UITableView delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO
+        // TODO: Handle row selection
     }
     
     // MARK: UI Update
