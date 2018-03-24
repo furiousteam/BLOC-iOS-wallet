@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MBProgressHUD
 
 protocol ConfirmTransactionDisplayLogic: class {
     func handleUpdate(viewModel: ConfirmTransactionViewModel)
@@ -30,6 +31,8 @@ class ConfirmTransactionVC: ViewController, ConfirmTransactionDisplayLogic {
         return imageView
     }()
     
+    var hud: MBProgressHUD?
+
     // MARK: - View lifecycle
     
     init(form: NewTransactionForm) {
@@ -122,14 +125,15 @@ class ConfirmTransactionVC: ViewController, ConfirmTransactionDisplayLogic {
     // MARK: UI Update
     
     func handleUpdate(viewModel: ConfirmTransactionViewModel) {
-        // TODO: Loading state
-        // TODO: Error state
-        
+        self.hud?.hide(animated: true)
+
         switch viewModel.state {
         case .loaded:
             router.showResult(error: nil)
         case.loading:
-            log.info("Loading")
+            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud?.mode = .indeterminate
+            hud?.label.text = R.string.localizable.confirm_transaction_loading()
         case .error(let errorText):
             router.showResult(error: errorText)
         }

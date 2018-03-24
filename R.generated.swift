@@ -415,7 +415,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 92 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 93 localization keys.
     struct localizable {
       /// en translation: A problem has occured!
       /// 
@@ -645,6 +645,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_action = Rswift.StringResource(key: "send_action", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Sending transaction...
+      /// 
+      /// Locales: en
+      static let confirm_transaction_loading = Rswift.StringResource(key: "confirm_transaction_loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Sent
       /// 
       /// Locales: en
@@ -1183,6 +1187,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func send_action(_: Void = ()) -> String {
         return NSLocalizedString("send_action", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Sending transaction...
+      /// 
+      /// Locales: en
+      static func confirm_transaction_loading(_: Void = ()) -> String {
+        return NSLocalizedString("confirm_transaction_loading", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Sent

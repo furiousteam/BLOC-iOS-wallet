@@ -98,4 +98,4 @@ Blockchain Coin";
 "create_wallet_loading" = "Creating your wallet...";
 "import_wallet_key_invalid_key" = "The specified key is not in the right format or contains invalid data";
 "import_wallet_loading" = "Importing your wallet...";
-
+"confirm_transaction_loading" = "Sending transaction...";
