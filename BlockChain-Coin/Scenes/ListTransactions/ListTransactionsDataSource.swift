@@ -12,20 +12,24 @@ class ListTransactionsDataSource: ArrayDataSource {
     var transactions: [ListTransactionItemViewModel] = []
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        if transactions.count == 0 {
-            return 1
+        if isLoading || errorText != nil {
+            return super.numberOfSections(in: tableView)
         }
         
         return transactions.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isLoading || errorText != nil {
+            return super.tableView(tableView, numberOfRowsInSection: section)
+        }
+
         return 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if transactions.count == 0 {
-            return tableView.dequeueReusableCell(withIdentifier: ListTransactionsEmptyCell.reuseIdentifier(), for: indexPath)
+        if isLoading || errorText != nil {
+            return super.tableView(tableView, cellForRowAt: indexPath)
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ListTransactionsCell.reuseIdentifier(), for: indexPath) as! ListTransactionsCell

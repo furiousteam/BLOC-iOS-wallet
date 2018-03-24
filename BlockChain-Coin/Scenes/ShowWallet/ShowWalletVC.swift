@@ -189,6 +189,7 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
             dataSource.balances = [ availableBalance, lockedBalance ]
             dataSource.transactions = Array(details.transactions.prefix(10))
             dataSource.isLoading = false
+            dataSource.errorText = nil
         case .loading:
             dataSource.errorText = nil
             dataSource.isLoading = true

@@ -111,7 +111,7 @@ class ImportWalletQRCodeVC: ViewController, ImportWalletQRCodeDisplayLogic, QRCo
 
     // MARK: - UI Update
     
-    func handleUpdate(viewModel: ImportWalletQRCodeViewModel) {        
+    func handleUpdate(viewModel: ImportWalletQRCodeViewModel) {
         self.hud?.hide(animated: true)
 
         log.info("State update: \(viewModel.state)")

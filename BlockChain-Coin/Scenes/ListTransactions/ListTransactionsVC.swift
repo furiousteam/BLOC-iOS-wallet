@@ -22,6 +22,8 @@ class ListTransactionsVC: ViewController, ListTransactionsDisplayLogic, UITableV
         return tableView
     }()
 
+    var refreshControl: RefreshControl!
+
     let dataSource = ListTransactionsDataSource()
     
     let router: ListTransactionsRoutingLogic
@@ -74,11 +76,7 @@ class ListTransactionsVC: ViewController, ListTransactionsDisplayLogic, UITableV
         
         configure()
         
-        if let wallets = wallets {
-            interactor.fetchTransactions(forWallets: wallets)
-        } else {
-            interactor.fetchAllTransactions()
-        }
+        refresh()
     }
 
     // MARK: - Configuration
@@ -98,7 +96,8 @@ class ListTransactionsVC: ViewController, ListTransactionsDisplayLogic, UITableV
         // TableView
         
         ListTransactionsCell.registerWith(tableView)
-        ListTransactionsEmptyCell.registerWith(tableView)
+        LoadingTableViewCell.registerWith(tableView)
+        ErrorTableViewCell.registerWith(tableView)
         
         tableView.dataSource = dataSource
         tableView.delegate = self
@@ -106,6 +105,14 @@ class ListTransactionsVC: ViewController, ListTransactionsDisplayLogic, UITableV
         tableView.estimatedRowHeight = 60.0
         tableView.backgroundColor = .clear
         
+        refreshControl = RefreshControl(target: self, action: #selector(refresh))
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
+
         // Navigation Bar
         
         let titleView = TitleView(title: R.string.localizable.home_menu_transactions_title(), subtitle: R.string.localizable.home_menu_transactions_subtitle())
@@ -122,6 +129,14 @@ class ListTransactionsVC: ViewController, ListTransactionsDisplayLogic, UITableV
     
     // MARK: - Actions
     
+    @objc func refresh() {
+        if let wallets = wallets {
+            interactor.fetchTransactions(forWallets: wallets)
+        } else {
+            interactor.fetchAllTransactions()
+        }
+    }
+
     @objc func menuTapped() {
         router.showHome()
     }
@@ -133,16 +148,27 @@ class ListTransactionsVC: ViewController, ListTransactionsDisplayLogic, UITableV
     // MARK: - UI Update
     
     func handleUpdate(viewModel: ListTransactionsViewModel) {
-        // TODO: Loading state
-        // TODO: Error state
+        refreshControl.endRefreshing()
         
         switch viewModel.state {
         case .loaded(let transactions):
             dataSource.transactions = transactions
-        default:
-            break
+            dataSource.isLoading = false
+            dataSource.errorText = nil
+        case .loading:
+            dataSource.errorText = nil
+            dataSource.isLoading = true
+        case .error(let error):
+            dataSource.errorText = error
+            dataSource.isLoading = false
         }
         
         tableView.reloadData()
+    }
+    
+    // MARK: - UITableView delegate
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard dataSource.isLoading == false, dataSource.errorText == nil else { return }
     }
 }

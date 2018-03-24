@@ -44,7 +44,7 @@ class ShowWalletDataSource: ArrayDataSource {
         } else if section == Section.export.rawValue {
             return wallet == nil ? 0 : 1
         } else if section == Section.transactionHeader.rawValue {
-            return wallet == nil ? 0 : 1
+            return transactions.isEmpty ? 0 : 1
         } else {
             return transactions.count
         }

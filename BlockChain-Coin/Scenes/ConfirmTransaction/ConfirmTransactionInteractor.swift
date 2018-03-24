@@ -21,9 +21,7 @@ class ConfirmTransactionInteractor: ConfirmTransactionBusinessLogic {
     
     func transfer(request: ConfirmTransactionRequest) {
         presenter?.handleShowLoading()
-        
-        // TODO: Anonimity 10
-        
+                
         walletWorker.transfer(wallet: request.form.sourceWallet!,
                               password: request.form.sourceWallet!.password!,
                               destination: request.form.address!,

@@ -85,7 +85,6 @@
 		9C63A3682065008600E9C33D /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3672065008600E9C33D /* APIError.swift */; };
 		9C63A36D206540BC00E9C33D /* AboutFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A36C206540BC00E9C33D /* AboutFormViews.swift */; };
 		9C63A3702066B18900E9C33D /* ListTransactionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A36F2066B18900E9C33D /* ListTransactionsCell.swift */; };
-		9C63A3722066B1DE00E9C33D /* ListTransactionsEmptyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3712066B1DE00E9C33D /* ListTransactionsEmptyCell.swift */; };
 		9C63A3762066DA7A00E9C33D /* Notification+Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3752066DA7A00E9C33D /* Notification+Name.swift */; };
 		9C63A3782066DD8600E9C33D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3772066DD8600E9C33D /* LoadingView.swift */; };
 		9C63A37A2066DD9D00E9C33D /* LoadingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3792066DD9D00E9C33D /* LoadingTableViewCell.swift */; };
@@ -328,7 +327,6 @@
 		9C63A3672065008600E9C33D /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		9C63A36C206540BC00E9C33D /* AboutFormViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutFormViews.swift; sourceTree = "<group>"; };
 		9C63A36F2066B18900E9C33D /* ListTransactionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransactionsCell.swift; sourceTree = "<group>"; };
-		9C63A3712066B1DE00E9C33D /* ListTransactionsEmptyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTransactionsEmptyCell.swift; sourceTree = "<group>"; };
 		9C63A3752066DA7A00E9C33D /* Notification+Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Name.swift"; sourceTree = "<group>"; };
 		9C63A3772066DD8600E9C33D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		9C63A3792066DD9D00E9C33D /* LoadingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingTableViewCell.swift; sourceTree = "<group>"; };
@@ -917,7 +915,6 @@
 			isa = PBXGroup;
 			children = (
 				9C63A36F2066B18900E9C33D /* ListTransactionsCell.swift */,
-				9C63A3712066B1DE00E9C33D /* ListTransactionsEmptyCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1497,7 +1494,6 @@
 				9C85E399205AB40400208DF6 /* ExportWalletKeysPresenter.swift in Sources */,
 				9C4AA48420332C2B0056152C /* Seed.swift in Sources */,
 				9C85E37E205A6A6800208DF6 /* SetWalletPasswordVC.swift in Sources */,
-				9C63A3722066B1DE00E9C33D /* ListTransactionsEmptyCell.swift in Sources */,
 				9C043678202C968D00671DA2 /* cryptonight.c in Sources */,
 				9C0325A42056CDAE0009FA3B /* AboutPresenter.swift in Sources */,
 				9C8A8F5F202DFD7900F55736 /* PoolStatusView.swift in Sources */,
