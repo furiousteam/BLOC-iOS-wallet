@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import MBProgressHUD
 
 protocol SetWalletPasswordDisplayLogic: class {
     func handleUpdate(viewModel: SetWalletPasswordViewModel)
@@ -29,6 +30,8 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
     let interactor: SetWalletPasswordBusinessLogic
     
     let mode: Mode
+    
+    var hud: MBProgressHUD?
     
     fileprivate let disposeBag = DisposeBag()
 
@@ -142,17 +145,26 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
     // MARK: UI Update
     
     func handleUpdate(viewModel: SetWalletPasswordViewModel) {
-        // TODO: Loading state
-        // TODO: Error state
-        
         log.info("State update: \(viewModel.state)")
         
         formFields.nextButton.isEnabled = viewModel.isNextButtonEnabled
         
+        self.hud?.hide(animated: true)
+        
         switch viewModel.state {
         case .completed(let wallet):
-            self.view.endEditing(true)
             router.showWalletKeys(wallet: wallet)
+            self.view.endEditing(true)
+        case .loading:
+            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud?.mode = .indeterminate
+            hud?.label.text = R.string.localizable.create_wallet_loading()
+            hud?.hide(animated: true, afterDelay: 3.0)
+        case .error(let error):
+            self.hud = MBProgressHUD.showAdded(to: self.view, animated: true)
+            hud?.mode = .text
+            hud?.detailsLabel.text = error
+            hud?.hide(animated: true, afterDelay: 3.0)
         default:
             break
         }
