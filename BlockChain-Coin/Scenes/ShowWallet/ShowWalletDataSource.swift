@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ShowWalletDataSource: NSObject, UITableViewDataSource {
+class ShowWalletDataSource: ArrayDataSource {
     
     var didTapCopy: () -> Void = { }
     var didTapQRCode: () -> Void = { }
@@ -26,11 +26,19 @@ class ShowWalletDataSource: NSObject, UITableViewDataSource {
         case count
     }
     
-    func numberOfSections(in tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        if isLoading || errorText != nil {
+            return super.numberOfSections(in: tableView)
+        }
+        
         return Section.count.rawValue
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if isLoading || errorText != nil {
+            return super.tableView(tableView, numberOfRowsInSection: section)
+        }
+        
         if section == Section.balance.rawValue {
             return balances.isEmpty ? 0 : 1
         } else if section == Section.export.rawValue {
@@ -42,7 +50,11 @@ class ShowWalletDataSource: NSObject, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if isLoading || errorText != nil {
+            return super.tableView(tableView, cellForRowAt: indexPath)
+        }
+
         if indexPath.section == Section.balance.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletBalanceCell.reuseIdentifier(), for: indexPath) as! ShowWalletBalanceCell
             

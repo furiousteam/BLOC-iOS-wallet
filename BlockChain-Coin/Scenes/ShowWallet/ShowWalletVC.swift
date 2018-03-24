@@ -26,6 +26,8 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
         return tableView
     }()
     
+    var refreshControl: RefreshControl!
+    
     var hud: MBProgressHUD?
     
     let wallet: WalletModel
@@ -71,8 +73,7 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // TODO: Real user password
-        interactor.fetchDetails(wallet: wallet, password: "password")
+        interactor.fetchDetails(wallet: wallet, password: wallet.password ?? "")
     }
     
     // MARK: - Configuration
@@ -106,9 +107,19 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
         ShowWalletExportKeysCell.registerWith(tableView)
         ShowWalletTransactionsHeaderCell.registerWith(tableView)
         ShowWalletTransactionCell.registerWith(tableView)
+        LoadingTableViewCell.registerWith(tableView)
+        ErrorTableViewCell.registerWith(tableView)
         tableView.dataSource = dataSource
         tableView.delegate = self
         tableView.estimatedRowHeight = 60.0
+        
+        refreshControl = RefreshControl(target: self, action: #selector(refresh))
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl)
+        }
         
         // Actions
         
@@ -119,6 +130,10 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
     
     // MARK: - Actions
     
+    @objc func refresh() {
+        interactor.fetchDetails(wallet: wallet, password: wallet.password ?? "")
+    }
+
     @objc func settingsTapped() {
         router.showSettings(wallet: wallet)
     }
@@ -165,9 +180,6 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
     // MARK: - Display logic
     
     func handleUpdate(viewModel: ShowWalletDetailsViewModel) {
-        // TODO: Loading state
-        // TODO: Error state
-        
         switch viewModel.state {
         case .loaded(let details):
             let availableBalance = Balance(value: Double(details.availableBalance) / Constants.walletCurrencyDivider, balanceType: .available)
@@ -176,9 +188,18 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
             dataSource.wallet = wallet
             dataSource.balances = [ availableBalance, lockedBalance ]
             dataSource.transactions = Array(details.transactions.prefix(10))
+            dataSource.isLoading = false
+        case .loading:
+            dataSource.errorText = nil
+            dataSource.isLoading = true
+        case .error(let error):
+            dataSource.errorText = error
+            dataSource.isLoading = false
         default:
             break
         }
+        
+        refreshControl.endRefreshing()
         
         tableView.reloadData()
     }
