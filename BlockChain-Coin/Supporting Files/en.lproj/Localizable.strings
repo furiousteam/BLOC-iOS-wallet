@@ -91,7 +91,7 @@ Untraceable\
 Fungible";
 "about_us_meet" = "Meet the\
 Blockchain Coin";
-"about_us_bloc" = "BLOC";
+"about_us_bloc" = "(BLOC)";
 "about_us_url" = "www.blockchain-coin.net";
 "about_us_content" = "The BlockChain Coin has been founded in 2018 by a group of talented friends and partners that has been working together for more than 10 years on IT, smartphone technology, web, API, hardware products, applications and many more. Experimented, smart, ambitious, fun and hard working are some of our main qualities. We love cryptocurrencies, we are early bitcoin investors, we are (still) amazed by the possibilities that the Blockchain technology brings to the world and we want to be a fundamental actor of this revolution. Visit our website to discover our universe, our application, our ecostystem, our roadmap and be a part of it; join us!";
 "error_unknown" = "An unknown error has occured. Please try again.";
@@ -99,3 +99,4 @@ Blockchain Coin";
 "import_wallet_key_invalid_key" = "The specified key is not in the right format or contains invalid data";
 "import_wallet_loading" = "Importing your wallet...";
 "confirm_transaction_loading" = "Sending transaction...";
+"transaction_details_from" = "From:";

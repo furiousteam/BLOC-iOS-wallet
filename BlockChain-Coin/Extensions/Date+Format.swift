@@ -17,6 +17,14 @@ extension Date {
         return dateFormatter
     }()
     
+    fileprivate static let fullTimeFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .long
+        dateFormatter.timeStyle = .short
+        dateFormatter.locale = Locale.current
+        return dateFormatter
+    }()
+    
     static let isoDateFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
@@ -26,5 +34,9 @@ extension Date {
         
     func shortDate() -> String {
         return Date.shortTimeFormatter.string(from: self)
+    }
+    
+    func fullDate() -> String {
+        return Date.fullTimeFormatter.string(from: self)
     }
 }

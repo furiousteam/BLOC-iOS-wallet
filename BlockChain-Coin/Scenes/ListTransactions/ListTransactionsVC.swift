@@ -170,5 +170,9 @@ class ListTransactionsVC: ViewController, ListTransactionsDisplayLogic, UITableV
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard dataSource.isLoading == false, dataSource.errorText == nil else { return }
+        
+        let transaction = dataSource.transactions[indexPath.section]
+        
+        router.showTransaction(transaction: transaction)
     }
 }

@@ -31,6 +31,7 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
     var hud: MBProgressHUD?
     
     let wallet: WalletModel
+    let name: String
     
     let transactionService = TransactionDiskStore()
     
@@ -41,7 +42,7 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
     
     // MARK: - View lifecycle
     
-    init(wallet: WalletModel) {
+    init(wallet: WalletModel, name: String) {
         let interactor = ShowWalletInteractor()
         let presenter = ShowWalletPresenter()
         let router = ShowWalletRouter()
@@ -50,6 +51,7 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
         self.interactor = interactor
         
         self.wallet = wallet
+        self.name = name
         
         super.init(nibName: nil, bundle: nil)
         
@@ -208,7 +210,11 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
     // MARK: - UITableView delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Handle row selection
+        guard indexPath.section == ShowWalletDataSource.Section.transactions.rawValue else { return }
+        
+        let transaction = ListTransactionItemViewModel(name: name, sourceAddress: wallet.address, transaction: dataSource.transactions[indexPath.row])
+        
+        router.showTransaction(transaction: transaction)
     }
 }
 

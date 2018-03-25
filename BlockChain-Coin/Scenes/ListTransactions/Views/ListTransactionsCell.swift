@@ -120,7 +120,10 @@ class ListTransactionsCell: TableViewCell {
         typeLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
     }
     
-    func configure(transaction: ListTransactionItemViewModel) {
+    func configure(transaction: ListTransactionItemViewModel, backgroundColor: UIColor) {
+        contentView.backgroundColor = backgroundColor
+        self.backgroundColor = backgroundColor
+        
         nameLabel.text = transaction.name
         dateLabel.text = transaction.transaction.createdAt.shortDate()
         amountLabel.text = transaction.transaction.amount.blocCurrency()

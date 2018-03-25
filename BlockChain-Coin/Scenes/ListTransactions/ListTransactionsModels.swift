@@ -10,6 +10,7 @@ import Foundation
 
 struct ListTransactionItemViewModel {
     let name: String
+    let sourceAddress: String
     let transaction: TransactionModel
 }
 

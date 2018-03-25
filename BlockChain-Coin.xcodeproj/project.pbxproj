@@ -91,6 +91,17 @@
 		9C63A37C2066E26300E9C33D /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A37B2066E26300E9C33D /* ErrorView.swift */; };
 		9C63A37E2066E26C00E9C33D /* ErrorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A37D2066E26C00E9C33D /* ErrorTableViewCell.swift */; };
 		9C63A3802066E55F00E9C33D /* RefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A37F2066E55F00E9C33D /* RefreshControl.swift */; };
+		9C63A38A20678FE200E9C33D /* ShowTransactionInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A38420678FE200E9C33D /* ShowTransactionInteractor.swift */; };
+		9C63A38B20678FE200E9C33D /* ShowTransactionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A38520678FE200E9C33D /* ShowTransactionModels.swift */; };
+		9C63A38C20678FE200E9C33D /* ShowTransactionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A38620678FE200E9C33D /* ShowTransactionRouter.swift */; };
+		9C63A38D20678FE200E9C33D /* ShowTransactionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A38720678FE200E9C33D /* ShowTransactionPresenter.swift */; };
+		9C63A38F20678FE200E9C33D /* ShowTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A38920678FE200E9C33D /* ShowTransactionVC.swift */; };
+		9C63A392206790B700E9C33D /* ShowTransactionFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A391206790B700E9C33D /* ShowTransactionFormViews.swift */; };
+		9C63A3942067916700E9C33D /* ShowTransactionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3932067916700E9C33D /* ShowTransactionTitleView.swift */; };
+		9C63A3962067930100E9C33D /* ShowTransactionTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3952067930100E9C33D /* ShowTransactionTypeView.swift */; };
+		9C63A39820679A5B00E9C33D /* ShowTransactionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A39720679A5B00E9C33D /* ShowTransactionContentView.swift */; };
+		9C63A39C20679AA100E9C33D /* ShowTransactionMultiColumnView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A39B20679AA100E9C33D /* ShowTransactionMultiColumnView.swift */; };
+		9C63A39E20679AB400E9C33D /* ShowTransactionExplorerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A39D20679AB400E9C33D /* ShowTransactionExplorerView.swift */; };
 		9C6622ED2035CB4E0083CE2E /* ConfigureWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6622EC2035CB4E0083CE2E /* ConfigureWalletVC.swift */; };
 		9C6622F72035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6622F62035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift */; };
 		9C6622FB203626A60083CE2E /* PoolSocketOKResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C6622FA203626A60083CE2E /* PoolSocketOKResponse.swift */; };
@@ -333,6 +344,17 @@
 		9C63A37B2066E26300E9C33D /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		9C63A37D2066E26C00E9C33D /* ErrorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTableViewCell.swift; sourceTree = "<group>"; };
 		9C63A37F2066E55F00E9C33D /* RefreshControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshControl.swift; sourceTree = "<group>"; };
+		9C63A38420678FE200E9C33D /* ShowTransactionInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTransactionInteractor.swift; sourceTree = "<group>"; };
+		9C63A38520678FE200E9C33D /* ShowTransactionModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTransactionModels.swift; sourceTree = "<group>"; };
+		9C63A38620678FE200E9C33D /* ShowTransactionRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTransactionRouter.swift; sourceTree = "<group>"; };
+		9C63A38720678FE200E9C33D /* ShowTransactionPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTransactionPresenter.swift; sourceTree = "<group>"; };
+		9C63A38920678FE200E9C33D /* ShowTransactionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowTransactionVC.swift; sourceTree = "<group>"; };
+		9C63A391206790B700E9C33D /* ShowTransactionFormViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTransactionFormViews.swift; sourceTree = "<group>"; };
+		9C63A3932067916700E9C33D /* ShowTransactionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTransactionTitleView.swift; sourceTree = "<group>"; };
+		9C63A3952067930100E9C33D /* ShowTransactionTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTransactionTypeView.swift; sourceTree = "<group>"; };
+		9C63A39720679A5B00E9C33D /* ShowTransactionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTransactionContentView.swift; sourceTree = "<group>"; };
+		9C63A39B20679AA100E9C33D /* ShowTransactionMultiColumnView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTransactionMultiColumnView.swift; sourceTree = "<group>"; };
+		9C63A39D20679AB400E9C33D /* ShowTransactionExplorerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowTransactionExplorerView.swift; sourceTree = "<group>"; };
 		9C6622EC2035CB4E0083CE2E /* ConfigureWalletVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigureWalletVC.swift; sourceTree = "<group>"; };
 		9C6622F62035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewHeaderFooterView+Register.swift"; sourceTree = "<group>"; };
 		9C6622FA203626A60083CE2E /* PoolSocketOKResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSocketOKResponse.swift; sourceTree = "<group>"; };
@@ -670,6 +692,7 @@
 				9C85E377205A6A6700208DF6 /* SetWalletPassword */,
 				9C4AA4D420348B8A0056152C /* ShowWallet */,
 				9C78F1C92056CD59001ADA32 /* ListTransactions */,
+				9C63A38320678FE200E9C33D /* ShowTransaction */,
 				9C85E391205AB40400208DF6 /* ExportWalletKeys */,
 				9C85E3A3205ADA7200208DF6 /* ImportWalletKey */,
 				9CA7FB82205D6DA300D48D5F /* ImportWalletQRCode */,
@@ -915,6 +938,32 @@
 			isa = PBXGroup;
 			children = (
 				9C63A36F2066B18900E9C33D /* ListTransactionsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9C63A38320678FE200E9C33D /* ShowTransaction */ = {
+			isa = PBXGroup;
+			children = (
+				9C63A390206790A900E9C33D /* Views */,
+				9C63A38420678FE200E9C33D /* ShowTransactionInteractor.swift */,
+				9C63A38520678FE200E9C33D /* ShowTransactionModels.swift */,
+				9C63A38620678FE200E9C33D /* ShowTransactionRouter.swift */,
+				9C63A38720678FE200E9C33D /* ShowTransactionPresenter.swift */,
+				9C63A38920678FE200E9C33D /* ShowTransactionVC.swift */,
+			);
+			path = ShowTransaction;
+			sourceTree = "<group>";
+		};
+		9C63A390206790A900E9C33D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C63A391206790B700E9C33D /* ShowTransactionFormViews.swift */,
+				9C63A3932067916700E9C33D /* ShowTransactionTitleView.swift */,
+				9C63A3952067930100E9C33D /* ShowTransactionTypeView.swift */,
+				9C63A39720679A5B00E9C33D /* ShowTransactionContentView.swift */,
+				9C63A39B20679AA100E9C33D /* ShowTransactionMultiColumnView.swift */,
+				9C63A39D20679AB400E9C33D /* ShowTransactionExplorerView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1442,6 +1491,7 @@
 				9C4AA495203335000056152C /* Wallet.swift in Sources */,
 				9C78F1AA2056C8B7001ADA32 /* AppRouter.swift in Sources */,
 				9C85E38C205A6C3200208DF6 /* FormToolbar.swift in Sources */,
+				9C63A392206790B700E9C33D /* ShowTransactionFormViews.swift in Sources */,
 				9C78F1D22056CD5A001ADA32 /* ListTransactionsModels.swift in Sources */,
 				9C04367D202C975800671DA2 /* HashContext.mm in Sources */,
 				9C6623052036DD010083CE2E /* TransactionDiskStore.swift in Sources */,
@@ -1451,17 +1501,20 @@
 				9C8A8F7F202EE13D00F55736 /* PoolSocketJobNotificationResponse.swift in Sources */,
 				9C85E3AE205ADA7200208DF6 /* ImportWalletKeyPresenter.swift in Sources */,
 				9C85E39B205AB40400208DF6 /* ExportWalletKeysRouter.swift in Sources */,
+				9C63A38C20678FE200E9C33D /* ShowTransactionRouter.swift in Sources */,
 				9C04369C202CDB9400671DA2 /* MineDataSource.swift in Sources */,
 				9C4AA49A2033353C0056152C /* ListWalletsModels.swift in Sources */,
 				9CBCC9C7206241C40006FBA7 /* KeyPair+Codable.swift in Sources */,
 				9C4AA4A0203335590056152C /* ListWalletsInteractor.swift in Sources */,
 				9C63A3782066DD8600E9C33D /* LoadingView.swift in Sources */,
 				9C4AA4D620348BA70056152C /* ShowWalletVC.swift in Sources */,
+				9C63A38A20678FE200E9C33D /* ShowTransactionInteractor.swift in Sources */,
 				9C6623092036EBA90083CE2E /* String+Bytes.swift in Sources */,
 				9C78F1B52056CB9A001ADA32 /* TabBarVC.swift in Sources */,
 				9CA7FB89205D6DA300D48D5F /* ImportWalletQRCodeInteractor.swift in Sources */,
 				9C85E3AC205ADA7200208DF6 /* ImportWalletKeyVC.swift in Sources */,
 				9C8A8F79202EE13600F55736 /* PoolSocketLoginRequest.swift in Sources */,
+				9C63A39C20679AA100E9C33D /* ShowTransactionMultiColumnView.swift in Sources */,
 				9C78F1D32056CD5A001ADA32 /* ListTransactionsDataSource.swift in Sources */,
 				9C6622F72035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift in Sources */,
 				9C85E388205A6B6200208DF6 /* FormTextField.swift in Sources */,
@@ -1478,7 +1531,9 @@
 				9CBB2F0020567A9000718EBA /* Router.swift in Sources */,
 				9C0325A32056CDAE0009FA3B /* AboutModels.swift in Sources */,
 				9CBCC9A320616E5A0006FBA7 /* WalletSettingsInteractor.swift in Sources */,
+				9C63A38D20678FE200E9C33D /* ShowTransactionPresenter.swift in Sources */,
 				9C0436A5202CDBC000671DA2 /* MineModels.swift in Sources */,
+				9C63A38F20678FE200E9C33D /* ShowTransactionVC.swift in Sources */,
 				9CBCC9BD206225080006FBA7 /* NewTransactionsFormViews.swift in Sources */,
 				9CBCC9A620616E5A0006FBA7 /* WalletSettingsRouter.swift in Sources */,
 				9C6623032036D9DD0083CE2E /* TransactionDestination.swift in Sources */,
@@ -1512,6 +1567,7 @@
 				9C8A8F63202E03B900F55736 /* MineStatCell.swift in Sources */,
 				9CBCC993206102020006FBA7 /* ShowWalletTransactionsHeaderCell.swift in Sources */,
 				9C5756C220640DF9002BD079 /* ConfirmTransactionInteractor.swift in Sources */,
+				9C63A38B20678FE200E9C33D /* ShowTransactionModels.swift in Sources */,
 				9CB6C34220503A70002E610C /* WalletDetails.swift in Sources */,
 				9C6623072036E90D0083CE2E /* Hash.swift in Sources */,
 				9C8A8F61202DFDF300F55736 /* UIColor+Hex.swift in Sources */,
@@ -1543,6 +1599,7 @@
 				9C0325AC2056CEED0009FA3B /* TabBarContainer.swift in Sources */,
 				9C043689202CA50F00671DA2 /* PoolSocketClientDelegate.swift in Sources */,
 				9C78F1B22056CAB0001ADA32 /* UserDefaultKeys.swift in Sources */,
+				9C63A3942067916700E9C33D /* ShowTransactionTitleView.swift in Sources */,
 				9C6622FB203626A60083CE2E /* PoolSocketOKResponse.swift in Sources */,
 				9C6622FD2036D2F00083CE2E /* Signature.swift in Sources */,
 				9C6622FF2036D3880083CE2E /* NewTransaction.swift in Sources */,
@@ -1580,6 +1637,7 @@
 				9C63A354206419AC00E9C33D /* WalletAPITransferResponse.swift in Sources */,
 				9CBB2EF8205679FE00718EBA /* HomeModels.swift in Sources */,
 				9C85E3AB205ADA7200208DF6 /* ImportWalletKeyInteractor.swift in Sources */,
+				9C63A39E20679AB400E9C33D /* ShowTransactionExplorerView.swift in Sources */,
 				9CBCC98B2060E9A00006FBA7 /* PrintableWalletKeysView.swift in Sources */,
 				9CB6C33E20502C79002E610C /* PrimitiveSequence+ErrorHandling.swift in Sources */,
 				9CBCC991206101EF0006FBA7 /* ShowWalletExportKeysCell.swift in Sources */,
@@ -1601,6 +1659,7 @@
 				9C85E3AD205ADA7200208DF6 /* ImportWalletKeyRouter.swift in Sources */,
 				9C85E3AA205ADA7200208DF6 /* ImportWalletKeyModels.swift in Sources */,
 				9C4AA4CF203481360056152C /* Date+Format.swift in Sources */,
+				9C63A3962067930100E9C33D /* ShowTransactionTypeView.swift in Sources */,
 				9CBCC9C12062342F0006FBA7 /* CollectionViewCell.swift in Sources */,
 				9C78F1B72056CC20001ADA32 /* NavigationController.swift in Sources */,
 				9CBCC9C5206235BF0006FBA7 /* UICollectionView+Register.swift in Sources */,
@@ -1636,6 +1695,7 @@
 				9CBCC9BF206233F50006FBA7 /* NewTransactionWalletCell.swift in Sources */,
 				9C85E36E205A5B2900208DF6 /* ActionButton.swift in Sources */,
 				9C85E380205A6A6800208DF6 /* SetWalletPasswordRouter.swift in Sources */,
+				9C63A39820679A5B00E9C33D /* ShowTransactionContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@ import UIKit
 protocol ListTransactionsRoutingLogic {
     func showHome()
     func goBack()
+    func showTransaction(transaction: ListTransactionItemViewModel)
 }
 
 class ListTransactionsRouter: Router, ListTransactionsRoutingLogic {
@@ -23,6 +24,12 @@ class ListTransactionsRouter: Router, ListTransactionsRoutingLogic {
     
     func goBack() {
         viewController?.navigationController?.popViewController(animated: true)
+    }
+    
+    func showTransaction(transaction: ListTransactionItemViewModel) {
+        let vc = ShowTransactionVC(transaction: transaction)
+        
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

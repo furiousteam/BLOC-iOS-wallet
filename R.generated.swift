@@ -85,7 +85,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 42 images.
+  /// This `R.image` struct is generated, and contains static references to 44 images.
   struct image {
     /// Image `about-logo`.
     static let aboutLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "about-logo")
@@ -107,6 +107,10 @@ struct R: Rswift.Validatable {
     static let defaultBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "default-bg")
     /// Image `dot-bg`.
     static let dotBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "dot-bg")
+    /// Image `explorer-border`.
+    static let explorerBorder = Rswift.ImageResource(bundle: R.hostingBundle, name: "explorer-border")
+    /// Image `explorer-icon`.
+    static let explorerIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "explorer-icon")
     /// Image `home-bg`.
     static let homeBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "home-bg")
     /// Image `left-arrow`.
@@ -220,6 +224,16 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "dot-bg", bundle: ..., traitCollection: ...)`
     static func dotBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.dotBg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "explorer-border", bundle: ..., traitCollection: ...)`
+    static func explorerBorder(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.explorerBorder, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "explorer-icon", bundle: ..., traitCollection: ...)`
+    static func explorerIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.explorerIcon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "home-bg", bundle: ..., traitCollection: ...)`
@@ -415,8 +429,12 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 93 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 94 localization keys.
     struct localizable {
+      /// en translation: (BLOC)
+      /// 
+      /// Locales: en
+      static let about_us_bloc = Rswift.StringResource(key: "about_us_bloc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: A problem has occured!
       /// 
       /// Locales: en
@@ -445,10 +463,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_created_title_second_line = Rswift.StringResource(key: "wallet_created_title_second_line", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: BLOC
-      /// 
-      /// Locales: en
-      static let about_us_bloc = Rswift.StringResource(key: "about_us_bloc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: BLOC - TO
       /// 
       /// Locales: en
@@ -517,6 +531,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_amount_fees = Rswift.StringResource(key: "send_amount_fees", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: From:
+      /// 
+      /// Locales: en
+      static let transaction_details_from = Rswift.StringResource(key: "transaction_details_from", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Go to your wallet
       /// 
       /// Locales: en
@@ -790,6 +808,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static let about_us_url = Rswift.StringResource(key: "about_us_url", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       
+      /// en translation: (BLOC)
+      /// 
+      /// Locales: en
+      static func about_us_bloc(_: Void = ()) -> String {
+        return NSLocalizedString("about_us_bloc", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: A problem has occured!
       /// 
       /// Locales: en
@@ -837,13 +862,6 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_created_title_second_line(_: Void = ()) -> String {
         return NSLocalizedString("wallet_created_title_second_line", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: BLOC
-      /// 
-      /// Locales: en
-      static func about_us_bloc(_: Void = ()) -> String {
-        return NSLocalizedString("about_us_bloc", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: BLOC - TO
@@ -963,6 +981,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func send_amount_fees(_ value1: String) -> String {
         return String(format: NSLocalizedString("send_amount_fees", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: From:
+      /// 
+      /// Locales: en
+      static func transaction_details_from(_: Void = ()) -> String {
+        return NSLocalizedString("transaction_details_from", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Go to your wallet

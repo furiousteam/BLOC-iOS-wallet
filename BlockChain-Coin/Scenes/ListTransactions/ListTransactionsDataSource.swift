@@ -33,8 +33,10 @@ class ListTransactionsDataSource: ArrayDataSource {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ListTransactionsCell.reuseIdentifier(), for: indexPath) as! ListTransactionsCell
-                
-        cell.configure(transaction: transactions[indexPath.section])
+        
+        let backgroundColor = (indexPath.section % 2 == 0 ? UIColor(hex: 0x0d234c) : UIColor(hex: 0x00153e))
+        
+        cell.configure(transaction: transactions[indexPath.section], backgroundColor: backgroundColor)
         
         return cell
     }

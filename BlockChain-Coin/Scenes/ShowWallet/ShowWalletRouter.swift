@@ -12,6 +12,7 @@ protocol ShowWalletRoutingLogic {
     func showSettings(wallet: WalletModel)
     func goBack()
     func showTransactionsHistory(wallet: WalletModel)
+    func showTransaction(transaction: ListTransactionItemViewModel)
 }
 
 class ShowWalletRouter: ShowWalletRoutingLogic {
@@ -27,6 +28,12 @@ class ShowWalletRouter: ShowWalletRoutingLogic {
     
     func showTransactionsHistory(wallet: WalletModel) {
         let vc = ListTransactionsVC(wallets: [ wallet ])
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showTransaction(transaction: ListTransactionItemViewModel) {
+        let vc = ShowTransactionVC(transaction: transaction)
+        
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
