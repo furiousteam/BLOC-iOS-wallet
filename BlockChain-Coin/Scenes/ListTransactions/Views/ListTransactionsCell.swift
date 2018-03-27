@@ -91,6 +91,10 @@ class ListTransactionsCell: TableViewCell {
             $0.height.equalTo(40.0)
         })
         
+        nameLabel.snp.makeConstraints({
+            $0.width.lessThanOrEqualTo(100.0)
+        })
+        
         typeLabel.snp.makeConstraints({
             $0.leading.equalTo(stackView.snp.trailing).offset(5.0)
             $0.height.equalTo(40.0)
