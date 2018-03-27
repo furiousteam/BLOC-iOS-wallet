@@ -15,6 +15,7 @@ protocol WalletModel {
     var address: String { get }
     var createdAt: Date { get }
     var password: String? { get }
+    var name: String { get }
     var details: WalletDetails? { get }
 }
 
@@ -23,18 +24,20 @@ class Wallet: WalletModel, Codable {
     let keyPair: KeyPair
     let address: String
     let createdAt: Date
+    let name: String
     var details: WalletDetails?
     
     var password: String? {
         return KeychainWrapper.standard.string(forKey: uuid.uuidString)
     }
     
-    init(uuid: UUID, keyPair: KeyPair, address: String, password: String, details: WalletDetails?, createdAt: Date) {
+    init(uuid: UUID, keyPair: KeyPair, address: String, password: String, name: String, details: WalletDetails?, createdAt: Date) {
         self.uuid = uuid
         self.keyPair = keyPair
         self.address = address
         self.createdAt = createdAt
         self.details = details
+        self.name = name
         
         KeychainWrapper.standard.set(password, forKey: uuid.uuidString)
     }
@@ -45,6 +48,7 @@ class Wallet: WalletModel, Codable {
         case address = "address"
         case createdAt = "createdAt"
         case details = "details"
+        case name = "name"
     }
     
     func encode(to encoder: Encoder) throws {
@@ -55,6 +59,7 @@ class Wallet: WalletModel, Codable {
         try container.encode(address, forKey: .address)
         try container.encode(createdAt, forKey: .createdAt)
         try container.encode(details, forKey: .details)
+        try container.encode(name, forKey: .name)
     }
     
     required init(from decoder: Decoder) throws {
@@ -69,5 +74,7 @@ class Wallet: WalletModel, Codable {
         self.createdAt = try values.decode(Date.self, forKey: .createdAt)
         
         self.details = try values.decodeIfPresent(WalletDetails.self, forKey: .details)
+        
+        self.name = try values.decode(String.self, forKey: .name)
     }
 }

@@ -30,8 +30,8 @@ class NewTransactionDataSource: ArrayDataSource {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NewTransactionWalletCell.reuseIdentifier(), for: indexPath) as! NewTransactionWalletCell
         
-        if let wallet = items[indexPath.section][indexPath.row] as? WalletModel, let walletIndex = availableWallets.index(where: { $0.address == wallet.address }) {
-            cell.configure(name: R.string.localizable.wallet_list_item_title(walletIndex + 1), amount: Double(wallet.details?.availableBalance ?? 0) / Constants.walletCurrencyDivider)
+        if let wallet = items[indexPath.section][indexPath.row] as? WalletModel {
+            cell.configure(name: wallet.name, amount: Double(wallet.details?.availableBalance ?? 0) / Constants.walletCurrencyDivider)
         }
         
         return cell

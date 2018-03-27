@@ -31,11 +31,12 @@ class ImportWalletQRCodeVC: ViewController, ImportWalletQRCodeDisplayLogic, QRCo
     let interactor: ImportWalletQRCodeBusinessLogic
     
     let password: String
+    let name: String
     var result: String? = nil
     
     // MARK: - View lifecycle
     
-    init(password: String) {
+    init(password: String, name: String) {
         let interactor = ImportWalletQRCodeInteractor()
         let presenter = ImportWalletQRCodePresenter()
         let router = ImportWalletQRCodeRouter()
@@ -44,6 +45,7 @@ class ImportWalletQRCodeVC: ViewController, ImportWalletQRCodeDisplayLogic, QRCo
         self.interactor = interactor
         
         self.password = password
+        self.name = name
         
         super.init(nibName: nil, bundle: nil)
         
@@ -52,11 +54,12 @@ class ImportWalletQRCodeVC: ViewController, ImportWalletQRCodeDisplayLogic, QRCo
         router.viewController = self
     }
     
-    init(router: ImportWalletQRCodeRoutingLogic, interactor: ImportWalletQRCodeBusinessLogic, password: String) {
+    init(router: ImportWalletQRCodeRoutingLogic, interactor: ImportWalletQRCodeBusinessLogic, password: String, name: String) {
         self.router = router
         self.interactor = interactor
         
         self.password = password
+        self.name = name
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -98,7 +101,7 @@ class ImportWalletQRCodeVC: ViewController, ImportWalletQRCodeDisplayLogic, QRCo
         
         self.result = result.value
         
-        let form = ImportWalletQRCodeForm(keysString: self.result, password: password)
+        let form = ImportWalletQRCodeForm(keysString: self.result, password: password, name: name)
         
         interactor.validateForm(request: ImportWalletQRCodeRequest(form: form))
     }
@@ -118,7 +121,7 @@ class ImportWalletQRCodeVC: ViewController, ImportWalletQRCodeDisplayLogic, QRCo
         
         switch viewModel.state {
         case .validForm:
-            let form = ImportWalletQRCodeForm(keysString: result, password: password)
+            let form = ImportWalletQRCodeForm(keysString: result, password: password, name: name)
             
             interactor.importWallet(request: ImportWalletQRCodeRequest(form: form))
         case .completed:

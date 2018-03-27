@@ -26,7 +26,7 @@ class ShowWalletInteractor: ShowWalletBusinessLogic {
         remoteWalletWorker.getBalanceAndTransactions(wallet: wallet, password: password) { [weak self] result in
             switch result {
             case .success(let details):
-                let w = Wallet(uuid: wallet.uuid, keyPair: wallet.keyPair, address: wallet.address, password: wallet.password ?? "", details: details, createdAt: wallet.createdAt)
+                let w = Wallet(uuid: wallet.uuid, keyPair: wallet.keyPair, address: wallet.address, password: wallet.password ?? "", name: wallet.name, details: details, createdAt: wallet.createdAt)
                 
                 self?.localWalletWorker.getBalanceAndTransactions(wallet: w, password: password, completion: { [weak self] result in
                     switch result {

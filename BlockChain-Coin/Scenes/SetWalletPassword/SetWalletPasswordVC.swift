@@ -72,7 +72,7 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
         
         configure()
         
-        formFields.passwordField.textField.becomeFirstResponder()
+        formFields.nameField.textField.becomeFirstResponder()
     }
 
     // MARK: - Configuration
@@ -98,16 +98,18 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
             field.didTapReturn = toolbar.nextTapped
         }
         
-        formFields.passwordField.didTapReturn = nextKeyboardTapped
+        formFields.nameField.didTapReturn = nextNameKeyboardTapped
+        formFields.passwordField.didTapReturn = nextPasswordKeyboardTapped
         formFields.passwordBisField.didTapReturn = nextTapped
         
-        /*toolbar.responders = [ formFields.passwordField.textField,
-                               formFields.passwordBisField.textField ]*/
+        toolbar.responders = [ formFields.nameField.textField,
+                               formFields.passwordField.textField,
+                               formFields.passwordBisField.textField ]
         
         formFields.nextButton.addTarget(self, action: #selector(nextTapped), for: .touchUpInside)
-        
-        Observable.combineLatest(formFields.passwordField.rx_text, formFields.passwordBisField.rx_text).subscribe(onNext: { [weak self] password, passwordBis in
-            let form = SetWalletPasswordForm(password: password, passwordBis: passwordBis)
+
+        Observable.combineLatest(formFields.passwordField.rx_text, formFields.passwordBisField.rx_text, formFields.nameField.rx_text).subscribe(onNext: { [weak self] password, passwordBis, name in
+            let form = SetWalletPasswordForm(name: name, password: password, passwordBis: passwordBis)
             
             log.info(form)
             
@@ -129,21 +131,28 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
         router.goBack()
     }
     
-    @objc func nextKeyboardTapped() {
+    @objc func nextNameKeyboardTapped() {
+        formFields.passwordField.textField.becomeFirstResponder()
+    }
+
+    @objc func nextPasswordKeyboardTapped() {
         formFields.passwordBisField.textField.becomeFirstResponder()
     }
     
     @objc func nextTapped() {
-        let form = SetWalletPasswordForm(password: formFields.passwordField.textField.text, passwordBis: formFields.passwordBisField.textField.text)
+        let form = SetWalletPasswordForm(name: formFields.nameField.textField.text, password: formFields.passwordField.textField.text, passwordBis: formFields.passwordBisField.textField.text)
+        
+        guard form.isValid else { return }
         
         guard let password = form.password else { return }
-        
+        guard let name = form.name else { return }
+
         if mode == .create {
             interactor.setPassword(request: SetWalletPasswordRequest(form: form))
         } else if mode == .restorePrivateKey {
-            router.showImportWalletWithKey(password: password)
+            router.showImportWalletWithKey(password: password, name: name)
         } else if mode == .restoreQRCode {
-            router.showImportWalletWithQRCode(password: password)
+            router.showImportWalletWithQRCode(password: password, name: name)
         }
     }
     

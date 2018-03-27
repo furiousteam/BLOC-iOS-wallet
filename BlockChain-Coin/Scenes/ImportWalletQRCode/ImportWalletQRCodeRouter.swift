@@ -16,6 +16,7 @@ class ImportWalletQRCodeRouter: Router, ImportWalletQRCodeRoutingLogic {
     weak var viewController: UIViewController?
     
     func goBack() {
+        (self.viewController?.presentingViewController as? TabBarVC)?.walletsVC.navigationController?.popToRootViewController(animated: true)
         viewController?.dismiss(animated: true, completion: nil)
     }
 }

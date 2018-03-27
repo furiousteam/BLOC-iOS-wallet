@@ -78,7 +78,7 @@ class ListWalletsDataSource: ArrayDataSource {
         
         let totalBalance = ((wallet.details?.availableBalance ?? 0.0) + (wallet.details?.lockedBalance ?? 0.0)) / Constants.walletCurrencyDivider
         
-        cell.configure(name: R.string.localizable.wallet_list_item_title(indexPath.section + 1), balance: totalBalance)
+        cell.configure(name: wallet.name, balance: totalBalance)
         
         return cell
     }

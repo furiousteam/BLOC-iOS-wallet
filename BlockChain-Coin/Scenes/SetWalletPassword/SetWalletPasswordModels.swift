@@ -9,6 +9,7 @@
 import Foundation
 
 struct SetWalletPasswordForm {
+    var name: String?
     var password: String?
     var passwordBis: String?
     
@@ -23,8 +24,14 @@ struct SetWalletPasswordForm {
             
             return true
         }()
-                
-        return isPasswordValid
+        
+        let isNameValid: Bool = {
+            guard let name = name, !name.isEmpty else { return false }
+            
+            return true
+        }()
+        
+        return isPasswordValid && isNameValid
     }
 }
 

@@ -22,12 +22,13 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
     let interactor: ImportWalletKeyBusinessLogic
     
     let password: String
+    let name: String
     
     var hud: MBProgressHUD?
 
     // MARK: - View lifecycle
     
-    init(password: String) {
+    init(password: String, name: String) {
         let interactor = ImportWalletKeyInteractor()
         let presenter = ImportWalletKeyPresenter()
         let router = ImportWalletKeyRouter()
@@ -36,6 +37,7 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
         self.interactor = interactor
         
         self.password = password
+        self.name = name
         
         super.init(nibName: nil, bundle: nil)
         
@@ -44,11 +46,12 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
         router.viewController = self
     }
     
-    init(router: ImportWalletKeyRoutingLogic, interactor: ImportWalletKeyBusinessLogic, password: String) {
+    init(router: ImportWalletKeyRoutingLogic, interactor: ImportWalletKeyBusinessLogic, password: String, name: String) {
         self.router = router
         self.interactor = interactor
         
         self.password = password
+        self.name = name
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -98,7 +101,7 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
     }
     
     @objc func nextTapped() {
-        let form = ImportWalletKeyForm(keysString: formFields.textView.text, password: password)
+        let form = ImportWalletKeyForm(keysString: formFields.textView.text, password: password, name: name)
         
         interactor.validateForm(request: ImportWalletKeyRequest(form: form))
     }
@@ -112,7 +115,7 @@ class ImportWalletKeyVC: ViewController, ImportWalletKeyDisplayLogic {
         
         switch viewModel.state {
         case .validForm:
-            let form = ImportWalletKeyForm(keysString: formFields.textView.text, password: password)
+            let form = ImportWalletKeyForm(keysString: formFields.textView.text, password: password, name: name)
             
             interactor.importWallet(request: ImportWalletKeyRequest(form: form))
         case .completed:

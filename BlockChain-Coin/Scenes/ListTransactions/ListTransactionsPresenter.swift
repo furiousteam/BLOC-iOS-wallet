@@ -18,7 +18,7 @@ class ListTransactionsPresenter: ListTransactionsPresentationLogic {
     func handleShowTransactions(wallets: [WalletModel]) {
         let transactions = wallets.sorted(by: { a, b in return a.createdAt < b.createdAt }).enumerated().flatMap { index, wallet -> [ListTransactionItemViewModel]? in
             let transactions = wallet.details?.transactions.map({ transaction -> ListTransactionItemViewModel in
-                return ListTransactionItemViewModel(name: R.string.localizable.wallet_list_item_title(index + 1), sourceAddress: wallet.address, transaction: transaction)
+                return ListTransactionItemViewModel(name: wallet.name, sourceAddress: wallet.address, transaction: transaction)
             })
             
             if transactions?.isEmpty == true {

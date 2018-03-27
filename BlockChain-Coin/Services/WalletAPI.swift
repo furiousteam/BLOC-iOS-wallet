@@ -20,7 +20,7 @@ enum WalletAPITarget: TargetType {
     case transfer(sourceAddress: String, destinationAddress: String, amount: Int64, fee: UInt64, anonymity: UInt64, unlockHeight: UInt64?, paymentId: String?, signature: String)
     
     var baseURL: URL {
-        return URL(string: "http://localhost:8080/api/v1")!
+        return URL(string: "http://blockchain-coin.co/api/v1")!
     }
     
     var path: String {
@@ -110,7 +110,7 @@ class WalletAPI: WalletStore {
     private let provider = MoyaProvider<WalletAPITarget>()
     private let disposeBag = DisposeBag()
     
-    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, password: String?, address: String?, details: WalletDetails?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
+    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, password: String?, address: String?, name: String, details: WalletDetails?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
         let endpoint = WalletAPITarget.createWallet(publicKey: keyPair.publicKey.bytes.toHexString(), uuid: uuid.uuidString, walletPrivateKey: secretKey)
 
         provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletAPICreateResponse.self).subscribe(onSuccess: { response in
@@ -147,7 +147,7 @@ class WalletAPI: WalletStore {
             let endpoint = WalletAPITarget.balanceAndTransactions(address: wallet.address, signature: signature)
 
             let request = provider.rx.request(endpoint).handleErrorIfNeeded().map(WalletDetails.self).map({ details -> WalletModel in
-                return Wallet(uuid: wallet.uuid, keyPair: wallet.keyPair, address: wallet.address, password: password, details: details, createdAt: wallet.createdAt)
+                return Wallet(uuid: wallet.uuid, keyPair: wallet.keyPair, address: wallet.address, password: password, name: wallet.name, details: details, createdAt: wallet.createdAt)
             })
             
             return request.asObservable().catchErrorJustReturn(wallet)

@@ -203,7 +203,7 @@ class ListWalletsVC: ViewController, ListWalletsDisplayLogic, UITableViewDelegat
                 router.showImportWalletWithQRCode()
             }
         } else {
-            router.showWallet(wallet: dataSource.wallets[indexPath.section], name: R.string.localizable.wallet_list_item_title(indexPath.section + 1))
+            router.showWallet(wallet: dataSource.wallets[indexPath.section], name: dataSource.wallets[indexPath.section].name)
         }
     }
     

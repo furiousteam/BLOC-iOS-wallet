@@ -43,7 +43,7 @@ class WalletDiskStore: WalletStore {
         
     }
     
-    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, password: String?, address: String?, details: WalletDetails?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
+    func addWallet(keyPair: KeyPair, uuid: UUID, secretKey: String?, password: String?, address: String?, name: String, details: WalletDetails?, completion: @escaping WalletStoreAddWalletCompletionHandler) {
         guard let address = address, let password = password else {
             completion(.failure(error: .couldNotCreateWallet))
             return
@@ -62,7 +62,7 @@ class WalletDiskStore: WalletStore {
         }()
         
         if wallets.contains(where: { $0.uuid == uuid }) == false {
-            let newWallet = Wallet(uuid: uuid, keyPair: keyPair, address: address, password: password, details: details, createdAt: Date())
+            let newWallet = Wallet(uuid: uuid, keyPair: keyPair, address: address, password: password, name: name, details: details, createdAt: Date())
             wallets.append(newWallet)
         }
         

@@ -11,8 +11,8 @@ import UIKit
 protocol SetWalletPasswordRoutingLogic {
     func goBack()
     func showWalletKeys(wallet: WalletModel)
-    func showImportWalletWithKey(password: String)
-    func showImportWalletWithQRCode(password: String)
+    func showImportWalletWithKey(password: String, name: String)
+    func showImportWalletWithQRCode(password: String, name: String)
 }
 
 class SetWalletPasswordRouter: Router, SetWalletPasswordRoutingLogic {
@@ -28,16 +28,16 @@ class SetWalletPasswordRouter: Router, SetWalletPasswordRoutingLogic {
         viewController?.navigationController?.pushViewController(walletKeysVC, animated: true)
     }
     
-    func showImportWalletWithKey(password: String) {
-        let vc = ImportWalletKeyVC(password: password)
+    func showImportWalletWithKey(password: String, name: String) {
+        let vc = ImportWalletKeyVC(password: password, name: name)
         
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func showImportWalletWithQRCode(password: String) {
-        let vc = ImportWalletQRCodeVC(password: password)
+    func showImportWalletWithQRCode(password: String, name: String) {
+        let vc = ImportWalletQRCodeVC(password: password, name: name)
         
-        viewController?.navigationController?.present(vc, animated: true, completion: nil)
+        viewController?.present(vc, animated: true, completion: nil)
     }
 }
 

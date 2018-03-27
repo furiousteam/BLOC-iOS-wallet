@@ -37,6 +37,14 @@ class SetWalletFormViews {
         return label
     }()
     
+    let nameField: FormTextField = {
+        let textField = FormTextField()
+        textField.placeholder = R.string.localizable.password_name_placeholder()
+        textField.textField.isSecureTextEntry = false
+        textField.textField.returnKeyType = .next
+        return textField
+    }()
+
     let passwordField: FormTextField = {
         let textField = FormTextField()
         textField.placeholder = R.string.localizable.create_wallet_password_placeholder()
@@ -66,6 +74,8 @@ class SetWalletFormViews {
                          titleLabel,
                          instructionsLabel,
                          SpacerView(height: 25.0),
+                         nameField,
+                         SpacerView(height: 15.0),
                          passwordField,
                          SpacerView(height: 15.0),
                          passwordBisField,

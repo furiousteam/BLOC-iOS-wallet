@@ -429,7 +429,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 94 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 95 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -455,7 +455,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let error_unknown = Rswift.StringResource(key: "error_unknown", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Anonymity: 6 (very anonymous)
+      /// en translation: Anonymity: 10 (very anonymous)
       /// 
       /// Locales: en
       static let send_anonymity = Rswift.StringResource(key: "send_anonymity", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -571,6 +571,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let tabs_mining = Rswift.StringResource(key: "tabs_mining", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Name for this wallet
+      /// 
+      /// Locales: en
+      static let password_name_placeholder = Rswift.StringResource(key: "password_name_placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Next step
       /// 
       /// Locales: en
@@ -595,7 +599,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let transaction_details_payment_id = Rswift.StringResource(key: "transaction_details_payment_id", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Please enter the password for this wallet
+      /// en translation: Please enter a name and a password for this wallet
       /// 
       /// Locales: en
       static let password_required_title = Rswift.StringResource(key: "password_required_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -850,7 +854,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("error_unknown", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Anonymity: 6 (very anonymous)
+      /// en translation: Anonymity: 10 (very anonymous)
       /// 
       /// Locales: en
       static func send_anonymity(_: Void = ()) -> String {
@@ -1053,6 +1057,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("tabs_mining", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Name for this wallet
+      /// 
+      /// Locales: en
+      static func password_name_placeholder(_: Void = ()) -> String {
+        return NSLocalizedString("password_name_placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Next step
       /// 
       /// Locales: en
@@ -1095,7 +1106,7 @@ struct R: Rswift.Validatable {
         return String(format: NSLocalizedString("transaction_details_payment_id", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
-      /// en translation: Please enter the password for this wallet
+      /// en translation: Please enter a name and a password for this wallet
       /// 
       /// Locales: en
       static func password_required_title(_: Void = ()) -> String {

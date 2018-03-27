@@ -11,6 +11,7 @@ import Foundation
 struct ImportWalletKeyForm {
     var keysString: String?
     var password: String
+    var name: String
     
     var spendPrivateKey: String? {
         guard let keysString = keysString else { return nil }
@@ -40,7 +41,13 @@ struct ImportWalletKeyForm {
             return true
         }()
         
-        return isValidLength && isValidKey
+        let isValidName: Bool = {
+            guard !name.isEmpty else { return false }
+            
+            return true
+        }()
+        
+        return isValidLength && isValidKey && isValidName
     }
 }
 
