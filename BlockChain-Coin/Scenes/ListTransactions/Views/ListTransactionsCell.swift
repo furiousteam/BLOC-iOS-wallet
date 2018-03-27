@@ -126,10 +126,10 @@ class ListTransactionsCell: TableViewCell {
         
         nameLabel.text = transaction.name
         dateLabel.text = transaction.transaction.createdAt.shortDate()
-        amountLabel.text = transaction.transaction.amount.blocCurrency()
         typeLabel.text = transaction.transaction.transactionType.text
-        typeLabel.textColor = transaction.transaction.transactionType == .sent ? UIColor.white.withAlphaComponent(0.75) : UIColor(hex: 0x00ffff)
+        typeLabel.textColor = transaction.transaction.transactionType.color
         typeImageView.image = transaction.transaction.transactionType.smallImage
+        amountLabel.attributedText = transaction.transaction.amount.blocCurrencyWithColor(mode: .withCurrencyAndPrefix)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

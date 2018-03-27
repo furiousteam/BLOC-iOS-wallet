@@ -18,7 +18,6 @@ class ShowTransactionTypeView: View {
     
     let containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor(hex: 0x00ffff)
         view.clipsToBounds = true
         view.layer.cornerRadius = 4.0
         return view
@@ -60,7 +59,6 @@ class ShowTransactionTypeView: View {
         [ titleLabel, typeImageView ].forEach(stackView.addArrangedSubview)
         
         layer.masksToBounds = false
-        layer.shadowColor = UIColor(hex: 0x00ffff).cgColor
         layer.shadowRadius = 15.0
         layer.shadowOpacity = 0.5
         layer.shadowOffset = .zero
@@ -85,7 +83,11 @@ class ShowTransactionTypeView: View {
     
     func configure(type: TransactionType) {
         titleLabel.text = type.text
+        titleLabel.textColor = type == .received ? UIColor(hex: 0x000029) : UIColor.white
+        typeImageView.tintColor = type == .received ? UIColor(hex: 0x000029) : UIColor.white
         typeImageView.image = type.smallImage
+        containerView.backgroundColor = type.color
+        layer.shadowColor = type.color.cgColor
     }
     
     override func layoutSubviews() {

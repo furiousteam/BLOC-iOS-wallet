@@ -57,7 +57,7 @@ Note: the key does not contain spaces.";
 "wallet_address_copied" = "Address copied";
 "send_amount_title" = "Enter the amount of BLOC you want to send";
 "send_amount_fees" = "Fees for this transactions: %@";
-"send_anonymity" = "Anonymity: 10 (very anonymous)";
+"send_anonymity" = "Anonymity: 6 (very anonymous)";
 "send_recipient_title" = "Recipient's address";
 "send_use_qr_code" = "Use QR code";
 "send_paste_address" = "Paste here the address of the recipient";

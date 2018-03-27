@@ -455,7 +455,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let error_unknown = Rswift.StringResource(key: "error_unknown", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Anonymity: 10 (very anonymous)
+      /// en translation: Anonymity: 6 (very anonymous)
       /// 
       /// Locales: en
       static let send_anonymity = Rswift.StringResource(key: "send_anonymity", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -850,7 +850,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("error_unknown", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Anonymity: 10 (very anonymous)
+      /// en translation: Anonymity: 6 (very anonymous)
       /// 
       /// Locales: en
       static func send_anonymity(_: Void = ()) -> String {

@@ -86,11 +86,14 @@ class ShowTransactionVC: ViewController, ShowTransactionDisplayLogic {
         
         formFields.dateView.configure(content: formFields.attributedString(titleAndContent: R.string.localizable.transaction_details_date(transaction.transaction.createdAt.fullDate()), content: transaction.transaction.createdAt.fullDate()))
         
-        let destinationAddress = transaction.transaction.transfers.first(where: { $0.address != transaction.sourceAddress })?.address ?? transaction.transaction.transfers.first?.address ?? ""
+        if let destinationAddress = transaction.transaction.transfers.first(where: { $0.address != transaction.sourceAddress })?.address {
+            let destionationTitle = transaction.transaction.transactionType == .sent ? R.string.localizable.transaction_details_sent_to() : R.string.localizable.transaction_details_from()
+            
+            formFields.destinationView.configure(content: formFields.attributedString(titleAndContent: "\(destionationTitle)\n\(destinationAddress)", content: destinationAddress))
+        } else {
+            formFields.destinationView.isHidden = true
+        }
         
-        let destionationTitle = transaction.transaction.transactionType == .sent ? R.string.localizable.transaction_details_sent_to() : R.string.localizable.transaction_details_from()
-        
-        formFields.destinationView.configure(content: formFields.attributedString(titleAndContent: "\(destionationTitle)\n\(destinationAddress)", content: destinationAddress))
         
         formFields.hashView.configure(content: formFields.attributedString(titleAndContent: "\(R.string.localizable.transaction_details_hash())\n\(transaction.transaction.hash)", content: transaction.transaction.hash))
 

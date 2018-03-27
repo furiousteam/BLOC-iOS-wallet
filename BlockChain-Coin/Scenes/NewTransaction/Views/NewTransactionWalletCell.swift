@@ -76,7 +76,7 @@ class NewTransactionWalletCell: CollectionViewCell {
     
     func configure(name: String, amount: Double) {
         walletButton.setTitle(name, for: .normal)
-        amountLabel.text = amount.blocCurrency(includeCurrency: false)
+        amountLabel.text = amount.blocCurrency(mode: .noCurrency)
     }
     
 }

@@ -98,10 +98,11 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
             field.didTapReturn = toolbar.nextTapped
         }
         
+        formFields.passwordField.didTapReturn = nextKeyboardTapped
         formFields.passwordBisField.didTapReturn = nextTapped
         
-        toolbar.responders = [ formFields.passwordField.textField,
-                               formFields.passwordBisField.textField ]
+        /*toolbar.responders = [ formFields.passwordField.textField,
+                               formFields.passwordBisField.textField ]*/
         
         formFields.nextButton.addTarget(self, action: #selector(nextTapped), for: .touchUpInside)
         
@@ -126,6 +127,10 @@ class SetWalletPasswordVC: ViewController, SetWalletPasswordDisplayLogic {
     
     @objc func backTapped() {
         router.goBack()
+    }
+    
+    @objc func nextKeyboardTapped() {
+        formFields.passwordBisField.textField.becomeFirstResponder()
     }
     
     @objc func nextTapped() {

@@ -27,7 +27,7 @@ class ConfirmTransactionInteractor: ConfirmTransactionBusinessLogic {
                               destination: request.form.address!,
                               amount: Int64(request.form.amount! * Constants.walletCurrencyDivider),
                               fee: UInt64(Constants.minimumFee),
-                              anonymity: 10,
+                              anonymity: 0,
                               unlockHeight: nil,
                               paymentId: nil) { [weak self] result in
                                 switch result {

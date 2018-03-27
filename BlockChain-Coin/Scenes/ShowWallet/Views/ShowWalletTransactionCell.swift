@@ -100,8 +100,9 @@ class ShowWalletTransactionCell: TableViewCell {
     
     func configure(transaction: TransactionModel) {
         dateLabel.text = transaction.createdAt.shortDate()
-        amountLabel.text = transaction.amount.blocCurrency()
+        amountLabel.attributedText = transaction.amount.blocCurrencyWithColor(mode: .withCurrencyAndPrefix)
         typeLabel.text = transaction.transactionType.text
+        typeLabel.textColor = transaction.transactionType.color
         typeImageView.image = transaction.transactionType.smallImage
     }
 

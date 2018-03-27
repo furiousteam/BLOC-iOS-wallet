@@ -49,6 +49,8 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         return imageView
     }()
     
+    var shouldResetForm = true
+    
     // MARK: - View lifecycle
     
     init() {
@@ -166,7 +168,9 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         self.interactor.validateForm(request: NewTransactionRequest(form: self.form!))
         
         Observable.combineLatest(formFields.amountTextField.rx.text.asObservable(), formFields.addressTextView.rx.text.asObservable()).subscribe(onNext: { [weak self] amount, address in
-            self?.updateForm(amount: Double(amount ?? ""), address: address, indexPath: self?.formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
+            let a = amount?.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: " ", with: "")
+            
+            self?.updateForm(amount: Double(a ?? ""), address: address, indexPath: self?.formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
         }).disposed(by: disposeBag)
     }
     
@@ -189,6 +193,8 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
     }
     
     func resetForm() {
+        guard shouldResetForm == true else { return }
+        
         self.formFields.amountTextField.text = nil
         self.formFields.addressTextView.text = nil
         
@@ -209,6 +215,8 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
     }
     
     @objc func didTapQRCode() {
+        shouldResetForm = false
+        
         self.present(readerVC, animated: true, completion: nil)
     }
     
@@ -257,7 +265,9 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.updateForm(amount: Double(formFields.amountTextField.text ?? ""), address: formFields.addressTextView.text, indexPath: self.formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
+        let a = formFields.amountTextField.text?.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: " ", with: "")
+
+        self.updateForm(amount: Double(a ?? ""), address: formFields.addressTextView.text, indexPath: self.formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
     }
     
     // MARK: - UI Update
@@ -338,16 +348,21 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
     func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
         reader.stopScanning()
         
+        formFields.addressTextView.rx.text.asObserver().onNext(result.value)
         formFields.addressTextView.text = result.value
         
         updateForm(amount: form?.amount, address: result.value, indexPath: formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
         
-        reader.dismiss(animated: true, completion: nil)
+        reader.dismiss(animated: true) {
+            self.shouldResetForm = true
+        }
     }
     
     func readerDidCancel(_ reader: QRCodeReaderViewController) {
         reader.stopScanning()
         
-        reader.dismiss(animated: true, completion: nil)
+        reader.dismiss(animated: true) {
+            self.shouldResetForm = true
+        }
     }
 }

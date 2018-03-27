@@ -80,7 +80,7 @@ class FormTextField: View, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         didTapReturn()
-        return true
+        return false
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {

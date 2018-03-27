@@ -37,7 +37,7 @@ class NewTransactionsFormViews: NSObject, UITextViewDelegate {
         let placeholderStyle: [NSAttributedStringKey: Any] = [ .font: UIFont.regular(size: 30.0),
                                                                .foregroundColor: UIColor.white ]
         
-        let attributedPlaceholder = NSAttributedString(string: (0.0).blocCurrency(includeCurrency: false), attributes: placeholderStyle)
+        let attributedPlaceholder = NSAttributedString(string: (0.0).blocCurrency(mode: .noCurrency), attributes: placeholderStyle)
         
         textField.attributedPlaceholder = attributedPlaceholder
 

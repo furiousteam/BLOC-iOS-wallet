@@ -108,7 +108,7 @@ class ShowWalletBalanceCell: TableViewCell {
     func configure(availableBalance: Double, lockedBalance: Double) {
         availableBalanceView.configure(value: availableBalance, title: R.string.localizable.wallet_bloc_available(), alignment: .leading)
         lockedBalanceView.configure(value: lockedBalance, title: R.string.localizable.wallet_bloc_locked(), alignment: .trailing)
-        totalBalanceLabel.text = (availableBalance + lockedBalance).blocCurrency(includeCurrency: true)
+        totalBalanceLabel.text = (availableBalance + lockedBalance).blocCurrency()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

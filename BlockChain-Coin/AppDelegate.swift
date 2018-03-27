@@ -9,6 +9,7 @@
 import UIKit
 import Fabric
 import Crashlytics
+import SwiftKeychainWrapper
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,9 +22,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         app = AppController()
         
         Fabric.with([Crashlytics.self])
-                
+        
+        clearDataOnFirstLaunch()
+        
         return true
     }
 
+    func clearDataOnFirstLaunch() {
+        let userDefaults = UserDefaults.standard
+        
+        if userDefaults.bool(forKey: "hasRunBefore") == false {
+            
+            let _ = KeychainWrapper.standard.removeAllKeys()
+            KeychainWrapper.standard.removeObject(forKey: "wallets")
+            
+            userDefaults.set(true, forKey: "hasRunBefore")
+            userDefaults.synchronize()
+            
+            return
+        }
+    }
 }
 

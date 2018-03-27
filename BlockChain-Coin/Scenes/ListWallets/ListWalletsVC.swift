@@ -149,7 +149,7 @@ class ListWalletsVC: ViewController, ListWalletsDisplayLogic, UITableViewDelegat
     }
 
     @objc func addWalletTapped() {
-        if dataSource.wallets.count > 1 {
+        if dataSource.wallets.count > 0 {
             let createAlert = CreateWalletAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             createAlert.setup(title: nil, message: nil)
             
@@ -203,7 +203,7 @@ class ListWalletsVC: ViewController, ListWalletsDisplayLogic, UITableViewDelegat
                 router.showImportWalletWithQRCode()
             }
         } else {
-            router.showWallet(wallet: dataSource.wallets[indexPath.section], name: R.string.localizable.wallet_list_item_title(indexPath.section))
+            router.showWallet(wallet: dataSource.wallets[indexPath.section], name: R.string.localizable.wallet_list_item_title(indexPath.section + 1))
         }
     }
     

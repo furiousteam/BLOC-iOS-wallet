@@ -25,7 +25,8 @@ class NewTransactionPresenter: NewTransactionPresentationLogic {
     }
     
     func handleShowWallets(wallets: [WalletModel]) {
-        let viewModel = NewTransactionWalletsViewModel(state: .loaded(wallets))
+        let sortedWallets = wallets.sorted(by: { a, b in return a.createdAt < b.createdAt })
+        let viewModel = NewTransactionWalletsViewModel(state: .loaded(sortedWallets))
         viewController?.handleWalletsUpdate(viewModel: viewModel)
     }
     

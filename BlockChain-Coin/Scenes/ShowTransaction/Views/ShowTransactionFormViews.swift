@@ -40,9 +40,9 @@ class ShowTransactionFormViews {
     
     func attributedString(forAmount amount: Double) -> NSAttributedString {
         let amountAttributes: [NSAttributedStringKey: Any] = [ .font: UIFont.regular(size: 15.0), .foregroundColor: UIColor.white ]
-        let amountBoldAttributes: [NSAttributedStringKey: Any] = [ .font: UIFont.bold(size: 15.0), .foregroundColor: UIColor(hex: 0x00ffff) ]
+        let amountBoldAttributes: [NSAttributedStringKey: Any] = [ .font: UIFont.bold(size: 15.0), .foregroundColor: amount < 0.0 ? UIColor(hex: 0xff0000) : UIColor(hex: 0x00ffff) ]
         
-        let amountString = amount.blocCurrency()
+        let amountString = amount.blocCurrency(mode: .withCurrencyAndPrefix)
         let string = R.string.localizable.transaction_details_amount(amountString)
         let amountAttrString = NSMutableAttributedString(string: string, attributes: amountAttributes)
         

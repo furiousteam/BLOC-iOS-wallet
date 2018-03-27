@@ -29,6 +29,15 @@ enum TransactionType: String {
             return R.image.receivedSmall()
         }
     }
+    
+    var color: UIColor {
+        switch self {
+        case .sent:
+            return UIColor(hex: 0xff0000)
+        case .received:
+            return UIColor(hex: 0x00ffff)
+        }
+    }
 }
 
 protocol TransactionModel {
@@ -36,7 +45,7 @@ protocol TransactionModel {
     var blockIndex: UInt32 { get }
     var createdAt: Date { get }
     var unlockHeight: UInt64 { get }
-    var amount: Double { get }
+    var amount: Double { get set }
     var fee: Double { get }
     var extra: String { get }
     var paymentId: String { get }
@@ -49,7 +58,7 @@ struct Transaction: TransactionModel, Codable {
     let blockIndex: UInt32
     let createdAt: Date
     let unlockHeight: UInt64
-    let amount: Double
+    var amount: Double
     let fee: Double
     let extra: String
     let paymentId: String
@@ -102,14 +111,14 @@ struct Transaction: TransactionModel, Codable {
         
         self.unlockHeight = try values.decode(UInt64.self, forKey: .unlockHeight)
         
-        let amountInt = try values.decode(Double.self, forKey: .amount)
-        self.amount = amountInt / Constants.walletCurrencyDivider
-        
         let feeInt = try values.decode(Double.self, forKey: .fee)
         self.fee = feeInt / Constants.walletCurrencyDivider
         
         self.extra = try values.decode(String.self, forKey: .extra)
         self.paymentId = try values.decode(String.self, forKey: .paymentId)
+        
+        let amountInt = try values.decode(Double.self, forKey: .amount)
+        self.amount = amountInt / Constants.walletCurrencyDivider
         
         let transfers = try values.decode([Transfer].self, forKey: .transfers)
         

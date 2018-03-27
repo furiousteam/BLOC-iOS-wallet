@@ -99,7 +99,7 @@ class ConfirmTransactionVC: ViewController, ConfirmTransactionDisplayLogic {
             $0.top.equalTo(formFields.confirmButton.snp.bottom).offset(70.0)
         })
         
-        formFields.amountLabel.text = form.amount?.blocCurrency(includeCurrency: false) ?? "0.0"
+        formFields.amountLabel.text = form.amount?.blocCurrency(mode: .noCurrency) ?? "0.0"
         formFields.addressLabel.text = form.address
         formFields.feeLabel.text = R.string.localizable.send_confirm_fee((Constants.minimumFee / Constants.walletCurrencyDivider).blocCurrency())
 
