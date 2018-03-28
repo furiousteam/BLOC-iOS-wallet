@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AudioToolbox
 
 class MiningBootCell: TableViewCell {
 
@@ -69,8 +68,9 @@ class MiningBootCell: TableViewCell {
     }
     
     @objc func switchTapped() {
-        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-
+        let generator = UIImpactFeedbackGenerator(style: .medium)
+        generator.impactOccurred()
+        
         let lastState = miningSwitchView.isOn
         
         didChangeSwitch(!lastState)
