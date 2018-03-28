@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
-class CryptonightMiner: MinerStore {    
+class CryptonightMiner: MinerStore {
+    static let defaultMiningPools: [MiningPoolModel] = [ MiningPool(url: URL(string: "http://blockchain-coin.asia:8111")!) ]
+    
     var threads: [Thread] = []
     
     var delegate: MinerStoreDelegate?
@@ -125,4 +128,30 @@ class CryptonightMiner: MinerStore {
         let v = sd.withUnsafeBytes { (a: UnsafePointer<UInt64>) -> UInt64 in a.pointee }
         return v < job.target
     }
+    
+    func fetchSettings(completion: @escaping MinerStoreSettingsCompletionHandler) {
+        do {
+            guard let data = KeychainWrapper.standard.data(forKey: "miningSettings"), let settingsData = NSKeyedUnarchiver.unarchiveObject(with: data) as? Data else {
+                completion(.failure(error: .couldNotFetchSettings))
+                return
+            }
+            
+            let settings = try JSONDecoder().decode(MiningSettings.self, from: settingsData)
+            
+            completion(.success(result: settings))
+        } catch {
+            completion(.failure(error: .couldNotFetchSettings))
+        }
+    }
+    
+    func saveSettings(settings: MiningSettings) {
+        do {
+            let settingsData = try JSONEncoder().encode(settings)
+            let data = NSKeyedArchiver.archivedData(withRootObject: settingsData)
+            KeychainWrapper.standard.set(data, forKey: "miningSettings")
+        } catch {
+            log.error("Could not save mining settings")
+        }
+    }
+
 }

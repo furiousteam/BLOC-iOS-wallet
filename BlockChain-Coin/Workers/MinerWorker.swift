@@ -15,9 +15,12 @@ enum MinerStoreResult<T> {
 
 enum MinerStoreError: Equatable, Error {
     case unknown
+    case couldNotSaveSettings
+    case couldNotFetchSettings
 }
 
 typealias MinerStoreStopCompletionHandler = (MinerStoreResult<Bool>) -> Void
+typealias MinerStoreSettingsCompletionHandler = (MinerStoreResult<MiningSettings>) -> Void
 
 protocol MinerStore: class {
     var delegate: MinerStoreDelegate? { get }
@@ -26,6 +29,8 @@ protocol MinerStore: class {
     func stop(completion: @escaping MinerStoreStopCompletionHandler)
     func updateJob(job: JobModel)
     func evaluate(job: JobModel, hash: Data) -> Bool
+    func saveSettings(settings: MiningSettings)
+    func fetchSettings(completion: @escaping MinerStoreSettingsCompletionHandler)
 }
 
 protocol MinerStoreDelegate {
@@ -59,5 +64,17 @@ class MinerWorker {
     
     func evaluate(job: JobModel, hash: Data) -> Bool {
         return store.evaluate(job: job, hash: hash)
+    }
+    
+    func saveSettings(settings: MiningSettings) {
+        store.saveSettings(settings: settings)
+    }
+
+    func fetchSettings(completion: @escaping MinerStoreSettingsCompletionHandler) {
+        store.fetchSettings { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
     }
 }

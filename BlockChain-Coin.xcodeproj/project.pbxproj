@@ -230,6 +230,15 @@
 		9CBCC9C32062357F0006FBA7 /* NewTransactionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC9C22062357F0006FBA7 /* NewTransactionDataSource.swift */; };
 		9CBCC9C5206235BF0006FBA7 /* UICollectionView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC9C4206235BF0006FBA7 /* UICollectionView+Register.swift */; };
 		9CBCC9C7206241C40006FBA7 /* KeyPair+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC9C6206241C40006FBA7 /* KeyPair+Codable.swift */; };
+		9CE35C15206B7129002E7193 /* MineSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C14206B7129002E7193 /* MineSettingsCell.swift */; };
+		9CE35C17206B72C4002E7193 /* MiningSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C16206B72C4002E7193 /* MiningSettings.swift */; };
+		9CE35C19206B8A33002E7193 /* MiningBootCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C18206B8A33002E7193 /* MiningBootCell.swift */; };
+		9CE35C1B206BD33E002E7193 /* MiningSwitchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C1A206BD33E002E7193 /* MiningSwitchView.swift */; };
+		9CE35C1D206BE64F002E7193 /* MiningBooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C1C206BE64F002E7193 /* MiningBooterView.swift */; };
+		9CE35C22206BF195002E7193 /* loop.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9CE35C1F206BF195002E7193 /* loop.mov */; };
+		9CE35C24206BF195002E7193 /* intro.mov in Resources */ = {isa = PBXBuildFile; fileRef = 9CE35C21206BF195002E7193 /* intro.mov */; };
+		9CE35C26206C0970002E7193 /* outro.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9CE35C25206C096F002E7193 /* outro.gif */; };
+		9CE35C28206C0D8E002E7193 /* ani.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9CE35C27206C0D8E002E7193 /* ani.gif */; };
 		BBCFE2412940BF658F2DA54B /* Pods_BlockChain_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */; };
 /* End PBXBuildFile section */
 
@@ -485,6 +494,15 @@
 		9CBCC9C22062357F0006FBA7 /* NewTransactionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionDataSource.swift; sourceTree = "<group>"; };
 		9CBCC9C4206235BF0006FBA7 /* UICollectionView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Register.swift"; sourceTree = "<group>"; };
 		9CBCC9C6206241C40006FBA7 /* KeyPair+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPair+Codable.swift"; sourceTree = "<group>"; };
+		9CE35C14206B7129002E7193 /* MineSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSettingsCell.swift; sourceTree = "<group>"; };
+		9CE35C16206B72C4002E7193 /* MiningSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningSettings.swift; sourceTree = "<group>"; };
+		9CE35C18206B8A33002E7193 /* MiningBootCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningBootCell.swift; sourceTree = "<group>"; };
+		9CE35C1A206BD33E002E7193 /* MiningSwitchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningSwitchView.swift; sourceTree = "<group>"; };
+		9CE35C1C206BE64F002E7193 /* MiningBooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningBooterView.swift; sourceTree = "<group>"; };
+		9CE35C1F206BF195002E7193 /* loop.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = loop.mov; sourceTree = "<group>"; };
+		9CE35C21206BF195002E7193 /* intro.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = intro.mov; sourceTree = "<group>"; };
+		9CE35C25206C096F002E7193 /* outro.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = outro.gif; sourceTree = "<group>"; };
+		9CE35C27206C0D8E002E7193 /* ani.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = ani.gif; sourceTree = "<group>"; };
 		BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockChain_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChain-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -595,6 +613,7 @@
 				9C9A570E2037419500B010D5 /* Address.swift */,
 				9C6FEF862050496900ED7D47 /* WalletKeys.swift */,
 				9C63A3672065008600E9C33D /* APIError.swift */,
+				9CE35C16206B72C4002E7193 /* MiningSettings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -627,6 +646,7 @@
 		9C04364E202C94B900671DA2 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				9CE35C1E206BF195002E7193 /* Video */,
 				9CBB2F0420567D7500718EBA /* Fonts */,
 				9C04364F202C94B900671DA2 /* Assets.xcassets */,
 				9C043650202C94B900671DA2 /* LaunchScreen.storyboard */,
@@ -776,6 +796,10 @@
 			children = (
 				9C8A8F5E202DFD7900F55736 /* PoolStatusView.swift */,
 				9C8A8F62202E03B900F55736 /* MineStatCell.swift */,
+				9CE35C14206B7129002E7193 /* MineSettingsCell.swift */,
+				9CE35C18206B8A33002E7193 /* MiningBootCell.swift */,
+				9CE35C1C206BE64F002E7193 /* MiningBooterView.swift */,
+				9CE35C1A206BD33E002E7193 /* MiningSwitchView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1239,6 +1263,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9CE35C1E206BF195002E7193 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				9CE35C1F206BF195002E7193 /* loop.mov */,
+				9CE35C21206BF195002E7193 /* intro.mov */,
+				9CE35C25206C096F002E7193 /* outro.gif */,
+				9CE35C27206C0D8E002E7193 /* ani.gif */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 		E7FB8072BE54AD3A07BF5178 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1341,7 +1376,11 @@
 				9CBB2F0B2056BBDC00718EBA /* Localizable.strings in Resources */,
 				9C04365B202C94B900671DA2 /* LaunchScreen.storyboard in Resources */,
 				9C85E36A205A564B00208DF6 /* RobotoCondensed-Light.ttf in Resources */,
+				9CE35C28206C0D8E002E7193 /* ani.gif in Resources */,
+				9CE35C22206BF195002E7193 /* loop.mov in Resources */,
 				9C04365A202C94B900671DA2 /* Assets.xcassets in Resources */,
+				9CE35C26206C0970002E7193 /* outro.gif in Resources */,
+				9CE35C24206BF195002E7193 /* intro.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1385,6 +1424,7 @@
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -1411,6 +1451,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1520,8 +1561,10 @@
 				9C85E388205A6B6200208DF6 /* FormTextField.swift in Sources */,
 				9CBCC99920613D250006FBA7 /* SmallButton.swift in Sources */,
 				9C5756C020640DF9002BD079 /* ConfirmTransactionPresenter.swift in Sources */,
+				9CE35C19206B8A33002E7193 /* MiningBootCell.swift in Sources */,
 				9C66230B2036F0A10083CE2E /* Array+BytesString.swift in Sources */,
 				9C85E398205AB40400208DF6 /* ExportWalletKeysInteractor.swift in Sources */,
+				9CE35C1B206BD33E002E7193 /* MiningSwitchView.swift in Sources */,
 				9C0325A82056CE440009FA3B /* TabBarView.swift in Sources */,
 				9CBB2EF7205679FE00718EBA /* HomeVC.swift in Sources */,
 				9C5756B220640323002BD079 /* CheckPasswordVC.swift in Sources */,
@@ -1612,7 +1655,9 @@
 				9C85E370205A5B6200208DF6 /* UIImage+Color.swift in Sources */,
 				9C6FEF872050496900ED7D47 /* WalletKeys.swift in Sources */,
 				9C8A8F78202EE13600F55736 /* PoolSocketSubmitJobRequest.swift in Sources */,
+				9CE35C1D206BE64F002E7193 /* MiningBooterView.swift in Sources */,
 				9CBCC9A820616E5A0006FBA7 /* WalletSettingsVC.swift in Sources */,
+				9CE35C17206B72C4002E7193 /* MiningSettings.swift in Sources */,
 				9CBCC995206102260006FBA7 /* ShowWalletTransactionCell.swift in Sources */,
 				9CA7FB7F205C151C00D48D5F /* ImportWalletKeyFormViews.swift in Sources */,
 				9C043675202C968D00671DA2 /* jh_ansi_opt64.c in Sources */,
@@ -1640,6 +1685,7 @@
 				9C63A39E20679AB400E9C33D /* ShowTransactionExplorerView.swift in Sources */,
 				9CBCC98B2060E9A00006FBA7 /* PrintableWalletKeysView.swift in Sources */,
 				9CB6C33E20502C79002E610C /* PrimitiveSequence+ErrorHandling.swift in Sources */,
+				9CE35C15206B7129002E7193 /* MineSettingsCell.swift in Sources */,
 				9CBCC991206101EF0006FBA7 /* ShowWalletExportKeysCell.swift in Sources */,
 				9C78F1D02056CD5A001ADA32 /* ListTransactionsRouter.swift in Sources */,
 				9C0436A9202CDC0A00671DA2 /* Reusable.swift in Sources */,

@@ -13,11 +13,13 @@ protocol MineBusinessLogic {
     
     func connect(host: String, port: Int, wallet: String)
     func disconnect()
+    func fetchSettings()
 }
 
 class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
     var presenter: MinePresentationLogic?
     
+    let walletWorker = WalletWorker(store: WalletDiskStore())
     let poolWorker = PoolWorker(store: PoolSocketClient())
     let minerWorker = MinerWorker(store: CryptonightMiner())
 
@@ -60,6 +62,33 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
     
     fileprivate func mine(job: JobModel) {
         minerWorker.mine(job: job, threadLimit: ProcessInfo.processInfo.activeProcessorCount, delegate: self)
+    }
+    
+    func fetchSettings() {
+        minerWorker.fetchSettings { [weak self] result in
+            switch result {
+            case .success(let settings):
+                self?.presenter?.handleShowSettings(settings: settings)
+            case .failure:
+                self?.walletWorker.listWallets { [weak self] result in
+                    switch result {
+                    case .success(let wallets):
+                        guard let wallet = wallets.first as? Wallet, let pool = CryptonightMiner.defaultMiningPools.first as? MiningPool else {
+                            self?.presenter?.handleShowError(error: .couldNotFetchSettings)
+                            return
+                        }
+                        
+                        let settings = MiningSettings(power: .medium, wallet: wallet, pool: pool)
+                        
+                        self?.minerWorker.saveSettings(settings: settings)
+                        
+                        self?.presenter?.handleShowSettings(settings: settings)
+                    case .failure:
+                        self?.presenter?.handleShowError(error: .couldNotFetchSettings)
+                    }
+                }
+            }
+        }
     }
     
     // MARK: - Miner delegate

@@ -43,3 +43,7 @@ struct MinerStatsViewModel {
     let totalHashes: UInt
     let sharesFound: UInt
 }
+
+struct MineViewModel {
+    let settings: MiningSettingsModel
+}

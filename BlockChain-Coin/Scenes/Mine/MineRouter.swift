@@ -9,15 +9,14 @@
 import UIKit
 
 protocol MineRoutingLogic {
-    func showWallets()
+    func showHome()
 }
 
 class MineRouter: MineRoutingLogic {
     weak var viewController: UIViewController?
     
-    func showWallets() {
-        let vc = ListWalletsVC()
-        let navVC = UINavigationController(rootViewController: vc)
-        viewController?.present(navVC, animated: true, completion: nil)
+    func showHome() {
+        let homeVC = HomeVC()
+        viewController?.navigationController?.present(homeVC, animated: true, completion: nil)
     }
 }

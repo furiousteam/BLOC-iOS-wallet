@@ -102,7 +102,7 @@ class ExportWalletKeysVC: ViewController, ExportWalletKeysDisplayLogic {
 
         // Navigation Bar
         
-        let titleView = TitleView(title: R.string.localizable.home_menu_wallet_title(), subtitle: R.string.localizable.home_menu_wallet_subtitle())
+        let titleView = TitleView(title: R.string.localizable.home_menu_wallet_title(), subtitle: wallet.name)
         self.navigationItem.titleView = titleView
         
         let backButton = UIBarButtonItem(image: R.image.leftArrow(), style: .plain, target: self, action: #selector(goToWalletTapped))

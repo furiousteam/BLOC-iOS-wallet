@@ -22,7 +22,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.file` struct is generated, and contains static references to 3 files.
+  /// This `R.file` struct is generated, and contains static references to 7 files.
   struct file {
     /// Resource file `RobotoCondensed-Bold.ttf`.
     static let robotoCondensedBoldTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "RobotoCondensed-Bold", pathExtension: "ttf")
@@ -30,6 +30,14 @@ struct R: Rswift.Validatable {
     static let robotoCondensedLightTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "RobotoCondensed-Light", pathExtension: "ttf")
     /// Resource file `RobotoCondensed-Regular.ttf`.
     static let robotoCondensedRegularTtf = Rswift.FileResource(bundle: R.hostingBundle, name: "RobotoCondensed-Regular", pathExtension: "ttf")
+    /// Resource file `ani.gif`.
+    static let aniGif = Rswift.FileResource(bundle: R.hostingBundle, name: "ani", pathExtension: "gif")
+    /// Resource file `intro.mov`.
+    static let introMov = Rswift.FileResource(bundle: R.hostingBundle, name: "intro", pathExtension: "mov")
+    /// Resource file `loop.mov`.
+    static let loopMov = Rswift.FileResource(bundle: R.hostingBundle, name: "loop", pathExtension: "mov")
+    /// Resource file `outro.gif`.
+    static let outroGif = Rswift.FileResource(bundle: R.hostingBundle, name: "outro", pathExtension: "gif")
     
     /// `bundle.url(forResource: "RobotoCondensed-Bold", withExtension: "ttf")`
     static func robotoCondensedBoldTtf(_: Void = ()) -> Foundation.URL? {
@@ -46,6 +54,30 @@ struct R: Rswift.Validatable {
     /// `bundle.url(forResource: "RobotoCondensed-Regular", withExtension: "ttf")`
     static func robotoCondensedRegularTtf(_: Void = ()) -> Foundation.URL? {
       let fileResource = R.file.robotoCondensedRegularTtf
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "ani", withExtension: "gif")`
+    static func aniGif(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.aniGif
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "intro", withExtension: "mov")`
+    static func introMov(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.introMov
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "loop", withExtension: "mov")`
+    static func loopMov(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.loopMov
+      return fileResource.bundle.url(forResource: fileResource)
+    }
+    
+    /// `bundle.url(forResource: "outro", withExtension: "gif")`
+    static func outroGif(_: Void = ()) -> Foundation.URL? {
+      let fileResource = R.file.outroGif
       return fileResource.bundle.url(forResource: fileResource)
     }
     
@@ -85,7 +117,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 44 images.
+  /// This `R.image` struct is generated, and contains static references to 56 images.
   struct image {
     /// Image `about-logo`.
     static let aboutLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "about-logo")
@@ -99,6 +131,8 @@ struct R: Rswift.Validatable {
     static let addIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "add-icon")
     /// Image `add`.
     static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
+    /// Image `ani.gif`.
+    static let aniGif = Rswift.ImageResource(bundle: R.hostingBundle, name: "ani.gif")
     /// Image `bottom-arrow`.
     static let bottomArrow = Rswift.ImageResource(bundle: R.hostingBundle, name: "bottom-arrow")
     /// Image `checkmark-small`.
@@ -123,8 +157,20 @@ struct R: Rswift.Validatable {
     static let logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "logo")
     /// Image `menu-icon`.
     static let menuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "menu-icon")
+    /// Image `mining-bg`.
+    static let miningBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "mining-bg")
+    /// Image `mining-dot-inactive`.
+    static let miningDotInactive = Rswift.ImageResource(bundle: R.hostingBundle, name: "mining-dot-inactive")
+    /// Image `mining-dot-off-active`.
+    static let miningDotOffActive = Rswift.ImageResource(bundle: R.hostingBundle, name: "mining-dot-off-active")
+    /// Image `mining-dot-on-active`.
+    static let miningDotOnActive = Rswift.ImageResource(bundle: R.hostingBundle, name: "mining-dot-on-active")
     /// Image `nav-bar-bg`.
     static let navBarBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "nav-bar-bg")
+    /// Image `nav-bar-transparent-bg`.
+    static let navBarTransparentBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "nav-bar-transparent-bg")
+    /// Image `outro.gif`.
+    static let outroGif = Rswift.ImageResource(bundle: R.hostingBundle, name: "outro.gif")
     /// Image `qr-code-small`.
     static let qrCodeSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "qr-code-small")
     /// Image `received-small`.
@@ -141,6 +187,16 @@ struct R: Rswift.Validatable {
     static let splash_bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_bg")
     /// Image `splash_logo`.
     static let splash_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_logo")
+    /// Image `switch-bg-off`.
+    static let switchBgOff = Rswift.ImageResource(bundle: R.hostingBundle, name: "switch-bg-off")
+    /// Image `switch-bg-on`.
+    static let switchBgOn = Rswift.ImageResource(bundle: R.hostingBundle, name: "switch-bg-on")
+    /// Image `switch-button-bg`.
+    static let switchButtonBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "switch-button-bg")
+    /// Image `switch-button-off`.
+    static let switchButtonOff = Rswift.ImageResource(bundle: R.hostingBundle, name: "switch-button-off")
+    /// Image `switch-button-on`.
+    static let switchButtonOn = Rswift.ImageResource(bundle: R.hostingBundle, name: "switch-button-on")
     /// Image `tab-bar-about`.
     static let tabBarAbout = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-about")
     /// Image `tab-bar-bg`.
@@ -206,6 +262,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.addIcon, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "ani.gif", bundle: ..., traitCollection: ...)`
+    static func aniGif(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.aniGif, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "bottom-arrow", bundle: ..., traitCollection: ...)`
     static func bottomArrow(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.bottomArrow, compatibleWith: traitCollection)
@@ -266,9 +327,39 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.menuIcon, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "mining-bg", bundle: ..., traitCollection: ...)`
+    static func miningBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.miningBg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "mining-dot-inactive", bundle: ..., traitCollection: ...)`
+    static func miningDotInactive(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.miningDotInactive, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "mining-dot-off-active", bundle: ..., traitCollection: ...)`
+    static func miningDotOffActive(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.miningDotOffActive, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "mining-dot-on-active", bundle: ..., traitCollection: ...)`
+    static func miningDotOnActive(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.miningDotOnActive, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "nav-bar-bg", bundle: ..., traitCollection: ...)`
     static func navBarBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.navBarBg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "nav-bar-transparent-bg", bundle: ..., traitCollection: ...)`
+    static func navBarTransparentBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.navBarTransparentBg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "outro.gif", bundle: ..., traitCollection: ...)`
+    static func outroGif(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.outroGif, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "qr-code-small", bundle: ..., traitCollection: ...)`
@@ -309,6 +400,31 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "splash_logo", bundle: ..., traitCollection: ...)`
     static func splash_logo(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.splash_logo, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "switch-bg-off", bundle: ..., traitCollection: ...)`
+    static func switchBgOff(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.switchBgOff, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "switch-bg-on", bundle: ..., traitCollection: ...)`
+    static func switchBgOn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.switchBgOn, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "switch-button-bg", bundle: ..., traitCollection: ...)`
+    static func switchButtonBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.switchButtonBg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "switch-button-off", bundle: ..., traitCollection: ...)`
+    static func switchButtonOff(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.switchButtonOff, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "switch-button-on", bundle: ..., traitCollection: ...)`
+    static func switchButtonOn(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.switchButtonOn, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "tab-bar-about", bundle: ..., traitCollection: ...)`
@@ -429,7 +545,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 95 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 107 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -503,6 +619,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let create_wallet_loading = Rswift.StringResource(key: "create_wallet_loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Current balance: %@
+      /// 
+      /// Locales: en
+      static let mining_wallet_value = Rswift.StringResource(key: "mining_wallet_value", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Current pool: %@
+      /// 
+      /// Locales: en
+      static let mining_mining_pool_value = Rswift.StringResource(key: "mining_mining_pool_value", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Current settings: %@
+      /// 
+      /// Locales: en
+      static let mining_number_of_threads_value = Rswift.StringResource(key: "mining_number_of_threads_value", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Date: %@
       /// 
       /// Locales: en
@@ -539,6 +667,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_created_go_to_wallet = Rswift.StringResource(key: "wallet_created_go_to_wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: High
+      /// 
+      /// Locales: en
+      static let mining_number_of_threads_high = Rswift.StringResource(key: "mining_number_of_threads_high", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Import a wallet (using QR code)
       /// 
       /// Locales: en
@@ -559,6 +691,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let import_wallet_loading = Rswift.StringResource(key: "import_wallet_loading", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Intense
+      /// 
+      /// Locales: en
+      static let mining_number_of_threads_intense = Rswift.StringResource(key: "mining_number_of_threads_intense", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Low
+      /// 
+      /// Locales: en
+      static let mining_number_of_threads_low = Rswift.StringResource(key: "mining_number_of_threads_low", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Medium
+      /// 
+      /// Locales: en
+      static let mining_number_of_threads_medium = Rswift.StringResource(key: "mining_number_of_threads_medium", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Meet the Blockchain Coin
       /// 
       /// Locales: en
@@ -571,6 +715,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let tabs_mining = Rswift.StringResource(key: "tabs_mining", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Mining pool
+      /// 
+      /// Locales: en
+      static let mining_mining_pool_title = Rswift.StringResource(key: "mining_mining_pool_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Mining wallet: %@
+      /// 
+      /// Locales: en
+      static let mining_wallet_title = Rswift.StringResource(key: "mining_wallet_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Name for this wallet
       /// 
       /// Locales: en
@@ -583,10 +735,22 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let import_wallet_key_action = Rswift.StringResource(key: "import_wallet_key_action", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Number of threads
+      /// 
+      /// Locales: en
+      static let mining_number_of_threads_title = Rswift.StringResource(key: "mining_number_of_threads_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Off
+      /// 
+      /// Locales: en
+      static let mining_off = Rswift.StringResource(key: "mining_off", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Ok
       /// 
       /// Locales: en
       static let common_ok = Rswift.StringResource(key: "common_ok", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: On
+      /// 
+      /// Locales: en
+      static let mining_on = Rswift.StringResource(key: "mining_on", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Password
       /// 
       /// Locales: en
@@ -938,6 +1102,27 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("create_wallet_loading", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Current balance: %@
+      /// 
+      /// Locales: en
+      static func mining_wallet_value(_ value1: String) -> String {
+        return String(format: NSLocalizedString("mining_wallet_value", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: Current pool: %@
+      /// 
+      /// Locales: en
+      static func mining_mining_pool_value(_ value1: String) -> String {
+        return String(format: NSLocalizedString("mining_mining_pool_value", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: Current settings: %@
+      /// 
+      /// Locales: en
+      static func mining_number_of_threads_value(_ value1: String) -> String {
+        return String(format: NSLocalizedString("mining_number_of_threads_value", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
       /// en translation: Date: %@
       /// 
       /// Locales: en
@@ -1001,6 +1186,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_created_go_to_wallet", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: High
+      /// 
+      /// Locales: en
+      static func mining_number_of_threads_high(_: Void = ()) -> String {
+        return NSLocalizedString("mining_number_of_threads_high", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Import a wallet (using QR code)
       /// 
       /// Locales: en
@@ -1036,6 +1228,27 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import_wallet_loading", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Intense
+      /// 
+      /// Locales: en
+      static func mining_number_of_threads_intense(_: Void = ()) -> String {
+        return NSLocalizedString("mining_number_of_threads_intense", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Low
+      /// 
+      /// Locales: en
+      static func mining_number_of_threads_low(_: Void = ()) -> String {
+        return NSLocalizedString("mining_number_of_threads_low", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Medium
+      /// 
+      /// Locales: en
+      static func mining_number_of_threads_medium(_: Void = ()) -> String {
+        return NSLocalizedString("mining_number_of_threads_medium", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Meet the Blockchain Coin
       /// 
       /// Locales: en
@@ -1055,6 +1268,20 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func tabs_mining(_: Void = ()) -> String {
         return NSLocalizedString("tabs_mining", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Mining pool
+      /// 
+      /// Locales: en
+      static func mining_mining_pool_title(_: Void = ()) -> String {
+        return NSLocalizedString("mining_mining_pool_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Mining wallet: %@
+      /// 
+      /// Locales: en
+      static func mining_wallet_title(_ value1: String) -> String {
+        return String(format: NSLocalizedString("mining_wallet_title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
       /// en translation: Name for this wallet
@@ -1078,11 +1305,32 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import_wallet_key_action", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Number of threads
+      /// 
+      /// Locales: en
+      static func mining_number_of_threads_title(_: Void = ()) -> String {
+        return NSLocalizedString("mining_number_of_threads_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Off
+      /// 
+      /// Locales: en
+      static func mining_off(_: Void = ()) -> String {
+        return NSLocalizedString("mining_off", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Ok
       /// 
       /// Locales: en
       static func common_ok(_: Void = ()) -> String {
         return NSLocalizedString("common_ok", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: On
+      /// 
+      /// Locales: en
+      static func mining_on(_: Void = ()) -> String {
+        return NSLocalizedString("mining_on", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Password

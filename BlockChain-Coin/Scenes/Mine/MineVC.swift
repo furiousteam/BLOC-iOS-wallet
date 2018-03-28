@@ -9,18 +9,17 @@
 import UIKit
 import SnapKit
 import MBProgressHUD
+import AVKit
+import SwiftyGif
 
 protocol MineDisplayLogic: class {
+    func handleUpdate(viewModel: MineViewModel)
     func handlePoolStatus(viewModel: PoolStatusViewModel)
     func handleMinerStats(viewModel: MinerStatsViewModel)
 }
 
-class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
-    var wallet: String = "b12iFt4XPAu96TUCAXjdznDa3KUWQ1bq4djYZGARRp6b3KYj3RtQeykaXiKC6rqJYk4PiD6qCorWE2i9FCi1Gr8Z29E3Rqx1r" {
-        didSet {
-            interactor.disconnect()
-        }
-    }
+class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDelegate {
+    var settings: MiningSettingsModel?
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -29,29 +28,26 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
         return tableView
     }()
     
-    let poolStatusView = PoolStatusView()
-    
-    let logo: UIImageView = {
-        let imageView = UIImageView(image: R.image.logo())
-        return imageView
-    }()
-    
-    let mineButton: UIButton = {
-        let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 14.0, weight: .bold)
-        button.setTitleColor(UIColor(hex: 0x4A90E2), for: .normal)
-        button.setTitleColor(UIColor(hex: 0xD0021B), for: .selected)
-        button.setTitle("Start Mining", for: .normal)
-        button.setTitle("Stop Mining", for: .selected)
-        button.layer.borderWidth = 1.0
-        button.layer.borderColor = UIColor(hex: 0xEEEEEE).cgColor
-        return button
-    }()
-
     let dataSource = MineDataSource()
     
     let router: MineRoutingLogic
     let interactor: MineBusinessLogic
+    
+    let introItem = AVPlayerItem(url: R.file.introMov()!)
+    let loopItem = AVPlayerItem(url: R.file.loopMov()!)
+    let videoBackgroundQueue: AVQueuePlayer
+    let videoBackgroundLayer: AVPlayerLayer
+    
+    var stopAnimationOnNextLoop: Bool = false
+
+    let gifManager = SwiftyGifManager(memoryLimit:100)
+    let outroGif = UIImage(gifName: "outro.gif")
+
+    let outroImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     
     enum MiningStatus {
         case notMining
@@ -63,10 +59,8 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
             switch miningStatus {
             case .mining:
                 UIApplication.shared.isIdleTimerDisabled = true
-                mineButton.isSelected = true
             case .notMining:
                 UIApplication.shared.isIdleTimerDisabled = false
-                mineButton.isSelected = false
                 dataSource.hashRate = 0.0
                 dataSource.sharesFound = 0
                 dataSource.totalHashes = 0
@@ -75,12 +69,6 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
         }
     }
     
-    let walletButton: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage(R.image.wallet(), for: .normal)
-        return button
-    }()
-
     // MARK: - View lifecycle
     
     init() {
@@ -90,6 +78,12 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
         
         self.router = router
         self.interactor = interactor
+        
+        self.videoBackgroundQueue = AVQueuePlayer(items: [ introItem, loopItem ])
+        self.videoBackgroundQueue.isMuted = true
+
+        self.videoBackgroundLayer = AVPlayerLayer(player: videoBackgroundQueue)
+        self.videoBackgroundLayer.videoGravity = .resizeAspectFill
         
         super.init(nibName: nil, bundle: nil)
         
@@ -116,56 +110,121 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
         handlePoolStatus(viewModel: PoolStatusViewModel(state: .disconnected, address: nil))
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        interactor.fetchSettings()
+    }
+    
     // MARK: - Configuration
     
-    func configure() {
+    override func configure() {
         // Subviews
+        
+        let backgroundImageView: UIImageView = {
+            let imageView = UIImageView()
+            imageView.image = R.image.defaultBg()
+            imageView.contentMode = .scaleAspectFill
+            return imageView
+        }()
+        
+        outroImageView.setGifImage(outroGif, manager: gifManager, loopCount: -1)
+        outroImageView.delegate = self
+        outroImageView.stopAnimatingGif()
+
+        view.addSubview(backgroundImageView)
+        
+        backgroundImageView.layer.addSublayer(videoBackgroundLayer)
+
+        backgroundImageView.snp.makeConstraints({
+            $0.edges.equalToSuperview()
+        })
+        
+        view.addSubview(outroImageView)
+
+        outroImageView.snp.makeConstraints({
+            $0.edges.equalToSuperview()
+        })
+        
+        view.layoutSubviews()
+        
+        videoBackgroundLayer.frame = self.view.bounds
+
         view.backgroundColor = .white
-        
-        view.addSubview(logo)
-        
-        logo.snp.makeConstraints({
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(80.0)
-        })
-        
-        view.addSubview(poolStatusView)
-        
-        poolStatusView.snp.makeConstraints({
-            $0.leading.trailing.top.equalToSuperview()
-        })
-        
-        view.addSubview(mineButton)
-        
-        mineButton.snp.makeConstraints({
-            $0.leading.trailing.bottom.equalToSuperview()
-            $0.height.equalTo(55.0)
-        })
         
         view.addSubview(tableView)
         
         tableView.snp.makeConstraints({
-            $0.leading.trailing.equalToSuperview()
-            $0.top.equalTo(poolStatusView.snp.bottom)
-            $0.bottom.equalTo(mineButton.snp.top)
+            $0.edges.equalToSuperview()
         })
         
-        view.addSubview(walletButton)
-        
-        walletButton.snp.makeConstraints({
-            $0.trailing.bottom.equalToSuperview().inset(15.0)
-        })
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: introItem)
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: loopItem)
+
         // TableView
         
-        MineStatCell.registerWith(tableView)
+        MineSettingsCell.registerWith(tableView)
+        MiningBootCell.registerWith(tableView)
         tableView.dataSource = dataSource
         tableView.delegate = self
         
-        // Actions
+        dataSource.didChangeSwitch = { isOn in
+            self.miningStatus = isOn ? .mining : .notMining
+            
+            if !isOn {
+                self.outroImageView.isHidden = false
+                self.outroImageView.startAnimatingGif()
+                
+                NotificationCenter.default.post(name: Notification.Name("miningSwitchEnable"), object: false)
+
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {
+                    self.stopAnimationOnNextLoop = true
+
+                    self.videoBackgroundQueue.pause()
+                    self.videoBackgroundQueue.removeAllItems()
+                    self.videoBackgroundQueue.insert(self.introItem, after: nil)
+                    self.videoBackgroundQueue.insert(self.loopItem, after: self.introItem)
+                    self.videoBackgroundQueue.actionAtItemEnd = .advance
+                    self.videoBackgroundQueue.seek(to: kCMTimeZero)
+                })
+            } else {
+                self.videoBackgroundQueue.play()
+                
+                self.outroImageView.stopAnimatingGif()
+                self.outroImageView.isHidden = true
+            }
+        }
         
-        mineButton.addTarget(self, action: #selector(mineTapped), for: .touchUpInside)
-        walletButton.addTarget(self, action: #selector(walletTapped), for: .touchUpInside)
+        // Navigation Bar
+        
+        let titleView = TitleView(title: R.string.localizable.home_menu_mining_title(), subtitle: R.string.localizable.home_menu_mining_subtitle())
+        self.navigationItem.titleView = titleView
+        
+        let menuButton = UIBarButtonItem(image: R.image.menuIcon(), style: .plain, target: self, action: #selector(menuTapped))
+        self.navigationItem.setLeftBarButton(menuButton, animated: false)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(R.image.navBarTransparentBg(), for: .default)
+        self.navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    func gifDidLoop(sender: UIImageView) {
+        self.outroImageView.isHidden = true
+        
+        NotificationCenter.default.post(name: Notification.Name("miningSwitchEnable"), object: true)
+    }
+    
+    @objc func playerDidFinishPlaying(notification: NSNotification) {
+        switch miningStatus {
+        case .mining:
+            if let item = notification.object as? AVPlayerItem, item == loopItem {
+                item.seek(to: kCMTimeZero)
+                videoBackgroundQueue.play()
+            } else if let item = notification.object as? AVPlayerItem, item == introItem {
+                videoBackgroundQueue.actionAtItemEnd = .none
+            }
+        case .notMining:
+            break
+        }
     }
     
     // MARK: - Display logic
@@ -181,8 +240,6 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
             break
         }
         
-        poolStatusView.configure(status: viewModel.state.text, address: viewModel.address)
-
         switch viewModel.state {
         case .disconnected, .error:
             miningStatus = .notMining
@@ -199,6 +256,12 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
         tableView.reloadData()
     }
     
+    func handleUpdate(viewModel: MineViewModel) {
+        dataSource.settings = viewModel.settings
+        
+        tableView.reloadData()
+    }
+    
     // MARK: - Actions
     
     @objc func mineTapped() {
@@ -206,26 +269,41 @@ class MineVC: UIViewController, MineDisplayLogic, UITableViewDelegate {
         case .mining:
             interactor.disconnect()
         case .notMining:
-            interactor.connect(host: "miningpool.blockchain-coin.net",
+            /*interactor.connect(host: "miningpool.blockchain-coin.net",
                                port: 4444,
-                               wallet: wallet)
+                               wallet: wallet)*/
+            break
         }
     }
     
-    @objc func walletTapped() {
-        router.showWallets()
+    @objc func menuTapped() {
+        router.showHome()
     }
     
     // MARK: - UITableView delegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50.0
+        if indexPath.section == 0 {
+            return view.bounds.size.height - (90.0 * CGFloat(tableView.numberOfSections - 1))
+        }
+        
+        return UITableViewAutomaticDimension
     }
     
     // MARK: - SetWallet delegate
     
     func didSetWallet(wallet: String) {
-        self.wallet = wallet
+        //self.wallet = wallet
+    }
+    
+    @available(iOS 11.0, *)
+    override func viewSafeAreaInsetsDidChange() {
+        super.viewSafeAreaInsetsDidChange()
+        
+        videoBackgroundLayer.frame = CGRect(x: self.view.bounds.origin.x - self.view.safeAreaInsets.left,
+                                            y: self.view.bounds.origin.y,
+                                            width: self.view.bounds.size.width + self.view.safeAreaInsets.left + self.view.safeAreaInsets.right,
+                                            height: self.view.bounds.size.height + self.view.safeAreaInsets.top + self.view.safeAreaInsets.bottom)
     }
     
 }
