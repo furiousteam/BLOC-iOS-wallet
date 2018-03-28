@@ -169,6 +169,18 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         tableView.delegate = self
         
         dataSource.didChangeSwitch = { isOn in
+            guard let settings = self.dataSource.settings else { return }
+            
+            switch self.miningStatus {
+            case .mining:
+                self.interactor.disconnect()
+            case .notMining:
+                self.interactor.connect(host: settings.pool.host,
+                                        port: settings.pool.port,
+                                        wallet: settings.wallet.address)
+                break
+            }
+
             self.miningStatus = isOn ? .mining : .notMining
             
             if !isOn {
@@ -263,18 +275,6 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     }
     
     // MARK: - Actions
-    
-    @objc func mineTapped() {
-        switch miningStatus {
-        case .mining:
-            interactor.disconnect()
-        case .notMining:
-            /*interactor.connect(host: "miningpool.blockchain-coin.net",
-                               port: 4444,
-                               wallet: wallet)*/
-            break
-        }
-    }
     
     @objc func menuTapped() {
         router.showHome()

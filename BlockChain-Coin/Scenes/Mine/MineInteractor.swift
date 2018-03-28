@@ -26,6 +26,8 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
     func connect(host: String, port: Int, wallet: String) {
         let address = "\(host):\(port)"
         
+        log.info("Connecting to \(address)")
+        
         self.presenter?.handlePoolConnecting(address: address)
         
         poolWorker.connect(host: host, port: port) { [weak self] result in
@@ -73,7 +75,9 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
                 self?.walletWorker.listWallets { [weak self] result in
                     switch result {
                     case .success(let wallets):
-                        guard let wallet = wallets.first as? Wallet, let pool = CryptonightMiner.defaultMiningPools.first as? MiningPool else {
+                        let sortedWallets = wallets.sorted(by: { a, b in return a.createdAt < b.createdAt })
+
+                        guard let wallet = sortedWallets.first as? Wallet, let pool = CryptonightMiner.defaultMiningPools.first as? MiningPool else {
                             self?.presenter?.handleShowError(error: .couldNotFetchSettings)
                             return
                         }

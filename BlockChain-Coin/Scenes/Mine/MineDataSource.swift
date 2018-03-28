@@ -34,6 +34,8 @@ class MineDataSource: NSObject, UITableViewDataSource {
             
             cell.didChangeSwitch = didChangeSwitch
             
+            cell.statsLabel.text = "Hash rate: \(hashRate)\nTotal hashes: \(totalHashes) • Shares found: \(sharesFound)"
+            
             return cell
         }
         
@@ -43,7 +45,7 @@ class MineDataSource: NSObject, UITableViewDataSource {
         case 1:
             cell.configure(title: R.string.localizable.mining_number_of_threads_title(), value: settings!.power.readableString)
         case 2:
-            cell.configure(title: R.string.localizable.mining_mining_pool_title(), value: settings!.pool.url.absoluteString)
+            cell.configure(title: R.string.localizable.mining_mining_pool_title(), value: settings!.pool.host)
         case 3:
             let balance = (((settings!.wallet.details?.availableBalance ?? 0.0) + (settings!.wallet.details?.lockedBalance ?? 0.0)) / Constants.walletCurrencyDivider).blocCurrency()
             cell.configure(title: R.string.localizable.mining_wallet_title(settings!.wallet.name), value: R.string.localizable.mining_wallet_value(balance))

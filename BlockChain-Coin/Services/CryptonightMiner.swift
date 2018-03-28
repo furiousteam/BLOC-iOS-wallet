@@ -10,7 +10,7 @@ import Foundation
 import SwiftKeychainWrapper
 
 class CryptonightMiner: MinerStore {
-    static let defaultMiningPools: [MiningPoolModel] = [ MiningPool(url: URL(string: "http://blockchain-coin.asia:8111")!) ]
+    static let defaultMiningPools: [MiningPoolModel] = [ MiningPool(host: "blockchain-coin.asia", port: 4444) ]
     
     var threads: [Thread] = []
     

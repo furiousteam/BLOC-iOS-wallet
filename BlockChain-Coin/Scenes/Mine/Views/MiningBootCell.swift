@@ -15,6 +15,14 @@ class MiningBootCell: TableViewCell {
     let miningBooterView = MiningBooterView()
     let miningSwitchView = MiningSwitchView()
     
+    let statsLabel: UILabel = {
+        let label = UILabel()
+        label.font = .regular(size: 12.5)
+        label.textColor = .white
+        label.numberOfLines = 0
+        return label
+    }()
+    
     let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(patternImage: R.image.separatorDash()!)
@@ -29,6 +37,7 @@ class MiningBootCell: TableViewCell {
         
         contentView.addSubview(miningBooterView)
         contentView.addSubview(miningSwitchView)
+        contentView.addSubview(statsLabel)
         
         contentView.addSubview(separatorView)
         
@@ -50,6 +59,11 @@ class MiningBootCell: TableViewCell {
             } else {
                 $0.centerY.equalToSuperview().offset(-30.0)
             }
+        })
+        
+        statsLabel.snp.makeConstraints({
+            $0.leading.trailing.equalToSuperview().inset(15.0)
+            $0.bottom.equalToSuperview().inset(15.0)
         })
         
         separatorView.snp.makeConstraints({

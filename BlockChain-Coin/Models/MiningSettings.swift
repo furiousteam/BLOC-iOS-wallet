@@ -48,18 +48,22 @@ enum MiningPower: String {
 }
 
 protocol MiningPoolModel: Codable {
-    var url: URL { get }
+    var host: String { get }
+    var port: Int { get }
 }
 
 struct MiningPool: MiningPoolModel {
-    let url: URL
+    let host: String
+    let port: Int
     
     enum CodingKeys: String, CodingKey {
-        case url = "url"
+        case host = "host"
+        case port = "port"
     }
 
-    init(url: URL) {
-        self.url = url
+    init(host: String, port: Int) {
+        self.host = host
+        self.port = port
     }
 }
 

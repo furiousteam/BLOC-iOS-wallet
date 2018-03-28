@@ -28,6 +28,8 @@ class PoolSocketClientDelegate: NSObject, GCDAsyncSocketDelegate {
     }
         
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
+        log.error(err)
+        
         DispatchQueue.main.async { [weak self] in
             guard let `self` = self else { return }
             
