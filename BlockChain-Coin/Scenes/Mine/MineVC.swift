@@ -58,8 +58,31 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         didSet {
             switch miningStatus {
             case .mining:
+                self.videoBackgroundQueue.play()
+                
+                self.outroImageView.stopAnimatingGif()
+                self.outroImageView.isHidden = true
+
                 UIApplication.shared.isIdleTimerDisabled = true
             case .notMining:
+                if self.videoBackgroundQueue.rate > 0.0 {
+                    self.outroImageView.isHidden = false
+                    self.outroImageView.startAnimatingGif()
+                    
+                    NotificationCenter.default.post(name: Notification.Name("miningSwitchEnable"), object: false)
+                    
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {
+                        self.stopAnimationOnNextLoop = true
+                        
+                        self.videoBackgroundQueue.pause()
+                        self.videoBackgroundQueue.removeAllItems()
+                        self.videoBackgroundQueue.insert(self.introItem, after: nil)
+                        self.videoBackgroundQueue.insert(self.loopItem, after: self.introItem)
+                        self.videoBackgroundQueue.actionAtItemEnd = .advance
+                        self.videoBackgroundQueue.seek(to: kCMTimeZero)
+                    })
+                }
+
                 UIApplication.shared.isIdleTimerDisabled = false
                 dataSource.hashRate = 0.0
                 dataSource.sharesFound = 0
@@ -110,8 +133,8 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         handlePoolStatus(viewModel: PoolStatusViewModel(state: .disconnected, address: nil))
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         interactor.fetchSettings()
     }
@@ -182,29 +205,6 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
             }
 
             self.miningStatus = isOn ? .mining : .notMining
-            
-            if !isOn {
-                self.outroImageView.isHidden = false
-                self.outroImageView.startAnimatingGif()
-                
-                NotificationCenter.default.post(name: Notification.Name("miningSwitchEnable"), object: false)
-
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.5, execute: {
-                    self.stopAnimationOnNextLoop = true
-
-                    self.videoBackgroundQueue.pause()
-                    self.videoBackgroundQueue.removeAllItems()
-                    self.videoBackgroundQueue.insert(self.introItem, after: nil)
-                    self.videoBackgroundQueue.insert(self.loopItem, after: self.introItem)
-                    self.videoBackgroundQueue.actionAtItemEnd = .advance
-                    self.videoBackgroundQueue.seek(to: kCMTimeZero)
-                })
-            } else {
-                self.videoBackgroundQueue.play()
-                
-                self.outroImageView.stopAnimatingGif()
-                self.outroImageView.isHidden = true
-            }
         }
         
         // Navigation Bar
@@ -217,6 +217,14 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         self.navigationController?.navigationBar.setBackgroundImage(R.image.navBarTransparentBg(), for: .default)
         self.navigationController?.navigationBar.isTranslucent = true
+    }
+    
+    func stopMining() {
+        if miningStatus == .mining {
+            self.interactor.disconnect()
+            
+            NotificationCenter.default.post(name: Notification.Name("miningSwitchChangeState"), object: nil)
+        }
     }
     
     func gifDidLoop(sender: UIImageView) {
@@ -288,6 +296,17 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         }
         
         return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard indexPath.section != 0 else { return }
+        
+        stopMining()
+        
+        if indexPath.section == 3 {
+            guard let wallet = dataSource.settings?.wallet else { return }
+            router.showWalletSettings(selectedWallet: wallet)
+        }
     }
     
     // MARK: - SetWallet delegate

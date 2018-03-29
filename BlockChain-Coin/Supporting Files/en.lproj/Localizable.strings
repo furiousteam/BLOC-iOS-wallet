@@ -113,3 +113,4 @@ Blockchain Coin";
 "mining_mining_pool_value" = "Current pool: %@";
 "mining_wallet_title" = "Mining wallet: %@";
 "mining_wallet_value" = "Current balance: %@";
+"mining_select_wallet_title" = "Select the wallet you want to use while mining (the earned coins will be sent to this wallet)";

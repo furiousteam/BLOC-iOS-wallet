@@ -73,12 +73,17 @@ class MiningBootCell: TableViewCell {
         })
         
         NotificationCenter.default.addObserver(self, selector: #selector(enableSwitch), name: Notification.Name("miningSwitchEnable"), object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(changeState), name: Notification.Name("miningSwitchChangeState"), object: nil)
+
         miningSwitchView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(switchTapped)))
     }
     
     @objc func enableSwitch(notification: Notification) {
         miningSwitchView.isUserInteractionEnabled = (notification.object as? Bool) ?? true
+    }
+    
+    @objc func changeState(notification: Notification) {
+        switchTapped()
     }
     
     @objc func switchTapped() {

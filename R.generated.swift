@@ -545,7 +545,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 107 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 108 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -819,6 +819,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_select_wallet = Rswift.StringResource(key: "send_select_wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Select the wallet you want to use while mining (the earned coins will be sent to this wallet)
+      /// 
+      /// Locales: en
+      static let mining_select_wallet_title = Rswift.StringResource(key: "mining_select_wallet_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Send
       /// 
       /// Locales: en
@@ -1450,6 +1454,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func send_select_wallet(_: Void = ()) -> String {
         return NSLocalizedString("send_select_wallet", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Select the wallet you want to use while mining (the earned coins will be sent to this wallet)
+      /// 
+      /// Locales: en
+      static func mining_select_wallet_title(_: Void = ()) -> String {
+        return NSLocalizedString("mining_select_wallet_title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Send

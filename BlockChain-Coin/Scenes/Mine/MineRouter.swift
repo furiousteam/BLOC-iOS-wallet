@@ -10,6 +10,7 @@ import UIKit
 
 protocol MineRoutingLogic {
     func showHome()
+    func showWalletSettings(selectedWallet: WalletModel)
 }
 
 class MineRouter: MineRoutingLogic {
@@ -18,5 +19,10 @@ class MineRouter: MineRoutingLogic {
     func showHome() {
         let homeVC = HomeVC()
         viewController?.navigationController?.present(homeVC, animated: true, completion: nil)
+    }
+    
+    func showWalletSettings(selectedWallet: WalletModel) {
+        let vc = SetMiningWalletVC(selectedWallet: selectedWallet)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
