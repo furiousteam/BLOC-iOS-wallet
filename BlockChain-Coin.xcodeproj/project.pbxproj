@@ -246,6 +246,26 @@
 		9CE35C46206D11B0002E7193 /* SetMiningWalletPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C40206D11B0002E7193 /* SetMiningWalletPresenter.swift */; };
 		9CE35C47206D11B0002E7193 /* SetMiningWalletInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C41206D11B0002E7193 /* SetMiningWalletInteractor.swift */; };
 		9CE35C4A206D11F6002E7193 /* SetMiningWalletViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C49206D11F6002E7193 /* SetMiningWalletViews.swift */; };
+		9CE35C55206D2D9F002E7193 /* SetMiningThreadsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C4F206D2D9F002E7193 /* SetMiningThreadsRouter.swift */; };
+		9CE35C56206D2D9F002E7193 /* SetMiningThreadsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C50206D2D9F002E7193 /* SetMiningThreadsPresenter.swift */; };
+		9CE35C57206D2D9F002E7193 /* SetMiningThreadsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C51206D2D9F002E7193 /* SetMiningThreadsModels.swift */; };
+		9CE35C58206D2D9F002E7193 /* SetMiningThreadsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C52206D2D9F002E7193 /* SetMiningThreadsInteractor.swift */; };
+		9CE35C59206D2D9F002E7193 /* SetMiningThreadsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C53206D2D9F002E7193 /* SetMiningThreadsVC.swift */; };
+		9CE35C5C206D2DF5002E7193 /* SetMiningThreadsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C5B206D2DF5002E7193 /* SetMiningThreadsViews.swift */; };
+		9CE35C5E206D328E002E7193 /* MarkerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C5D206D328E002E7193 /* MarkerContentView.swift */; };
+		9CE35C60206D3C5F002E7193 /* MarkerBarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C5F206D3C5F002E7193 /* MarkerBarsView.swift */; };
+		9CE35C62206D59E0002E7193 /* MiningSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C61206D59E0002E7193 /* MiningSliderView.swift */; };
+		9CE35C64206D5F11002E7193 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C63206D5F11002E7193 /* Slider.swift */; };
+		9CE35C66206D70B3002E7193 /* MiningWarningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C65206D70B3002E7193 /* MiningWarningView.swift */; };
+		9CE35C68206E1932002E7193 /* PoolStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C67206E1932002E7193 /* PoolStats.swift */; };
+		9CE35C6A206E1BAF002E7193 /* PoolAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C69206E1BAF002E7193 /* PoolAPI.swift */; };
+		9CE35C74206E1F3D002E7193 /* ListPoolsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C6E206E1F3D002E7193 /* ListPoolsModels.swift */; };
+		9CE35C75206E1F3D002E7193 /* ListPoolsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C6F206E1F3D002E7193 /* ListPoolsDataSource.swift */; };
+		9CE35C76206E1F3D002E7193 /* ListPoolsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C70206E1F3D002E7193 /* ListPoolsVC.swift */; };
+		9CE35C77206E1F3D002E7193 /* ListPoolsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C71206E1F3D002E7193 /* ListPoolsPresenter.swift */; };
+		9CE35C78206E1F3D002E7193 /* ListPoolsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C72206E1F3D002E7193 /* ListPoolsRouter.swift */; };
+		9CE35C79206E1F3D002E7193 /* ListPoolsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C73206E1F3D002E7193 /* ListPoolsInteractor.swift */; };
+		9CE35C7C206E2044002E7193 /* ListPoolsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C7B206E2044002E7193 /* ListPoolsCell.swift */; };
 		BBCFE2412940BF658F2DA54B /* Pods_BlockChain_Coin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */; };
 /* End PBXBuildFile section */
 
@@ -517,6 +537,26 @@
 		9CE35C40206D11B0002E7193 /* SetMiningWalletPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMiningWalletPresenter.swift; sourceTree = "<group>"; };
 		9CE35C41206D11B0002E7193 /* SetMiningWalletInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMiningWalletInteractor.swift; sourceTree = "<group>"; };
 		9CE35C49206D11F6002E7193 /* SetMiningWalletViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMiningWalletViews.swift; sourceTree = "<group>"; };
+		9CE35C4F206D2D9F002E7193 /* SetMiningThreadsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMiningThreadsRouter.swift; sourceTree = "<group>"; };
+		9CE35C50206D2D9F002E7193 /* SetMiningThreadsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMiningThreadsPresenter.swift; sourceTree = "<group>"; };
+		9CE35C51206D2D9F002E7193 /* SetMiningThreadsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMiningThreadsModels.swift; sourceTree = "<group>"; };
+		9CE35C52206D2D9F002E7193 /* SetMiningThreadsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMiningThreadsInteractor.swift; sourceTree = "<group>"; };
+		9CE35C53206D2D9F002E7193 /* SetMiningThreadsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetMiningThreadsVC.swift; sourceTree = "<group>"; };
+		9CE35C5B206D2DF5002E7193 /* SetMiningThreadsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetMiningThreadsViews.swift; sourceTree = "<group>"; };
+		9CE35C5D206D328E002E7193 /* MarkerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerContentView.swift; sourceTree = "<group>"; };
+		9CE35C5F206D3C5F002E7193 /* MarkerBarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerBarsView.swift; sourceTree = "<group>"; };
+		9CE35C61206D59E0002E7193 /* MiningSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningSliderView.swift; sourceTree = "<group>"; };
+		9CE35C63206D5F11002E7193 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		9CE35C65206D70B3002E7193 /* MiningWarningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningWarningView.swift; sourceTree = "<group>"; };
+		9CE35C67206E1932002E7193 /* PoolStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolStats.swift; sourceTree = "<group>"; };
+		9CE35C69206E1BAF002E7193 /* PoolAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolAPI.swift; sourceTree = "<group>"; };
+		9CE35C6E206E1F3D002E7193 /* ListPoolsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPoolsModels.swift; sourceTree = "<group>"; };
+		9CE35C6F206E1F3D002E7193 /* ListPoolsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPoolsDataSource.swift; sourceTree = "<group>"; };
+		9CE35C70206E1F3D002E7193 /* ListPoolsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPoolsVC.swift; sourceTree = "<group>"; };
+		9CE35C71206E1F3D002E7193 /* ListPoolsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPoolsPresenter.swift; sourceTree = "<group>"; };
+		9CE35C72206E1F3D002E7193 /* ListPoolsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPoolsRouter.swift; sourceTree = "<group>"; };
+		9CE35C73206E1F3D002E7193 /* ListPoolsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPoolsInteractor.swift; sourceTree = "<group>"; };
+		9CE35C7B206E2044002E7193 /* ListPoolsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPoolsCell.swift; sourceTree = "<group>"; };
 		BA48FC4D40854E9793F5AC5B /* Pods_BlockChain_Coin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BlockChain_Coin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE987B8E95BB24446DE0C71C /* Pods-BlockChain-Coin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlockChain-Coin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -628,6 +668,7 @@
 				9C6FEF862050496900ED7D47 /* WalletKeys.swift */,
 				9C63A3672065008600E9C33D /* APIError.swift */,
 				9CE35C16206B72C4002E7193 /* MiningSettings.swift */,
+				9CE35C67206E1932002E7193 /* PoolStats.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -653,6 +694,7 @@
 				9CB6C337205027FB002E610C /* WalletAPI.swift */,
 				9C4AA4922033326F0056152C /* WalletDiskStore.swift */,
 				9C6623042036DD010083CE2E /* TransactionDiskStore.swift */,
+				9CE35C69206E1BAF002E7193 /* PoolAPI.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -707,6 +749,7 @@
 				9C63A37B2066E26300E9C33D /* ErrorView.swift */,
 				9C63A37D2066E26C00E9C33D /* ErrorTableViewCell.swift */,
 				9C63A37F2066E55F00E9C33D /* RefreshControl.swift */,
+				9CE35C63206D5F11002E7193 /* Slider.swift */,
 				9C04365E202C968D00671DA2 /* Cryptonight */,
 				9C4AA46820332BC70056152C /* Ed25519 */,
 				9C85E38D205A6DAF00208DF6 /* SpacerView.swift */,
@@ -737,6 +780,8 @@
 				9C5756BF20640D73002BD079 /* ConfirmTransaction */,
 				9C63A3572064F2FC00E9C33D /* TransactionResult */,
 				9CE35C3B206D11B0002E7193 /* SetMiningWallet */,
+				9CE35C4D206D2D9F002E7193 /* SetMiningThreads */,
+				9CE35C6D206E1F3D002E7193 /* ListPools */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1311,6 +1356,53 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9CE35C4D206D2D9F002E7193 /* SetMiningThreads */ = {
+			isa = PBXGroup;
+			children = (
+				9CE35C5A206D2DB6002E7193 /* Views */,
+				9CE35C4F206D2D9F002E7193 /* SetMiningThreadsRouter.swift */,
+				9CE35C50206D2D9F002E7193 /* SetMiningThreadsPresenter.swift */,
+				9CE35C51206D2D9F002E7193 /* SetMiningThreadsModels.swift */,
+				9CE35C52206D2D9F002E7193 /* SetMiningThreadsInteractor.swift */,
+				9CE35C53206D2D9F002E7193 /* SetMiningThreadsVC.swift */,
+			);
+			path = SetMiningThreads;
+			sourceTree = "<group>";
+		};
+		9CE35C5A206D2DB6002E7193 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CE35C5B206D2DF5002E7193 /* SetMiningThreadsViews.swift */,
+				9CE35C5D206D328E002E7193 /* MarkerContentView.swift */,
+				9CE35C5F206D3C5F002E7193 /* MarkerBarsView.swift */,
+				9CE35C61206D59E0002E7193 /* MiningSliderView.swift */,
+				9CE35C65206D70B3002E7193 /* MiningWarningView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9CE35C6D206E1F3D002E7193 /* ListPools */ = {
+			isa = PBXGroup;
+			children = (
+				9CE35C7A206E2032002E7193 /* Views */,
+				9CE35C6E206E1F3D002E7193 /* ListPoolsModels.swift */,
+				9CE35C6F206E1F3D002E7193 /* ListPoolsDataSource.swift */,
+				9CE35C70206E1F3D002E7193 /* ListPoolsVC.swift */,
+				9CE35C71206E1F3D002E7193 /* ListPoolsPresenter.swift */,
+				9CE35C72206E1F3D002E7193 /* ListPoolsRouter.swift */,
+				9CE35C73206E1F3D002E7193 /* ListPoolsInteractor.swift */,
+			);
+			path = ListPools;
+			sourceTree = "<group>";
+		};
+		9CE35C7A206E2032002E7193 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CE35C7B206E2044002E7193 /* ListPoolsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		E7FB8072BE54AD3A07BF5178 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1564,6 +1656,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9CBCC9B7206224E40006FBA7 /* NewTransactionVC.swift in Sources */,
+				9CE35C74206E1F3D002E7193 /* ListPoolsModels.swift in Sources */,
 				9C4AA4DA20348F2C0056152C /* ShowWalletRouter.swift in Sources */,
 				9C5756C720640FB3002BD079 /* ConfirmTransactionFormViews.swift in Sources */,
 				9C4AA495203335000056152C /* Wallet.swift in Sources */,
@@ -1572,6 +1665,7 @@
 				9C63A392206790B700E9C33D /* ShowTransactionFormViews.swift in Sources */,
 				9C78F1D22056CD5A001ADA32 /* ListTransactionsModels.swift in Sources */,
 				9C04367D202C975800671DA2 /* HashContext.mm in Sources */,
+				9CE35C62206D59E0002E7193 /* MiningSliderView.swift in Sources */,
 				9C6623052036DD010083CE2E /* TransactionDiskStore.swift in Sources */,
 				9C5756B62064035E002BD079 /* CheckPasswordFormViews.swift in Sources */,
 				9CA7FB8E205D6DA300D48D5F /* ImportWalletQRCodeRouter.swift in Sources */,
@@ -1581,6 +1675,7 @@
 				9C85E3AE205ADA7200208DF6 /* ImportWalletKeyPresenter.swift in Sources */,
 				9C85E39B205AB40400208DF6 /* ExportWalletKeysRouter.swift in Sources */,
 				9C63A38C20678FE200E9C33D /* ShowTransactionRouter.swift in Sources */,
+				9CE35C77206E1F3D002E7193 /* ListPoolsPresenter.swift in Sources */,
 				9C04369C202CDB9400671DA2 /* MineDataSource.swift in Sources */,
 				9C4AA49A2033353C0056152C /* ListWalletsModels.swift in Sources */,
 				9CBCC9C7206241C40006FBA7 /* KeyPair+Codable.swift in Sources */,
@@ -1594,6 +1689,7 @@
 				9CA7FB89205D6DA300D48D5F /* ImportWalletQRCodeInteractor.swift in Sources */,
 				9C85E3AC205ADA7200208DF6 /* ImportWalletKeyVC.swift in Sources */,
 				9C8A8F79202EE13600F55736 /* PoolSocketLoginRequest.swift in Sources */,
+				9CE35C79206E1F3D002E7193 /* ListPoolsInteractor.swift in Sources */,
 				9C63A39C20679AA100E9C33D /* ShowTransactionMultiColumnView.swift in Sources */,
 				9C78F1D32056CD5A001ADA32 /* ListTransactionsDataSource.swift in Sources */,
 				9C6622F72035DBE20083CE2E /* UITableViewHeaderFooterView+Register.swift in Sources */,
@@ -1628,14 +1724,17 @@
 				9C78F1D52056CD5A001ADA32 /* ListTransactionsPresenter.swift in Sources */,
 				9CE35C45206D11B0002E7193 /* SetMiningWalletVC.swift in Sources */,
 				9C043687202C9F8B00671DA2 /* PoolSocketClient.swift in Sources */,
+				9CE35C68206E1932002E7193 /* PoolStats.swift in Sources */,
 				9C63A3802066E55F00E9C33D /* RefreshControl.swift in Sources */,
 				9C85E399205AB40400208DF6 /* ExportWalletKeysPresenter.swift in Sources */,
+				9CE35C64206D5F11002E7193 /* Slider.swift in Sources */,
 				9C4AA48420332C2B0056152C /* Seed.swift in Sources */,
 				9C85E37E205A6A6800208DF6 /* SetWalletPasswordVC.swift in Sources */,
 				9C043678202C968D00671DA2 /* cryptonight.c in Sources */,
 				9C0325A42056CDAE0009FA3B /* AboutPresenter.swift in Sources */,
 				9C8A8F5F202DFD7900F55736 /* PoolStatusView.swift in Sources */,
 				9C63A36D206540BC00E9C33D /* AboutFormViews.swift in Sources */,
+				9CE35C56206D2D9F002E7193 /* SetMiningThreadsPresenter.swift in Sources */,
 				9CBCC99720610A130006FBA7 /* ShowWalletBalanceView.swift in Sources */,
 				9C5756C320640DF9002BD079 /* ConfirmTransactionRouter.swift in Sources */,
 				9C78F1D12056CD5A001ADA32 /* ListTransactionsVC.swift in Sources */,
@@ -1666,12 +1765,14 @@
 				9C4AA4D820348F240056152C /* ShowWalletDataSource.swift in Sources */,
 				9C043683202C9CD700671DA2 /* PoolWorker.swift in Sources */,
 				9C85E38E205A6DAF00208DF6 /* SpacerView.swift in Sources */,
+				9CE35C7C206E2044002E7193 /* ListPoolsCell.swift in Sources */,
 				9C07226A2035695100B012B6 /* Transfer.swift in Sources */,
 				9CA7FB7C205C11A000D48D5F /* CreateWalletAlertController.swift in Sources */,
 				9C4AA48320332C2B0056152C /* KeyPair.swift in Sources */,
 				9CA7FB8B205D6DA300D48D5F /* ImportWalletQRCodeModels.swift in Sources */,
 				9C4AA4A2203335610056152C /* ListWalletsPresenter.swift in Sources */,
 				9C9A570F2037419500B010D5 /* Address.swift in Sources */,
+				9CE35C59206D2D9F002E7193 /* SetMiningThreadsVC.swift in Sources */,
 				9C78F1D42056CD5A001ADA32 /* ListTransactionsInteractor.swift in Sources */,
 				9C85E374205A6A2200208DF6 /* UIScrollView+Keyboard.swift in Sources */,
 				9C04369A202CD1EC00671DA2 /* Stats.swift in Sources */,
@@ -1690,6 +1791,7 @@
 				9C0722682035694A00B012B6 /* Transaction.swift in Sources */,
 				9C78F1A82056C8B7001ADA32 /* App.swift in Sources */,
 				9C63A37E2066E26C00E9C33D /* ErrorTableViewCell.swift in Sources */,
+				9CE35C6A206E1BAF002E7193 /* PoolAPI.swift in Sources */,
 				9CBCC9A420616E5A0006FBA7 /* WalletSettingsModels.swift in Sources */,
 				9C78F1A72056C8B7001ADA32 /* AppController.swift in Sources */,
 				9CBB2EFA205679FE00718EBA /* HomeDataSource.swift in Sources */,
@@ -1712,10 +1814,12 @@
 				9C85E37F205A6A6800208DF6 /* SetWalletPasswordPresenter.swift in Sources */,
 				9C07226C20356D7300B012B6 /* Constants.swift in Sources */,
 				9C85E372205A6A0700208DF6 /* ScrollableStackView.swift in Sources */,
+				9CE35C76206E1F3D002E7193 /* ListPoolsVC.swift in Sources */,
 				9C4AA49E2033354F0056152C /* ListWalletsRouter.swift in Sources */,
 				9C85E38A205A6BBF00208DF6 /* TextField.swift in Sources */,
 				9C043681202C9C7800671DA2 /* CryptonightMiner.swift in Sources */,
 				9C78F1AC2056C8B7001ADA32 /* AppInteractor.swift in Sources */,
+				9CE35C58206D2D9F002E7193 /* SetMiningThreadsInteractor.swift in Sources */,
 				9C63A3662064F39800E9C33D /* TransactionResultFormViews.swift in Sources */,
 				9C0325A02056CDAE0009FA3B /* AboutRouter.swift in Sources */,
 				9C0325AA2056CE610009FA3B /* TabBarItem.swift in Sources */,
@@ -1739,8 +1843,11 @@
 				9C85E36C205A57F800208DF6 /* ActionCell.swift in Sources */,
 				9C63A3682065008600E9C33D /* APIError.swift in Sources */,
 				9C4AA4E020348F4D0056152C /* ShowWalletModels.swift in Sources */,
+				9CE35C66206D70B3002E7193 /* MiningWarningView.swift in Sources */,
 				9C6622ED2035CB4E0083CE2E /* ConfigureWalletVC.swift in Sources */,
+				9CE35C60206D3C5F002E7193 /* MarkerBarsView.swift in Sources */,
 				9CBCC9C32062357F0006FBA7 /* NewTransactionDataSource.swift in Sources */,
+				9CE35C75206E1F3D002E7193 /* ListPoolsDataSource.swift in Sources */,
 				9C85E3A0205AB59000208DF6 /* ExportWalletKeysFormViews.swift in Sources */,
 				9C043674202C968D00671DA2 /* blake.c in Sources */,
 				9C0436A0202CDBA400671DA2 /* MineInteractor.swift in Sources */,
@@ -1753,6 +1860,7 @@
 				9CBCC9C5206235BF0006FBA7 /* UICollectionView+Register.swift in Sources */,
 				9C4AA4982033351D0056152C /* ListWalletsVC.swift in Sources */,
 				9CE35C46206D11B0002E7193 /* SetMiningWalletPresenter.swift in Sources */,
+				9CE35C55206D2D9F002E7193 /* SetMiningThreadsRouter.swift in Sources */,
 				9CBCC9BA206224E40006FBA7 /* NewTransactionRouter.swift in Sources */,
 				9C85E382205A6A6800208DF6 /* SetWalletPasswordInteractor.swift in Sources */,
 				9C85E39A205AB40400208DF6 /* ExportWalletKeysVC.swift in Sources */,
@@ -1761,18 +1869,22 @@
 				9C8A8F5B202DF90200F55736 /* R.generated.swift in Sources */,
 				9C04367F202C98E900671DA2 /* MinerWorker.swift in Sources */,
 				9C4AA4DE20348F430056152C /* ShowWalletPresenter.swift in Sources */,
+				9CE35C78206E1F3D002E7193 /* ListPoolsRouter.swift in Sources */,
 				9CBCC9AB20616FEA0006FBA7 /* WalletSettingsCell.swift in Sources */,
 				9CBCC9B8206224E40006FBA7 /* NewTransactionModels.swift in Sources */,
+				9CE35C5C206D2DF5002E7193 /* SetMiningThreadsViews.swift in Sources */,
 				9C043676202C968D00671DA2 /* oaes_lib.c in Sources */,
 				9C9A570120372B1A00B010D5 /* TransactionExtra.swift in Sources */,
 				9CBB2EF6205679FE00718EBA /* HomeRouter.swift in Sources */,
 				9C043677202C968D00671DA2 /* groestl.c in Sources */,
 				9C78F1B02056CA8D001ADA32 /* Bundle+Keys.swift in Sources */,
 				9C63A3702066B18900E9C33D /* ListTransactionsCell.swift in Sources */,
+				9CE35C57206D2D9F002E7193 /* SetMiningThreadsModels.swift in Sources */,
 				9C8A8F69202ED7B000F55736 /* WalletWorker.swift in Sources */,
 				9C5756C420640DF9002BD079 /* ConfirmTransactionVC.swift in Sources */,
 				9CE35C44206D11B0002E7193 /* SetMiningWalletModels.swift in Sources */,
 				9CB6C33C20502C68002E610C /* Observable+ErrorHandling.swift in Sources */,
+				9CE35C5E206D328E002E7193 /* MarkerContentView.swift in Sources */,
 				9C4AA48520332C2B0056152C /* Error.swift in Sources */,
 				9C0436AC202CDC5100671DA2 /* UITableView+Register.swift in Sources */,
 				9CBB2EFC20567A3100718EBA /* ViewController.swift in Sources */,

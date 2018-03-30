@@ -11,6 +11,8 @@ import UIKit
 protocol MineRoutingLogic {
     func showHome()
     func showWalletSettings(selectedWallet: WalletModel)
+    func showThreadsSettings(threads: UInt)
+    func showPoolSettings(pool: MiningPoolModel)
 }
 
 class MineRouter: MineRoutingLogic {
@@ -23,6 +25,16 @@ class MineRouter: MineRoutingLogic {
     
     func showWalletSettings(selectedWallet: WalletModel) {
         let vc = SetMiningWalletVC(selectedWallet: selectedWallet)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showThreadsSettings(threads: UInt) {
+        let vc = SetMiningThreadsVC(threads: threads)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showPoolSettings(pool: MiningPoolModel) {
+        let vc = ListPoolsVC(selectedPool: pool)
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

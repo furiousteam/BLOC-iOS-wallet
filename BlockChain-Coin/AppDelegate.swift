@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func clearDataOnFirstLaunch() {
         let userDefaults = UserDefaults.standard
-        
+                
         if userDefaults.bool(forKey: "hasRunBefore") == false {
             
             let _ = KeychainWrapper.standard.removeAllKeys()

@@ -50,42 +50,51 @@ enum MiningPower: String {
 protocol MiningPoolModel: Codable {
     var host: String { get }
     var port: Int { get }
+    var stats: PoolStats? { get set }
 }
 
-struct MiningPool: MiningPoolModel {
+struct MiningPool: MiningPoolModel, Codable {
     let host: String
     let port: Int
+    var stats: PoolStats?
     
     enum CodingKeys: String, CodingKey {
         case host = "host"
         case port = "port"
+        case stats = "stats"
     }
 
-    init(host: String, port: Int) {
+    init(host: String, port: Int, stats: PoolStats?) {
         self.host = host
         self.port = port
+        self.stats = stats
     }
 }
 
 protocol MiningSettingsModel {
+    var threads: UInt { get }
     var power: MiningPower { get }
     var wallet: Wallet { get }
     var pool: MiningPool { get }
 }
 
 struct MiningSettings: MiningSettingsModel, Codable {
-    let power: MiningPower
+    let threads: UInt
     let wallet: Wallet
     let pool: MiningPool
     
+    var power: MiningPower {
+        return MiningPower(threads: threads)
+    }
+    
     enum CodingKeys: String, CodingKey {
-        case power = "power"
+        case threads = "threads"
         case wallet = "wallet"
         case pool = "pool"
     }
 
-    init(power: MiningPower, wallet: Wallet, pool: MiningPool) {
-        self.power = power
+    init(threads: UInt, wallet: Wallet, pool: MiningPool) {
+        self.threads = threads
         self.wallet = wallet
         self.pool = pool
     }
@@ -93,7 +102,7 @@ struct MiningSettings: MiningSettingsModel, Codable {
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
-        try container.encode(power.rawValue, forKey: .power)
+        try container.encode(threads, forKey: .threads)
         try container.encode(wallet, forKey: .wallet)
         try container.encode(pool, forKey: .pool)
     }
@@ -101,8 +110,7 @@ struct MiningSettings: MiningSettingsModel, Codable {
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
-        let powerString = try values.decode(String.self, forKey: .power)
-        self.power = MiningPower(rawValue: powerString) ?? .medium
+        self.threads = try values.decode(UInt.self, forKey: .threads)
         
         self.wallet = try values.decode(Wallet.self, forKey: .wallet)
         

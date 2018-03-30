@@ -136,7 +136,17 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        self.navigationController?.navigationBar.setBackgroundImage(R.image.navBarTransparentBg(), for: .default)
+        self.navigationController?.navigationBar.isTranslucent = true
+
         interactor.fetchSettings()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        self.navigationController?.navigationBar.setBackgroundImage(R.image.navBarBg(), for: .default)
+        self.navigationController?.navigationBar.isTranslucent = false
     }
     
     // MARK: - Configuration
@@ -214,9 +224,6 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         let menuButton = UIBarButtonItem(image: R.image.menuIcon(), style: .plain, target: self, action: #selector(menuTapped))
         self.navigationItem.setLeftBarButton(menuButton, animated: false)
-        
-        self.navigationController?.navigationBar.setBackgroundImage(R.image.navBarTransparentBg(), for: .default)
-        self.navigationController?.navigationBar.isTranslucent = true
     }
     
     func stopMining() {
@@ -279,6 +286,8 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     func handleUpdate(viewModel: MineViewModel) {
         dataSource.settings = viewModel.settings
         
+        (interactor as? MineInteractor)?.numberOfThreads = Int(viewModel.settings.threads)
+        
         tableView.reloadData()
     }
     
@@ -303,7 +312,14 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         stopMining()
         
-        if indexPath.section == 3 {
+        if indexPath.section == 1 {
+            guard let threads = dataSource.settings?.threads else { return }
+            router.showThreadsSettings(threads: threads)
+        } else if indexPath.section == 2 {
+            guard let pool = dataSource.settings?.pool else { return }
+            
+            router.showPoolSettings(pool: pool)
+        } else if indexPath.section == 3 {
             guard let wallet = dataSource.settings?.wallet else { return }
             router.showWalletSettings(selectedWallet: wallet)
         }

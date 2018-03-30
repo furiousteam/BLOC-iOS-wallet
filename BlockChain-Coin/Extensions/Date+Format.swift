@@ -17,6 +17,15 @@ extension Date {
         return dateFormatter
     }()
     
+    fileprivate static let relativeShortTimeFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .short
+        dateFormatter.timeStyle = .short
+        dateFormatter.doesRelativeDateFormatting = true
+        dateFormatter.locale = Locale.current
+        return dateFormatter
+    }()
+    
     fileprivate static let fullTimeFormatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .long
@@ -34,6 +43,10 @@ extension Date {
         
     func shortDate() -> String {
         return Date.shortTimeFormatter.string(from: self)
+    }
+    
+    func relativeShortDate() -> String {
+        return Date.relativeShortTimeFormatter.string(from: self)
     }
     
     func fullDate() -> String {

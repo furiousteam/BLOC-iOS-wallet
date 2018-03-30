@@ -22,6 +22,8 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
     let walletWorker = WalletWorker(store: WalletDiskStore())
     let poolWorker = PoolWorker(store: PoolSocketClient())
     let minerWorker = MinerWorker(store: CryptonightMiner())
+    
+    var numberOfThreads: Int = 1
 
     func connect(host: String, port: Int, wallet: String) {
         let address = "\(host):\(port)"
@@ -54,7 +56,7 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
         poolWorker.login(username: wallet, password: "x") { [weak self] result in
             switch result {
             case .success(let job):
-                self?.mine(job: job)
+                self?.mine(job: job, threads: self?.numberOfThreads ?? 1)
             case .failure:
                 self?.presenter?.handlePoolConnectionError(address: nil, error: .couldNotConnect)
             }
@@ -62,8 +64,8 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
         
     }
     
-    fileprivate func mine(job: JobModel) {
-        minerWorker.mine(job: job, threadLimit: ProcessInfo.processInfo.activeProcessorCount, delegate: self)
+    fileprivate func mine(job: JobModel, threads: Int) {
+        minerWorker.mine(job: job, threadLimit: threads, delegate: self)
     }
     
     func fetchSettings() {
@@ -82,7 +84,8 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
                             return
                         }
                         
-                        let settings = MiningSettings(power: .medium, wallet: wallet, pool: pool)
+                        let numberOfThreads = UInt(floor(Double(ProcessInfo.processInfo.activeProcessorCount) / 2.0))
+                        let settings = MiningSettings(threads: numberOfThreads, wallet: wallet, pool: pool)
                         
                         self?.minerWorker.saveSettings(settings: settings)
                         

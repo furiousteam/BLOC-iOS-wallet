@@ -19,18 +19,26 @@ enum PoolStoreError: Equatable, Error {
     case alreadyConnected
     case alreadyDisconnected
     case cantReadData
+    case couldNotFetchPools
 }
 
 typealias PoolStoreConnectCompletionHandler = (PoolStoreResult<Bool>) -> Void
 typealias PoolStoreDisconnectCompletionHandler = (PoolStoreResult<Bool>) -> Void
 typealias PoolStoreLoginCompletionHandler = (PoolStoreResult<JobModel>) -> Void
 typealias PoolStoreSubmitJobCompletionHandler = (PoolStoreResult<JobModel>) -> Void
+typealias PoolStoreListCompletionHandler = (PoolStoreResult<[MiningPoolModel]>) -> Void
+typealias PoolStoreStatsCompletionHandler = (PoolStoreResult<MiningPoolModel>) -> Void
+typealias PoolStoreStatsMultipleCompletionHandler = (PoolStoreResult<[MiningPoolModel]>) -> Void
 
 protocol PoolStore {
     func connect(host: String, port: Int, completion: @escaping PoolStoreConnectCompletionHandler)
     func disconnect(completion: @escaping PoolStoreDisconnectCompletionHandler)
     func login(username: String, password: String, completion: @escaping PoolStoreLoginCompletionHandler)
     func submit(id: String, jobId: String, result: Data, nonce: UInt32, completion: @escaping PoolStoreSubmitJobCompletionHandler)
+    func listPools(completion: @escaping PoolStoreListCompletionHandler)
+    func addPool(pool: MiningPool)
+    func stats(pool: MiningPoolModel, completion: @escaping PoolStoreStatsCompletionHandler)
+    func stats(pools: [MiningPoolModel], completion: @escaping PoolStoreStatsMultipleCompletionHandler)
 }
 
 class PoolWorker {
@@ -66,6 +74,34 @@ class PoolWorker {
     
     func submit(id: String, jobId: String, result: Data, nonce: UInt32, completion: @escaping PoolStoreSubmitJobCompletionHandler) {
         store.submit(id: id, jobId: jobId, result: result, nonce: nonce) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    func listPools(completion: @escaping PoolStoreListCompletionHandler) {
+        store.listPools { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    func addPool(pool: MiningPool) {
+        store.addPool(pool: pool)
+    }
+    
+    func stats(pool: MiningPoolModel, completion: @escaping PoolStoreStatsCompletionHandler) {
+        store.stats(pool: pool) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    func stats(pools: [MiningPoolModel], completion: @escaping PoolStoreStatsMultipleCompletionHandler) {
+        store.stats(pools: pools) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

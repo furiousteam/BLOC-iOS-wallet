@@ -114,3 +114,9 @@ Blockchain Coin";
 "mining_wallet_title" = "Mining wallet: %@";
 "mining_wallet_value" = "Current balance: %@";
 "mining_select_wallet_title" = "Select the wallet you want to use while mining (the earned coins will be sent to this wallet)";
+"mining_threads_title" = "Use the slider below to set the power (or number of threads) you want to use to mine on your smartphone.";
+"mining_threads_important" = "Important";
+"mining_threads_important_content_regular" = "Please understand that the more threads you use while mining, the harder your device will work and consume all its resources intensively: processor, memory, battery...";
+"mining_threads_important_content_bold" = "Please note that you are the sole responsible for these settings and your device. We cannot be held responsible for any kind of problems that result in using this feature.";
+"mining_pool_list_description" = "Fee: %@ - Hash rate: %@\
+Miners: %@ - Last block found: %@";

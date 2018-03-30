@@ -43,7 +43,7 @@ class MineDataSource: NSObject, UITableViewDataSource {
         
         switch indexPath.section {
         case 1:
-            cell.configure(title: R.string.localizable.mining_number_of_threads_title(), value: settings!.power.readableString)
+            cell.configure(title: R.string.localizable.mining_number_of_threads_title(), value: "\(settings!.power.readableString) (\(settings!.threads))")
         case 2:
             cell.configure(title: R.string.localizable.mining_mining_pool_title(), value: settings!.pool.host)
         case 3:

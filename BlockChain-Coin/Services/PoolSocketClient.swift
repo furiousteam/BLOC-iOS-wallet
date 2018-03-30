@@ -86,4 +86,22 @@ class PoolSocketClient: PoolStore {
     fileprivate func receive() {
         socket.readData(to: Data(bytes: [0x0A]), withTimeout: -1, tag: Tags.read.rawValue)
     }
+    
+    // MARK: Ignored requests
+    
+    func stats(pool: MiningPoolModel, completion: @escaping PoolStoreStatsCompletionHandler) {
+        completion(.failure(error: .unknown))
+    }
+    
+    func stats(pools: [MiningPoolModel], completion: @escaping PoolStoreStatsMultipleCompletionHandler) {
+        completion(.failure(error: .unknown))
+    }
+    
+    func listPools(completion: @escaping PoolStoreListCompletionHandler) {
+        completion(.failure(error: .unknown))
+    }
+    
+    func addPool(pool: MiningPool) {
+        return
+    }
 }

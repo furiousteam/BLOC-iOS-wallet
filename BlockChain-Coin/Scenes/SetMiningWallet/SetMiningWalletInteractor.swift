@@ -38,7 +38,7 @@ class SetMiningWalletInteractor: SetMiningWalletBusinessLogic {
         minerWorker.fetchSettings { [weak self] result in
             switch result {
             case .success(let settings):
-                let s = MiningSettings(power: settings.power, wallet: wallet, pool: settings.pool)
+                let s = MiningSettings(threads: settings.threads, wallet: wallet, pool: settings.pool)
                 
                 self?.minerWorker.saveSettings(settings: s)
             case .failure(let error):
