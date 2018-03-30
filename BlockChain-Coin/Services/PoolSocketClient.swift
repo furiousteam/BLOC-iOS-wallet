@@ -31,9 +31,21 @@ class PoolSocketClient: PoolStore {
         }
         
         delegate.connectionCallback = completion
+        
+        delegate.disconnectionCallback = { _  in
+            completion(.failure(error: .couldNotConnect))
+        }
 
         do {
-            try socket.connect(toHost: host, onPort: UInt16(port), withTimeout: TimeInterval(30.0))
+            var poolHost = host
+            
+            if host.contains("http://") {
+                poolHost = host.replacingOccurrences(of: "http://", with: "")
+            } else if host.contains("https://") {
+                poolHost = host.replacingOccurrences(of: "https://", with: "")
+            }
+            
+            try socket.connect(toHost: poolHost, onPort: UInt16(port), withTimeout: TimeInterval(30.0))
         } catch let error {
             print(error)
             completion(.failure(error: .couldNotConnect))

@@ -20,6 +20,15 @@ enum PoolStoreError: Equatable, Error {
     case alreadyDisconnected
     case cantReadData
     case couldNotFetchPools
+    
+    var localizedDescription: String {
+        switch self {
+        case .couldNotConnect:
+            return R.string.localizable.mining_could_not_connect()
+        default:
+            return R.string.localizable.error_unknown()
+        }
+    }
 }
 
 typealias PoolStoreConnectCompletionHandler = (PoolStoreResult<Bool>) -> Void

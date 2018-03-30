@@ -10,6 +10,7 @@ import UIKit
 
 protocol ListPoolsRoutingLogic {
     func goBack()
+    func showAddPool()
 }
 
 class ListPoolsRouter: Router, ListPoolsRoutingLogic {
@@ -17,6 +18,11 @@ class ListPoolsRouter: Router, ListPoolsRoutingLogic {
     
     func goBack() {
         viewController?.navigationController?.popViewController(animated: true)
+    }
+    
+    func showAddPool() {
+        let vc = AddPoolVC()
+        viewController?.present(NavigationController(rootViewController: vc), animated: true, completion: nil)
     }
 }
 

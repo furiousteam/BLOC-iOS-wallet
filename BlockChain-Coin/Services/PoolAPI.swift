@@ -92,8 +92,7 @@ class PoolAPI: PoolStore {
                 return MiningPool(host: pool.host, port: pool.port, stats: stats)
             })
             
-            //return request.asObservable().catchErrorJustReturn(pool)
-            return request.asObservable()
+            return request.asObservable().catchErrorJustReturn(pool)
         }
         
         Observable.merge(requests).toArray().subscribe(onNext: { stats in

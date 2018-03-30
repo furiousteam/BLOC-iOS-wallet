@@ -580,7 +580,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 113 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 118 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -594,6 +594,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let home_menu_about_title = Rswift.StringResource(key: "home_menu_about_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Add a new pool
+      /// 
+      /// Locales: en
+      static let mining_pool_add = Rswift.StringResource(key: "mining_pool_add", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Address copied
       /// 
       /// Locales: en
@@ -698,6 +702,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_amount_fees = Rswift.StringResource(key: "send_amount_fees", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Fill the fields below to add a custom pool
+      /// 
+      /// Locales: en
+      static let mining_pool_add_title = Rswift.StringResource(key: "mining_pool_add_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: From:
       /// 
       /// Locales: en
@@ -826,6 +834,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let mining_threads_important_content_regular = Rswift.StringResource(key: "mining_threads_important_content_regular", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Port
+      /// 
+      /// Locales: en
+      static let mining_pool_port_placeholder = Rswift.StringResource(key: "mining_pool_port_placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Print the key
       /// 
       /// Locales: en
@@ -918,6 +930,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let import_wallet_key_invalid_key = Rswift.StringResource(key: "import_wallet_key_invalid_key", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: The specified mining pool is unreachable
+      /// 
+      /// Locales: en
+      static let mining_could_not_connect = Rswift.StringResource(key: "mining_could_not_connect", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: This password will be required each time you make a transaction with someone and to export your private key
       /// 
       /// Locales: en
@@ -946,6 +962,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let transaction_details_transfers = Rswift.StringResource(key: "transaction_details_transfers", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: URL or IP address
+      /// 
+      /// Locales: en
+      static let mining_pool_url_placeholder = Rswift.StringResource(key: "mining_pool_url_placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Use QR code
       /// 
       /// Locales: en
@@ -1054,6 +1074,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func home_menu_about_title(_: Void = ()) -> String {
         return NSLocalizedString("home_menu_about_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Add a new pool
+      /// 
+      /// Locales: en
+      static func mining_pool_add(_: Void = ()) -> String {
+        return NSLocalizedString("mining_pool_add", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Address copied
@@ -1236,6 +1263,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func send_amount_fees(_ value1: String) -> String {
         return String(format: NSLocalizedString("send_amount_fees", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: Fill the fields below to add a custom pool
+      /// 
+      /// Locales: en
+      static func mining_pool_add_title(_: Void = ()) -> String {
+        return NSLocalizedString("mining_pool_add_title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: From:
@@ -1462,6 +1496,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("mining_threads_important_content_regular", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Port
+      /// 
+      /// Locales: en
+      static func mining_pool_port_placeholder(_: Void = ()) -> String {
+        return NSLocalizedString("mining_pool_port_placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Print the key
       /// 
       /// Locales: en
@@ -1623,6 +1664,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import_wallet_key_invalid_key", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: The specified mining pool is unreachable
+      /// 
+      /// Locales: en
+      static func mining_could_not_connect(_: Void = ()) -> String {
+        return NSLocalizedString("mining_could_not_connect", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: This password will be required each time you make a transaction with someone and to export your private key
       /// 
       /// Locales: en
@@ -1670,6 +1718,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func transaction_details_transfers(_ value1: String) -> String {
         return String(format: NSLocalizedString("transaction_details_transfers", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: URL or IP address
+      /// 
+      /// Locales: en
+      static func mining_pool_url_placeholder(_: Void = ()) -> String {
+        return NSLocalizedString("mining_pool_url_placeholder", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Use QR code

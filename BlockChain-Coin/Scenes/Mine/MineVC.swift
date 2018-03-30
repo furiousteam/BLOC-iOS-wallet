@@ -261,7 +261,7 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         case .error(let error):
             let hud = MBProgressHUD.showAdded(to: self.view, animated: true)
             hud.mode = .text
-            hud.label.text = error
+            hud.detailsLabel.text = error
             hud.hide(animated: true, afterDelay: 3.0)
         default:
             break

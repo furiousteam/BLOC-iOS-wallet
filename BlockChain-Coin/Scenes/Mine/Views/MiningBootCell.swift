@@ -79,7 +79,14 @@ class MiningBootCell: TableViewCell {
     }
     
     @objc func enableSwitch(notification: Notification) {
-        miningSwitchView.isUserInteractionEnabled = (notification.object as? Bool) ?? true
+        let isEnabled = (notification.object as? Bool) ?? true
+        
+        miningSwitchView.isUserInteractionEnabled = isEnabled
+        
+        if !isEnabled {
+            miningBooterView.configure(isOn: isEnabled)
+            miningSwitchView.isOn = isEnabled
+        }
     }
     
     @objc func changeState(notification: Notification) {

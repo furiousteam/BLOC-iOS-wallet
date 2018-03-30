@@ -120,3 +120,8 @@ Blockchain Coin";
 "mining_threads_important_content_bold" = "Please note that you are the sole responsible for these settings and your device. We cannot be held responsible for any kind of problems that result in using this feature.";
 "mining_pool_list_description" = "Fee: %@ - Hash rate: %@\
 Miners: %@ - Last block found: %@";
+"mining_pool_add_title" = "Fill the fields below to add a custom pool";
+"mining_pool_url_placeholder" = "URL or IP address";
+"mining_pool_port_placeholder" = "Port";
+"mining_pool_add" = "Add a new pool";
+"mining_could_not_connect" = "The specified mining pool is unreachable";

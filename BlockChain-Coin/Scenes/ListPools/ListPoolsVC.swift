@@ -128,7 +128,7 @@ class ListPoolsVC: ViewController, ListPoolsDisplayLogic, UITableViewDelegate {
     }
     
     @objc func addTapped() {
-        // TODO: Add pool
+        router.showAddPool()
     }
     
     @objc func backTapped() {
@@ -171,7 +171,7 @@ class ListPoolsVC: ViewController, ListPoolsDisplayLogic, UITableViewDelegate {
         
         DispatchQueue.main.async {
             if let poolIndex = self.dataSource.pools.index(where: { $0.host == self.selectedPool.host && $0.port == self.selectedPool.port }) {
-                self.tableView.selectRow(at: IndexPath(row: 0, section: poolIndex), animated: false, scrollPosition: .top)
+                self.tableView.selectRow(at: IndexPath(row: 0, section: poolIndex), animated: false, scrollPosition: .none)
             }
         }
     }
