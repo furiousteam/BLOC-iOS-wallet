@@ -366,7 +366,9 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     }
     
     @objc func showStats() {
-        router.showStats()
+        if let settings = self.dataSource.settings {
+            router.showStats(settings: settings)
+        }
     }
     
     @objc func lowPowerTapped() {

@@ -109,7 +109,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 63 images.
+  /// This `R.image` struct is generated, and contains static references to 66 images.
   struct image {
     /// Image `about-logo`.
     static let aboutLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "about-logo")
@@ -191,6 +191,12 @@ struct R: Rswift.Validatable {
     static let splash_bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_bg")
     /// Image `splash_logo`.
     static let splash_logo = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_logo")
+    /// Image `stats_mine`.
+    static let stats_mine = Rswift.ImageResource(bundle: R.hostingBundle, name: "stats_mine")
+    /// Image `stats_network`.
+    static let stats_network = Rswift.ImageResource(bundle: R.hostingBundle, name: "stats_network")
+    /// Image `stats_pool`.
+    static let stats_pool = Rswift.ImageResource(bundle: R.hostingBundle, name: "stats_pool")
     /// Image `stats`.
     static let stats = Rswift.ImageResource(bundle: R.hostingBundle, name: "stats")
     /// Image `switch-bg-off`.
@@ -443,6 +449,21 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.stats, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "stats_mine", bundle: ..., traitCollection: ...)`
+    static func stats_mine(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.stats_mine, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "stats_network", bundle: ..., traitCollection: ...)`
+    static func stats_network(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.stats_network, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "stats_pool", bundle: ..., traitCollection: ...)`
+    static func stats_pool(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.stats_pool, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "switch-bg-off", bundle: ..., traitCollection: ...)`
     static func switchBgOff(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.switchBgOff, compatibleWith: traitCollection)
@@ -586,7 +607,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 124 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 142 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -640,14 +661,34 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_bloc_locked = Rswift.StringResource(key: "wallet_bloc_locked", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Block Found
+      /// 
+      /// Locales: en
+      static let pool_stats_global_stats_block_found = Rswift.StringResource(key: "pool_stats_global_stats_block_found", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Block Found
+      /// 
+      /// Locales: en
+      static let pool_stats_network_block_found = Rswift.StringResource(key: "pool_stats_network_block_found", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Block Found Every
+      /// 
+      /// Locales: en
+      static let pool_stats_global_stats_block_found_every = Rswift.StringResource(key: "pool_stats_global_stats_block_found_every", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Block height: %@
       /// 
       /// Locales: en
       static let transaction_details_block_height = Rswift.StringResource(key: "transaction_details_block_height", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Blockchain Height
+      /// 
+      /// Locales: en
+      static let pool_stats_network_height = Rswift.StringResource(key: "pool_stats_network_height", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Cancel
       /// 
       /// Locales: en
       static let common_cancel = Rswift.StringResource(key: "common_cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Connected Miners
+      /// 
+      /// Locales: en
+      static let pool_stats_global_stats_miners = Rswift.StringResource(key: "pool_stats_global_stats_miners", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Copied
       /// 
       /// Locales: en
@@ -688,6 +729,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let transaction_details_nav = Rswift.StringResource(key: "transaction_details_nav", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Difficulty
+      /// 
+      /// Locales: en
+      static let pool_stats_network_difficulty = Rswift.StringResource(key: "pool_stats_network_difficulty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Do not store it on your smartphone, tablet, or computer. You are the sole responsible for the security of this key. Note: the key does not contain spaces.
       /// 
       /// Locales: en
@@ -724,6 +769,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_created_go_to_wallet = Rswift.StringResource(key: "wallet_created_go_to_wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Hash Rate
+      /// 
+      /// Locales: en
+      static let pool_stats_global_stats_hash_rate = Rswift.StringResource(key: "pool_stats_global_stats_hash_rate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Hash Rate
+      /// 
+      /// Locales: en
+      static let pool_stats_network_hash_rate = Rswift.StringResource(key: "pool_stats_network_hash_rate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Hash Rate
+      /// 
+      /// Locales: en
+      static let pool_stats_your_stats_hash_rate = Rswift.StringResource(key: "pool_stats_your_stats_hash_rate", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: High
       /// 
       /// Locales: en
@@ -756,6 +813,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let mining_number_of_threads_intense = Rswift.StringResource(key: "mining_number_of_threads_intense", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Last Reward
+      /// 
+      /// Locales: en
+      static let pool_stats_network_last_reward = Rswift.StringResource(key: "pool_stats_network_last_reward", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Last Share Submitted
+      /// 
+      /// Locales: en
+      static let pool_stats_your_stats_last_share_submitted = Rswift.StringResource(key: "pool_stats_your_stats_last_share_submitted", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Low
       /// 
       /// Locales: en
@@ -792,6 +857,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let password_name_placeholder = Rswift.StringResource(key: "password_name_placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Network
+      /// 
+      /// Locales: en
+      static let pool_stats_network = Rswift.StringResource(key: "pool_stats_network", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Next step
       /// 
       /// Locales: en
@@ -828,6 +897,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let transaction_details_payment_id = Rswift.StringResource(key: "transaction_details_payment_id", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Pending Balance
+      /// 
+      /// Locales: en
+      static let pool_stats_your_stats_pending_balance = Rswift.StringResource(key: "pool_stats_your_stats_pending_balance", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Pending balance:
       /// 
       /// Locales: en
@@ -852,6 +925,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let mining_threads_important_content_regular = Rswift.StringResource(key: "mining_threads_important_content_regular", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Pool global stats
+      /// 
+      /// Locales: en
+      static let pool_stats_global_stats = Rswift.StringResource(key: "pool_stats_global_stats", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Port
       /// 
       /// Locales: en
@@ -960,6 +1037,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let create_wallet_password_instructions = Rswift.StringResource(key: "create_wallet_password_instructions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Total Hashes Submitted
+      /// 
+      /// Locales: en
+      static let pool_stats_your_stats_total_hashes = Rswift.StringResource(key: "pool_stats_your_stats_total_hashes", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Total Paid
+      /// 
+      /// Locales: en
+      static let pool_stats_your_stats_total_paid = Rswift.StringResource(key: "pool_stats_your_stats_total_paid", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Total Pool Fee
+      /// 
+      /// Locales: en
+      static let pool_stats_global_stats_fee = Rswift.StringResource(key: "pool_stats_global_stats_fee", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Total balance
       /// 
       /// Locales: en
@@ -1052,6 +1141,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let import_wallet_key_placeholder = Rswift.StringResource(key: "import_wallet_key_placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your stats & payments history
+      /// 
+      /// Locales: en
+      static let pool_stats_your_stats = Rswift.StringResource(key: "pool_stats_your_stats", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Your wallet has been created!
       /// 
       /// Locales: en
@@ -1176,6 +1269,27 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_bloc_locked", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Block Found
+      /// 
+      /// Locales: en
+      static func pool_stats_global_stats_block_found(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_global_stats_block_found", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Block Found
+      /// 
+      /// Locales: en
+      static func pool_stats_network_block_found(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_network_block_found", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Block Found Every
+      /// 
+      /// Locales: en
+      static func pool_stats_global_stats_block_found_every(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_global_stats_block_found_every", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Block height: %@
       /// 
       /// Locales: en
@@ -1183,11 +1297,25 @@ struct R: Rswift.Validatable {
         return String(format: NSLocalizedString("transaction_details_block_height", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
+      /// en translation: Blockchain Height
+      /// 
+      /// Locales: en
+      static func pool_stats_network_height(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_network_height", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Cancel
       /// 
       /// Locales: en
       static func common_cancel(_: Void = ()) -> String {
         return NSLocalizedString("common_cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Connected Miners
+      /// 
+      /// Locales: en
+      static func pool_stats_global_stats_miners(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_global_stats_miners", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Copied
@@ -1260,6 +1388,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("transaction_details_nav", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Difficulty
+      /// 
+      /// Locales: en
+      static func pool_stats_network_difficulty(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_network_difficulty", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Do not store it on your smartphone, tablet, or computer. You are the sole responsible for the security of this key. Note: the key does not contain spaces.
       /// 
       /// Locales: en
@@ -1323,6 +1458,27 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_created_go_to_wallet", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Hash Rate
+      /// 
+      /// Locales: en
+      static func pool_stats_global_stats_hash_rate(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_global_stats_hash_rate", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Hash Rate
+      /// 
+      /// Locales: en
+      static func pool_stats_network_hash_rate(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_network_hash_rate", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Hash Rate
+      /// 
+      /// Locales: en
+      static func pool_stats_your_stats_hash_rate(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_your_stats_hash_rate", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: High
       /// 
       /// Locales: en
@@ -1377,6 +1533,20 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func mining_number_of_threads_intense(_: Void = ()) -> String {
         return NSLocalizedString("mining_number_of_threads_intense", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Last Reward
+      /// 
+      /// Locales: en
+      static func pool_stats_network_last_reward(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_network_last_reward", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Last Share Submitted
+      /// 
+      /// Locales: en
+      static func pool_stats_your_stats_last_share_submitted(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_your_stats_last_share_submitted", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Low
@@ -1442,6 +1612,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("password_name_placeholder", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Network
+      /// 
+      /// Locales: en
+      static func pool_stats_network(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_network", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Next step
       /// 
       /// Locales: en
@@ -1505,6 +1682,13 @@ struct R: Rswift.Validatable {
         return String(format: NSLocalizedString("transaction_details_payment_id", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
+      /// en translation: Pending Balance
+      /// 
+      /// Locales: en
+      static func pool_stats_your_stats_pending_balance(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_your_stats_pending_balance", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Pending balance:
       /// 
       /// Locales: en
@@ -1545,6 +1729,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func mining_threads_important_content_regular(_: Void = ()) -> String {
         return NSLocalizedString("mining_threads_important_content_regular", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Pool global stats
+      /// 
+      /// Locales: en
+      static func pool_stats_global_stats(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_global_stats", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Port
@@ -1736,6 +1927,27 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("create_wallet_password_instructions", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Total Hashes Submitted
+      /// 
+      /// Locales: en
+      static func pool_stats_your_stats_total_hashes(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_your_stats_total_hashes", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Total Paid
+      /// 
+      /// Locales: en
+      static func pool_stats_your_stats_total_paid(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_your_stats_total_paid", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Total Pool Fee
+      /// 
+      /// Locales: en
+      static func pool_stats_global_stats_fee(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_global_stats_fee", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Total balance
       /// 
       /// Locales: en
@@ -1895,6 +2107,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func import_wallet_key_placeholder(_: Void = ()) -> String {
         return NSLocalizedString("import_wallet_key_placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Your stats & payments history
+      /// 
+      /// Locales: en
+      static func pool_stats_your_stats(_: Void = ()) -> String {
+        return NSLocalizedString("pool_stats_your_stats", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Your wallet has been created!

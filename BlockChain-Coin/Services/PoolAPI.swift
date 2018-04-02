@@ -28,7 +28,7 @@ enum PoolAPITarget: TargetType {
     var path: String {
         switch self {
         case .stats:
-            return "live_stats"
+            return "stats"
         case .walletStats:
             return "stats_address"
         }

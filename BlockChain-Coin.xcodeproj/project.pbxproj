@@ -52,6 +52,13 @@
 		9C161EDD207256F8004B4661 /* MineLowPowerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161ED7207256F7004B4661 /* MineLowPowerRouter.swift */; };
 		9C161EE520726C87004B4661 /* MiningAddressStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161EE420726C87004B4661 /* MiningAddressStats.swift */; };
 		9C161EE720727CD4004B4661 /* NoTransactionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161EE620727CD4004B4661 /* NoTransactionsCell.swift */; };
+		9C161EF120728127004B4661 /* ShowMiningStatsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161EEB20728127004B4661 /* ShowMiningStatsModels.swift */; };
+		9C161EF220728127004B4661 /* ShowMiningStatsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161EEC20728127004B4661 /* ShowMiningStatsRouter.swift */; };
+		9C161EF320728127004B4661 /* ShowMiningStatsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161EED20728127004B4661 /* ShowMiningStatsDataSource.swift */; };
+		9C161EF420728127004B4661 /* ShowMiningStatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161EEE20728127004B4661 /* ShowMiningStatsVC.swift */; };
+		9C161EF520728127004B4661 /* ShowMiningStatsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161EEF20728127004B4661 /* ShowMiningStatsInteractor.swift */; };
+		9C161EF620728127004B4661 /* ShowMiningStatsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161EF020728127004B4661 /* ShowMiningStatsPresenter.swift */; };
+		9C161EF9207281CC004B4661 /* ShowMiningStatsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161EF8207281CC004B4661 /* ShowMiningStatsCell.swift */; };
 		9C231EFA203B61A400F5EA3E /* TransactionDiskStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C231EF9203B61A400F5EA3E /* TransactionDiskStoreTests.swift */; };
 		9C4AA48220332C2B0056152C /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA46920332C2B0056152C /* PublicKey.swift */; };
 		9C4AA48320332C2B0056152C /* KeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA46A20332C2B0056152C /* KeyPair.swift */; };
@@ -352,6 +359,13 @@
 		9C161ED7207256F7004B4661 /* MineLowPowerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineLowPowerRouter.swift; sourceTree = "<group>"; };
 		9C161EE420726C87004B4661 /* MiningAddressStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningAddressStats.swift; sourceTree = "<group>"; };
 		9C161EE620727CD4004B4661 /* NoTransactionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTransactionsCell.swift; sourceTree = "<group>"; };
+		9C161EEB20728127004B4661 /* ShowMiningStatsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMiningStatsModels.swift; sourceTree = "<group>"; };
+		9C161EEC20728127004B4661 /* ShowMiningStatsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMiningStatsRouter.swift; sourceTree = "<group>"; };
+		9C161EED20728127004B4661 /* ShowMiningStatsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMiningStatsDataSource.swift; sourceTree = "<group>"; };
+		9C161EEE20728127004B4661 /* ShowMiningStatsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMiningStatsVC.swift; sourceTree = "<group>"; };
+		9C161EEF20728127004B4661 /* ShowMiningStatsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMiningStatsInteractor.swift; sourceTree = "<group>"; };
+		9C161EF020728127004B4661 /* ShowMiningStatsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowMiningStatsPresenter.swift; sourceTree = "<group>"; };
+		9C161EF8207281CC004B4661 /* ShowMiningStatsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowMiningStatsCell.swift; sourceTree = "<group>"; };
 		9C231EF9203B61A400F5EA3E /* TransactionDiskStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDiskStoreTests.swift; sourceTree = "<group>"; };
 		9C4AA46920332C2B0056152C /* PublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		9C4AA46A20332C2B0056152C /* KeyPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPair.swift; sourceTree = "<group>"; };
@@ -807,6 +821,7 @@
 				9CE35C6D206E1F3D002E7193 /* ListPools */,
 				9CF5A5B0206EAF1A00CA41FA /* AddPool */,
 				9C161ED4207256F7004B4661 /* MineLowPower */,
+				9C161EEA20728127004B4661 /* ShowMiningStats */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -923,6 +938,28 @@
 				9C161ED7207256F7004B4661 /* MineLowPowerRouter.swift */,
 			);
 			path = MineLowPower;
+			sourceTree = "<group>";
+		};
+		9C161EEA20728127004B4661 /* ShowMiningStats */ = {
+			isa = PBXGroup;
+			children = (
+				9C161EF7207281C1004B4661 /* Views */,
+				9C161EEB20728127004B4661 /* ShowMiningStatsModels.swift */,
+				9C161EEC20728127004B4661 /* ShowMiningStatsRouter.swift */,
+				9C161EED20728127004B4661 /* ShowMiningStatsDataSource.swift */,
+				9C161EEE20728127004B4661 /* ShowMiningStatsVC.swift */,
+				9C161EEF20728127004B4661 /* ShowMiningStatsInteractor.swift */,
+				9C161EF020728127004B4661 /* ShowMiningStatsPresenter.swift */,
+			);
+			path = ShowMiningStats;
+			sourceTree = "<group>";
+		};
+		9C161EF7207281C1004B4661 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C161EF8207281CC004B4661 /* ShowMiningStatsCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9C4AA46820332BC70056152C /* Ed25519 */ = {
@@ -1714,6 +1751,7 @@
 				9CBCC9B7206224E40006FBA7 /* NewTransactionVC.swift in Sources */,
 				9CE35C74206E1F3D002E7193 /* ListPoolsModels.swift in Sources */,
 				9C4AA4DA20348F2C0056152C /* ShowWalletRouter.swift in Sources */,
+				9C161EF420728127004B4661 /* ShowMiningStatsVC.swift in Sources */,
 				9C5756C720640FB3002BD079 /* ConfirmTransactionFormViews.swift in Sources */,
 				9C4AA495203335000056152C /* Wallet.swift in Sources */,
 				9C78F1AA2056C8B7001ADA32 /* AppRouter.swift in Sources */,
@@ -1772,11 +1810,13 @@
 				9C161EE520726C87004B4661 /* MiningAddressStats.swift in Sources */,
 				9CBCC9BD206225080006FBA7 /* NewTransactionsFormViews.swift in Sources */,
 				9CBCC9A620616E5A0006FBA7 /* WalletSettingsRouter.swift in Sources */,
+				9C161EF9207281CC004B4661 /* ShowMiningStatsCell.swift in Sources */,
 				9CF5A5B8206EAF1A00CA41FA /* AddPoolRouter.swift in Sources */,
 				9C6623032036D9DD0083CE2E /* TransactionDestination.swift in Sources */,
 				9CBCC9A520616E5A0006FBA7 /* WalletSettingsPresenter.swift in Sources */,
 				9C0325A22056CDAE0009FA3B /* AboutInteractor.swift in Sources */,
 				9C85E381205A6A6800208DF6 /* SetWalletPasswordModels.swift in Sources */,
+				9C161EF520728127004B4661 /* ShowMiningStatsInteractor.swift in Sources */,
 				9CA7FB8C205D6DA300D48D5F /* ImportWalletQRCodePresenter.swift in Sources */,
 				9C04367A202C968D00671DA2 /* aesb.c in Sources */,
 				9CA7FB8A205D6DA300D48D5F /* ImportWalletQRCodeVC.swift in Sources */,
@@ -1882,6 +1922,7 @@
 				9C4AA49E2033354F0056152C /* ListWalletsRouter.swift in Sources */,
 				9C85E38A205A6BBF00208DF6 /* TextField.swift in Sources */,
 				9C043681202C9C7800671DA2 /* CryptonightMiner.swift in Sources */,
+				9C161EF620728127004B4661 /* ShowMiningStatsPresenter.swift in Sources */,
 				9C78F1AC2056C8B7001ADA32 /* AppInteractor.swift in Sources */,
 				9CE35C58206D2D9F002E7193 /* SetMiningThreadsInteractor.swift in Sources */,
 				9C63A3662064F39800E9C33D /* TransactionResultFormViews.swift in Sources */,
@@ -1945,8 +1986,10 @@
 				9C161EE720727CD4004B4661 /* NoTransactionsCell.swift in Sources */,
 				9C78F1B02056CA8D001ADA32 /* Bundle+Keys.swift in Sources */,
 				9C63A3702066B18900E9C33D /* ListTransactionsCell.swift in Sources */,
+				9C161EF220728127004B4661 /* ShowMiningStatsRouter.swift in Sources */,
 				9C161ED12072250D004B4661 /* StatsButton.swift in Sources */,
 				9CE35C57206D2D9F002E7193 /* SetMiningThreadsModels.swift in Sources */,
+				9C161EF120728127004B4661 /* ShowMiningStatsModels.swift in Sources */,
 				9C8A8F69202ED7B000F55736 /* WalletWorker.swift in Sources */,
 				9C5756C420640DF9002BD079 /* ConfirmTransactionVC.swift in Sources */,
 				9CE35C44206D11B0002E7193 /* SetMiningWalletModels.swift in Sources */,
@@ -1966,6 +2009,7 @@
 				9C85E36E205A5B2900208DF6 /* ActionButton.swift in Sources */,
 				9C85E380205A6A6800208DF6 /* SetWalletPasswordRouter.swift in Sources */,
 				9C63A39820679A5B00E9C33D /* ShowTransactionContentView.swift in Sources */,
+				9C161EF320728127004B4661 /* ShowMiningStatsDataSource.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

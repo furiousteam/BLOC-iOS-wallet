@@ -16,7 +16,7 @@ class MineSettingsCell: TableViewCell {
         stackView.alignment = .center
         stackView.distribution = .fill
         stackView.spacing = 5.0
-        stackView.layoutMargins = UIEdgeInsets(top: 15.0, left: 20.0, bottom: 15.0, right: 20.0)
+        stackView.layoutMargins = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
         stackView.isLayoutMarginsRelativeArrangement = true
         return stackView
     }()

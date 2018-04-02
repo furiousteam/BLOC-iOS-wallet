@@ -13,7 +13,13 @@ protocol PoolStatsModel {
     var hashRate: Int { get }
     var miners: Int { get }
     var lastBlockFound: Date { get }
-    
+    var blockTime: UInt { get }
+    var networkHashRate: UInt { get }
+    var networkLastBlockFound: Date { get }
+    var networkDifficulty: UInt { get }
+    var networkHeight: UInt { get }
+    var lastReward: Double { get }
+
     var shortDescription: String { get }
 }
 
@@ -31,6 +37,12 @@ struct PoolStats: PoolStatsModel, Codable {
     let hashRate: Int
     let miners: Int
     let lastBlockFound: Date
+    let blockTime: UInt
+    let networkHashRate: UInt
+    let networkLastBlockFound: Date
+    let networkDifficulty: UInt
+    let networkHeight: UInt
+    let lastReward: Double
     
     var shortDescription: String {
         let feeString = "\(fee)%"
@@ -54,10 +66,13 @@ struct PoolStats: PoolStatsModel, Codable {
     enum CodingKeys: String, CodingKey {
         case config = "config"
         case pool = "pool"
+        case network = "network"
     }
     
     enum ConfigCodingKeys: String, CodingKey {
         case fee = "fee"
+        case blockTime = "blockTime"
+        case coinDifficultyTarget = "coinDifficultyTarget"
     }
     
     enum PoolCodingKeys: String, CodingKey {
@@ -70,18 +85,32 @@ struct PoolStats: PoolStatsModel, Codable {
         case lastBlockFound = "lastBlockFound"
     }
     
+    enum NetworkCodingKeys: String, CodingKey {
+        case difficulty = "difficulty"
+        case timestamp = "timestamp"
+        case height = "height"
+        case reward = "reward"
+    }
+    
     enum EncodeCodingKeys: String, CodingKey {
         case fee = "fee"
         case hashRate = "hashRate"
         case miners = "miners"
         case lastBlockFound = "lastBlockFound"
+        case blockTime = "blockTime"
     }
     
-    init(fee: Int, hashRate: Int, miners: Int, lastBlockFound: Date) {
+    init(fee: Int, hashRate: Int, miners: Int, lastBlockFound: Date, blockTime: UInt, networkHashRate: UInt, networkLastBlockFound: Date, networkDifficulty: UInt, networkHeight: UInt, lastReward: Double) {
         self.fee = fee
         self.hashRate = hashRate
         self.miners = miners
         self.lastBlockFound = lastBlockFound
+        self.blockTime = blockTime
+        self.networkHashRate = networkHashRate
+        self.networkLastBlockFound = networkLastBlockFound
+        self.networkHeight = networkHeight
+        self.networkDifficulty = networkDifficulty
+        self.lastReward = lastReward
     }
     
     init(from decoder: Decoder) throws {
@@ -90,6 +119,7 @@ struct PoolStats: PoolStatsModel, Codable {
         let configValues = try values.nestedContainer(keyedBy: ConfigCodingKeys.self, forKey: .config)
         
         self.fee = try configValues.decode(Int.self, forKey: .fee)
+        self.blockTime = try configValues.decode(UInt.self, forKey: .blockTime)
         
         let poolValues = try values.nestedContainer(keyedBy: PoolCodingKeys.self, forKey: .pool)
 
@@ -101,6 +131,18 @@ struct PoolStats: PoolStatsModel, Codable {
         let timestampString = try poolStatsValues.decode(String.self, forKey: .lastBlockFound)
         let timestamp = (TimeInterval(timestampString) ?? 0) / 1000
         self.lastBlockFound = Date(timeIntervalSince1970: timestamp)
+        
+        let networkValues = try values.nestedContainer(keyedBy: NetworkCodingKeys.self, forKey: .network)
+        self.networkDifficulty = try networkValues.decodeIfPresent(UInt.self, forKey: .difficulty) ?? 0
+        let coinDifficultyTarget = try configValues.decodeIfPresent(UInt.self, forKey: .coinDifficultyTarget) ?? 1
+        self.networkHashRate = UInt(floor(Double(networkDifficulty) / Double(coinDifficultyTarget)))
+        
+        let networkTimestampString = try networkValues.decode(UInt.self, forKey: .timestamp)
+        let networkTimestamp = TimeInterval(networkTimestampString)
+        self.networkLastBlockFound = Date(timeIntervalSince1970: networkTimestamp)
+        
+        self.networkHeight = try networkValues.decode(UInt.self, forKey: .height)
+        self.lastReward = Double(try networkValues.decode(UInt.self, forKey: .reward)) / Constants.walletCurrencyDivider
     }
     
     func encode(to encoder: Encoder) throws {
@@ -110,6 +152,7 @@ struct PoolStats: PoolStatsModel, Codable {
         try container.encode(hashRate, forKey: .hashRate)
         try container.encode(miners, forKey: .miners)
         try container.encode(lastBlockFound, forKey: .lastBlockFound)
+        try container.encode(blockTime, forKey: .blockTime)
     }
 
 }
