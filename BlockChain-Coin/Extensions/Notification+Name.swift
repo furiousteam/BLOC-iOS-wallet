@@ -14,4 +14,6 @@ extension Notification.Name {
     static let selectSendTab = Notification.Name("selectSendTab")
     static let selectTransactionsTab = Notification.Name("selectTransactionsTab")
     static let selectAboutTab = Notification.Name("selectAboutTab")
+    static let reduceBrightness = Notification.Name("reduceBrightness")
+    static let restoreBrightness = Notification.Name("restoreBrightneww")
 }

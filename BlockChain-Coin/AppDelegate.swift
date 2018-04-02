@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var app: AppController!
+    
+    var defaultBrightness: CGFloat = UIScreen.main.brightness
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         app = AppController()
@@ -25,8 +27,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         clearDataOnFirstLaunch()
         
+        NotificationCenter.default.addObserver(forName: .restoreBrightness, object: nil, queue: nil, using: handleRestoreBrightness)
+        NotificationCenter.default.addObserver(forName: .reduceBrightness, object: nil, queue: nil, using: handleReduceBrightness)
+        
         return true
     }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        UIScreen.main.brightness = defaultBrightness
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        defaultBrightness = UIScreen.main.brightness
+    }
+    
+    // MARK: - Setup
 
     func clearDataOnFirstLaunch() {
         let userDefaults = UserDefaults.standard
@@ -41,6 +56,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             return
         }
+    }
+    
+    // MARK: - Brightness handling
+    
+    @objc func handleRestoreBrightness(notification: Notification) {
+        UIScreen.main.brightness = defaultBrightness
+    }
+    
+    @objc func handleReduceBrightness(notification: Notification) {
+        UIScreen.main.brightness = 0.01
     }
 }
 

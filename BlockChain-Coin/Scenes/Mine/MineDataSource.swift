@@ -11,12 +11,15 @@ import UIKit
 class MineDataSource: NSObject, UITableViewDataSource {
     
     var didChangeSwitch: (Bool) -> Void = { _ in }
+    var didTapStats: () -> Void = { }
 
     var settings: MiningSettingsModel?
     
     var hashRate: Double = 0.0
     var totalHashes: UInt = 0
     var sharesFound: UInt = 0
+    var activeMiners: UInt = 0
+    var pendingBalance: Double = 0
     
     func numberOfSections(in tableView: UITableView) -> Int {
         guard let _ = settings else { return 0 }
@@ -34,7 +37,9 @@ class MineDataSource: NSObject, UITableViewDataSource {
             
             cell.didChangeSwitch = didChangeSwitch
             
-            cell.statsLabel.text = "Hash rate: \(hashRate)\nTotal hashes: \(totalHashes) • Shares found: \(sharesFound)"
+            cell.statsView.configure(hashRate: hashRate, pendingBalance: pendingBalance, activeMiners: activeMiners)
+            
+            cell.statsButton.didTapStats = didTapStats
             
             return cell
         }

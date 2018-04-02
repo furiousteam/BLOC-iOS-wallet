@@ -15,13 +15,8 @@ class MiningBootCell: TableViewCell {
     let miningBooterView = MiningBooterView()
     let miningSwitchView = MiningSwitchView()
     
-    let statsLabel: UILabel = {
-        let label = UILabel()
-        label.font = .regular(size: 12.5)
-        label.textColor = .white
-        label.numberOfLines = 0
-        return label
-    }()
+    let statsView = MiningStatsView()
+    let statsButton = StatsButton()
     
     let separatorView: UIView = {
         let view = UIView()
@@ -37,8 +32,9 @@ class MiningBootCell: TableViewCell {
         
         contentView.addSubview(miningBooterView)
         contentView.addSubview(miningSwitchView)
-        contentView.addSubview(statsLabel)
-        
+        contentView.addSubview(statsView)
+        contentView.addSubview(statsButton)
+
         contentView.addSubview(separatorView)
         
         miningSwitchView.snp.makeConstraints({
@@ -61,8 +57,13 @@ class MiningBootCell: TableViewCell {
             }
         })
         
-        statsLabel.snp.makeConstraints({
-            $0.leading.trailing.equalToSuperview().inset(15.0)
+        statsView.snp.makeConstraints({
+            $0.leading.equalToSuperview().inset(15.0)
+            $0.bottom.equalToSuperview().inset(15.0)
+        })
+        
+        statsButton.snp.makeConstraints({
+            $0.trailing.equalToSuperview().inset(15.0)
             $0.bottom.equalToSuperview().inset(15.0)
         })
         

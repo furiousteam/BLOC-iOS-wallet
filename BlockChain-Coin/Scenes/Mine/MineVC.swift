@@ -28,6 +28,8 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         return tableView
     }()
     
+    var lowPowerVC: MineLowPowerVC?
+    
     let dataSource = MineDataSource()
     
     let router: MineRoutingLogic
@@ -40,7 +42,7 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     
     var stopAnimationOnNextLoop: Bool = false
 
-    let gifManager = SwiftyGifManager(memoryLimit:100)
+    let gifManager = SwiftyGifManager(memoryLimit: 100)
     let outroGif = UIImage(gifName: "outro.gif")
 
     let outroImageView: UIImageView = {
@@ -48,6 +50,9 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         imageView.contentMode = .scaleAspectFill
         return imageView
     }()
+    
+    var timer: Timer?
+    var globalTap: UITapGestureRecognizer?
     
     enum MiningStatus {
         case notMining
@@ -64,7 +69,13 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
                 self.outroImageView.isHidden = true
 
                 UIApplication.shared.isIdleTimerDisabled = true
+                
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+                
+                resetTimer()
             case .notMining:
+                timer?.invalidate()
+
                 if self.videoBackgroundQueue.rate > 0.0 {
                     self.outroImageView.isHidden = false
                     self.outroImageView.startAnimatingGif()
@@ -88,6 +99,8 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
                 dataSource.sharesFound = 0
                 dataSource.totalHashes = 0
                 tableView.reloadData()
+                
+                self.navigationItem.rightBarButtonItem?.isEnabled = false
             }
         }
     }
@@ -139,7 +152,19 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         self.navigationController?.navigationBar.setBackgroundImage(R.image.navBarTransparentBg(), for: .default)
         self.navigationController?.navigationBar.isTranslucent = true
 
+        if let _ = lowPowerVC, miningStatus == .mining {
+            self.videoBackgroundQueue.play()
+        }
+        
         interactor.fetchSettings()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.lowPowerVC = nil
+        
+        resetTimer()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -147,6 +172,8 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         self.navigationController?.navigationBar.setBackgroundImage(R.image.navBarBg(), for: .default)
         self.navigationController?.navigationBar.isTranslucent = false
+        
+        timer?.invalidate()
     }
     
     // MARK: - Configuration
@@ -217,6 +244,10 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
             self.miningStatus = isOn ? .mining : .notMining
         }
         
+        dataSource.didTapStats = {
+            self.showStats()
+        }
+        
         // Navigation Bar
         
         let titleView = TitleView(title: R.string.localizable.home_menu_mining_title(), subtitle: R.string.localizable.home_menu_mining_subtitle())
@@ -224,6 +255,9 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         let menuButton = UIBarButtonItem(image: R.image.menuIcon(), style: .plain, target: self, action: #selector(menuTapped))
         self.navigationItem.setLeftBarButton(menuButton, animated: false)
+        
+        let lowPowerButton = UIBarButtonItem(image: R.image.lowPower(), style: .plain, target: self, action: #selector(lowPowerTapped))
+        self.navigationItem.setRightBarButton(lowPowerButton, animated: false)
     }
     
     func stopMining() {
@@ -280,6 +314,8 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         dataSource.totalHashes = viewModel.totalHashes
         dataSource.sharesFound = viewModel.sharesFound
         
+        lowPowerVC?.configure(hashRate: dataSource.hashRate, totalHashes: dataSource.totalHashes, sharesFound: dataSource.sharesFound, activeMiners: dataSource.activeMiners, pendingBalance: dataSource.pendingBalance)
+        
         tableView.reloadData()
     }
     
@@ -295,6 +331,30 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     
     @objc func menuTapped() {
         router.showHome()
+    }
+    
+    @objc func showStats() {
+        router.showStats()
+    }
+    
+    @objc func lowPowerTapped() {
+        self.lowPowerVC = MineLowPowerVC()
+        
+        if let lowPowerVC = lowPowerVC {
+            self.present(NavigationController(rootViewController: lowPowerVC), animated: true, completion: {
+                self.videoBackgroundQueue.pause()
+            })
+        }
+    }
+    
+    func resetTimer() {
+        timer?.invalidate()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 120.0, repeats: false, block: { timer in
+            guard self.miningStatus == .mining else { return }
+            
+            self.lowPowerTapped()
+        })
     }
     
     // MARK: - UITableView delegate
@@ -323,12 +383,6 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
             guard let wallet = dataSource.settings?.wallet else { return }
             router.showWalletSettings(selectedWallet: wallet)
         }
-    }
-    
-    // MARK: - SetWallet delegate
-    
-    func didSetWallet(wallet: String) {
-        //self.wallet = wallet
     }
     
     @available(iOS 11.0, *)

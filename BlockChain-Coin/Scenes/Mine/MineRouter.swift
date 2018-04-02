@@ -13,6 +13,7 @@ protocol MineRoutingLogic {
     func showWalletSettings(selectedWallet: WalletModel)
     func showThreadsSettings(threads: UInt)
     func showPoolSettings(pool: MiningPoolModel)
+    func showStats()
 }
 
 class MineRouter: MineRoutingLogic {
@@ -36,5 +37,9 @@ class MineRouter: MineRoutingLogic {
     func showPoolSettings(pool: MiningPoolModel) {
         let vc = ListPoolsVC(selectedPool: pool)
         viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showStats() {
+        // TODO: Show stats
     }
 }

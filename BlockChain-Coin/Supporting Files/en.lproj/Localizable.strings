@@ -125,3 +125,8 @@ Miners: %@ - Last block found: %@";
 "mining_pool_port_placeholder" = "Port";
 "mining_pool_add" = "Add a new pool";
 "mining_could_not_connect" = "The specified mining pool is unreachable";
+"mining_low_power_title" = "Low energy consumption activated";
+"mining_stats_hashrate" = "Your hashrate/s:";
+"mining_stats_pending_balance" = "Pending balance:";
+"mining_stats_active_miners" = "Active miners:";
+"mining_stats" = "Stats";
