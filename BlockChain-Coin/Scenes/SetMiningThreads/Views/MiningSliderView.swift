@@ -66,7 +66,9 @@ class MiningSliderView: View {
         })
         
         sliderView.snp.makeConstraints({
-            $0.edges.equalToSuperview()
+            $0.leading.equalToSuperview().offset(-12.5)
+            $0.trailing.equalToSuperview().offset(12.5)
+            $0.top.bottom.equalToSuperview()
         })
     }
     

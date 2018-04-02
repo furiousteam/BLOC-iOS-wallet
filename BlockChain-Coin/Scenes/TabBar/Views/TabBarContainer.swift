@@ -28,6 +28,7 @@ class HomeContainer: UIPageViewController, UIPageViewControllerDataSource, UIPag
         for view in self.view.subviews {
             if let scrollView = view as? UIScrollView {
                 scrollView.bounces = false
+                scrollView.isScrollEnabled = false
             }
         }
     }

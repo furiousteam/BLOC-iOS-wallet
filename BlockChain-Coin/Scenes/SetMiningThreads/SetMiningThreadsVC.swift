@@ -105,7 +105,7 @@ class SetMiningThreadsVC: ViewController, SetMiningThreadsDisplayLogic {
     @objc func sliderValueChanged(slider: UISlider) {
         let numberOfThreads = Float(ProcessInfo.processInfo.activeProcessorCount)
 
-        let value = UInt(ceil(numberOfThreads * slider.value))
+        let value = UInt(max(1, ceil(numberOfThreads * slider.value)))
         
         print("New thread count: \(value)")
         
