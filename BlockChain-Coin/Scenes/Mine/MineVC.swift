@@ -16,6 +16,8 @@ protocol MineDisplayLogic: class {
     func handleUpdate(viewModel: MineViewModel)
     func handlePoolStatus(viewModel: PoolStatusViewModel)
     func handleMinerStats(viewModel: MinerStatsViewModel)
+    func handleOtherMinerStats(viewModel: OtherMinerStatsViewModel)
+    func handleAddressMinerStats(viewModel: AddressMiningStatsViewModel)
 }
 
 class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDelegate {
@@ -51,7 +53,8 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         return imageView
     }()
     
-    var timer: Timer?
+    var statsTimer: Timer?
+    var idleTimer: Timer?
     var globalTap: UITapGestureRecognizer?
     
     enum MiningStatus {
@@ -72,9 +75,9 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
                 
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
                 
-                resetTimer()
+                resetIdleTimer()
             case .notMining:
-                timer?.invalidate()
+                idleTimer?.invalidate()
 
                 if self.videoBackgroundQueue.rate > 0.0 {
                     self.outroImageView.isHidden = false
@@ -164,7 +167,14 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         self.lowPowerVC = nil
         
-        resetTimer()
+        resetIdleTimer()
+        
+        statsTimer?.invalidate()
+        statsTimer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true, block: { timer in
+            if let settings = self.settings {
+                self.interactor.fetchStats(settings: settings)
+            }
+        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -173,7 +183,11 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         self.navigationController?.navigationBar.setBackgroundImage(R.image.navBarBg(), for: .default)
         self.navigationController?.navigationBar.isTranslucent = false
         
-        timer?.invalidate()
+        if lowPowerVC == nil {
+            statsTimer?.invalidate()
+        }
+        
+        idleTimer?.invalidate()
     }
     
     // MARK: - Configuration
@@ -319,10 +333,28 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         tableView.reloadData()
     }
     
+    func handleOtherMinerStats(viewModel: OtherMinerStatsViewModel) {
+        dataSource.activeMiners = UInt(viewModel.stats.miners)
+        
+        lowPowerVC?.configure(hashRate: dataSource.hashRate, totalHashes: dataSource.totalHashes, sharesFound: dataSource.sharesFound, activeMiners: dataSource.activeMiners, pendingBalance: dataSource.pendingBalance)
+        
+        tableView.reloadData()
+    }
+    
+    func handleAddressMinerStats(viewModel: AddressMiningStatsViewModel) {
+        dataSource.pendingBalance = viewModel.stats.pendingBalance
+        
+        lowPowerVC?.configure(hashRate: dataSource.hashRate, totalHashes: dataSource.totalHashes, sharesFound: dataSource.sharesFound, activeMiners: dataSource.activeMiners, pendingBalance: dataSource.pendingBalance)
+        
+        tableView.reloadData()
+    }
+    
     func handleUpdate(viewModel: MineViewModel) {
         dataSource.settings = viewModel.settings
         
         (interactor as? MineInteractor)?.numberOfThreads = Int(viewModel.settings.threads)
+        
+        interactor.fetchStats(settings: viewModel.settings)
         
         tableView.reloadData()
     }
@@ -347,10 +379,10 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         }
     }
     
-    func resetTimer() {
-        timer?.invalidate()
+    func resetIdleTimer() {
+        idleTimer?.invalidate()
         
-        timer = Timer.scheduledTimer(withTimeInterval: 120.0, repeats: false, block: { timer in
+        idleTimer = Timer.scheduledTimer(withTimeInterval: 120.0, repeats: false, block: { timer in
             guard self.miningStatus == .mining else { return }
             
             self.lowPowerTapped()

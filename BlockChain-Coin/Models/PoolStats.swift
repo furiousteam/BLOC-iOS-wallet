@@ -63,6 +63,10 @@ struct PoolStats: PoolStatsModel, Codable {
     enum PoolCodingKeys: String, CodingKey {
         case hashRate = "hashrate"
         case miners = "miners"
+        case stats = "stats"
+    }
+    
+    enum PoolStatsCodingKeys: String, CodingKey {
         case lastBlockFound = "lastBlockFound"
     }
     
@@ -92,8 +96,10 @@ struct PoolStats: PoolStatsModel, Codable {
         self.hashRate = try poolValues.decode(Int.self, forKey: .hashRate)
         self.miners = try poolValues.decode(Int.self, forKey: .miners)
         
-        let timestampString = try poolValues.decode(String.self, forKey: .lastBlockFound)
-        let timestamp = TimeInterval(timestampString) ?? 0
+        let poolStatsValues = try poolValues.nestedContainer(keyedBy: PoolStatsCodingKeys.self, forKey: .stats)
+        
+        let timestampString = try poolStatsValues.decode(String.self, forKey: .lastBlockFound)
+        let timestamp = (TimeInterval(timestampString) ?? 0) / 1000
         self.lastBlockFound = Date(timeIntervalSince1970: timestamp)
     }
     

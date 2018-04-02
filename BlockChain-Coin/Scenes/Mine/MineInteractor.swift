@@ -14,6 +14,7 @@ protocol MineBusinessLogic {
     func connect(host: String, port: Int, wallet: String)
     func disconnect()
     func fetchSettings()
+    func fetchStats(settings: MiningSettingsModel)
 }
 
 class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
@@ -22,7 +23,8 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
     let walletWorker = WalletWorker(store: WalletDiskStore())
     let poolWorker = PoolWorker(store: PoolSocketClient())
     let minerWorker = MinerWorker(store: CryptonightMiner())
-    
+    let poolAPIWorker = PoolWorker(store: PoolAPI())
+
     var numberOfThreads: Int = 1
 
     func connect(host: String, port: Int, wallet: String) {
@@ -79,7 +81,7 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
                     case .success(let wallets):
                         let sortedWallets = wallets.sorted(by: { a, b in return a.createdAt < b.createdAt })
 
-                        guard let wallet = sortedWallets.first as? Wallet, let pool = CryptonightMiner.defaultMiningPools.first as? MiningPool else {
+                        guard let wallet = sortedWallets.first as? Wallet, let pool = CryptonightMiner.defaultMiningPools.first else {
                             self?.presenter?.handleShowError(error: .couldNotFetchSettings)
                             return
                         }
@@ -94,6 +96,30 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
                         self?.presenter?.handleShowError(error: .couldNotFetchSettings)
                     }
                 }
+            }
+        }
+    }
+    
+    func fetchStats(settings: MiningSettingsModel) {
+        poolAPIWorker.stats(pool: settings.pool) { [weak self] result in
+            switch result {
+            case .success(let pool):
+                if let stats = pool.stats {
+                    self?.presenter?.handleOtherPoolStats(stats: stats)
+                }
+            case .failure(let error):
+                log.error(error)
+                break
+            }
+        }
+        
+        poolAPIWorker.addressStats(pool: settings.pool, address: settings.wallet.address) { [weak self] result in
+            switch result {
+            case .success(let stats):
+                self?.presenter?.handleAddressMiningStats(stats: stats)
+            case .failure(let error):
+                log.error(error)
+                break
             }
         }
     }

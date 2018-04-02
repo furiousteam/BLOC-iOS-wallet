@@ -44,6 +44,14 @@ struct MinerStatsViewModel {
     let sharesFound: UInt
 }
 
+struct OtherMinerStatsViewModel {
+    let stats: PoolStatsModel
+}
+
+struct AddressMiningStatsViewModel {
+    let stats: MiningAddressStatsModel
+}
+
 struct MineViewModel {
     let settings: MiningSettingsModel
 }

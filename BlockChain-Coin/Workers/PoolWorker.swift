@@ -38,6 +38,7 @@ typealias PoolStoreSubmitJobCompletionHandler = (PoolStoreResult<JobModel>) -> V
 typealias PoolStoreListCompletionHandler = (PoolStoreResult<[MiningPoolModel]>) -> Void
 typealias PoolStoreStatsCompletionHandler = (PoolStoreResult<MiningPoolModel>) -> Void
 typealias PoolStoreStatsMultipleCompletionHandler = (PoolStoreResult<[MiningPoolModel]>) -> Void
+typealias PoolStoreAddressStatsCompletionHandler = (PoolStoreResult<MiningAddressStats>) -> Void
 
 protocol PoolStore {
     func connect(host: String, port: Int, completion: @escaping PoolStoreConnectCompletionHandler)
@@ -48,6 +49,7 @@ protocol PoolStore {
     func addPool(pool: MiningPool)
     func stats(pool: MiningPoolModel, completion: @escaping PoolStoreStatsCompletionHandler)
     func stats(pools: [MiningPoolModel], completion: @escaping PoolStoreStatsMultipleCompletionHandler)
+    func addressStats(pool: MiningPoolModel, address: String, completion: @escaping PoolStoreAddressStatsCompletionHandler)
 }
 
 class PoolWorker {
@@ -111,6 +113,14 @@ class PoolWorker {
     
     func stats(pools: [MiningPoolModel], completion: @escaping PoolStoreStatsMultipleCompletionHandler) {
         store.stats(pools: pools) { result in
+            DispatchQueue.main.async {
+                completion(result)
+            }
+        }
+    }
+    
+    func addressStats(pool: MiningPoolModel, address: String, completion: @escaping PoolStoreAddressStatsCompletionHandler) {
+        store.addressStats(pool: pool, address: address) { result in
             DispatchQueue.main.async {
                 completion(result)
             }

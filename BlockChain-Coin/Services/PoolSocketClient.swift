@@ -116,4 +116,8 @@ class PoolSocketClient: PoolStore {
     func addPool(pool: MiningPool) {
         return
     }
+    
+    func addressStats(pool: MiningPoolModel, address: String, completion: @escaping PoolStoreAddressStatsCompletionHandler) {
+        completion(.failure(error: .unknown))
+    }
 }

@@ -14,10 +14,13 @@ import SwiftKeychainWrapper
 
 enum PoolAPITarget: TargetType {
     case stats(pool: MiningPoolModel)
+    case walletStats(pool: MiningPoolModel, wallet: String)
     
     var baseURL: URL {
         switch self {
         case .stats(let pool):
+            return URL(string: "\(pool.host):8111/") ?? URL(string: "http://blockchain-coin.co")!
+        case .walletStats(let pool, _):
             return URL(string: "\(pool.host):8111/") ?? URL(string: "http://blockchain-coin.co")!
         }
     }
@@ -26,6 +29,8 @@ enum PoolAPITarget: TargetType {
         switch self {
         case .stats:
             return "live_stats"
+        case .walletStats:
+            return "stats_address"
         }
     }
     
@@ -55,7 +60,12 @@ enum PoolAPITarget: TargetType {
     }
     
     var parameters: [String : Any]? {
-        return nil
+        switch self {
+        case .stats:
+            return nil
+        case .walletStats(_, let wallet):
+            return [ "address": wallet ]
+        }
     }
     
     var multipartBody: [Moya.MultipartFormData]? {
@@ -77,6 +87,17 @@ class PoolAPI: PoolStore {
         provider.rx.request(endpoint).handleErrorIfNeeded().map(PoolStats.self).map({ stats -> MiningPoolModel in
             return MiningPool(host: pool.host, port: pool.port, stats: stats)
         }).subscribe(onSuccess: { response in
+            completion(.success(result: response))
+        }, onError: { error in
+            // TODO: Better error handling
+            completion(.failure(error: .unknown))
+        }).disposed(by: disposeBag)
+    }
+    
+    func addressStats(pool: MiningPoolModel, address: String, completion: @escaping PoolStoreAddressStatsCompletionHandler) {
+        let endpoint = PoolAPITarget.walletStats(pool: pool, wallet: address)
+        
+        provider.rx.request(endpoint).handleErrorIfNeeded().map(MiningAddressStats.self).subscribe(onSuccess: { response in
             completion(.success(result: response))
         }, onError: { error in
             // TODO: Better error handling

@@ -14,6 +14,8 @@ protocol MinePresentationLogic {
     func handlePoolConnectionError(address: String?, error: PoolStoreError)
     func handlePoolDisconnected()
     func handlePoolStats(stats: StatsModel)
+    func handleOtherPoolStats(stats: PoolStatsModel)
+    func handleAddressMiningStats(stats: MiningAddressStatsModel)
     func handleShowError(error: MinerStoreError)
     func handleShowSettings(settings: MiningSettingsModel)
 }
@@ -49,6 +51,18 @@ class MinePresenter: MinePresentationLogic {
         let viewModel = MinerStatsViewModel(hashRate: stats.hashRate, totalHashes: stats.allTimeHashes, sharesFound: stats.submittedHashes)
         
         viewController?.handleMinerStats(viewModel: viewModel)
+    }
+    
+    func handleOtherPoolStats(stats: PoolStatsModel) {
+        let viewModel = OtherMinerStatsViewModel(stats: stats)
+        
+        viewController?.handleOtherMinerStats(viewModel: viewModel)
+    }
+    
+    func handleAddressMiningStats(stats: MiningAddressStatsModel) {
+        let viewModel = AddressMiningStatsViewModel(stats: stats)
+        
+        viewController?.handleAddressMinerStats(viewModel: viewModel)
     }
     
     func handleShowError(error: MinerStoreError) {
