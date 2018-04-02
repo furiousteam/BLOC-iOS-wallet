@@ -130,3 +130,4 @@ Miners: %@ - Last block found: %@";
 "mining_stats_pending_balance" = "Pending balance:";
 "mining_stats_active_miners" = "Active miners:";
 "mining_stats" = "Stats";
+"transactions_empty" = "You don't have any transactions at the moment";

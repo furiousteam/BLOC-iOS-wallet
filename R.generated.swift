@@ -586,7 +586,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 123 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 124 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -1020,6 +1020,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_no_wallet = Rswift.StringResource(key: "send_no_wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: You don't have any transactions at the moment
+      /// 
+      /// Locales: en
+      static let transactions_empty = Rswift.StringResource(key: "transactions_empty", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: You have no wallet for now
       /// 
       /// Locales: en
@@ -1835,6 +1839,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func send_no_wallet(_: Void = ()) -> String {
         return NSLocalizedString("send_no_wallet", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: You don't have any transactions at the moment
+      /// 
+      /// Locales: en
+      static func transactions_empty(_: Void = ()) -> String {
+        return NSLocalizedString("transactions_empty", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: You have no wallet for now

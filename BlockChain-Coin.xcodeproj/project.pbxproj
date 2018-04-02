@@ -51,6 +51,7 @@
 		9C161EDC207256F8004B4661 /* MineLowPowerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161ED6207256F7004B4661 /* MineLowPowerVC.swift */; };
 		9C161EDD207256F8004B4661 /* MineLowPowerRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161ED7207256F7004B4661 /* MineLowPowerRouter.swift */; };
 		9C161EE520726C87004B4661 /* MiningAddressStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161EE420726C87004B4661 /* MiningAddressStats.swift */; };
+		9C161EE720727CD4004B4661 /* NoTransactionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161EE620727CD4004B4661 /* NoTransactionsCell.swift */; };
 		9C231EFA203B61A400F5EA3E /* TransactionDiskStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C231EF9203B61A400F5EA3E /* TransactionDiskStoreTests.swift */; };
 		9C4AA48220332C2B0056152C /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA46920332C2B0056152C /* PublicKey.swift */; };
 		9C4AA48320332C2B0056152C /* KeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA46A20332C2B0056152C /* KeyPair.swift */; };
@@ -350,6 +351,7 @@
 		9C161ED6207256F7004B4661 /* MineLowPowerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineLowPowerVC.swift; sourceTree = "<group>"; };
 		9C161ED7207256F7004B4661 /* MineLowPowerRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineLowPowerRouter.swift; sourceTree = "<group>"; };
 		9C161EE420726C87004B4661 /* MiningAddressStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningAddressStats.swift; sourceTree = "<group>"; };
+		9C161EE620727CD4004B4661 /* NoTransactionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoTransactionsCell.swift; sourceTree = "<group>"; };
 		9C231EF9203B61A400F5EA3E /* TransactionDiskStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionDiskStoreTests.swift; sourceTree = "<group>"; };
 		9C4AA46920332C2B0056152C /* PublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		9C4AA46A20332C2B0056152C /* KeyPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPair.swift; sourceTree = "<group>"; };
@@ -1056,6 +1058,7 @@
 			isa = PBXGroup;
 			children = (
 				9C63A36F2066B18900E9C33D /* ListTransactionsCell.swift */,
+				9C161EE620727CD4004B4661 /* NoTransactionsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1939,6 +1942,7 @@
 				9C9A570120372B1A00B010D5 /* TransactionExtra.swift in Sources */,
 				9CBB2EF6205679FE00718EBA /* HomeRouter.swift in Sources */,
 				9C043677202C968D00671DA2 /* groestl.c in Sources */,
+				9C161EE720727CD4004B4661 /* NoTransactionsCell.swift in Sources */,
 				9C78F1B02056CA8D001ADA32 /* Bundle+Keys.swift in Sources */,
 				9C63A3702066B18900E9C33D /* ListTransactionsCell.swift in Sources */,
 				9C161ED12072250D004B4661 /* StatsButton.swift in Sources */,

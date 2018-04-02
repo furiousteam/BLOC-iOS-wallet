@@ -98,6 +98,7 @@ class ListTransactionsVC: ViewController, ListTransactionsDisplayLogic, UITableV
         ListTransactionsCell.registerWith(tableView)
         LoadingTableViewCell.registerWith(tableView)
         ErrorTableViewCell.registerWith(tableView)
+        NoTransactionsCell.registerWith(tableView)
         
         tableView.dataSource = dataSource
         tableView.delegate = self

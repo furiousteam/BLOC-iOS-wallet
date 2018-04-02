@@ -16,6 +16,10 @@ class ListTransactionsDataSource: ArrayDataSource {
             return super.numberOfSections(in: tableView)
         }
         
+        if transactions.count == 0 {
+            return 1
+        }
+        
         return transactions.count
     }
     
@@ -30,6 +34,10 @@ class ListTransactionsDataSource: ArrayDataSource {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if isLoading || errorText != nil {
             return super.tableView(tableView, cellForRowAt: indexPath)
+        }
+        
+        if transactions.count == 0 {
+            return tableView.dequeueReusableCell(withIdentifier: NoTransactionsCell.reuseIdentifier(), for: indexPath) as! NoTransactionsCell
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ListTransactionsCell.reuseIdentifier(), for: indexPath) as! ListTransactionsCell
