@@ -384,7 +384,7 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     func resetIdleTimer() {
         idleTimer?.invalidate()
         
-        idleTimer = Timer.scheduledTimer(withTimeInterval: 120.0, repeats: false, block: { timer in
+        idleTimer = Timer.scheduledTimer(withTimeInterval: 300.0, repeats: false, block: { timer in
             guard self.miningStatus == .mining else { return }
             
             self.lowPowerTapped()

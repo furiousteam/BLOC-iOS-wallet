@@ -154,7 +154,7 @@ class MineLowPowerVC: ViewController, UIGestureRecognizerDelegate {
         timer?.invalidate()
         NotificationCenter.default.post(name: .restoreBrightness, object: nil)
 
-        timer = Timer.scheduledTimer(withTimeInterval: 30.0, repeats: false, block: { timer in
+        timer = Timer.scheduledTimer(withTimeInterval: 120.0, repeats: false, block: { timer in
             NotificationCenter.default.post(name: .reduceBrightness, object: nil)
         })
     }
