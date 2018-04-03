@@ -39,6 +39,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         defaultBrightness = UIScreen.main.brightness
+        
+        NotificationCenter.default.post(name: .playMiningVideo, object: nil)
     }
     
     // MARK: - Setup

@@ -234,6 +234,7 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: introItem)
         NotificationCenter.default.addObserver(self, selector: #selector(playerDidFinishPlaying(notification:)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: loopItem)
+        NotificationCenter.default.addObserver(forName: .loginMining, object: nil, queue: nil, using: handleLoginMining)
 
         // TableView
         
@@ -262,6 +263,8 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
             self.showStats()
         }
         
+        NotificationCenter.default.addObserver(forName: .playMiningVideo, object: nil, queue: nil, using: playMiningVideoIfNeeded)
+        
         // Navigation Bar
         
         let titleView = TitleView(title: R.string.localizable.home_menu_mining_title(), subtitle: R.string.localizable.home_menu_mining_subtitle())
@@ -274,11 +277,23 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         self.navigationItem.setRightBarButton(lowPowerButton, animated: false)
     }
     
+    @objc func handleLoginMining(notification: Notification) {
+        if let settings = dataSource.settings, miningStatus == .mining {
+            self.interactor.login(wallet: settings.wallet.address)
+        }
+    }
+    
     func stopMining() {
         if miningStatus == .mining {
             self.interactor.disconnect()
             
             NotificationCenter.default.post(name: Notification.Name("miningSwitchChangeState"), object: nil)
+        }
+    }
+    
+    @objc func playMiningVideoIfNeeded(notification: Notification) {
+        if miningStatus == .mining {
+            videoBackgroundQueue.play()
         }
     }
     

@@ -80,7 +80,7 @@ class ConfigureWalletVC: UIViewController {
         
         if let seed = localWalletWorker.generateSeed() {
             let keypair = localWalletWorker.generateKeyPair(seed: seed)
-            print(keypair)
+            log.info(keypair)
         }
         
         /*inline void generate_keys(PublicKey &pub, SecretKey &sec) {
@@ -89,23 +89,23 @@ class ConfigureWalletVC: UIViewController {
     }
 
     func walletStoreDidConnect() {
-        print("did connect")
+        log.info("did connect")
     }
     
     func walletStoreDidFailToConnect(error: WalletStoreError) {
-        print("did fail to connect")
+        log.info("did fail to connect")
     }
     
     func walletStoreDidDisconnect() {
-        print("did disconnect")
+        log.info("did disconnect")
     }
     
     func walletStoreDidFailToDisconnectDisconnect(error: WalletStoreError) {
-        print("did fail to disconnect")
+        log.info("did fail to disconnect")
     }
     
     func walletStore(didReceiveUnknownResponse: [String : Any]) {
-        print("did receive unknown response")
+        log.info("did receive unknown response")
     }
 
 }

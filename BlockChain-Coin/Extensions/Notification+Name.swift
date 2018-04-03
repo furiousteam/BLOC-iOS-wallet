@@ -16,4 +16,6 @@ extension Notification.Name {
     static let selectAboutTab = Notification.Name("selectAboutTab")
     static let reduceBrightness = Notification.Name("reduceBrightness")
     static let restoreBrightness = Notification.Name("restoreBrightneww")
+    static let playMiningVideo = Notification.Name("playMiningVideo")
+    static let loginMining = Notification.Name("loginMining")
 }

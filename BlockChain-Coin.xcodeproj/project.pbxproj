@@ -46,6 +46,7 @@
 		9C0722682035694A00B012B6 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0722672035694A00B012B6 /* Transaction.swift */; };
 		9C07226A2035695100B012B6 /* Transfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0722692035695100B012B6 /* Transfer.swift */; };
 		9C07226C20356D7300B012B6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C07226B20356D7300B012B6 /* Constants.swift */; };
+		9C0E22092073C33D00D30530 /* PoolSocketErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E22082073C33D00D30530 /* PoolSocketErrorResponse.swift */; };
 		9C161ECF20721F48004B4661 /* MiningStatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161ECE20721F48004B4661 /* MiningStatsView.swift */; };
 		9C161ED12072250D004B4661 /* StatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161ED02072250D004B4661 /* StatsButton.swift */; };
 		9C161EDC207256F8004B4661 /* MineLowPowerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C161ED6207256F7004B4661 /* MineLowPowerVC.swift */; };
@@ -353,6 +354,7 @@
 		9C0722672035694A00B012B6 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		9C0722692035695100B012B6 /* Transfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transfer.swift; sourceTree = "<group>"; };
 		9C07226B20356D7300B012B6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		9C0E22082073C33D00D30530 /* PoolSocketErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSocketErrorResponse.swift; sourceTree = "<group>"; };
 		9C161ECE20721F48004B4661 /* MiningStatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningStatsView.swift; sourceTree = "<group>"; };
 		9C161ED02072250D004B4661 /* StatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsButton.swift; sourceTree = "<group>"; };
 		9C161ED6207256F7004B4661 /* MineLowPowerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineLowPowerVC.swift; sourceTree = "<group>"; };
@@ -1271,6 +1273,7 @@
 				9C8A8F7C202EE13D00F55736 /* PoolSocketJobResponse.swift */,
 				9C8A8F7D202EE13D00F55736 /* PoolSocketJobNotificationResponse.swift */,
 				9C6622FA203626A60083CE2E /* PoolSocketOKResponse.swift */,
+				9C0E22082073C33D00D30530 /* PoolSocketErrorResponse.swift */,
 			);
 			path = Pool;
 			sourceTree = "<group>";
@@ -1771,6 +1774,7 @@
 				9C63A38C20678FE200E9C33D /* ShowTransactionRouter.swift in Sources */,
 				9CE35C77206E1F3D002E7193 /* ListPoolsPresenter.swift in Sources */,
 				9C04369C202CDB9400671DA2 /* MineDataSource.swift in Sources */,
+				9C0E22092073C33D00D30530 /* PoolSocketErrorResponse.swift in Sources */,
 				9C4AA49A2033353C0056152C /* ListWalletsModels.swift in Sources */,
 				9CBCC9C7206241C40006FBA7 /* KeyPair+Codable.swift in Sources */,
 				9CE35C42206D11B0002E7193 /* SetMiningWalletDataSource.swift in Sources */,

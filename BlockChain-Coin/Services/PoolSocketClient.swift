@@ -47,7 +47,7 @@ class PoolSocketClient: PoolStore {
             
             try socket.connect(toHost: poolHost, onPort: UInt16(port), withTimeout: TimeInterval(30.0))
         } catch let error {
-            print(error)
+            log.error(error)
             completion(.failure(error: .couldNotConnect))
         }
     }

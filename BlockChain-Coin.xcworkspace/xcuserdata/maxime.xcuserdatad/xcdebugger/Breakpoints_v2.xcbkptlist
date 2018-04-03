@@ -19,5 +19,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain-Coin/Services/PoolSocketClientDelegate.swift"
+            timestampString = "544462956.045886"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "socket(_:didRead:withTag:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BlockChain_Coin.PoolSocketClientDelegate.socket(__ObjC.GCDAsyncSocket, didRead: Foundation.Data, withTag: Swift.Int) -&gt; ()"
+                  moduleName = "BlockChain-Coin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maxime/Documents/Projects/BlockChain-Coin/BlockChain-Coin/Services/PoolSocketClientDelegate.swift"
+                  timestampString = "544462956.7125371"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "3001">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BlockChain_Coin.PoolSocketClientDelegate.socket(__ObjC.GCDAsyncSocket, didRead: Foundation.Data, withTag: Swift.Int) -&gt; ()"
+                  moduleName = "BlockChain-Coin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maxime/Documents/Projects/BlockChain-Coin/BlockChain-Coin/Services/PoolSocketClientDelegate.swift"
+                  timestampString = "544462956.714456"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "62"
+                  endingLineNumber = "62"
+                  offsetFromSymbolStart = "3063">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

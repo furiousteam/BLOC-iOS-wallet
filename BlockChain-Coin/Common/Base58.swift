@@ -64,12 +64,12 @@ public extension Array where Element == UInt8 {
         
         func decodeBlock(data: [UInt8], buffer: [UInt8], index: Int) -> [UInt8] {
             if data.count < 1 || data.count > fullEncodedBlockSize {
-                print("Invalid block length: \(data.count)")
+                log.error("Invalid block length: \(data.count)")
                 return buffer
             }
             
             guard let resSize = encodedBlockSizes.index(of: data.count), resSize > 0 else {
-                print("Invalid block size")
+                log.error("Invalid block size")
                 return buffer
             }
             
@@ -78,14 +78,14 @@ public extension Array where Element == UInt8 {
             
             for i in (0...data.count - 1).reversed() {
                 guard let digit = alphabet.index(of: data[i]), digit >= 0 else {
-                    print("Invalid symbol")
+                    log.error("Invalid symbol")
                     break
                 }
                 
                 let product = order.multiplied(by: BigUInt(digit)) + resNum
                 
                 if (product > UInt64.max) {
-                    print("Overflow")
+                    log.error("Overflow")
                     break
                 }
                 
@@ -94,7 +94,7 @@ public extension Array where Element == UInt8 {
             }
             
             if (resSize < fullBlockSize && BigUInt(2).power(8 * resSize) <= resNum) {
-                print("Overflow 2")
+                log.error("Overflow 2")
                 return buffer
             }
             

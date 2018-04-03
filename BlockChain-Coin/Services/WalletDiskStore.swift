@@ -16,7 +16,7 @@ class WalletDiskStore: WalletStore {
         do {
             return try Seed()
         } catch {
-            print(error)
+            log.error(error)
             return nil
         }
     }

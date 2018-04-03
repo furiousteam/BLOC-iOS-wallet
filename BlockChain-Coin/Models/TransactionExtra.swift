@@ -21,7 +21,7 @@ class TransactionExtra {
             do {
                 return try add(extra: field.data, to: bytes, tag: field.tag)
             } catch {
-                print("Invalid extra field, ignoring")
+                log.info("Invalid extra field, ignoring")
                 return bytes
             }
         }

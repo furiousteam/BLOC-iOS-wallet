@@ -15,6 +15,7 @@ protocol MineBusinessLogic {
     func disconnect()
     func fetchSettings()
     func fetchStats(settings: MiningSettingsModel)
+    func login(wallet: String)
 }
 
 class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
@@ -54,8 +55,8 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
         }
     }
     
-    fileprivate func login(wallet: String) {
-        poolWorker.login(username: wallet, password: "x") { [weak self] result in
+    func login(wallet: String) {
+        poolWorker.login(username: wallet, password: UUID().uuidString) { [weak self] result in
             switch result {
             case .success(let job):
                 self?.mine(job: job, threads: self?.numberOfThreads ?? 1)

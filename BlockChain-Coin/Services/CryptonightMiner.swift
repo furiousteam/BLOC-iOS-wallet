@@ -23,7 +23,7 @@ class CryptonightMiner: MinerStore {
                 job?.id = oldId
             }
             
-            print("new job")
+            log.info("new job")
         }
         
     }

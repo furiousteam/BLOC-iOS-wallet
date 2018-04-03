@@ -57,11 +57,19 @@ class PoolSocketClientDelegate: NSObject, GCDAsyncSocketDelegate {
                 submitJobCallback?(.success(result: jobResponse.job))
                 submitJobCallback = nil
             } else if let _ = try? JSONDecoder().decode(PoolSocketOKResponse.self, from: data) {
-                print("Job submitted")
+                log.info("Job submitted")
+            } else if let error = try? JSONDecoder().decode(PoolSocketErrorResponse.self, from: data) {
+                log.error("Error: \(error.code) - \(error.message)")
+                
+                if error.code == -1 && error.message == "Invalid job id" {
+                    NotificationCenter.default.post(name: .loginMining, object: nil)
+                } else if error.code == -1 && error.message == "Unauthenticated" {
+                    NotificationCenter.default.post(name: .loginMining, object: nil)
+                }
             } else {
                 let json = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [String : Any]
-                print("Could not read result data")
-                print(String(describing: json))
+                log.error("Could not read result data")
+                log.error(String(describing: json))
                 
                 if let loginCallback = loginCallback {
                     loginCallback(.failure(error: .cantReadData))

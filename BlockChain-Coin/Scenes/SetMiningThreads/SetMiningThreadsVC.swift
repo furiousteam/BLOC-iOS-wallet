@@ -107,7 +107,7 @@ class SetMiningThreadsVC: ViewController, SetMiningThreadsDisplayLogic {
 
         let value = UInt(max(1, ceil(numberOfThreads * slider.value)))
         
-        print("New thread count: \(value)")
+        log.info("New thread count: \(value)")
         
         interactor.saveSelectedThreads(threads: value)
     }

@@ -24,9 +24,9 @@ class TransactionDiskStoreTests: XCTestCase {
         service.send(destinations: destinations, mixin: 0, paymentId: nil, fee: UInt64(Constants.minimumFee), keyPair: keyPair!) { result in
             switch result {
             case .success(let result):
-                print(result)
+                log.info(result)
             case .failure(let error):
-                print(error)
+                log.error(error)
             }
         }
         

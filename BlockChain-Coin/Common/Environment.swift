@@ -40,7 +40,7 @@ enum Environment: String {
         case .development, .mock:
             return .verbose
         case .production:
-            return .error
+            return .verbose
         }
     }
     
