@@ -10,6 +10,7 @@ import UIKit
 
 protocol WalletSettingsRoutingLogic {
     func goBack()
+    func showExportWallet(wallet: WalletModel)
 }
 
 class WalletSettingsRouter: Router, WalletSettingsRoutingLogic {
@@ -17,6 +18,11 @@ class WalletSettingsRouter: Router, WalletSettingsRoutingLogic {
     
     func goBack() {
         viewController?.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func showExportWallet(wallet: WalletModel) {
+        let vc = ExportWalletKeysVC(wallet: wallet, mode: .export)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

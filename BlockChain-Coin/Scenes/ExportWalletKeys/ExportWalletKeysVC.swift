@@ -100,6 +100,11 @@ class ExportWalletKeysVC: ViewController, ExportWalletKeysDisplayLogic {
         formFields.printButton.addTarget(self, action: #selector(printTapped), for: .touchUpInside)
         formFields.goToWalletButton.addTarget(self, action: #selector(goToWalletTapped), for: .touchUpInside)
 
+        if mode == .export {
+            formFields.titleLabelFirstLine.isHidden = true
+            formFields.goToWalletButton.isHidden = true
+        }
+        
         // Navigation Bar
         
         let titleView = TitleView(title: R.string.localizable.home_menu_wallet_title(), subtitle: wallet.name)

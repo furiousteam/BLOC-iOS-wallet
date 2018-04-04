@@ -12,7 +12,7 @@ protocol WalletSettingsDisplayLogic: class {
     func handleUpdate(viewModel: WalletSettingsViewModel)
 }
 
-class WalletSettingsVC: ViewController, WalletSettingsDisplayLogic, UITableViewDelegate {
+class WalletSettingsVC: ViewController, WalletSettingsDisplayLogic, UITableViewDelegate, CheckPasswordVCDelegate {
     
     let tableView: UITableView = {
         let tableView = UITableView()
@@ -108,7 +108,27 @@ class WalletSettingsVC: ViewController, WalletSettingsDisplayLogic, UITableViewD
     // MARK: - UITableView delegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Handle row selection
+        if indexPath.row == 0 {
+            guard let titleView = self.navigationItem.titleView as? TitleView else { return }
+            
+            let vc = CheckPasswordVC(wallet: wallet, titleView: titleView, delegate: self)
+            present(NavigationController(rootViewController: vc), animated: true, completion: nil)
+
+        } else if indexPath.row == 1 {
+            
+        }
+    }
+    
+    // MARK: - Check password delegate
+    
+    func didEnterPassword(checkPasswordVC: CheckPasswordVC, string: String) {
+        guard let wp = wallet.password, string == wp else {
+            return
+        }
+        
+        checkPasswordVC.dismiss(animated: true) {
+            self.router.showExportWallet(wallet: self.wallet)
+        }
     }
     
     // MARK: UI Update
