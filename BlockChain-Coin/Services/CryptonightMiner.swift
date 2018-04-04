@@ -15,7 +15,7 @@ class CryptonightMiner: MinerStore {
     var threads: [Thread] = []
     
     var delegate: MinerStoreDelegate?
-    
+        
     let jobSemaphore = DispatchSemaphore(value: 1)
     var job: JobModel? {
         didSet(oldVal) {
@@ -153,5 +153,5 @@ class CryptonightMiner: MinerStore {
             log.error("Could not save mining settings")
         }
     }
-
+    
 }

@@ -22,18 +22,6 @@ class NoWalletTitleCell: TableViewCell {
         return stackView
     }()
     
-    let topSpacerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
-    }()
-    
-    let bottomSpacerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
-    }()
-    
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .bold(size: 15.5)
@@ -70,15 +58,11 @@ class NoWalletTitleCell: TableViewCell {
             $0.bottom.equalTo(stackView).inset(stackView.layoutMargins.bottom)
         })
         
-        topSpacerView.snp.makeConstraints({
-            $0.height.equalTo(20.0)
+        titleLabel.snp.makeConstraints({
+            $0.height.equalTo(25.0)
         })
         
-        bottomSpacerView.snp.makeConstraints({
-            $0.height.equalTo(15.0)
-        })
-        
-        [ topSpacerView, titleLabel, bottomSpacerView ].forEach(stackView.addArrangedSubview)
+        [ SpacerView(height: 15.0), titleLabel, SpacerView(height: 15.0) ].forEach(stackView.addArrangedSubview)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

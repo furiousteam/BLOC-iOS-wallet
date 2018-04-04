@@ -14,6 +14,9 @@ protocol MineRoutingLogic {
     func showThreadsSettings(threads: UInt)
     func showPoolSettings(pool: MiningPoolModel)
     func showStats(settings: MiningSettingsModel)
+    func showAddWallet()
+    func showImportWalletWithKey()
+    func showImportWalletWithQRCode()
 }
 
 class MineRouter: MineRoutingLogic {
@@ -43,4 +46,22 @@ class MineRouter: MineRoutingLogic {
         let vc = ShowMiningStatsVC(settings: settings)
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
+    
+    func showAddWallet() {
+        let vc = SetWalletPasswordVC(mode: .create)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showImportWalletWithKey() {
+        let vc = SetWalletPasswordVC(mode: .restorePrivateKey)
+        
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showImportWalletWithQRCode() {
+        let vc = SetWalletPasswordVC(mode: .restoreQRCode)
+        
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+
 }

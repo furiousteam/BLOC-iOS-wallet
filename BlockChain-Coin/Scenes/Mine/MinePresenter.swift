@@ -66,7 +66,9 @@ class MinePresenter: MinePresentationLogic {
     }
     
     func handleShowError(error: MinerStoreError) {
-        // TODO: Handle error
+        let viewModel = MineViewModel(settings: nil)
+        
+        viewController?.handleUpdate(viewModel: viewModel)
     }
     
     func handleShowSettings(settings: MiningSettingsModel) {

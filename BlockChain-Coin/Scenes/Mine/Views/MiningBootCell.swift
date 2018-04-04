@@ -42,7 +42,7 @@ class MiningBootCell: TableViewCell {
             if #available(iOS 11.0, *) {
                 $0.centerY.equalToSuperview().offset(-60.0)
             } else {
-                $0.centerY.equalToSuperview().offset(-20.0)
+                $0.centerY.equalToSuperview().offset(-10.0)
             }
             $0.width.equalTo(110.0)
             $0.height.equalTo(51.0)
@@ -53,7 +53,7 @@ class MiningBootCell: TableViewCell {
             if #available(iOS 11.0, *) {
                 $0.centerY.equalToSuperview().offset(-60.0)
             } else {
-                $0.centerY.equalToSuperview().offset(-20.0)
+                $0.centerY.equalToSuperview().offset(-10.0)
             }
         })
         

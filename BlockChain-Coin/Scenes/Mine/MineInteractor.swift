@@ -75,7 +75,32 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
         minerWorker.fetchSettings { [weak self] result in
             switch result {
             case .success(let settings):
-                self?.presenter?.handleShowSettings(settings: settings)
+                self?.walletWorker.listWallets(completion: { [weak self] listResult in
+                    switch listResult {
+                    case .success(let wallets):
+                        let sortedWallets = wallets.sorted(by: { a, b in return a.createdAt < b.createdAt })
+
+                        guard sortedWallets.count > 0 else {
+                            self?.presenter?.handleShowError(error: .couldNotFetchSettings)
+                            return
+                        }
+                        
+                        if sortedWallets.contains(where: { $0.address == settings.wallet.address }) == false {
+                            guard let wallet = sortedWallets.first as? Wallet else {
+                                self?.presenter?.handleShowError(error: .couldNotFetchSettings)
+                                return
+                            }
+                            
+                            let settings = MiningSettings(threads: settings.threads, wallet: wallet, pool: settings.pool)
+                            
+                            self?.minerWorker.saveSettings(settings: settings)
+                        }
+                        
+                        self?.presenter?.handleShowSettings(settings: settings)
+                    case .failure:
+                        self?.presenter?.handleShowError(error: .couldNotFetchSettings)
+                    }
+                })
             case .failure:
                 self?.walletWorker.listWallets { [weak self] result in
                     switch result {

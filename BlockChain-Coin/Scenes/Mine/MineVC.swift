@@ -240,9 +240,14 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         MineSettingsCell.registerWith(tableView)
         MiningBootCell.registerWith(tableView)
+        NoWalletTitleCell.registerWith(tableView)
+        NoWalletInstructionsCell.registerWith(tableView)
+        ActionCell.registerWith(tableView)
         tableView.dataSource = dataSource
         tableView.delegate = self
-        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 60.0
+
         dataSource.didChangeSwitch = { isOn in
             guard let settings = self.dataSource.settings else { return }
             
@@ -345,7 +350,9 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         lowPowerVC?.configure(hashRate: dataSource.hashRate, totalHashes: dataSource.totalHashes, sharesFound: dataSource.sharesFound, activeMiners: dataSource.activeMiners, pendingBalance: dataSource.pendingBalance)
         
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func handleOtherMinerStats(viewModel: OtherMinerStatsViewModel) {
@@ -353,7 +360,9 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         lowPowerVC?.configure(hashRate: dataSource.hashRate, totalHashes: dataSource.totalHashes, sharesFound: dataSource.sharesFound, activeMiners: dataSource.activeMiners, pendingBalance: dataSource.pendingBalance)
         
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func handleAddressMinerStats(viewModel: AddressMiningStatsViewModel) {
@@ -361,17 +370,26 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         lowPowerVC?.configure(hashRate: dataSource.hashRate, totalHashes: dataSource.totalHashes, sharesFound: dataSource.sharesFound, activeMiners: dataSource.activeMiners, pendingBalance: dataSource.pendingBalance)
         
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func handleUpdate(viewModel: MineViewModel) {
         dataSource.settings = viewModel.settings
         
-        (interactor as? MineInteractor)?.numberOfThreads = Int(viewModel.settings.threads)
+        tableView.contentInset = dataSource.settings != nil ? .zero : UIEdgeInsets(top: self.view.layoutMargins.top + 54.0, left: 0.0, bottom: 0.0, right: 0.0)
+        tableView.isScrollEnabled = dataSource.settings != nil
+
+        if let settings = viewModel.settings {
+            (interactor as? MineInteractor)?.numberOfThreads = Int(settings.threads)
+            
+            interactor.fetchStats(settings: settings)
+        }
         
-        interactor.fetchStats(settings: viewModel.settings)
-        
-        tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: - Actions
@@ -409,14 +427,32 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     // MARK: - UITableView delegate
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard let _ = dataSource.settings else {
+            return UITableViewAutomaticDimension
+        }
+        
         if indexPath.section == 0 {
-            return view.bounds.size.height - (45.0 * CGFloat(tableView.numberOfSections - 1)) - self.view.layoutMargins.top - self.view.layoutMargins.bottom - (self.view.layoutMargins.top > 0.0 ? 20.0 : 0.0)
+            return view.bounds.size.height - (45.0 * CGFloat(tableView.numberOfSections - 1)) - self.view.layoutMargins.top - self.view.layoutMargins.bottom - 20.0
         }
         
         return UITableViewAutomaticDimension
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let _ = dataSource.settings else {
+            guard indexPath.section == 2 else { return }
+            
+            if indexPath.row == 0 {
+                router.showAddWallet()
+            } else if indexPath.row == 1 {
+                router.showImportWalletWithKey()
+            } else if indexPath.row == 2 {
+                router.showImportWalletWithQRCode()
+            }
+            
+            return
+        }
+
         guard indexPath.section != 0 else { return }
         
         stopMining()

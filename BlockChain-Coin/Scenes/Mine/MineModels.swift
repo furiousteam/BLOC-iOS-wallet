@@ -53,5 +53,5 @@ struct AddressMiningStatsViewModel {
 }
 
 struct MineViewModel {
-    let settings: MiningSettingsModel
+    let settings: MiningSettingsModel?
 }

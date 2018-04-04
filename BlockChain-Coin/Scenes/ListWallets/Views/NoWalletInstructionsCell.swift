@@ -23,7 +23,7 @@ class NoWalletInstructionsCell: TableViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .light(size: 25.0)
+        label.font = .light(size: 22.0)
         label.numberOfLines = 0
         label.textColor = UIColor.white.withAlphaComponent(0.6)
         label.textAlignment = .center

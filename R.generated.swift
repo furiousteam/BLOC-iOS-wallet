@@ -628,7 +628,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 150 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 151 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -638,6 +638,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_error_title = Rswift.StringResource(key: "send_error_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: A wallet is required to start mining
+      /// 
+      /// Locales: en
+      static let mining_no_wallet = Rswift.StringResource(key: "mining_no_wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: About
       /// 
       /// Locales: en
@@ -1243,6 +1247,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func send_error_title(_: Void = ()) -> String {
         return NSLocalizedString("send_error_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: A wallet is required to start mining
+      /// 
+      /// Locales: en
+      static func mining_no_wallet(_: Void = ()) -> String {
+        return NSLocalizedString("mining_no_wallet", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: About
