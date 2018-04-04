@@ -16,7 +16,7 @@ class WalletSettingsRouter: Router, WalletSettingsRoutingLogic {
     weak var viewController: UIViewController?
     
     func goBack() {
-        viewController?.navigationController?.popViewController(animated: true)
+        viewController?.navigationController?.dismiss(animated: true, completion: nil)
     }
 }
 

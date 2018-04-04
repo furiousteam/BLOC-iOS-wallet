@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BlockChain-Coin/Services/PoolSocketClientDelegate.swift"
-            timestampString = "544462956.045886"
+            timestampString = "544463101.217598"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
@@ -42,27 +42,27 @@
                   moduleName = "BlockChain-Coin"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/maxime/Documents/Projects/BlockChain-Coin/BlockChain-Coin/Services/PoolSocketClientDelegate.swift"
-                  timestampString = "544462956.7125371"
+                  timestampString = "544515070.05669"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "62"
                   endingLineNumber = "62"
-                  offsetFromSymbolStart = "3001">
+                  offsetFromSymbolStart = "2883">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "BlockChain_Coin.PoolSocketClientDelegate.socket(__ObjC.GCDAsyncSocket, didRead: Foundation.Data, withTag: Swift.Int) -&gt; ()"
+                  symbolName = "implicit closure #2 : @autoclosure () -&gt; Any in BlockChain_Coin.PoolSocketClientDelegate.socket(__ObjC.GCDAsyncSocket, didRead: Foundation.Data, withTag: Swift.Int) -&gt; ()"
                   moduleName = "BlockChain-Coin"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/maxime/Documents/Projects/BlockChain-Coin/BlockChain-Coin/Services/PoolSocketClientDelegate.swift"
-                  timestampString = "544462956.714456"
+                  timestampString = "544515070.058918"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "62"
                   endingLineNumber = "62"
-                  offsetFromSymbolStart = "3063">
+                  offsetFromSymbolStart = "17">
                </Location>
             </Locations>
          </BreakpointContent>

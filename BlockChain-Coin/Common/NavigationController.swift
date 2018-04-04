@@ -22,6 +22,10 @@ class NavigationController: UINavigationController {
         super.init(coder: aDecoder)
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         NavigationController.configureNavigationBarApperance()
         

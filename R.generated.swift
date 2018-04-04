@@ -109,7 +109,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 66 images.
+  /// This `R.image` struct is generated, and contains static references to 68 images.
   struct image {
     /// Image `about-logo`.
     static let aboutLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "about-logo")
@@ -187,6 +187,10 @@ struct R: Rswift.Validatable {
     static let separatorDash = Rswift.ImageResource(bundle: R.hostingBundle, name: "separator-dash")
     /// Image `settings-icon`.
     static let settingsIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings-icon")
+    /// Image `settings_delete`.
+    static let settings_delete = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings_delete")
+    /// Image `settings_export`.
+    static let settings_export = Rswift.ImageResource(bundle: R.hostingBundle, name: "settings_export")
     /// Image `splash_bg`.
     static let splash_bg = Rswift.ImageResource(bundle: R.hostingBundle, name: "splash_bg")
     /// Image `splash_logo`.
@@ -434,6 +438,16 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.settingsIcon, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "settings_delete", bundle: ..., traitCollection: ...)`
+    static func settings_delete(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.settings_delete, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "settings_export", bundle: ..., traitCollection: ...)`
+    static func settings_export(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.settings_export, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "splash_bg", bundle: ..., traitCollection: ...)`
     static func splash_bg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.splash_bg, compatibleWith: traitCollection)
@@ -607,7 +621,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 142 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 144 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -661,6 +675,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_bloc_locked = Rswift.StringResource(key: "wallet_bloc_locked", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Backup wallet
+      /// 
+      /// Locales: en
+      static let wallet_settings_backup = Rswift.StringResource(key: "wallet_settings_backup", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Block Found
       /// 
       /// Locales: en
@@ -725,6 +743,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let transaction_details_date = Rswift.StringResource(key: "transaction_details_date", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Delete this wallet
+      /// 
+      /// Locales: en
+      static let wallet_settings_delete = Rswift.StringResource(key: "wallet_settings_delete", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Details
       /// 
       /// Locales: en
@@ -1269,6 +1291,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_bloc_locked", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Backup wallet
+      /// 
+      /// Locales: en
+      static func wallet_settings_backup(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_settings_backup", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Block Found
       /// 
       /// Locales: en
@@ -1379,6 +1408,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func transaction_details_date(_ value1: String) -> String {
         return String(format: NSLocalizedString("transaction_details_date", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
+      }
+      
+      /// en translation: Delete this wallet
+      /// 
+      /// Locales: en
+      static func wallet_settings_delete(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_settings_delete", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Details

@@ -15,11 +15,19 @@ class WalletSettingsDataSource: ArrayDataSource {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return 2
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell(style: .default, reuseIdentifier: "tmp")
+        let cell = tableView.dequeueReusableCell(withIdentifier: WalletSettingsCell.reuseIdentifier(), for: indexPath) as! WalletSettingsCell
+        
+        if indexPath.row == 0 {
+            cell.configure(image: R.image.settings_export()!, title: R.string.localizable.wallet_settings_backup())
+        } else if indexPath.row == 1 {
+            cell.configure(image: R.image.settings_delete()!, title: R.string.localizable.wallet_settings_delete())
+        }
+        
+        return cell
     }
     
 }

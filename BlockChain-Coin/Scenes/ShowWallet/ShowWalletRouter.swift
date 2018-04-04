@@ -19,7 +19,8 @@ class ShowWalletRouter: ShowWalletRoutingLogic {
     weak var viewController: UIViewController?
     
     func showSettings(wallet: WalletModel) {
-        // TODO: Show wallet settings
+        let vc = WalletSettingsVC(wallet: wallet)
+        viewController?.present(NavigationController(rootViewController: vc), animated: true, completion: nil)
     }
     
     func goBack() {

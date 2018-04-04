@@ -178,6 +178,7 @@ class NewTransactionsFormViews: NSObject, UITextViewDelegate {
                          amountTextField,
                          SpacerView(height: 10.0),
                          feeLabel,
+                         SpacerView(height: 15.0),
                          amountSeparatorView,
                          SpacerView(height: 15.0),
                          addressTitleLabel,

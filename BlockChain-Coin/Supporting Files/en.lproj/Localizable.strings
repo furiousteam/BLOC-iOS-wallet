@@ -149,3 +149,5 @@ Miners: %@ - Last block found: %@";
 "pool_stats_your_stats_last_share_submitted" = "Last Share Submitted";
 "pool_stats_your_stats_hash_rate" = "Hash Rate";
 "pool_stats_your_stats_total_hashes" = "Total Hashes Submitted";
+"wallet_settings_backup" = "Backup wallet";
+"wallet_settings_delete" = "Delete this wallet";
