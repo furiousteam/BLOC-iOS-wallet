@@ -40,9 +40,9 @@ class MiningBootCell: TableViewCell {
         miningSwitchView.snp.makeConstraints({
             $0.centerX.equalToSuperview()
             if #available(iOS 11.0, *) {
-                $0.centerY.equalToSuperview().offset(-50.0)
+                $0.centerY.equalToSuperview().offset(-60.0)
             } else {
-                $0.centerY.equalToSuperview().offset(-30.0)
+                $0.centerY.equalToSuperview().offset(-20.0)
             }
             $0.width.equalTo(110.0)
             $0.height.equalTo(51.0)
@@ -51,9 +51,9 @@ class MiningBootCell: TableViewCell {
         miningBooterView.snp.makeConstraints({
             $0.centerX.equalToSuperview()
             if #available(iOS 11.0, *) {
-                $0.centerY.equalToSuperview().offset(-50.0)
+                $0.centerY.equalToSuperview().offset(-60.0)
             } else {
-                $0.centerY.equalToSuperview().offset(-30.0)
+                $0.centerY.equalToSuperview().offset(-20.0)
             }
         })
         

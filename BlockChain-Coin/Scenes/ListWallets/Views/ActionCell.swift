@@ -23,7 +23,8 @@ class ActionCell: TableViewCell {
         button.isUserInteractionEnabled = false
         
         button.snp.makeConstraints({
-            $0.leading.trailing.equalToSuperview().inset(80.0)
+            let percent = UIScreen.main.bounds.width * 0.15
+            $0.leading.trailing.equalToSuperview().inset(percent)
             $0.top.bottom.equalToSuperview().inset(15.0)
             $0.center.equalToSuperview()
         })

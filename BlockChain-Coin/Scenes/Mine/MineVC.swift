@@ -410,7 +410,7 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return view.bounds.size.height - (90.0 * CGFloat(tableView.numberOfSections - 1))
+            return view.bounds.size.height - (45.0 * CGFloat(tableView.numberOfSections - 1)) - self.view.layoutMargins.top - self.view.layoutMargins.bottom - (self.view.layoutMargins.top > 0.0 ? 20.0 : 0.0)
         }
         
         return UITableViewAutomaticDimension
