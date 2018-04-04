@@ -109,7 +109,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 68 images.
+  /// This `R.image` struct is generated, and contains static references to 69 images.
   struct image {
     /// Image `about-logo`.
     static let aboutLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "about-logo")
@@ -129,6 +129,8 @@ struct R: Rswift.Validatable {
     static let checkmarkSmall = Rswift.ImageResource(bundle: R.hostingBundle, name: "checkmark-small")
     /// Image `default-bg`.
     static let defaultBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "default-bg")
+    /// Image `delete-icon`.
+    static let deleteIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "delete-icon")
     /// Image `dot-bg`.
     static let dotBg = Rswift.ImageResource(bundle: R.hostingBundle, name: "dot-bg")
     /// Image `explorer-border`.
@@ -291,6 +293,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "default-bg", bundle: ..., traitCollection: ...)`
     static func defaultBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.defaultBg, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "delete-icon", bundle: ..., traitCollection: ...)`
+    static func deleteIcon(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.deleteIcon, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "dot-bg", bundle: ..., traitCollection: ...)`
@@ -621,7 +628,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 144 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 150 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -746,6 +753,14 @@ struct R: Rswift.Validatable {
       /// en translation: Delete this wallet
       /// 
       /// Locales: en
+      static let delete_wallet_action = Rswift.StringResource(key: "delete_wallet_action", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Delete this wallet
+      /// 
+      /// Locales: en
+      static let delete_wallet_title = Rswift.StringResource(key: "delete_wallet_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Delete this wallet
+      /// 
+      /// Locales: en
       static let wallet_settings_delete = Rswift.StringResource(key: "wallet_settings_delete", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Details
       /// 
@@ -823,6 +838,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_list_no_wallet_import_key = Rswift.StringResource(key: "wallet_list_no_wallet_import_key", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Important
+      /// 
+      /// Locales: en
+      static let delete_wallet_important = Rswift.StringResource(key: "delete_wallet_important", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Important
       /// 
       /// Locales: en
@@ -935,6 +954,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let import_wallet_key_title = Rswift.StringResource(key: "import_wallet_key_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Please note that if you delete your wallet and if there are funds on it, your funds will be lost, except if you saved before (see settings). This will allow you to recover your wallet on any smartphone, tablet or desktop computer. If you lose this key and delete this wallet, you will never be able to recover your funds. Nobody will be able to do it, even us. Your funds will be lost for the eternity. This key is essential to save your wallet/funds and to recover your wallet.
+      /// 
+      /// Locales: en
+      static let delete_wallet_text = Rswift.StringResource(key: "delete_wallet_text", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Please note that you are the sole responsible for these settings and your device. We cannot be held responsible for any kind of problems that result in using this feature.
       /// 
       /// Locales: en
@@ -1043,6 +1066,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_confirm_title_view = Rswift.StringResource(key: "send_confirm_title_view", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Tap on the button below to delete this wallet
+      /// 
+      /// Locales: en
+      static let delete_wallet_before_action = Rswift.StringResource(key: "delete_wallet_before_action", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: The BlockChain Coin has been founded in 2018 by a group of talented friends and partners that has been working together for more than 10 years on IT, smartphone technology, web, API, hardware products, applications and many more. Experimented, smart, ambitious, fun and hard working are some of our main qualities. We love cryptocurrencies, we are early bitcoin investors, we are (still) amazed by the possibilities that the Blockchain technology brings to the world and we want to be a fundamental actor of this revolution. Visit our website to discover our universe, our application, our ecostystem, our roadmap and be a part of it; join us!
       /// 
       /// Locales: en
@@ -1127,6 +1154,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_confirm_title = Rswift.StringResource(key: "send_confirm_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: You are the sole responsible for the security of this key and your wallet.
+      /// 
+      /// Locales: en
+      static let delete_wallet_text_bold = Rswift.StringResource(key: "delete_wallet_text_bold", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: You don't any wallets with enough funds for this transaction
       /// 
       /// Locales: en
@@ -1413,6 +1444,20 @@ struct R: Rswift.Validatable {
       /// en translation: Delete this wallet
       /// 
       /// Locales: en
+      static func delete_wallet_action(_: Void = ()) -> String {
+        return NSLocalizedString("delete_wallet_action", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Delete this wallet
+      /// 
+      /// Locales: en
+      static func delete_wallet_title(_: Void = ()) -> String {
+        return NSLocalizedString("delete_wallet_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Delete this wallet
+      /// 
+      /// Locales: en
       static func wallet_settings_delete(_: Void = ()) -> String {
         return NSLocalizedString("wallet_settings_delete", bundle: R.hostingBundle, comment: "")
       }
@@ -1548,6 +1593,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_list_no_wallet_import_key(_: Void = ()) -> String {
         return NSLocalizedString("wallet_list_no_wallet_import_key", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Important
+      /// 
+      /// Locales: en
+      static func delete_wallet_important(_: Void = ()) -> String {
+        return NSLocalizedString("delete_wallet_important", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Important
@@ -1746,6 +1798,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("import_wallet_key_title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Please note that if you delete your wallet and if there are funds on it, your funds will be lost, except if you saved before (see settings). This will allow you to recover your wallet on any smartphone, tablet or desktop computer. If you lose this key and delete this wallet, you will never be able to recover your funds. Nobody will be able to do it, even us. Your funds will be lost for the eternity. This key is essential to save your wallet/funds and to recover your wallet.
+      /// 
+      /// Locales: en
+      static func delete_wallet_text(_: Void = ()) -> String {
+        return NSLocalizedString("delete_wallet_text", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Please note that you are the sole responsible for these settings and your device. We cannot be held responsible for any kind of problems that result in using this feature.
       /// 
       /// Locales: en
@@ -1935,6 +1994,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send_confirm_title_view", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Tap on the button below to delete this wallet
+      /// 
+      /// Locales: en
+      static func delete_wallet_before_action(_: Void = ()) -> String {
+        return NSLocalizedString("delete_wallet_before_action", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: The BlockChain Coin has been founded in 2018 by a group of talented friends and partners that has been working together for more than 10 years on IT, smartphone technology, web, API, hardware products, applications and many more. Experimented, smart, ambitious, fun and hard working are some of our main qualities. We love cryptocurrencies, we are early bitcoin investors, we are (still) amazed by the possibilities that the Blockchain technology brings to the world and we want to be a fundamental actor of this revolution. Visit our website to discover our universe, our application, our ecostystem, our roadmap and be a part of it; join us!
       /// 
       /// Locales: en
@@ -2080,6 +2146,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func send_confirm_title(_: Void = ()) -> String {
         return NSLocalizedString("send_confirm_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: You are the sole responsible for the security of this key and your wallet.
+      /// 
+      /// Locales: en
+      static func delete_wallet_text_bold(_: Void = ()) -> String {
+        return NSLocalizedString("delete_wallet_text_bold", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: You don't any wallets with enough funds for this transaction

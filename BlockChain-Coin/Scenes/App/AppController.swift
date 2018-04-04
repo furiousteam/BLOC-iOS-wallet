@@ -18,6 +18,10 @@ class AppController: AppDisplayLogic {
     let router: AppRoutingLogic
     let interactor: AppBusinessLogic
     
+    static var current: AppController = {
+        return (UIApplication.shared.delegate as! AppDelegate).app
+    }()
+
     // MARK: - View lifecycle
     
     init() {
@@ -88,6 +92,23 @@ class AppController: AppDisplayLogic {
         
         if isFirstLaunch {
             UserDefaults.standard.environment = Environment.bundleEnvironment
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    func dismissAllModals(_ completion: (() -> ())?) {
+        if let presentedController = window.rootViewController?.presentedViewController {
+            presentedController.dismiss(animated: true, completion: {
+                if let completion = completion {
+                    completion()
+                }
+            })
+        }
+        else {
+            if let completion = completion {
+                completion()
+            }
         }
     }
 }

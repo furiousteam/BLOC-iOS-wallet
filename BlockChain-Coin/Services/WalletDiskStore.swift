@@ -77,6 +77,32 @@ class WalletDiskStore: WalletStore {
         }
     }
     
+    func remove(wallet: WalletModel) {
+        var wallets: [Wallet] = {
+            guard let data = KeychainWrapper.standard.data(forKey: "wallets"), let walletsData = NSKeyedUnarchiver.unarchiveObject(with: data) as? Data else {
+                return []
+            }
+            
+            do {
+                return try JSONDecoder().decode([Wallet].self, from: walletsData)
+            } catch {
+                return []
+            }
+        }()
+
+        if let index = wallets.index(where: { $0.address == wallet.address }) {
+            wallets.remove(at: index)
+        }
+        
+        do {
+            let walletsData = try JSONEncoder().encode(wallets)
+            let data = NSKeyedArchiver.archivedData(withRootObject: walletsData)
+            KeychainWrapper.standard.set(data, forKey: "wallets")
+        } catch {
+            log.error("Could not remove wallet")
+        }
+    }
+    
     // Ignored methods
     
     func connect(host: String, port: Int) {

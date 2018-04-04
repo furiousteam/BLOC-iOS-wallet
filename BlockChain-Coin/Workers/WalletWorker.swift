@@ -59,6 +59,7 @@ protocol WalletStore {
     func getAllWalletDetails(wallets: [WalletModel], completion: @escaping WalletStoreGetAllWalletDetailsCompletionHandler)
     func getKeys(wallet: WalletModel, password: String, completion: @escaping WalletStoreGetKeysCompletionHandler)
     func transfer(wallet: WalletModel, password: String, destination: String, amount: Int64, fee: UInt64, anonymity: UInt64, unlockHeight: UInt64?, paymentId: String?, completion: @escaping WalletStoreTransferCompletionHandler)
+    func remove(wallet: WalletModel)
     
     func generateSeed() -> Seed?
     func generateKeyPair(seed: Seed) -> KeyPair?
@@ -131,5 +132,9 @@ class WalletWorker {
                 completion(result)
             }
         }
+    }
+    
+    func remove(wallet: WalletModel) {
+        store.remove(wallet: wallet)
     }
 }

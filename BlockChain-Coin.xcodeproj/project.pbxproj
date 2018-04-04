@@ -146,6 +146,9 @@
 		9C78F1D32056CD5A001ADA32 /* ListTransactionsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78F1CD2056CD59001ADA32 /* ListTransactionsDataSource.swift */; };
 		9C78F1D42056CD5A001ADA32 /* ListTransactionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78F1CE2056CD59001ADA32 /* ListTransactionsInteractor.swift */; };
 		9C78F1D52056CD5A001ADA32 /* ListTransactionsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C78F1CF2056CD59001ADA32 /* ListTransactionsPresenter.swift */; };
+		9C7DF7152074AC2900AF61F3 /* DeleteWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DF70F2074AC2800AF61F3 /* DeleteWalletVC.swift */; };
+		9C7DF7192074AC2900AF61F3 /* DeleteWalletRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DF7132074AC2800AF61F3 /* DeleteWalletRouter.swift */; };
+		9C7DF71D2074B7FD00AF61F3 /* DeleteWalletViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DF71C2074B7FD00AF61F3 /* DeleteWalletViews.swift */; };
 		9C85E360205967B300208DF6 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C85E35F205967B300208DF6 /* TitleView.swift */; };
 		9C85E362205A4D0900208DF6 /* NumberFormatter+BLOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C85E361205A4D0900208DF6 /* NumberFormatter+BLOC.swift */; };
 		9C85E364205A54A500208DF6 /* NoWalletTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C85E363205A54A500208DF6 /* NoWalletTitleCell.swift */; };
@@ -456,6 +459,9 @@
 		9C78F1CD2056CD59001ADA32 /* ListTransactionsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTransactionsDataSource.swift; sourceTree = "<group>"; };
 		9C78F1CE2056CD59001ADA32 /* ListTransactionsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTransactionsInteractor.swift; sourceTree = "<group>"; };
 		9C78F1CF2056CD59001ADA32 /* ListTransactionsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListTransactionsPresenter.swift; sourceTree = "<group>"; };
+		9C7DF70F2074AC2800AF61F3 /* DeleteWalletVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteWalletVC.swift; sourceTree = "<group>"; };
+		9C7DF7132074AC2800AF61F3 /* DeleteWalletRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteWalletRouter.swift; sourceTree = "<group>"; };
+		9C7DF71C2074B7FD00AF61F3 /* DeleteWalletViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWalletViews.swift; sourceTree = "<group>"; };
 		9C85E35F205967B300208DF6 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		9C85E361205A4D0900208DF6 /* NumberFormatter+BLOC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+BLOC.swift"; sourceTree = "<group>"; };
 		9C85E363205A54A500208DF6 /* NoWalletTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoWalletTitleCell.swift; sourceTree = "<group>"; };
@@ -824,6 +830,7 @@
 				9CF5A5B0206EAF1A00CA41FA /* AddPool */,
 				9C161ED4207256F7004B4661 /* MineLowPower */,
 				9C161EEA20728127004B4661 /* ShowMiningStats */,
+				9C7DF70E2074AC2800AF61F3 /* DeleteWallet */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1199,6 +1206,24 @@
 				9C78F1CF2056CD59001ADA32 /* ListTransactionsPresenter.swift */,
 			);
 			path = ListTransactions;
+			sourceTree = "<group>";
+		};
+		9C7DF70E2074AC2800AF61F3 /* DeleteWallet */ = {
+			isa = PBXGroup;
+			children = (
+				9C7DF71B2074ACFA00AF61F3 /* Views */,
+				9C7DF70F2074AC2800AF61F3 /* DeleteWalletVC.swift */,
+				9C7DF7132074AC2800AF61F3 /* DeleteWalletRouter.swift */,
+			);
+			path = DeleteWallet;
+			sourceTree = "<group>";
+		};
+		9C7DF71B2074ACFA00AF61F3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C7DF71C2074B7FD00AF61F3 /* DeleteWalletViews.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9C85E377205A6A6700208DF6 /* SetWalletPassword */ = {
@@ -1771,6 +1796,7 @@
 				9C8A8F7F202EE13D00F55736 /* PoolSocketJobNotificationResponse.swift in Sources */,
 				9C85E3AE205ADA7200208DF6 /* ImportWalletKeyPresenter.swift in Sources */,
 				9C85E39B205AB40400208DF6 /* ExportWalletKeysRouter.swift in Sources */,
+				9C7DF7152074AC2900AF61F3 /* DeleteWalletVC.swift in Sources */,
 				9C63A38C20678FE200E9C33D /* ShowTransactionRouter.swift in Sources */,
 				9CE35C77206E1F3D002E7193 /* ListPoolsPresenter.swift in Sources */,
 				9C04369C202CDB9400671DA2 /* MineDataSource.swift in Sources */,
@@ -1802,6 +1828,7 @@
 				9CF5A5BB206EAF1A00CA41FA /* AddPoolVC.swift in Sources */,
 				9CBB2EF7205679FE00718EBA /* HomeVC.swift in Sources */,
 				9C5756B220640323002BD079 /* CheckPasswordVC.swift in Sources */,
+				9C7DF7192074AC2900AF61F3 /* DeleteWalletRouter.swift in Sources */,
 				9C8A8F7E202EE13D00F55736 /* PoolSocketJobResponse.swift in Sources */,
 				9C0436A2202CDBAC00671DA2 /* MinePresenter.swift in Sources */,
 				9C4AA4E5203490390056152C /* Balance.swift in Sources */,
@@ -1883,6 +1910,7 @@
 				9C161EDD207256F8004B4661 /* MineLowPowerRouter.swift in Sources */,
 				9C04369A202CD1EC00671DA2 /* Stats.swift in Sources */,
 				9CE35C4A206D11F6002E7193 /* SetMiningWalletViews.swift in Sources */,
+				9C7DF71D2074B7FD00AF61F3 /* DeleteWalletViews.swift in Sources */,
 				9C6623012036D3B40083CE2E /* TransactionWorker.swift in Sources */,
 				9CBCC9B6206224E40006FBA7 /* NewTransactionPresenter.swift in Sources */,
 				9C85E39D205AB40400208DF6 /* ExportWalletKeysModels.swift in Sources */,

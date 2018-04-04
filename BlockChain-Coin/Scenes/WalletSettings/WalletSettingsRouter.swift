@@ -11,6 +11,7 @@ import UIKit
 protocol WalletSettingsRoutingLogic {
     func goBack()
     func showExportWallet(wallet: WalletModel)
+    func showDeleteWallet(wallet: WalletModel)
 }
 
 class WalletSettingsRouter: Router, WalletSettingsRoutingLogic {
@@ -22,6 +23,11 @@ class WalletSettingsRouter: Router, WalletSettingsRoutingLogic {
     
     func showExportWallet(wallet: WalletModel) {
         let vc = ExportWalletKeysVC(wallet: wallet, mode: .export)
+        viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showDeleteWallet(wallet: WalletModel) {
+        let vc = DeleteWalletVC(wallet: wallet)
         viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -113,9 +113,8 @@ class WalletSettingsVC: ViewController, WalletSettingsDisplayLogic, UITableViewD
             
             let vc = CheckPasswordVC(wallet: wallet, titleView: titleView, delegate: self)
             present(NavigationController(rootViewController: vc), animated: true, completion: nil)
-
         } else if indexPath.row == 1 {
-            
+            router.showDeleteWallet(wallet: wallet)
         }
     }
     

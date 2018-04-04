@@ -210,6 +210,10 @@ class WalletAPI: WalletStore {
         return nil
     }
     
+    func remove(wallet: WalletModel) {
+        return
+    }
+    
     // Signature
     
     func generateSignature(uuid: String, keyPair: KeyPair, password: String) -> String? {
