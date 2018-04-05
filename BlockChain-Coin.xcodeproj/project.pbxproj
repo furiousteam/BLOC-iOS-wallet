@@ -149,6 +149,7 @@
 		9C7DF7152074AC2900AF61F3 /* DeleteWalletVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DF70F2074AC2800AF61F3 /* DeleteWalletVC.swift */; };
 		9C7DF7192074AC2900AF61F3 /* DeleteWalletRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DF7132074AC2800AF61F3 /* DeleteWalletRouter.swift */; };
 		9C7DF71D2074B7FD00AF61F3 /* DeleteWalletViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DF71C2074B7FD00AF61F3 /* DeleteWalletViews.swift */; };
+		9C7DF71F207605BF00AF61F3 /* PoolSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C7DF71E207605BF00AF61F3 /* PoolSocket.swift */; };
 		9C85E360205967B300208DF6 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C85E35F205967B300208DF6 /* TitleView.swift */; };
 		9C85E362205A4D0900208DF6 /* NumberFormatter+BLOC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C85E361205A4D0900208DF6 /* NumberFormatter+BLOC.swift */; };
 		9C85E364205A54A500208DF6 /* NoWalletTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C85E363205A54A500208DF6 /* NoWalletTitleCell.swift */; };
@@ -462,6 +463,7 @@
 		9C7DF70F2074AC2800AF61F3 /* DeleteWalletVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteWalletVC.swift; sourceTree = "<group>"; };
 		9C7DF7132074AC2800AF61F3 /* DeleteWalletRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeleteWalletRouter.swift; sourceTree = "<group>"; };
 		9C7DF71C2074B7FD00AF61F3 /* DeleteWalletViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteWalletViews.swift; sourceTree = "<group>"; };
+		9C7DF71E207605BF00AF61F3 /* PoolSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PoolSocket.swift; sourceTree = "<group>"; };
 		9C85E35F205967B300208DF6 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		9C85E361205A4D0900208DF6 /* NumberFormatter+BLOC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NumberFormatter+BLOC.swift"; sourceTree = "<group>"; };
 		9C85E363205A54A500208DF6 /* NoWalletTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoWalletTitleCell.swift; sourceTree = "<group>"; };
@@ -740,6 +742,7 @@
 				9C4AA4922033326F0056152C /* WalletDiskStore.swift */,
 				9C6623042036DD010083CE2E /* TransactionDiskStore.swift */,
 				9CE35C69206E1BAF002E7193 /* PoolAPI.swift */,
+				9C7DF71E207605BF00AF61F3 /* PoolSocket.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1673,6 +1676,7 @@
 				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSocket/SwiftSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework",
 			);
@@ -1700,6 +1704,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyGif.framework",
 			);
@@ -1867,6 +1872,7 @@
 				9C63A36D206540BC00E9C33D /* AboutFormViews.swift in Sources */,
 				9CE35C56206D2D9F002E7193 /* SetMiningThreadsPresenter.swift in Sources */,
 				9CBCC99720610A130006FBA7 /* ShowWalletBalanceView.swift in Sources */,
+				9C7DF71F207605BF00AF61F3 /* PoolSocket.swift in Sources */,
 				9C5756C320640DF9002BD079 /* ConfirmTransactionRouter.swift in Sources */,
 				9C78F1D12056CD5A001ADA32 /* ListTransactionsVC.swift in Sources */,
 				9C043685202C9DE600671DA2 /* Job.swift in Sources */,

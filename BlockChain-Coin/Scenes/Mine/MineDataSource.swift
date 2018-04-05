@@ -16,7 +16,7 @@ class MineDataSource: NSObject, UITableViewDataSource {
     var settings: MiningSettingsModel?
     
     var hashRate: Double = 0.0
-    var totalHashes: UInt = 0
+    var totalHashes: UInt64 = 0
     var sharesFound: UInt = 0
     var activeMiners: UInt = 0
     var pendingBalance: Double = 0

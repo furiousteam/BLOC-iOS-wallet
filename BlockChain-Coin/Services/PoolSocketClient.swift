@@ -9,6 +9,14 @@
 import Foundation
 import CocoaAsyncSocket
 
+protocol PoolSocketDelegate: class {
+    func didConnect(toHost host: String)
+    func didDisconnect(error: Error?)
+    func didReceiveJob(job: JobModel)
+    func didSendJob()
+    func didFailWithError(error: PoolStoreError)
+}
+
 class PoolSocketClient: PoolStore {
     public enum Tags: Int {
         case write = 1
@@ -17,25 +25,22 @@ class PoolSocketClient: PoolStore {
     
     fileprivate let socket: GCDAsyncSocket
     fileprivate let delegate = PoolSocketClientDelegate()
+    weak var clientDelegate: PoolSocketDelegate?
     
     // MARK: Pool methods
     
-    init() {
+    init(delegate clientDelegate: PoolSocketDelegate) {
         self.socket = GCDAsyncSocket(delegate: delegate, delegateQueue: .main)
+        self.clientDelegate = clientDelegate
+        self.delegate.delegate = self.clientDelegate
     }
     
     func connect(host: String, port: Int, completion: @escaping PoolStoreConnectCompletionHandler) {
         guard socket.isDisconnected else {
-            completion(.failure(error: .alreadyConnected))
+            clientDelegate?.didFailWithError(error: .alreadyConnected)
             return
         }
         
-        delegate.connectionCallback = completion
-        
-        delegate.disconnectionCallback = { _  in
-            completion(.failure(error: .couldNotConnect))
-        }
-
         do {
             var poolHost = host
             
@@ -46,19 +51,19 @@ class PoolSocketClient: PoolStore {
             }
             
             try socket.connect(toHost: poolHost, onPort: UInt16(port), withTimeout: TimeInterval(30.0))
+            
+            self.receive()
         } catch let error {
             log.error(error)
-            completion(.failure(error: .couldNotConnect))
+            clientDelegate?.didFailWithError(error: .couldNotConnect)
         }
     }
     
     func disconnect(completion: @escaping PoolStoreDisconnectCompletionHandler) {
         guard socket.isConnected else {
-            completion(.failure(error: .alreadyDisconnected))
+            clientDelegate?.didFailWithError(error: .alreadyDisconnected)
             return
         }
-        
-        delegate.disconnectionCallback = completion
         
         socket.disconnect()
     }
@@ -66,21 +71,17 @@ class PoolSocketClient: PoolStore {
     func login(username: String, password: String, completion: @escaping PoolStoreLoginCompletionHandler) {
         let request = PoolSocketLoginRequest(username: username, password: password)
         
-        delegate.didWrite = { [weak self] in            
+        delegate.prepareReceive = { [weak self] in
             guard let `self` = self else { return }
             
             self.receive()
         }
-        
-        delegate.loginCallback = completion
-        
+
         send(request: request)
     }
     
     func submit(id: String, jobId: String, result: Data, nonce: UInt32, completion: @escaping PoolStoreSubmitJobCompletionHandler) {
         let request = PoolSocketSubmitJobRequest(id: id, jobId: jobId, result: result, nonce: nonce)
-        
-        delegate.submitJobCallback = completion
         
         send(request: request)
     }
@@ -92,6 +93,8 @@ class PoolSocketClient: PoolStore {
         
         let terminatedData = data + Data(bytes: [0x0A])
         
+        log.info(String(data: terminatedData, encoding: .utf8))
+
         socket.write(terminatedData, withTimeout: TimeInterval(30), tag: Tags.write.rawValue)
     }
     

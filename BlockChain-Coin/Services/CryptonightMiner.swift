@@ -19,7 +19,7 @@ class CryptonightMiner: MinerStore {
     let jobSemaphore = DispatchSemaphore(value: 1)
     var job: JobModel? {
         didSet(oldVal) {
-            if let oldId = oldVal?.id {
+            if let oldId = oldVal?.id, job?.id.isEmpty == true {
                 job?.id = oldId
             }
             
@@ -66,7 +66,7 @@ class CryptonightMiner: MinerStore {
         }
         
         job.nonce += 1
-        
+
         let blob = job.blob
         let currentNonce = job.nonce
         
@@ -83,15 +83,21 @@ class CryptonightMiner: MinerStore {
         
         let now = Date()
         
-        if (now.timeIntervalSince(stats.lastUpdate) >= 0.1) {
+        if (now.timeIntervalSince(stats.lastUpdateDispatch) >= 0.1) {
             let s = self.stats
             
             DispatchQueue.main.async {
                 self.delegate?.didUpdate(stats: s)
             }
             
+            stats.lastUpdateDispatch = now
+        }
+        
+        if (now.timeIntervalSince(stats.lastUpdate) >= 30) {
             stats.hashes = 0
             stats.lastUpdate = now
+            
+            log.info("Still mining... \(job.jobId) - Current nonce: \(job.nonce)")
         }
         
         statsSemaphore.signal()

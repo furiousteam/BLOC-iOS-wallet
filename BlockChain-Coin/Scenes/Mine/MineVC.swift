@@ -18,6 +18,7 @@ protocol MineDisplayLogic: class {
     func handleMinerStats(viewModel: MinerStatsViewModel)
     func handleOtherMinerStats(viewModel: OtherMinerStatsViewModel)
     func handleAddressMinerStats(viewModel: AddressMiningStatsViewModel)
+    func handleJobSubmitted()
 }
 
 class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDelegate {
@@ -56,16 +57,18 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     var statsTimer: Timer?
     var idleTimer: Timer?
     var globalTap: UITapGestureRecognizer?
+    var keepMiningUIActive = false
     
     enum MiningStatus {
         case notMining
+        case resetting
         case mining
     }
     
     var miningStatus: MiningStatus = .notMining {
         didSet {
             switch miningStatus {
-            case .mining:
+            case .mining, .resetting:
                 self.videoBackgroundQueue.play()
                 
                 self.outroImageView.stopAnimatingGif()
@@ -252,7 +255,7 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
             guard let settings = self.dataSource.settings else { return }
             
             switch self.miningStatus {
-            case .mining:
+            case .mining, .resetting:
                 self.interactor.disconnect()
             case .notMining:
                 self.interactor.connect(host: settings.pool.host,
@@ -283,9 +286,7 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     }
     
     @objc func handleLoginMining(notification: Notification) {
-        if let settings = dataSource.settings, miningStatus == .mining {
-            self.interactor.login(wallet: settings.wallet.address)
-        }
+        resetMiner()
     }
     
     func stopMining() {
@@ -310,7 +311,7 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     
     @objc func playerDidFinishPlaying(notification: NSNotification) {
         switch miningStatus {
-        case .mining:
+        case .mining, .resetting:
             if let item = notification.object as? AVPlayerItem, item == loopItem {
                 item.seek(to: kCMTimeZero)
                 videoBackgroundQueue.play()
@@ -319,6 +320,16 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
             }
         case .notMining:
             break
+        }
+    }
+    
+    func resetMiner() {
+        if let _ = dataSource.settings, miningStatus == .mining {
+            log.info("Resetting miner")
+            
+            self.miningStatus = .resetting
+            
+            self.interactor.disconnect()
         }
     }
     
@@ -336,7 +347,15 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         }
         
         switch viewModel.state {
-        case .disconnected, .error:
+        case .disconnected:
+            if let settings = dataSource.settings, miningStatus == .resetting {
+                self.interactor.connect(host: settings.pool.host,
+                                        port: settings.pool.port,
+                                        wallet: settings.wallet.address)
+            } else {
+                miningStatus = .notMining
+            }
+        case .error:
             miningStatus = .notMining
         default:
             miningStatus = .mining
@@ -389,6 +408,14 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    func handleJobSubmitted() {
+        log.info("Total shares found: \(dataSource.sharesFound)")
+        
+        if dataSource.sharesFound > 0, dataSource.sharesFound % 5 == 0 {
+            resetMiner()
         }
     }
     

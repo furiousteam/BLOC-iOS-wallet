@@ -81,6 +81,12 @@ class AppController: AppDisplayLogic {
         let console = ConsoleDestination()
         console.minLevel = SwiftyBeaver.Level(rawValue: Environment.current.logLevel.rawValue) ?? .error
         
+        let file = FileDestination()
+        file.minLevel = .info
+        
+        log.info("Logging to \(file.logFileURL)")
+        
+        log.addDestination(file)
         log.addDestination(console)
     }
 

@@ -89,6 +89,10 @@ target 'BlockChain-Coin' do
   # https://github.com/SwiftyBeaver/SwiftyBeaver
   pod 'SwiftyBeaver', '~> 1.4.2'
 
+  # The easy way to use sockets on Apple platforms
+  # https://github.com/swiftsocket/SwiftSocket
+  pod 'SwiftSocket', '~> 2.0.2'
+
   # 🐛 Crash reporter and beta utilities
   # http://fabric.io
   pod 'Fabric'

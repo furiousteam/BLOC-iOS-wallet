@@ -18,53 +18,40 @@ protocol MineBusinessLogic {
     func login(wallet: String)
 }
 
-class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
+class MineInteractor: MineBusinessLogic, MinerStoreDelegate, PoolSocketDelegate {
     var presenter: MinePresentationLogic?
     
     let walletWorker = WalletWorker(store: WalletDiskStore())
-    let poolWorker = PoolWorker(store: PoolSocketClient())
+    var poolWorker: PoolWorker!
     let minerWorker = MinerWorker(store: CryptonightMiner())
     let poolAPIWorker = PoolWorker(store: PoolAPI())
 
     var numberOfThreads: Int = 1
+    
+    var wallet: String = ""
 
     func connect(host: String, port: Int, wallet: String) {
+        self.wallet = wallet
+        
+        self.poolWorker = PoolWorker(store: PoolSocketClient(delegate: self))
+        
         let address = "\(host):\(port)"
         
         log.info("Connecting to \(address)")
         
         self.presenter?.handlePoolConnecting(address: address)
         
-        poolWorker.connect(host: host, port: port) { [weak self] result in
-            switch result {
-            case .success:
-                self?.presenter?.handlePoolConnected(address: address)
-                
-                self?.login(wallet: wallet)
-            case .failure(let error):
-                self?.presenter?.handlePoolConnectionError(address: address, error: error)
-            }
-        }
+        poolWorker.connect(host: host, port: port) { _ in }
     }
     
     func disconnect() {
         minerWorker.stop { [weak self] result in
-            self?.poolWorker.disconnect { [weak self] _ in
-                self?.presenter?.handlePoolDisconnected()
-            }
+            self?.poolWorker.disconnect { _ in }
         }
     }
     
     func login(wallet: String) {
-        poolWorker.login(username: wallet, password: UUID().uuidString) { [weak self] result in
-            switch result {
-            case .success(let job):
-                self?.mine(job: job, threads: self?.numberOfThreads ?? 1)
-            case .failure:
-                self?.presenter?.handlePoolConnectionError(address: nil, error: .couldNotConnect)
-            }
-        }
-        
+        poolWorker.login(username: wallet, password: UUID().uuidString) { _ in }
     }
     
     fileprivate func mine(job: JobModel, threads: Int) {
@@ -169,4 +156,30 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate {
             }
         }        
     }
+    
+    // MARK: - Socket delegate
+    
+    func didConnect(toHost host: String) {
+        self.presenter?.handlePoolConnected(address: host)
+        
+        self.login(wallet: wallet)
+    }
+    
+    func didDisconnect(error: Error?) {
+        self.presenter?.handlePoolDisconnected()
+    }
+    
+    func didReceiveJob(job: JobModel) {
+        self.mine(job: job, threads: self.numberOfThreads)
+    }
+    
+    func didSendJob() {
+        log.info("Job submitted")
+        self.presenter?.handleJobSubmitted()
+    }
+    
+    func didFailWithError(error: PoolStoreError) {
+        self.presenter?.handlePoolConnectionError(address: "", error: error)
+    }
+
 }

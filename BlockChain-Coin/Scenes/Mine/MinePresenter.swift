@@ -18,6 +18,7 @@ protocol MinePresentationLogic {
     func handleAddressMiningStats(stats: MiningAddressStatsModel)
     func handleShowError(error: MinerStoreError)
     func handleShowSettings(settings: MiningSettingsModel)
+    func handleJobSubmitted()
 }
 
 class MinePresenter: MinePresentationLogic {
@@ -75,5 +76,9 @@ class MinePresenter: MinePresentationLogic {
         let viewModel = MineViewModel(settings: settings)
         
         viewController?.handleUpdate(viewModel: viewModel)
+    }
+    
+    func handleJobSubmitted() {
+        viewController?.handleJobSubmitted()
     }
 }

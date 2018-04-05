@@ -124,6 +124,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftSocket/SwiftSocket.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework"
 fi
@@ -150,6 +151,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SwiftSocket/SwiftSocket.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SwiftyGif/SwiftyGif.framework"
 fi

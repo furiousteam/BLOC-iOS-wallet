@@ -166,7 +166,7 @@ class MineLowPowerVC: ViewController, UIGestureRecognizerDelegate {
         router.goBack()
     }
     
-    func configure(hashRate: Double, totalHashes: UInt, sharesFound: UInt, activeMiners: UInt, pendingBalance: Double) {
+    func configure(hashRate: Double, totalHashes: UInt64, sharesFound: UInt, activeMiners: UInt, pendingBalance: Double) {
         let hashRateMeasurement: Measurement = {
             if hashRate < 1_000 {
                 return Measurement(value: Double(hashRate), unit: UnitHash.HashPerSec)

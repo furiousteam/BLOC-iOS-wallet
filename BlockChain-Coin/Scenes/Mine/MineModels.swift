@@ -40,7 +40,7 @@ struct PoolStatusViewModel {
 
 struct MinerStatsViewModel {
     let hashRate: Double
-    let totalHashes: UInt
+    let totalHashes: UInt64
     let sharesFound: UInt
 }
 
