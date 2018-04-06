@@ -166,7 +166,9 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate, PoolSocketDelegate 
     }
     
     func didDisconnect(error: Error?) {
-        self.presenter?.handlePoolDisconnected()
+        minerWorker.stop { [weak self] result in
+            self?.presenter?.handlePoolDisconnected()
+        }
     }
     
     func didReceiveJob(job: JobModel) {

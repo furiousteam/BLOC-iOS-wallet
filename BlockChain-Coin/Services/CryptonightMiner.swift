@@ -23,7 +23,7 @@ class CryptonightMiner: MinerStore {
                 job?.id = oldId
             }
             
-            log.info("new job")
+            log.info("New job")
         }
         
     }
@@ -34,6 +34,12 @@ class CryptonightMiner: MinerStore {
     func mine(job: JobModel, threadLimit: Int, delegate: MinerStoreDelegate?) {
         self.delegate = delegate
         self.job = job
+        
+        threads.forEach {
+            $0.cancel()
+        }
+        
+        threads = []
         
         let threadCount = max(min(ProcessInfo.processInfo.activeProcessorCount, threadLimit), 1)
 
@@ -55,6 +61,8 @@ class CryptonightMiner: MinerStore {
                 hash(with: hasher)
             }
         }
+        
+        Thread.exit()
     }
     
     private func hash(with hasher: HashContext) {
@@ -118,7 +126,10 @@ class CryptonightMiner: MinerStore {
     }
     
     func stop(completion: @escaping MinerStoreStopCompletionHandler) {
-        threads.forEach { $0.cancel() }
+        threads.forEach {
+            $0.cancel()
+        }
+        
         threads = []
         
         completion(.success(result: true))
