@@ -413,10 +413,6 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     
     func handleJobSubmitted() {
         log.info("Total shares found: \(dataSource.sharesFound)")
-        
-        if dataSource.sharesFound > 0, dataSource.sharesFound % 5 == 0 {
-            resetMiner()
-        }
     }
     
     // MARK: - Actions
