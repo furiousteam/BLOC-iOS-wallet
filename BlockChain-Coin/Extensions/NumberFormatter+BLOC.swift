@@ -21,6 +21,7 @@ extension Double {
         numberFormatter.numberStyle = .none
         numberFormatter.positiveSuffix = " BLOC"
         numberFormatter.locale = Locale.current
+        numberFormatter.minimumIntegerDigits = 1
         return numberFormatter
     }()
     
@@ -32,6 +33,7 @@ extension Double {
         numberFormatter.positivePrefix = "+ "
         numberFormatter.negativePrefix = "- "
         numberFormatter.locale = Locale.current
+        numberFormatter.minimumIntegerDigits = 1
         return numberFormatter
     }()
     
@@ -41,6 +43,7 @@ extension Double {
         numberFormatter.numberStyle = .none
         numberFormatter.currencySymbol = ""
         numberFormatter.locale = Locale.current
+        numberFormatter.minimumIntegerDigits = 1
         return numberFormatter
     }()
     
