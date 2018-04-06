@@ -174,7 +174,7 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
         
         statsTimer?.invalidate()
         statsTimer = Timer.scheduledTimer(withTimeInterval: 60.0, repeats: true, block: { timer in
-            if let settings = self.settings {
+            if let settings = self.dataSource.settings {
                 self.interactor.fetchStats(settings: settings)
             }
         })

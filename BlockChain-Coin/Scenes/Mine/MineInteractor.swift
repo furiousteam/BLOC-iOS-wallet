@@ -22,6 +22,7 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate, PoolSocketDelegate 
     var presenter: MinePresentationLogic?
     
     let walletWorker = WalletWorker(store: WalletDiskStore())
+    let walletAPIWorker = WalletWorker(store: WalletAPI())
     var poolWorker: PoolWorker!
     let minerWorker = MinerWorker(store: CryptonightMiner())
     let poolAPIWorker = PoolWorker(store: PoolAPI())
@@ -130,6 +131,33 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate, PoolSocketDelegate 
             switch result {
             case .success(let stats):
                 self?.presenter?.handleAddressMiningStats(stats: stats)
+            case .failure(let error):
+                log.error(error)
+                break
+            }
+        }
+        
+        minerWorker.fetchSettings { [weak self] result in
+            switch result {
+            case .success(let settings):
+                self?.walletAPIWorker.getBalanceAndTransactions(wallet: settings.wallet, password: settings.wallet.password ?? "") { [weak self] result in
+                    switch result {
+                    case .success(let details):
+                        guard settings.wallet.details?.availableBalance != details.availableBalance else { return }
+                        
+                        let wallet = settings.wallet
+                        wallet.details = details
+                        
+                        let settings = MiningSettings(threads: settings.threads, wallet: wallet, pool: settings.pool)
+                        
+                        self?.minerWorker.saveSettings(settings: settings)
+
+                        self?.presenter?.handleShowSettings(settings: settings)
+                    case .failure(let error):
+                        log.error(error)
+                        break
+                    }
+                }
             case .failure(let error):
                 log.error(error)
                 break
