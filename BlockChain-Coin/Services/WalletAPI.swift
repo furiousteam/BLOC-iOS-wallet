@@ -20,7 +20,7 @@ enum WalletAPITarget: TargetType {
     case transfer(sourceAddress: String, destinationAddress: String, amount: Int64, fee: UInt64, anonymity: UInt64, unlockHeight: UInt64?, paymentId: String?, signature: String)
     
     var baseURL: URL {
-        return URL(string: "http://blockchain-coin.co/api/v1")!
+        return URL(string: "http://95.216.19.34/api/v1")!
     }
     
     var path: String {
