@@ -54,13 +54,17 @@ class CryptonightMiner: MinerStore {
     }
     
     fileprivate func mine() {
-        let hasher = HashContext()
+        var hasher: HashContext? = HashContext()
         
         while !Thread.current.isCancelled {
             autoreleasepool {
-                hash(with: hasher)
+                if let hasher = hasher {
+                    hash(with: hasher)
+                }
             }
         }
+        
+        hasher = nil
         
         Thread.exit()
     }
