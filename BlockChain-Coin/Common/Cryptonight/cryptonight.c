@@ -89,11 +89,11 @@ void cryptonight_hash_ctx(void * output, const void * input, struct cryptonight_
     size_t i, j;
     //hash_process(&ctx->state.hs, (const uint8_t*) input, 76);
     keccak((const uint8_t *)input, 76, ctx->state.hs.b, 200);
-    memcpy(ctx->text, ctx->state.init, INIT_SIZE_BYTE);
+    memcpy(ctx->text, ctx->state.init, CRYPTONIIGHT_INIT_SIZE_BYTE);
     
-    oaes_key_import_data(ctx->aes_ctx, ctx->state.hs.b, AES_KEY_SIZE);
+    oaes_key_import_data(ctx->aes_ctx, ctx->state.hs.b, CRYPTONIIGHT_AES_KEY_SIZE);
 
-    for(i = 0; likely(i < MEMORY); i += INIT_SIZE_BYTE)
+    for(i = 0; likely(i < CRYPTONIIGHT_MEMORY); i += CRYPTONIIGHT_INIT_SIZE_BYTE)
     {
 //        for(j = 0; j < 10; j++)
 //        {
@@ -107,15 +107,15 @@ void cryptonight_hash_ctx(void * output, const void * input, struct cryptonight_
 //            SubAndShiftAndMixAddRoundInPlace((uint32_t *)&ctx->text[0x70], (uint32_t *)&ctx->aes_ctx->key->exp_data[j << 4]);
 //        }
 //        memcpy(&ctx->long_state[i], ctx->text, INIT_SIZE_BYTE);
-        aesb_pseudo_round_mut(&ctx->text[AES_BLOCK_SIZE * 0], ctx->aes_ctx->key->exp_data);
-        aesb_pseudo_round_mut(&ctx->text[AES_BLOCK_SIZE * 1], ctx->aes_ctx->key->exp_data);
-        aesb_pseudo_round_mut(&ctx->text[AES_BLOCK_SIZE * 2], ctx->aes_ctx->key->exp_data);
-        aesb_pseudo_round_mut(&ctx->text[AES_BLOCK_SIZE * 3], ctx->aes_ctx->key->exp_data);
-        aesb_pseudo_round_mut(&ctx->text[AES_BLOCK_SIZE * 4], ctx->aes_ctx->key->exp_data);
-        aesb_pseudo_round_mut(&ctx->text[AES_BLOCK_SIZE * 5], ctx->aes_ctx->key->exp_data);
-        aesb_pseudo_round_mut(&ctx->text[AES_BLOCK_SIZE * 6], ctx->aes_ctx->key->exp_data);
-        aesb_pseudo_round_mut(&ctx->text[AES_BLOCK_SIZE * 7], ctx->aes_ctx->key->exp_data);
-        memcpy(&ctx->long_state[i], ctx->text, INIT_SIZE_BYTE);
+        aesb_pseudo_round_mut(&ctx->text[CRYPTONIIGHT_AES_BLOCK_SIZE * 0], ctx->aes_ctx->key->exp_data);
+        aesb_pseudo_round_mut(&ctx->text[CRYPTONIIGHT_AES_BLOCK_SIZE * 1], ctx->aes_ctx->key->exp_data);
+        aesb_pseudo_round_mut(&ctx->text[CRYPTONIIGHT_AES_BLOCK_SIZE * 2], ctx->aes_ctx->key->exp_data);
+        aesb_pseudo_round_mut(&ctx->text[CRYPTONIIGHT_AES_BLOCK_SIZE * 3], ctx->aes_ctx->key->exp_data);
+        aesb_pseudo_round_mut(&ctx->text[CRYPTONIIGHT_AES_BLOCK_SIZE * 4], ctx->aes_ctx->key->exp_data);
+        aesb_pseudo_round_mut(&ctx->text[CRYPTONIIGHT_AES_BLOCK_SIZE * 5], ctx->aes_ctx->key->exp_data);
+        aesb_pseudo_round_mut(&ctx->text[CRYPTONIIGHT_AES_BLOCK_SIZE * 6], ctx->aes_ctx->key->exp_data);
+        aesb_pseudo_round_mut(&ctx->text[CRYPTONIIGHT_AES_BLOCK_SIZE * 7], ctx->aes_ctx->key->exp_data);
+        memcpy(&ctx->long_state[i], ctx->text, CRYPTONIIGHT_INIT_SIZE_BYTE);
 	}
 	
 	for (i = 0; i < 2; i++) 
@@ -127,7 +127,7 @@ void cryptonight_hash_ctx(void * output, const void * input, struct cryptonight_
     //xor_blocks_dst(&ctx->state.k[0], &ctx->state.k[32], ctx->a);
     //xor_blocks_dst(&ctx->state.k[16], &ctx->state.k[48], ctx->b);
 
-    for (i = 0; likely(i < ITER / 4); ++i) {
+    for (i = 0; likely(i < CRYPTONIIGHT_ITER / 4); ++i) {
 //        // Dependency chain: address -> read value ------+
 //        // written value <-+ hard function (AES or MUL) <+
 //        // next address  <-+
@@ -160,14 +160,14 @@ void cryptonight_hash_ctx(void * output, const void * input, struct cryptonight_
         mul_sum_xor_dst(ctx->b, ctx->a, &ctx->long_state[e2i(ctx->b)]);
     }
 
-    memcpy(ctx->text, ctx->state.init, INIT_SIZE_BYTE);
+    memcpy(ctx->text, ctx->state.init, CRYPTONIIGHT_INIT_SIZE_BYTE);
 
     oaes_free((OAES_CTX **) &ctx->aes_ctx);
     ctx->aes_ctx = (oaes_ctx*) oaes_alloc();
 
-    oaes_key_import_data(ctx->aes_ctx, &ctx->state.hs.b[32], AES_KEY_SIZE);
+    oaes_key_import_data(ctx->aes_ctx, &ctx->state.hs.b[32], CRYPTONIIGHT_AES_KEY_SIZE);
     
-    for(i = 0; likely(i < MEMORY); i += INIT_SIZE_BYTE)
+    for(i = 0; likely(i < CRYPTONIIGHT_MEMORY); i += CRYPTONIIGHT_INIT_SIZE_BYTE)
     {
 //        xor_blocks(&ctx->text[0x00], &ctx->long_state[i + 0x00]);
 //        xor_blocks(&ctx->text[0x10], &ctx->long_state[i + 0x10]);
@@ -190,27 +190,27 @@ void cryptonight_hash_ctx(void * output, const void * input, struct cryptonight_
 //            SubAndShiftAndMixAddRoundInPlace((uint32_t *)&ctx->text[0x70], (uint32_t *)&ctx->aes_ctx->key->exp_data[j << 4]);
 //        }
         
-        xor_blocks(&ctx->text[0 * AES_BLOCK_SIZE], &ctx->long_state[i + 0 * AES_BLOCK_SIZE]);
-        aesb_pseudo_round_mut(&ctx->text[0 * AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
-        xor_blocks(&ctx->text[1 * AES_BLOCK_SIZE], &ctx->long_state[i + 1 * AES_BLOCK_SIZE]);
-        aesb_pseudo_round_mut(&ctx->text[1 * AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
-        xor_blocks(&ctx->text[2 * AES_BLOCK_SIZE], &ctx->long_state[i + 2 * AES_BLOCK_SIZE]);
-        aesb_pseudo_round_mut(&ctx->text[2 * AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
-        xor_blocks(&ctx->text[3 * AES_BLOCK_SIZE], &ctx->long_state[i + 3 * AES_BLOCK_SIZE]);
-        aesb_pseudo_round_mut(&ctx->text[3 * AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
-        xor_blocks(&ctx->text[4 * AES_BLOCK_SIZE], &ctx->long_state[i + 4 * AES_BLOCK_SIZE]);
-        aesb_pseudo_round_mut(&ctx->text[4 * AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
-        xor_blocks(&ctx->text[5 * AES_BLOCK_SIZE], &ctx->long_state[i + 5 * AES_BLOCK_SIZE]);
-        aesb_pseudo_round_mut(&ctx->text[5 * AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
-        xor_blocks(&ctx->text[6 * AES_BLOCK_SIZE], &ctx->long_state[i + 6 * AES_BLOCK_SIZE]);
-        aesb_pseudo_round_mut(&ctx->text[6 * AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
-        xor_blocks(&ctx->text[7 * AES_BLOCK_SIZE], &ctx->long_state[i + 7 * AES_BLOCK_SIZE]);
-        aesb_pseudo_round_mut(&ctx->text[7 * AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
+        xor_blocks(&ctx->text[0 * CRYPTONIIGHT_AES_BLOCK_SIZE], &ctx->long_state[i + 0 * CRYPTONIIGHT_AES_BLOCK_SIZE]);
+        aesb_pseudo_round_mut(&ctx->text[0 * CRYPTONIIGHT_AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
+        xor_blocks(&ctx->text[1 * CRYPTONIIGHT_AES_BLOCK_SIZE], &ctx->long_state[i + 1 * CRYPTONIIGHT_AES_BLOCK_SIZE]);
+        aesb_pseudo_round_mut(&ctx->text[1 * CRYPTONIIGHT_AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
+        xor_blocks(&ctx->text[2 * CRYPTONIIGHT_AES_BLOCK_SIZE], &ctx->long_state[i + 2 * CRYPTONIIGHT_AES_BLOCK_SIZE]);
+        aesb_pseudo_round_mut(&ctx->text[2 * CRYPTONIIGHT_AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
+        xor_blocks(&ctx->text[3 * CRYPTONIIGHT_AES_BLOCK_SIZE], &ctx->long_state[i + 3 * CRYPTONIIGHT_AES_BLOCK_SIZE]);
+        aesb_pseudo_round_mut(&ctx->text[3 * CRYPTONIIGHT_AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
+        xor_blocks(&ctx->text[4 * CRYPTONIIGHT_AES_BLOCK_SIZE], &ctx->long_state[i + 4 * CRYPTONIIGHT_AES_BLOCK_SIZE]);
+        aesb_pseudo_round_mut(&ctx->text[4 * CRYPTONIIGHT_AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
+        xor_blocks(&ctx->text[5 * CRYPTONIIGHT_AES_BLOCK_SIZE], &ctx->long_state[i + 5 * CRYPTONIIGHT_AES_BLOCK_SIZE]);
+        aesb_pseudo_round_mut(&ctx->text[5 * CRYPTONIIGHT_AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
+        xor_blocks(&ctx->text[6 * CRYPTONIIGHT_AES_BLOCK_SIZE], &ctx->long_state[i + 6 * CRYPTONIIGHT_AES_BLOCK_SIZE]);
+        aesb_pseudo_round_mut(&ctx->text[6 * CRYPTONIIGHT_AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
+        xor_blocks(&ctx->text[7 * CRYPTONIIGHT_AES_BLOCK_SIZE], &ctx->long_state[i + 7 * CRYPTONIIGHT_AES_BLOCK_SIZE]);
+        aesb_pseudo_round_mut(&ctx->text[7 * CRYPTONIIGHT_AES_BLOCK_SIZE], ctx->aes_ctx->key->exp_data);
         
 	}
 
 		
-    memcpy(ctx->state.init, ctx->text, INIT_SIZE_BYTE);
+    memcpy(ctx->state.init, ctx->text, CRYPTONIIGHT_INIT_SIZE_BYTE);
     //hash_permutation(&ctx->state.hs);
     keccakf((uint64_t *)ctx->state.hs.b, 24);
     /*memcpy(hash, &state, 32);*/

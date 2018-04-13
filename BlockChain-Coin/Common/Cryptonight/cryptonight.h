@@ -3,12 +3,12 @@
 #ifndef CRYPTONIGHT_H
 #define CRYPTONIGHT_H
 
-#define MEMORY         (1 << 21) /* 2 MiB */
-#define ITER           (1 << 20)
-#define AES_BLOCK_SIZE  16
-#define AES_KEY_SIZE    32 /*16*/
-#define INIT_SIZE_BLK   8
-#define INIT_SIZE_BYTE (INIT_SIZE_BLK * AES_BLOCK_SIZE)    // 128
+#define CRYPTONIIGHT_MEMORY         (1 << 21) /* 2 MiB */
+#define CRYPTONIIGHT_ITER           (1 << 20)
+#define CRYPTONIIGHT_AES_BLOCK_SIZE  16
+#define CRYPTONIIGHT_AES_KEY_SIZE    32 /*16*/
+#define CRYPTONIIGHT_INIT_SIZE_BLK   8
+#define CRYPTONIIGHT_INIT_SIZE_BYTE (CRYPTONIIGHT_INIT_SIZE_BLK * CRYPTONIIGHT_AES_BLOCK_SIZE)    // 128*/
 
 #define likely(x) (x)
 
@@ -28,18 +28,18 @@ extern "C" {
         union hash_state hs;
         struct {
             uint8_t k[64];
-            uint8_t init[INIT_SIZE_BYTE];
+            uint8_t init[CRYPTONIIGHT_INIT_SIZE_BYTE];
         };
     };
 #pragma pack(pop)
     
     struct cryptonight_ctx {
-        uint8_t long_state[MEMORY] __attribute((aligned(16)));
+        uint8_t long_state[CRYPTONIIGHT_MEMORY] __attribute((aligned(16)));
         union cn_slow_hash_state state;
-        uint8_t text[INIT_SIZE_BYTE] __attribute((aligned(16)));
-        uint8_t a[AES_BLOCK_SIZE] __attribute__((aligned(16)));
-        uint8_t b[AES_BLOCK_SIZE] __attribute__((aligned(16)));
-        uint8_t c[AES_BLOCK_SIZE] __attribute__((aligned(16)));
+        uint8_t text[CRYPTONIIGHT_INIT_SIZE_BYTE] __attribute((aligned(16)));
+        uint8_t a[CRYPTONIIGHT_AES_BLOCK_SIZE] __attribute__((aligned(16)));
+        uint8_t b[CRYPTONIIGHT_AES_BLOCK_SIZE] __attribute__((aligned(16)));
+        uint8_t c[CRYPTONIIGHT_AES_BLOCK_SIZE] __attribute__((aligned(16)));
         oaes_ctx* aes_ctx;
     };
     

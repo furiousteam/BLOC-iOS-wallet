@@ -83,6 +83,7 @@
 		9C4AA4DE20348F430056152C /* ShowWalletPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4DD20348F430056152C /* ShowWalletPresenter.swift */; };
 		9C4AA4E020348F4D0056152C /* ShowWalletModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4DF20348F4D0056152C /* ShowWalletModels.swift */; };
 		9C4AA4E5203490390056152C /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4E4203490390056152C /* Balance.swift */; };
+		9C5292CC2080744000EDCB15 /* cn_slow_hash_soft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C5292C92080744000EDCB15 /* cn_slow_hash_soft.cpp */; };
 		9C5756A42063A4CE002BD079 /* NewTransactionNoWalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756A32063A4CE002BD079 /* NewTransactionNoWalletCell.swift */; };
 		9C5756B220640323002BD079 /* CheckPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756AC20640323002BD079 /* CheckPasswordVC.swift */; };
 		9C5756B62064035E002BD079 /* CheckPasswordFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756B52064035E002BD079 /* CheckPasswordFormViews.swift */; };
@@ -395,6 +396,8 @@
 		9C4AA4DD20348F430056152C /* ShowWalletPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWalletPresenter.swift; sourceTree = "<group>"; };
 		9C4AA4DF20348F4D0056152C /* ShowWalletModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWalletModels.swift; sourceTree = "<group>"; };
 		9C4AA4E4203490390056152C /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
+		9C5292C92080744000EDCB15 /* cn_slow_hash_soft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cn_slow_hash_soft.cpp; sourceTree = "<group>"; };
+		9C5292CA2080744000EDCB15 /* cn_slow_hash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cn_slow_hash.hpp; sourceTree = "<group>"; };
 		9C5756A32063A4CE002BD079 /* NewTransactionNoWalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionNoWalletCell.swift; sourceTree = "<group>"; };
 		9C5756AC20640323002BD079 /* CheckPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPasswordVC.swift; sourceTree = "<group>"; };
 		9C5756B52064035E002BD079 /* CheckPasswordFormViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordFormViews.swift; sourceTree = "<group>"; };
@@ -841,10 +844,13 @@
 		9C04365E202C968D00671DA2 /* Cryptonight */ = {
 			isa = PBXGroup;
 			children = (
+				9C5292C72080744000EDCB15 /* cn_heavy */,
 				9C04365F202C968D00671DA2 /* keccak.c */,
 				9C043660202C968D00671DA2 /* groestl.h */,
 				9C043661202C968D00671DA2 /* oaes_config.h */,
+				9C043671202C968D00671DA2 /* blake.h */,
 				9C043662202C968D00671DA2 /* blake.c */,
+				9C043670202C968D00671DA2 /* skein.c */,
 				9C043663202C968D00671DA2 /* skein.h */,
 				9C043664202C968D00671DA2 /* skein_port.h */,
 				9C043665202C968D00671DA2 /* jh */,
@@ -856,8 +862,6 @@
 				9C04366D202C968D00671DA2 /* keccak.h */,
 				9C04366E202C968D00671DA2 /* oaes_lib.h */,
 				9C04366F202C968D00671DA2 /* cryptonight.c */,
-				9C043670202C968D00671DA2 /* skein.c */,
-				9C043671202C968D00671DA2 /* blake.h */,
 				9C043672202C968D00671DA2 /* aesb.c */,
 			);
 			path = Cryptonight;
@@ -1036,6 +1040,15 @@
 				9CBCC99620610A130006FBA7 /* ShowWalletBalanceView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9C5292C72080744000EDCB15 /* cn_heavy */ = {
+			isa = PBXGroup;
+			children = (
+				9C5292C92080744000EDCB15 /* cn_slow_hash_soft.cpp */,
+				9C5292CA2080744000EDCB15 /* cn_slow_hash.hpp */,
+			);
+			path = cn_heavy;
 			sourceTree = "<group>";
 		};
 		9C5756A720640323002BD079 /* CheckPassword */ = {
@@ -1592,7 +1605,7 @@
 					9C043632202C908B00671DA2 = {
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					9C7800982036F1C30089F6EE = {
 						CreatedOnToolsVersion = 9.2;
@@ -1940,6 +1953,7 @@
 				9C8A8F78202EE13600F55736 /* PoolSocketSubmitJobRequest.swift in Sources */,
 				9CE35C1D206BE64F002E7193 /* MiningBooterView.swift in Sources */,
 				9CBCC9A820616E5A0006FBA7 /* WalletSettingsVC.swift in Sources */,
+				9C5292CC2080744000EDCB15 /* cn_slow_hash_soft.cpp in Sources */,
 				9CE35C17206B72C4002E7193 /* MiningSettings.swift in Sources */,
 				9CBCC995206102260006FBA7 /* ShowWalletTransactionCell.swift in Sources */,
 				9CA7FB7F205C151C00D48D5F /* ImportWalletKeyFormViews.swift in Sources */,
@@ -2207,16 +2221,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UV2JYV8RQQ;
 				INFOPLIST_FILE = "$(SRCROOT)/BlockChain-Coin/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.blockchain-coin.ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "97f20e43-b869-45dc-b2e9-f5c10bca1c08";
-				PROVISIONING_PROFILE_SPECIFIER = "BlockChain Coin";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BlockChain-Coin/BlockChain-Coin-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2229,8 +2243,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = UV2JYV8RQQ;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = "$(SRCROOT)/BlockChain-Coin/Supporting Files/Info.plist";
@@ -2238,8 +2252,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.blockchain-coin.ios";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "97f20e43-b869-45dc-b2e9-f5c10bca1c08";
-				PROVISIONING_PROFILE_SPECIFIER = "BlockChain Coin";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BlockChain-Coin/BlockChain-Coin-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

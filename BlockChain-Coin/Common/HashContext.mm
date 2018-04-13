@@ -8,10 +8,11 @@
 #import "HashContext.h"
 #import "Cryptonight/cryptonight.h"
 #import "keccak.h"
+#import "cn_slow_hash.hpp"
 
-@interface HashContext()
-
-@property (nonatomic, readonly) struct cryptonight_ctx *ctx;
+@interface HashContext() {
+    cn_heavy::cn_pow_hash_v2 *_ctx;
+}
 
 @end
 
@@ -19,9 +20,9 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        _ctx = (struct cryptonight_ctx*)malloc(sizeof(struct cryptonight_ctx));
+        _ctx = new cn_heavy::cn_pow_hash_v2();
     }
-    
+        
     return self;
 }
     
@@ -34,13 +35,15 @@
 
 - (NSData * _Nonnull)hashData:(NSData * _Nonnull)data {
     NSMutableData *output = [NSMutableData dataWithLength:32];
-    cryptonight_hash_ctx(output.mutableBytes, data.bytes, self.ctx);
+   
+    _ctx->hash(data.bytes, data.length, output.mutableBytes);
+    
     return output;
 }
 
 - (NSData * _Nonnull)keccacHashData:(NSData * _Nonnull)data {
     NSMutableData *output = [NSMutableData dataWithLength:13];
-    cryptonight_hash_ctx(output.mutableBytes, data.bytes, self.ctx);
+    _ctx->hash(data.bytes, data.length, output.mutableBytes);
     return output;
 }
 
