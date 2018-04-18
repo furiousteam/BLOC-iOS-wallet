@@ -19,7 +19,7 @@ class CheckPasswordFormViews {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = R.string.localizable.password_required_title()
+        label.text = R.string.localizable.password_confirm_title()
         label.font = .regular(size: 12.5)
         label.textColor = UIColor.white.withAlphaComponent(0.5)
         label.textAlignment = .center

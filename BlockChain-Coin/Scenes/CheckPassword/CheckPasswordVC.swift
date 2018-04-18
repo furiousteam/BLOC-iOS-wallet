@@ -24,6 +24,13 @@ class CheckPasswordVC: ViewController {
     
     let disposeBag = DisposeBag()
     
+    let backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.defaultBg()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
+
     weak var delegate: CheckPasswordVCDelegate?
     
     // MARK: - View lifecycle
@@ -51,6 +58,12 @@ class CheckPasswordVC: ViewController {
     override func configure() {
         view.backgroundColor = .black
         
+        view.addSubview(backgroundImageView)
+        
+        backgroundImageView.snp.makeConstraints({
+            $0.edges.equalToSuperview()
+        })
+
         view.addSubview(formView)
         
         formView.snp.makeConstraints({

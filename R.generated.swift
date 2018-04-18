@@ -628,7 +628,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 151 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 152 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -954,6 +954,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let password_required_title = Rswift.StringResource(key: "password_required_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Please enter the password for this wallet
+      /// 
+      /// Locales: en
+      static let password_confirm_title = Rswift.StringResource(key: "password_confirm_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Please enter your private key below
       /// 
       /// Locales: en
@@ -1800,6 +1804,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func password_required_title(_: Void = ()) -> String {
         return NSLocalizedString("password_required_title", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Please enter the password for this wallet
+      /// 
+      /// Locales: en
+      static func password_confirm_title(_: Void = ()) -> String {
+        return NSLocalizedString("password_confirm_title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Please enter your private key below

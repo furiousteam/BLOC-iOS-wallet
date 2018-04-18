@@ -158,3 +158,4 @@ Miners: %@ - Last block found: %@";
 "delete_wallet_before_action" = "Tap on the button below to delete this wallet";
 "delete_wallet_action" = "Delete this wallet";
 "mining_no_wallet" = "A wallet is required to start mining";
+"password_confirm_title" = "Please enter the password for this wallet";
