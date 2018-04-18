@@ -9,12 +9,14 @@
 import UIKit
 
 protocol AboutRoutingLogic {
-
+    func goBack()
 }
 
 class AboutRouter: Router, AboutRoutingLogic {
     weak var viewController: UIViewController?
     
-    
+    func goBack() {
+        viewController?.dismiss(animated: true, completion: nil)
+    }
 }
 

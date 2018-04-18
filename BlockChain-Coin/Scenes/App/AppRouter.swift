@@ -17,11 +17,7 @@ class AppRouter: Router, AppRoutingLogic {
     weak var window: UIWindow?
 
     func showHome() {
-        guard let window = window else { return }
-
-        let homeVC = HomeVC()
-        
-        window.rootViewController?.present(homeVC, animated: false, completion: nil)
+        NotificationCenter.default.post(name: .selectMenuTab, object: nil)
     }
     
     func showApp() {

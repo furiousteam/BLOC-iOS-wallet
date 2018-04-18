@@ -13,7 +13,7 @@ extension Notification.Name {
     static let selectMiningTab = Notification.Name("selectMiningTab")
     static let selectSendTab = Notification.Name("selectSendTab")
     static let selectTransactionsTab = Notification.Name("selectTransactionsTab")
-    static let selectAboutTab = Notification.Name("selectAboutTab")
+    static let selectMenuTab = Notification.Name("selectMenuTab")
     static let reduceBrightness = Notification.Name("reduceBrightness")
     static let restoreBrightness = Notification.Name("restoreBrightneww")
     static let playMiningVideo = Notification.Name("playMiningVideo")

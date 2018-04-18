@@ -12,7 +12,7 @@ import SnapKit
 enum Tab: Int {
     case wallets = 0
     case mining = 1
-    case about = 2
+    case menu = 2
     case send = 3
     case transactions = 4
 }
@@ -23,7 +23,7 @@ final class TabBarVC: ViewController {
     let miningVC = MineVC()
     let sendVC = NewTransactionVC()
     let transactionsVC = ListTransactionsVC()
-    let aboutVC = AboutVC()
+    let menuVC = HomeVC()
     
     let tabBar = TabBarView()
     let container = HomeContainer()
@@ -42,7 +42,7 @@ final class TabBarVC: ViewController {
         
         setControllers([ NavigationController(rootViewController: walletsVC),
                          NavigationController(rootViewController: miningVC),
-                         aboutVC,
+                         menuVC,
                          NavigationController(rootViewController: sendVC),
                          NavigationController(rootViewController: transactionsVC) ])
         
@@ -62,7 +62,7 @@ final class TabBarVC: ViewController {
         NotificationCenter.default.addObserver(forName: .selectMiningTab, object: nil, queue: nil, using: handleSelectMiningTab)
         NotificationCenter.default.addObserver(forName: .selectSendTab, object: nil, queue: nil, using: handleSelectSendTab)
         NotificationCenter.default.addObserver(forName: .selectTransactionsTab, object: nil, queue: nil, using: handleSelectTransactionsTab)
-        NotificationCenter.default.addObserver(forName: .selectAboutTab, object: nil, queue: nil, using: handleSelectAboutTab)
+        NotificationCenter.default.addObserver(forName: .selectMenuTab, object: nil, queue: nil, using: handleSelectMenuTab)
     }
     
     // MARK: - Configuration
@@ -141,8 +141,8 @@ final class TabBarVC: ViewController {
         setSelectedTab(tab: .transactions)
     }
     
-    @objc func handleSelectAboutTab(notification: Notification) {
-        setSelectedTab(tab: .about)
+    @objc func handleSelectMenuTab(notification: Notification) {
+        setSelectedTab(tab: .menu)
     }
     
 }

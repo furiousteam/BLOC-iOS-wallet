@@ -72,6 +72,9 @@ class AboutVC: ViewController, AboutDisplayLogic {
     
     override func configure() {
         super.configure()
+        
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationController?.navigationBar.isTranslucent = true
 
         view.backgroundColor = .clear
         
@@ -97,12 +100,19 @@ class AboutVC: ViewController, AboutDisplayLogic {
         })
         
         formFields.websiteButton.addTarget(self, action: #selector(websiteTapped), for: .touchUpInside)
+        
+        let backButton = UIBarButtonItem(image: R.image.leftArrow(), style: .plain, target: self, action: #selector(backTapped))
+        self.navigationItem.setLeftBarButton(backButton, animated: false)
     }
     
     // MARK: - Actions
 
     @objc func websiteTapped() {
         UIApplication.shared.open(URL(string: "http://www.blockchain-coin.net")!, options: [:], completionHandler: nil)
+    }
+    
+    @objc func backTapped() {
+        router.goBack()
     }
     
     // MARK: - UI Update

@@ -44,9 +44,9 @@ class HomeRouter: Router, HomeRoutingLogic {
     }
     
     func showAbout() {
-        NotificationCenter.default.post(name: .selectAboutTab, object: nil)
+        let aboutVC = AboutVC()
         
-        viewController?.dismiss(animated: true, completion: nil)
+        viewController?.present(NavigationController(rootViewController: aboutVC), animated: true, completion: nil)
     }
 }
 

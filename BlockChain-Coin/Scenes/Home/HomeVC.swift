@@ -49,12 +49,16 @@ class HomeVC: ViewController, UITableViewDelegate, HomeDisplayLogic {
         super.init(nibName: nil, bundle: nil)
         
         router.viewController = self
+        
+        commonInit()
     }
     
     init(router: HomeRoutingLogic) {
         self.router = router
         
         super.init(nibName: nil, bundle: nil)
+        
+        commonInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,6 +69,10 @@ class HomeVC: ViewController, UITableViewDelegate, HomeDisplayLogic {
         super.viewDidLoad()
         
         configure()
+    }
+    
+    func commonInit() {
+        tabBarItem = UITabBarItem(title: nil, image: R.image.tabBarAbout(), selectedImage: nil)
     }
 
     // MARK: - Configuration

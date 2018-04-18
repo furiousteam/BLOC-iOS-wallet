@@ -17,8 +17,7 @@ class NewTransactionRouter: Router, NewTransactionRoutingLogic {
     weak var viewController: UIViewController?
     
     func showHome() {
-        let homeVC = HomeVC()
-        viewController?.navigationController?.present(homeVC, animated: true, completion: nil)
+        NotificationCenter.default.post(name: .selectMenuTab, object: nil)
     }
     
     func showConfirmTransaction(form: NewTransactionForm) {
