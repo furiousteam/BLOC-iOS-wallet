@@ -109,6 +109,8 @@ class SetMiningThreadsVC: ViewController, SetMiningThreadsDisplayLogic {
         
         log.info("New thread count: \(value)")
         
+        self.formFields.warningView.isHidden = (value != UInt(numberOfThreads))
+        
         interactor.saveSelectedThreads(threads: value)
     }
     
