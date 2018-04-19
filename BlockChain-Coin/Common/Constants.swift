@@ -9,9 +9,9 @@
 import Foundation
 
 struct Constants {
-    static let walletCurrencyDivider: Double = 100000000.0
+    static let walletCurrencyDivider: Double = 1_0000.0
     
-    static let minimumFee = 10000.0
+    static let minimumFee = 1.0
     
     static let transactionExtraNonceMaxCount = 255
     static let transactionExtraNonce: UInt8 = 0x02

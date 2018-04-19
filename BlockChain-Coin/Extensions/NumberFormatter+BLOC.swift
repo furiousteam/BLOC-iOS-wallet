@@ -17,7 +17,7 @@ extension Double {
     
     fileprivate static let blocNumberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
-        numberFormatter.maximumFractionDigits = 8
+        numberFormatter.maximumFractionDigits = 4
         numberFormatter.numberStyle = .none
         numberFormatter.positiveSuffix = " BLOC"
         numberFormatter.locale = Locale.current
@@ -27,7 +27,7 @@ extension Double {
     
     fileprivate static let blocNumberWithPrefixesFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
-        numberFormatter.maximumFractionDigits = 8
+        numberFormatter.maximumFractionDigits = 4
         numberFormatter.numberStyle = .none
         numberFormatter.positiveSuffix = " BLOC"
         numberFormatter.positivePrefix = "+ "
@@ -39,7 +39,7 @@ extension Double {
     
     fileprivate static let blocWithoutCurrencyNumberFormatter: NumberFormatter = {
         let numberFormatter = NumberFormatter()
-        numberFormatter.maximumFractionDigits = 8
+        numberFormatter.maximumFractionDigits = 4
         numberFormatter.numberStyle = .none
         numberFormatter.currencySymbol = ""
         numberFormatter.locale = Locale.current
