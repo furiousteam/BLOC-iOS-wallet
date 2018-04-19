@@ -109,7 +109,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 69 images.
+  /// This `R.image` struct is generated, and contains static references to 70 images.
   struct image {
     /// Image `about-logo`.
     static let aboutLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "about-logo")
@@ -153,6 +153,8 @@ struct R: Rswift.Validatable {
     static let lowPower = Rswift.ImageResource(bundle: R.hostingBundle, name: "low-power")
     /// Image `marker-vertical-separator`.
     static let markerVerticalSeparator = Rswift.ImageResource(bundle: R.hostingBundle, name: "marker-vertical-separator")
+    /// Image `menu-highlight`.
+    static let menuHighlight = Rswift.ImageResource(bundle: R.hostingBundle, name: "menu-highlight")
     /// Image `menu-icon`.
     static let menuIcon = Rswift.ImageResource(bundle: R.hostingBundle, name: "menu-icon")
     /// Image `miner-slider-bg`.
@@ -353,6 +355,11 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "marker-vertical-separator", bundle: ..., traitCollection: ...)`
     static func markerVerticalSeparator(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.markerVerticalSeparator, compatibleWith: traitCollection)
+    }
+    
+    /// `UIImage(named: "menu-highlight", bundle: ..., traitCollection: ...)`
+    static func menuHighlight(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.menuHighlight, compatibleWith: traitCollection)
     }
     
     /// `UIImage(named: "menu-icon", bundle: ..., traitCollection: ...)`

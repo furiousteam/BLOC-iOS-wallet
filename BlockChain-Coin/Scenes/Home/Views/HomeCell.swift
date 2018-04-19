@@ -35,6 +35,13 @@ class HomeCell: TableViewCell {
         label.textColor = UIColor(hex: 0x156478)
         return label
     }()
+    
+    let highlightImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = R.image.menuHighlight()
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
 
     override func commonInit() {
         super.commonInit()
@@ -49,12 +56,30 @@ class HomeCell: TableViewCell {
         })
         
         [ nameLabel, subtitleLabel ].forEach(stackView.addArrangedSubview)
+        
+        contentView.insertSubview(highlightImageView, belowSubview: stackView)
+        
+        highlightImageView.snp.makeConstraints({
+            $0.center.equalToSuperview()
+            $0.height.width.equalTo(105.0)
+        })
+        
+        highlightImageView.alpha = 0.0
+        
+        contentView.clipsToBounds = false
+        clipsToBounds = false
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
+        UIView.animate(withDuration: 0.15) { [weak self] in
+            self?.highlightImageView.alpha = selected ? 1.0 : 0.0
+        }
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        UIView.animate(withDuration: 0.15) { [weak self] in
+            self?.highlightImageView.alpha = highlighted ? 1.0 : 0.0
+        }
     }
     
     func configure(for item: HomeItem) {

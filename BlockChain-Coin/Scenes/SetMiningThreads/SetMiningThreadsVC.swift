@@ -90,7 +90,8 @@ class SetMiningThreadsVC: ViewController, SetMiningThreadsDisplayLogic {
         let numberOfThreads = ProcessInfo.processInfo.activeProcessorCount
         formFields.sliderView.sliderView.value = (Float(threads) / Float(numberOfThreads))
         formFields.sliderView.sliderView.addTarget(self, action: #selector(sliderValueChanged(slider:)), for: .valueChanged)
-        
+        formFields.warningView.isHidden = (threads != numberOfThreads)
+
         // Navigation Bar
         
         let titleView = TitleView(title: R.string.localizable.home_menu_mining_title(), subtitle: R.string.localizable.home_menu_mining_subtitle())
