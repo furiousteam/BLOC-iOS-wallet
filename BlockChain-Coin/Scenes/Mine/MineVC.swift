@@ -462,6 +462,8 @@ class MineVC: ViewController, MineDisplayLogic, UITableViewDelegate, SwiftyGifDe
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
         guard let _ = dataSource.settings else {
             guard indexPath.section == 2 else { return }
             

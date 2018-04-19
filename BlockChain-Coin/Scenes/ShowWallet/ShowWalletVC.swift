@@ -161,6 +161,7 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
             
             hud?.backgroundColor = UIColor.black.withAlphaComponent(0.7)
             hud?.customView = imageView
+            hud?.bezelView.style = .solidColor
             hud?.bezelView.backgroundColor = UIColor(hex: 0x000831)
             hud?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(hideHud)))
         }
