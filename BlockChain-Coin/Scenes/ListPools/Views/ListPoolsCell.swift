@@ -93,6 +93,7 @@ class ListPoolsCell: TableViewCell {
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
         accessoryImageView.image = highlighted ? R.image.roundOn() : R.image.roundOff()
+        self.backgroundColor = highlighted ? UIColor(hex: 0x121f46) : .clear
     }
     
     func configure(name: String, subtitle: String) {

@@ -15,7 +15,7 @@ class ActionButton: UIButton {
     }
     
     convenience init(title: String) {
-        self.init(type: .custom)
+        self.init(type: .system)
         
         setTitle(title, for: .normal)
         

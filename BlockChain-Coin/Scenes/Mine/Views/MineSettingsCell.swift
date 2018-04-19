@@ -87,9 +87,11 @@ class MineSettingsCell: TableViewCell {
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
+        self.backgroundColor = selected ? UIColor(hex: 0x121f46) : .clear
     }
     
     override func setHighlighted(_ highlighted: Bool, animated: Bool) {
+        self.backgroundColor = highlighted ? UIColor(hex: 0x121f46) : .clear
     }
     
     func configure(title: String, value: String) {

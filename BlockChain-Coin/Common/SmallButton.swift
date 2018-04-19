@@ -15,7 +15,7 @@ class SmallButton: UIButton {
     }
     
     convenience init(title: String) {
-        self.init(type: .custom)
+        self.init(type: .system)
         
         setTitle(title, for: .normal)
         
@@ -35,6 +35,7 @@ class SmallButton: UIButton {
     func commonInit() {
         setBackgroundImage(UIImage.withColor(UIColor(hex: 0x001b45)), for: .normal)
         setBackgroundImage(UIImage.withColor(UIColor(hex: 0x0046ff)), for: .selected)
+        setBackgroundImage(UIImage.withColor(UIColor(hex: 0x0046ff)), for: .highlighted)
 
         tintColor = UIColor.white.withAlphaComponent(0.5)
         setTitleColor(UIColor.white.withAlphaComponent(0.5), for: .normal)
