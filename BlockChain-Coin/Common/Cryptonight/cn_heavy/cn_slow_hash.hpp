@@ -60,42 +60,11 @@
 
 namespace cn_heavy {
 
-#ifdef HAS_INTEL_HW
-inline void cpuid(uint32_t eax, int32_t ecx, int32_t val[4])
-{
-	val[0] = 0;
-	val[1] = 0;
-	val[2] = 0;
-	val[3] = 0;
+    inline bool hw_check_aes()
+    {
+        return false;
+    }
 
-#if defined(HAS_WIN_INTRIN_API)
-	__cpuidex(val, eax, ecx);
-#else
-	__cpuid_count(eax, ecx, val[0], val[1], val[2], val[3]);
-#endif
-}
-
-inline bool hw_check_aes()
-{
-	int32_t cpu_info[4];
-	cpuid(1, 0, cpu_info);
-	return (cpu_info[2] & (1 << 25)) != 0;
-}
-#endif
-
-#ifdef HAS_ARM_HW
-inline bool hw_check_aes()
-{
-	return false;
-}
-#endif
-
-#if !defined(HAS_INTEL_HW) && !defined(HAS_ARM_HW)
-inline bool hw_check_aes()
-{
-	return false;
-}
-#endif
 
 // This cruft avoids casting-galore and allows us not to worry about sizeof(void*)
 class cn_sptr
@@ -105,9 +74,6 @@ public:
 	cn_sptr(uint64_t* ptr) { base_ptr = ptr; }
 	cn_sptr(uint32_t* ptr) { base_ptr = ptr; }
 	cn_sptr(uint8_t* ptr) { base_ptr = ptr; }
-#ifdef HAS_INTEL_HW
-	cn_sptr(__m128i* ptr) { base_ptr = ptr; }
-#endif
 
 	inline void set(void* ptr) { base_ptr = ptr; }
 	inline cn_sptr offset(size_t i) { return reinterpret_cast<uint8_t*>(base_ptr)+i; }
@@ -124,9 +90,6 @@ public:
 	inline int32_t& as_dword(size_t i) { return *(reinterpret_cast<int32_t*>(base_ptr)+i); }
 	inline uint32_t& as_udword(size_t i) { return *(reinterpret_cast<uint32_t*>(base_ptr)+i); }
 	inline const uint32_t& as_udword(size_t i) const { return *(reinterpret_cast<uint32_t*>(base_ptr)+i); }
-#ifdef HAS_INTEL_HW
-	inline __m128i* as_xmm() { return reinterpret_cast<__m128i*>(base_ptr); }
-#endif
 private:
 	void* base_ptr;
 };
@@ -137,13 +100,8 @@ class cn_slow_hash
 public:
 	cn_slow_hash()
 	{
-/*#if !defined(HAS_WIN_INTRIN_API)
-		lpad.set(aligned_alloc(4096, MEMORY));
-		spad.set(aligned_alloc(4096, 4096));
-#else*/
-		lpad.set(_mm_malloc(MEMORY, 4096));
-		spad.set(_mm_malloc(4096, 4096));
-//#endif
+        lpad.set(_mm_malloc(MEMORY, 4096));
+        spad.set(_mm_malloc(4096, 4096));
 	}
 
 	cn_slow_hash (cn_slow_hash&& other) noexcept : lpad(other.lpad.as_byte()), spad(other.spad.as_byte()) 
@@ -174,20 +132,11 @@ public:
 
 	void hash(const void* in, size_t len, void* out)
 	{
-		if(hw_check_aes() && !check_override())
-			hardware_hash(in, len, out);
-		else
-			software_hash(in, len, out);
+        software_hash(in, len, out);
 	}
 
 	void software_hash(const void* in, size_t len, void* out);
 	
-#if !defined(HAS_INTEL_HW) && !defined(HAS_ARM_HW)
-	inline void hardware_hash(const void* in, size_t len, void* out) { assert(false); }
-#else
-	void hardware_hash(const void* in, size_t len, void* out);
-#endif
-
 private:
 	static constexpr size_t MASK = ((MEMORY-1) >> 4) << 4;
 
@@ -207,30 +156,19 @@ private:
 	
 	inline void free_mem()
 	{
-#if !defined(HAS_WIN_INTRIN_API)
-		if(lpad.as_void() != nullptr)
-			free(lpad.as_void());
-		if(lpad.as_void() != nullptr)
-			free(spad.as_void());
-#else
-		if(lpad.as_void() != nullptr)
-			_aligned_free(lpad.as_void());
-		if(lpad.as_void() != nullptr)
-			_aligned_free(spad.as_void());
-#endif
+        if(lpad.as_void() != nullptr)
+            free(lpad.as_void());
+        if(lpad.as_void() != nullptr)
+            free(spad.as_void());
+        
 		lpad.set(nullptr);
 		spad.set(nullptr);
 	}
 
 	inline cn_sptr scratchpad_ptr(uint32_t idx) { return lpad.as_byte() + (idx & MASK); }
 
-#if !defined(HAS_INTEL_HW) && !defined(HAS_ARM_HW)
-	inline void explode_scratchpad_hard() { assert(false); }
-	inline void implode_scratchpad_hard() { assert(false); }
-#else
-	void explode_scratchpad_hard();
-	void implode_scratchpad_hard();
-#endif
+    inline void explode_scratchpad_hard() { assert(false); }
+    inline void implode_scratchpad_hard() { assert(false); }
 
 	void explode_scratchpad_soft();
 	void implode_scratchpad_soft();

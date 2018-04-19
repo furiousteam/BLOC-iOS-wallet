@@ -35,6 +35,10 @@ class CryptonightMiner: MinerStore {
         self.delegate = delegate
         self.job = job
         
+        if threads.count == threadLimit {
+            return
+        }
+        
         threads.forEach {
             $0.cancel()
         }

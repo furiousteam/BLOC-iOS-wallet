@@ -30,6 +30,10 @@
 
 #include "cn_slow_hash.hpp"
 
+#if !defined(_LP64) && !defined(_WIN64)
+#define BUILD32
+#endif
+
 extern "C"
 {
 #include "keccak.h"
@@ -60,10 +64,6 @@ in respect of its operation, including, but not limited to, correctness
 and fitness for purpose.
 ---------------------------------------------------------------------------
 */
-
-#if !defined(_LP64) && !defined(_WIN64)
-#define BUILD32
-#endif
 
 #define saes_data(w) {\
 	w(0x63), w(0x7c), w(0x77), w(0x7b), w(0xf2), w(0x6b), w(0x6f), w(0xc5),\
@@ -182,17 +182,10 @@ inline uint32_t sub_word(uint32_t key)
 		(saes_sbox[(key >> 8)  & 0xff] << 8  ) | saes_sbox[key & 0xff];
 }
 
-#if defined(__clang__) || defined(__arm__) || defined(__aarch64__)
 inline uint32_t rotr(uint32_t value, uint32_t amount)
 {
-	return (value >> amount) | (value << ((32 - amount) & 31));
+    return (value >> amount) | (value << ((32 - amount) & 31));
 }
-#else
-inline uint32_t rotr(uint32_t value, uint32_t amount)
-{
-	return _rotr(value, amount);
-}
-#endif
 
 // sl_xor(a1 a2 a3 a4) = a1 (a2^a1) (a3^a2^a1) (a4^a3^a2^a1)
 inline void sl_xor(aesdata& x)
@@ -433,38 +426,36 @@ void cn_slow_hash<MEMORY,ITER,VERSION>::explode_scratchpad_soft()
 #ifdef BUILD32
 inline uint64_t _umul128(uint64_t multiplier, uint64_t multiplicand, uint64_t* product_hi)
 {
-  // multiplier   = ab = a * 2^32 + b
-  // multiplicand = cd = c * 2^32 + d
-  // ab * cd = a * c * 2^64 + (a * d + b * c) * 2^32 + b * d
-  uint64_t a = multiplier >> 32;
-  uint64_t b = multiplier  & 0xFFFFFFFF;
-  uint64_t c = multiplicand >> 32;
-  uint64_t d = multiplicand & 0xFFFFFFFF;
-
-  uint64_t ac = a * c;
-  uint64_t ad = a * d;
-  uint64_t bc = b * c;
-  uint64_t bd = b * d;
-
-  uint64_t adbc = ad + bc;
-  uint64_t adbc_carry = adbc < ad ? 1 : 0;
-
-  // multiplier * multiplicand = product_hi * 2^64 + product_lo
-  uint64_t product_lo = bd + (adbc << 32);
-  uint64_t product_lo_carry = product_lo < bd ? 1 : 0;
-  *product_hi = ac + (adbc >> 32) + (adbc_carry << 32) + product_lo_carry;
-
-  return product_lo;
+    // multiplier   = ab = a * 2^32 + b
+    // multiplicand = cd = c * 2^32 + d
+    // ab * cd = a * c * 2^64 + (a * d + b * c) * 2^32 + b * d
+    uint64_t a = multiplier >> 32;
+    uint64_t b = multiplier  & 0xFFFFFFFF;
+    uint64_t c = multiplicand >> 32;
+    uint64_t d = multiplicand & 0xFFFFFFFF;
+    
+    uint64_t ac = a * c;
+    uint64_t ad = a * d;
+    uint64_t bc = b * c;
+    uint64_t bd = b * d;
+    
+    uint64_t adbc = ad + bc;
+    uint64_t adbc_carry = adbc < ad ? 1 : 0;
+    
+    // multiplier * multiplicand = product_hi * 2^64 + product_lo
+    uint64_t product_lo = bd + (adbc << 32);
+    uint64_t product_lo_carry = product_lo < bd ? 1 : 0;
+    *product_hi = ac + (adbc >> 32) + (adbc_carry << 32) + product_lo_carry;
+    
+    return product_lo;
 }
 #else
-#if !defined(HAS_WIN_INTRIN_API)
 inline uint64_t _umul128(uint64_t a, uint64_t b, uint64_t* hi)
 {
 	unsigned __int128 r = (unsigned __int128)a * (unsigned __int128)b;
 	*hi = r >> 64;
 	return (uint64_t)r;
 }
-#endif 
 #endif
 
 template<size_t MEMORY, size_t ITER, size_t VERSION>
