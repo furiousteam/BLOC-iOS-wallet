@@ -20,6 +20,20 @@
                ReferencedContainer = "container:BlockChain-Coin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9C575C962091973900FAE50A"
+               BuildableName = "BlockChain-CoinUITests.xctest"
+               BlueprintName = "BlockChain-CoinUITests"
+               ReferencedContainer = "container:BlockChain-Coin.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -35,6 +49,16 @@
                BlueprintIdentifier = "9C7800982036F1C30089F6EE"
                BuildableName = "BlockChain-CoinTests.xctest"
                BlueprintName = "BlockChain-CoinTests"
+               ReferencedContainer = "container:BlockChain-Coin.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "9C575C962091973900FAE50A"
+               BuildableName = "BlockChain-CoinUITests.xctest"
+               BlueprintName = "BlockChain-CoinUITests"
                ReferencedContainer = "container:BlockChain-Coin.xcodeproj">
             </BuildableReference>
          </TestableReference>

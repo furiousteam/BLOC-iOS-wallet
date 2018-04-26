@@ -93,6 +93,8 @@
 		9C5756C320640DF9002BD079 /* ConfirmTransactionRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756BC20640D73002BD079 /* ConfirmTransactionRouter.swift */; };
 		9C5756C420640DF9002BD079 /* ConfirmTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756BD20640D73002BD079 /* ConfirmTransactionVC.swift */; };
 		9C5756C720640FB3002BD079 /* ConfirmTransactionFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756C620640FB3002BD079 /* ConfirmTransactionFormViews.swift */; };
+		9C575C9A2091973900FAE50A /* BlockChain_CoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C575C992091973900FAE50A /* BlockChain_CoinUITests.swift */; };
+		9C575CA22091977700FAE50A /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C575CA12091977700FAE50A /* SnapshotHelper.swift */; };
 		9C63A354206419AC00E9C33D /* WalletAPITransferResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A353206419AC00E9C33D /* WalletAPITransferResponse.swift */; };
 		9C63A35E2064F2FC00E9C33D /* TransactionResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3582064F2FC00E9C33D /* TransactionResultVC.swift */; };
 		9C63A3622064F2FC00E9C33D /* TransactionResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A35C2064F2FC00E9C33D /* TransactionResultRouter.swift */; };
@@ -294,6 +296,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9C575C9C2091973900FAE50A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C04362B202C908B00671DA2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C043632202C908B00671DA2;
+			remoteInfo = "BlockChain-Coin";
+		};
 		9C78009E2036F1C30089F6EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9C04362B202C908B00671DA2 /* Project object */;
@@ -407,6 +416,10 @@
 		9C5756BC20640D73002BD079 /* ConfirmTransactionRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionRouter.swift; sourceTree = "<group>"; };
 		9C5756BD20640D73002BD079 /* ConfirmTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionVC.swift; sourceTree = "<group>"; };
 		9C5756C620640FB3002BD079 /* ConfirmTransactionFormViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmTransactionFormViews.swift; sourceTree = "<group>"; };
+		9C575C972091973900FAE50A /* BlockChain-CoinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "BlockChain-CoinUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C575C992091973900FAE50A /* BlockChain_CoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockChain_CoinUITests.swift; sourceTree = "<group>"; };
+		9C575C9B2091973900FAE50A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C575CA12091977700FAE50A /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		9C63A353206419AC00E9C33D /* WalletAPITransferResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAPITransferResponse.swift; sourceTree = "<group>"; };
 		9C63A3582064F2FC00E9C33D /* TransactionResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionResultVC.swift; sourceTree = "<group>"; };
 		9C63A35C2064F2FC00E9C33D /* TransactionResultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionResultRouter.swift; sourceTree = "<group>"; };
@@ -619,6 +632,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9C575C942091973900FAE50A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C7800962036F1C30089F6EE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -666,6 +686,7 @@
 			children = (
 				9C043635202C908B00671DA2 /* BlockChain-Coin */,
 				9C78009A2036F1C30089F6EE /* BlockChain-CoinTests */,
+				9C575C982091973900FAE50A /* BlockChain-CoinUITests */,
 				9C043634202C908B00671DA2 /* Products */,
 				0DB08BF8DD8FDB80CC4DDE0E /* Pods */,
 				E7FB8072BE54AD3A07BF5178 /* Frameworks */,
@@ -677,6 +698,7 @@
 			children = (
 				9C043633202C908B00671DA2 /* BlockChain-Coin.app */,
 				9C7800992036F1C30089F6EE /* BlockChain-CoinTests.xctest */,
+				9C575C972091973900FAE50A /* BlockChain-CoinUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1088,6 +1110,16 @@
 				9C5756C620640FB3002BD079 /* ConfirmTransactionFormViews.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9C575C982091973900FAE50A /* BlockChain-CoinUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9C575CA12091977700FAE50A /* SnapshotHelper.swift */,
+				9C575C992091973900FAE50A /* BlockChain_CoinUITests.swift */,
+				9C575C9B2091973900FAE50A /* Info.plist */,
+			);
+			path = "BlockChain-CoinUITests";
 			sourceTree = "<group>";
 		};
 		9C63A3572064F2FC00E9C33D /* TransactionResult */ = {
@@ -1574,6 +1606,24 @@
 			productReference = 9C043633202C908B00671DA2 /* BlockChain-Coin.app */;
 			productType = "com.apple.product-type.application";
 		};
+		9C575C962091973900FAE50A /* BlockChain-CoinUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C575CA02091973900FAE50A /* Build configuration list for PBXNativeTarget "BlockChain-CoinUITests" */;
+			buildPhases = (
+				9C575C932091973900FAE50A /* Sources */,
+				9C575C942091973900FAE50A /* Frameworks */,
+				9C575C952091973900FAE50A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C575C9D2091973900FAE50A /* PBXTargetDependency */,
+			);
+			name = "BlockChain-CoinUITests";
+			productName = "BlockChain-CoinUITests";
+			productReference = 9C575C972091973900FAE50A /* BlockChain-CoinUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		9C7800982036F1C30089F6EE /* BlockChain-CoinTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C7800A02036F1C30089F6EE /* Build configuration list for PBXNativeTarget "BlockChain-CoinTests" */;
@@ -1598,7 +1648,7 @@
 		9C04362B202C908B00671DA2 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "BlockChain-Coin.net";
 				TargetAttributes = {
@@ -1606,6 +1656,11 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+					};
+					9C575C962091973900FAE50A = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 9C043632202C908B00671DA2;
 					};
 					9C7800982036F1C30089F6EE = {
 						CreatedOnToolsVersion = 9.2;
@@ -1629,6 +1684,7 @@
 			targets = (
 				9C043632202C908B00671DA2 /* BlockChain-Coin */,
 				9C7800982036F1C30089F6EE /* BlockChain-CoinTests */,
+				9C575C962091973900FAE50A /* BlockChain-CoinUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1647,6 +1703,13 @@
 				9C04365A202C94B900671DA2 /* Assets.xcassets in Resources */,
 				9CE35C26206C0970002E7193 /* outro.gif in Resources */,
 				9CE35C24206BF195002E7193 /* intro.mov in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C575C952091973900FAE50A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2065,6 +2128,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		9C575C932091973900FAE50A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C575C9A2091973900FAE50A /* BlockChain_CoinUITests.swift in Sources */,
+				9C575CA22091977700FAE50A /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9C7800952036F1C30089F6EE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2081,6 +2153,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9C575C9D2091973900FAE50A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C043632202C908B00671DA2 /* BlockChain-Coin */;
+			targetProxy = 9C575C9C2091973900FAE50A /* PBXContainerItemProxy */;
+		};
 		9C78009F2036F1C30089F6EE /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9C043632202C908B00671DA2 /* BlockChain-Coin */;
@@ -2260,12 +2337,50 @@
 			};
 			name = Release;
 		};
+		9C575C9E2091973900FAE50A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86UQGV5K97;
+				INFOPLIST_FILE = "BlockChain-CoinUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.blockchain-coin.BlockChain-CoinUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "BlockChain-Coin";
+			};
+			name = Debug;
+		};
+		9C575C9F2091973900FAE50A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 86UQGV5K97;
+				INFOPLIST_FILE = "BlockChain-CoinUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "co.blockchain-coin.BlockChain-CoinUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "BlockChain-Coin";
+			};
+			name = Release;
+		};
 		9C7800A12036F1C30089F6EE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UV2JYV8RQQ;
+				DEVELOPMENT_TEAM = 86UQGV5K97;
 				INFOPLIST_FILE = "BlockChain-CoinTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.blockchain-coin.ios.BlockChain-CoinTests";
@@ -2281,7 +2396,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UV2JYV8RQQ;
+				DEVELOPMENT_TEAM = 86UQGV5K97;
 				INFOPLIST_FILE = "BlockChain-CoinTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.blockchain-coin.ios.BlockChain-CoinTests";
@@ -2309,6 +2424,15 @@
 			buildConfigurations = (
 				9C043646202C908B00671DA2 /* Debug */,
 				9C043647202C908B00671DA2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C575CA02091973900FAE50A /* Build configuration list for PBXNativeTarget "BlockChain-CoinUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C575C9E2091973900FAE50A /* Debug */,
+				9C575C9F2091973900FAE50A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
