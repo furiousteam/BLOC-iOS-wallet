@@ -41,6 +41,8 @@ class NewTransactionsFormViews: NSObject, UITextViewDelegate {
         
         textField.attributedPlaceholder = attributedPlaceholder
 
+        textField.accessibilityLabel = "Amount"
+        
         return textField
     }()
     
@@ -111,6 +113,7 @@ class NewTransactionsFormViews: NSObject, UITextViewDelegate {
         textView.textContainerInset = UIEdgeInsets(top: 10.0, left: 0.0, bottom: 0.0, right: 0.0)
         textView.textAlignment = .center
         textView.backgroundColor = .clear
+        textView.accessibilityLabel = "Recipient address"
         return textView
     }()
 

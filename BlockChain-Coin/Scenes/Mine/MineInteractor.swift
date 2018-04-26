@@ -21,8 +21,8 @@ protocol MineBusinessLogic {
 class MineInteractor: MineBusinessLogic, MinerStoreDelegate, PoolSocketDelegate {
     var presenter: MinePresentationLogic?
     
-    let walletWorker = WalletWorker(store: WalletDiskStore())
-    let walletAPIWorker = WalletWorker(store: WalletAPI())
+    let walletWorker: WalletWorker
+    let walletAPIWorker: WalletWorker
     var poolWorker: PoolWorker!
     let minerWorker = MinerWorker(store: CryptonightMiner())
     let poolAPIWorker = PoolWorker(store: PoolAPI())
@@ -30,6 +30,17 @@ class MineInteractor: MineBusinessLogic, MinerStoreDelegate, PoolSocketDelegate 
     var numberOfThreads: Int = 1
     
     var wallet: String = ""
+    
+    init() {
+        switch AppController.environment {
+        case .development, .production:
+            walletWorker = WalletWorker(store: WalletDiskStore())
+            walletAPIWorker = WalletWorker(store: WalletAPI())
+        case .mock:
+            walletWorker = WalletWorker(store: WalletMemStore())
+            walletAPIWorker = WalletWorker(store: WalletMemStore())
+        }
+    }
 
     func connect(host: String, port: Int, wallet: String) {
         self.wallet = wallet

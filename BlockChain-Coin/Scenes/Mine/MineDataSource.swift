@@ -77,7 +77,7 @@ class MineDataSource: NSObject, UITableViewDataSource {
             cell.statsView.configure(hashRate: hashRate, pendingBalance: pendingBalance, activeMiners: activeMiners)
             
             cell.statsButton.didTapStats = didTapStats
-            
+                        
             return cell
         }
         

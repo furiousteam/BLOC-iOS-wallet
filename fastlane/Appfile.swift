@@ -1,4 +1,4 @@
-var appIdentifier: String { return "co.blockchain-coin.ios" } // The bundle identifier of your app
+var appIdentifier: String { return "co.blockchain-coin.BlockChain-CoinUITests" } // The bundle identifier of your app
 var appleID: String { return "steve.furiousteam@gmail.com" } // Your Apple email address
 
 var itcTeam: String? { return "2166183" } // iTunes Connect Team ID

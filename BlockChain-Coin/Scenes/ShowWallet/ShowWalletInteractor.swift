@@ -17,8 +17,19 @@ protocol ShowWalletBusinessLogic {
 class ShowWalletInteractor: ShowWalletBusinessLogic {
     var presenter: ShowWalletPresentationLogic?
     
-    let remoteWalletWorker = WalletWorker(store: WalletAPI())
-    let localWalletWorker = WalletWorker(store: WalletDiskStore())
+    let remoteWalletWorker: WalletWorker
+    let localWalletWorker: WalletWorker
+    
+    init() {
+        switch AppController.environment {
+        case .development, .production:
+            remoteWalletWorker = WalletWorker(store: WalletAPI())
+            localWalletWorker = WalletWorker(store: WalletDiskStore())
+        case .mock:
+            remoteWalletWorker = WalletWorker(store: WalletMemStore())
+            localWalletWorker = WalletWorker(store: WalletMemStore())
+        }
+    }
 
     func fetchDetails(wallet: WalletModel, password: String) {
         presenter?.handleShowDetailsLoading()

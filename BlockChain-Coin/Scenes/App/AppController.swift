@@ -21,6 +21,16 @@ class AppController: AppDisplayLogic {
     static var current: AppController = {
         return (UIApplication.shared.delegate as! AppDelegate).app
     }()
+    
+    static var environment: Environment {
+        let env = ProcessInfo.processInfo.environment
+        
+        if let isTesting = env["UITests"], isTesting == "true" {
+            return .mock
+        }
+        
+        return .production
+    }
 
     // MARK: - View lifecycle
     

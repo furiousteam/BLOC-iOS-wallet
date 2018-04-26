@@ -29,6 +29,11 @@ struct Transfer: TransferModel, Codable {
         try container.encode(amount, forKey: .amount)
     }
     
+    init(address: String, amount: Double) {
+        self.address = address
+        self.amount = amount
+    }
+    
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         

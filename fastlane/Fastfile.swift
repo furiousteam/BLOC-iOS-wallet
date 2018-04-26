@@ -11,7 +11,7 @@ import Foundation
 class Fastfile: LaneFile {
 	func screenshotsLane() {
 	desc("Generate new localized screenshots")
-		captureScreenshots(workspace: "BlockChain-Coin.xcworkspace", scheme: "BlockChain-Coin")
+		captureScreenshots(workspace: "BlockChain-Coin.xcworkspace", scheme: "BlockChain-CoinUITests")
 		uploadToAppStore(username: "steve.furiousteam@gmail.com", app: "co.blockchain-coin.ios", skipBinaryUpload: true, skipMetadata: true)
 	}
 }

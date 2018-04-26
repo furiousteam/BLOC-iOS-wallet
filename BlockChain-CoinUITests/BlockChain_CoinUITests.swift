@@ -13,24 +13,56 @@ class BlockChain_CoinUITests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+        
+        let app = XCUIApplication()
+        app.launchEnvironment = [ "UITests": "true" ]
+        setupSnapshot(app)
+        app.launch()
+    }
+    
+    func testListWallets() {
+        XCUIApplication().tables/*@START_MENU_TOKEN@*/.staticTexts["WALLET"]/*[[".cells.staticTexts[\"WALLET\"]",".staticTexts[\"WALLET\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        snapshot("01ListWallets")
+    }
+    
+    func testWalletDetails() {
+        XCUIApplication().tables/*@START_MENU_TOKEN@*/.staticTexts["WALLET"]/*[[".cells.staticTexts[\"WALLET\"]",".staticTexts[\"WALLET\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        XCUIApplication().tables/*@START_MENU_TOKEN@*/.staticTexts["My Wallet"]/*[[".cells.staticTexts[\"My Wallet\"]",".staticTexts[\"My Wallet\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        snapshot("02WalletDetails")
+    }
+    
+    func testMining() {
+        let tablesQuery = XCUIApplication().tables
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["MINING"]/*[[".cells.staticTexts[\"MINING\"]",".staticTexts[\"MINING\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()        
+        tablesQuery/*@START_MENU_TOKEN@*/.otherElements["Mining switch"]/*[[".cells.otherElements[\"Mining switch\"]",".otherElements[\"Mining switch\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        
+        snapshot("03Mining")
+    }
+    
+    func testNewTransation() {
+        let app = XCUIApplication()
+        app.tables/*@START_MENU_TOKEN@*/.staticTexts["SEND"]/*[[".cells.staticTexts[\"SEND\"]",".staticTexts[\"SEND\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        app.scrollViews.otherElements.textFields["0"].tap()
+        app.scrollViews.otherElements.textFields["0"].typeText("10")
+        app.scrollViews.otherElements.textViews["Recipient address"].tap()
+        app.scrollViews.otherElements.textViews["Recipient address"].typeText("abLocBPAGpecy5fnBxsGV22SSkJqwNY8gAJL7JQWkZXxbqNRzSHuXNWftSgW8GLWdBWxHYsGhSnS1iGR46adncN4XjMSThpV1RE")
+        app.scrollViews.otherElements.collectionViews/*@START_MENU_TOKEN@*/.buttons["My Wallet"]/*[[".cells.buttons[\"My Wallet\"]",".buttons[\"My Wallet\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+     
+        let firstKey = XCUIApplication().keys.element(boundBy: 0)
+     
+        if firstKey.exists {
+            app.typeText("\n")
+        }
+     
+        snapshot("04WalletDetails")
+    }
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+    func testTransactionDetails() {
+        let tablesQuery = XCUIApplication().tables
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["WALLET"]/*[[".cells.staticTexts[\"WALLET\"]",".staticTexts[\"WALLET\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["My Wallet"]/*[[".cells.staticTexts[\"My Wallet\"]",".staticTexts[\"My Wallet\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["+ 10 BLOC"]/*[[".cells.staticTexts[\"+ 10 BLOC\"]",".staticTexts[\"+ 10 BLOC\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
+        snapshot("05TransactionDetails")
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="fastlane.lanes">
+    
+    
+    
+      
+      <testcase classname="fastlane.lanes" name="0: capture_screenshots" time="0.551692">
+        
+          <failure message="/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/actions/actions_helper.rb:48:in `execute_action'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/runner.rb:236:in `block in execute_action'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/runner.rb:231:in `chdir'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/runner.rb:231:in `execute_action'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/server/socket_server_action_command_executor.rb:73:in `run'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/server/socket_server_action_command_executor.rb:42:in `execute'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/server/socket_server.rb:179:in `execute_action_command'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/server/socket_server.rb:174:in `process_action_command'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/server/socket_server.rb:121:in `handle_action_command'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/server/socket_server.rb:84:in `parse_and_execute_command'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/server/socket_server.rb:60:in `block in receive_and_process_commands'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/server/socket_server.rb:47:in `loop'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/server/socket_server.rb:47:in `receive_and_process_commands'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/server/socket_server.rb:156:in `listen'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/server/socket_server.rb:36:in `start'&#10;/Library/Ruby/Gems/2.3.0/gems/fastlane-2.93.1/fastlane/lib/fastlane/swift_lane_manager.rb:226:in `block in start_socket_thread'&#10;&#10;Workspace file not found at path '/Users/maxime/Documents/Projects/BlockChain-Coin/fastlane/BlockChain-Coin.xcworkspace'" />
+        
+      </testcase>
+    
+  </testsuite>
+</testsuites>

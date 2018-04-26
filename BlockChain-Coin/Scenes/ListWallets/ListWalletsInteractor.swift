@@ -17,8 +17,17 @@ protocol ListWalletsBusinessLogic {
 class ListWalletsInteractor: ListWalletsBusinessLogic {
     var presenter: ListWalletsPresentationLogic?
     
-    let walletWorker = WalletWorker(store: WalletDiskStore())
+    let walletWorker: WalletWorker
     
+    init() {
+        switch AppController.environment {
+        case .development, .production:
+            walletWorker = WalletWorker(store: WalletDiskStore())
+        case .mock:
+            walletWorker = WalletWorker(store: WalletMemStore())
+        }
+    }
+
     func fetchWallets() {
         presenter?.handleShowLoading()
         

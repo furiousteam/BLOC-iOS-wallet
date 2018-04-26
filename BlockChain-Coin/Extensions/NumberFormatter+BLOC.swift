@@ -32,6 +32,7 @@ extension Double {
         numberFormatter.positiveSuffix = " BLOC"
         numberFormatter.positivePrefix = "+ "
         numberFormatter.negativePrefix = "- "
+        numberFormatter.negativeSuffix = " BLOC"
         numberFormatter.locale = Locale.current
         numberFormatter.minimumIntegerDigits = 1
         return numberFormatter

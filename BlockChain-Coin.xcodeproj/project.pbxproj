@@ -95,6 +95,7 @@
 		9C5756C720640FB3002BD079 /* ConfirmTransactionFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756C620640FB3002BD079 /* ConfirmTransactionFormViews.swift */; };
 		9C575C9A2091973900FAE50A /* BlockChain_CoinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C575C992091973900FAE50A /* BlockChain_CoinUITests.swift */; };
 		9C575CA22091977700FAE50A /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C575CA12091977700FAE50A /* SnapshotHelper.swift */; };
+		9C575CA520919CDC00FAE50A /* WalletMemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C575CA420919CDC00FAE50A /* WalletMemStore.swift */; };
 		9C63A354206419AC00E9C33D /* WalletAPITransferResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A353206419AC00E9C33D /* WalletAPITransferResponse.swift */; };
 		9C63A35E2064F2FC00E9C33D /* TransactionResultVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A3582064F2FC00E9C33D /* TransactionResultVC.swift */; };
 		9C63A3622064F2FC00E9C33D /* TransactionResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C63A35C2064F2FC00E9C33D /* TransactionResultRouter.swift */; };
@@ -420,6 +421,7 @@
 		9C575C992091973900FAE50A /* BlockChain_CoinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockChain_CoinUITests.swift; sourceTree = "<group>"; };
 		9C575C9B2091973900FAE50A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9C575CA12091977700FAE50A /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
+		9C575CA420919CDC00FAE50A /* WalletMemStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletMemStore.swift; sourceTree = "<group>"; };
 		9C63A353206419AC00E9C33D /* WalletAPITransferResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAPITransferResponse.swift; sourceTree = "<group>"; };
 		9C63A3582064F2FC00E9C33D /* TransactionResultVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionResultVC.swift; sourceTree = "<group>"; };
 		9C63A35C2064F2FC00E9C33D /* TransactionResultRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionResultRouter.swift; sourceTree = "<group>"; };
@@ -760,6 +762,7 @@
 			children = (
 				9C043693202CC08400671DA2 /* Requests */,
 				9C043694202CC08400671DA2 /* Responses */,
+				9C575CA320919CCE00FAE50A /* Mocks */,
 				9C043680202C9C7800671DA2 /* CryptonightMiner.swift */,
 				9C043686202C9F8B00671DA2 /* PoolSocketClient.swift */,
 				9C043688202CA50F00671DA2 /* PoolSocketClientDelegate.swift */,
@@ -1120,6 +1123,14 @@
 				9C575C9B2091973900FAE50A /* Info.plist */,
 			);
 			path = "BlockChain-CoinUITests";
+			sourceTree = "<group>";
+		};
+		9C575CA320919CCE00FAE50A /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				9C575CA420919CDC00FAE50A /* WalletMemStore.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		9C63A3572064F2FC00E9C33D /* TransactionResult */ = {
@@ -1879,6 +1890,7 @@
 				9C85E39B205AB40400208DF6 /* ExportWalletKeysRouter.swift in Sources */,
 				9C7DF7152074AC2900AF61F3 /* DeleteWalletVC.swift in Sources */,
 				9C63A38C20678FE200E9C33D /* ShowTransactionRouter.swift in Sources */,
+				9C575CA520919CDC00FAE50A /* WalletMemStore.swift in Sources */,
 				9CE35C77206E1F3D002E7193 /* ListPoolsPresenter.swift in Sources */,
 				9C04369C202CDB9400671DA2 /* MineDataSource.swift in Sources */,
 				9C0E22092073C33D00D30530 /* PoolSocketErrorResponse.swift in Sources */,

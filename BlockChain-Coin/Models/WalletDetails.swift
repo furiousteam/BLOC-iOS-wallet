@@ -28,6 +28,13 @@ class WalletDetails: WalletDetailsModel, Codable {
         case transactions = "transactions"
     }
     
+    init(availableBalance: Double, lockedBalance: Double, address: String, transactions: [Transaction]) {
+        self.availableBalance = availableBalance
+        self.lockedBalance = lockedBalance
+        self.address = address
+        self.transactions = transactions
+    }
+    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         

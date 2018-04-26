@@ -85,6 +85,18 @@ struct Transaction: TransactionModel, Codable {
         case transactionType = "transactionType"
     }
     
+    init(hash: String, blockIndex: UInt32, createdAt: Date, unlockHeight: UInt64, amount: Double, fee: Double, extra: String, paymentId: String, transfers: [Transfer]) {
+        self.hash = hash
+        self.blockIndex = blockIndex
+        self.createdAt = createdAt
+        self.unlockHeight = unlockHeight
+        self.amount = amount
+        self.fee = fee
+        self.extra = extra
+        self.paymentId = paymentId
+        self.transfers = transfers
+    }
+    
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         
