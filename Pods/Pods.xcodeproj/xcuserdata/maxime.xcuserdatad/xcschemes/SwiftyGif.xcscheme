@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '563CF89BA4B8C6E531A04CFC4F59F0B5'
-               BlueprintName = 'SwiftyGif'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'SwiftyGif.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D18674B5840C6EB228D984B0823209D8"
+               BlueprintName = "SwiftyGif"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "SwiftyGif.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

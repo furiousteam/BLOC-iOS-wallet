@@ -8,317 +8,139 @@
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>2</integer>
 		</dict>
 		<key>Alamofire.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>1</integer>
 		</dict>
 		<key>Base64.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
 		</dict>
 		<key>BigInt.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>4</integer>
 		</dict>
 		<key>CEd25519.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>5</integer>
 		</dict>
 		<key>CenterAlignedCollectionViewFlowLayout.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>6</integer>
 		</dict>
 		<key>CocoaAsyncSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>CryptoSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>8</integer>
 		</dict>
 		<key>EFQRCode.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>9</integer>
+		</dict>
+		<key>FeedKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
 		</dict>
 		<key>JSONRPCKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>10</integer>
 		</dict>
 		<key>MBProgressHUD.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>11</integer>
 		</dict>
 		<key>Moya.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>12</integer>
 		</dict>
 		<key>NSData+FastHex.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>13</integer>
 		</dict>
 		<key>Pods-BlockChain-Coin.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>14</integer>
 		</dict>
 		<key>QRCodeReader.swift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>15</integer>
 		</dict>
 		<key>R.swift.Library.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>16</integer>
 		</dict>
 		<key>Result.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>17</integer>
 		</dict>
 		<key>RxCocoa.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>18</integer>
 		</dict>
 		<key>RxSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>19</integer>
 		</dict>
 		<key>SZTextView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>26</integer>
 		</dict>
 		<key>SipHash.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>20</integer>
 		</dict>
 		<key>SnapKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>21</integer>
 		</dict>
 		<key>SwiftKeychainWrapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>22</integer>
 		</dict>
 		<key>SwiftSocket.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>23</integer>
 		</dict>
 		<key>SwiftyBeaver.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>24</integer>
 		</dict>
 		<key>SwiftyGif.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
-			<key>orderHint</key>
-			<integer>25</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>108A034E8B538769DE7522FF2CE98134</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1DB707735939D599A6C87A4E10F6C9AA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1DEA114408EC5E8EAF98CD02AD1725EE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2A3888342E1BA56209775395EFA3FCA0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>30B69A3FE35495C6C66BBAE21579F87A</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>314F6346705D7377E76C6845ED971DDB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>335B12EDA6B9CC6986307EE000FBA4C9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>34478F41F5D1144256B25A4D6E85EBB8</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>41FA54D12162DAD51D02FC58A2CD5034</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>494E2FB0000E2DD2E547310C0E3643EB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5035689D4E175E039CE14BFC5124EE74</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>563CF89BA4B8C6E531A04CFC4F59F0B5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>67A9F9106B32ACF952B66B2EE009513F</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>75EA31A1FB54FC62858087A923FBC4B3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>81EC376053916FD6EC35A5F48F95B1DF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>846946FF629B1BC9792C25B0283EBE7E</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>856F80FC0C444A7F369D233AE65A62C4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8C13583B2E487345A7AA13B732D3D2E2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>99B72B08909D54F3B4E639CE6FBE4AF2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>AC0D2D2B4EE7C873431AB3502859CA60</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>B46B19D0F974E59FA6AE7F04FF7C7AE3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>BB3BA78DF4E5AD6C07794FD9E3635971</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C484F69E381AF09AA35C51C1E3A23DF2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DE16D66575B4E29D54F3F5DB5CD606FB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F75C5D1D8F7F50C6D949CF16CC0519BB</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

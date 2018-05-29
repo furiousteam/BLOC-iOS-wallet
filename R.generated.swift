@@ -109,7 +109,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 70 images.
+  /// This `R.image` struct is generated, and contains static references to 71 images.
   struct image {
     /// Image `about-logo`.
     static let aboutLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "about-logo")
@@ -225,6 +225,8 @@ struct R: Rswift.Validatable {
     static let tabBarMarker = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-marker")
     /// Image `tab-bar-mining`.
     static let tabBarMining = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-mining")
+    /// Image `tab-bar-news`.
+    static let tabBarNews = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-news")
     /// Image `tab-bar-send`.
     static let tabBarSend = Rswift.ImageResource(bundle: R.hostingBundle, name: "tab-bar-send")
     /// Image `tab-bar-transactions`.
@@ -537,6 +539,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.tabBarMining, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "tab-bar-news", bundle: ..., traitCollection: ...)`
+    static func tabBarNews(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.tabBarNews, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "tab-bar-send", bundle: ..., traitCollection: ...)`
     static func tabBarSend(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.tabBarSend, compatibleWith: traitCollection)
@@ -635,7 +642,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 152 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 156 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -881,11 +888,15 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let mining_low_power_title = Rswift.StringResource(key: "mining_low_power_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: MINING
+      /// 
+      /// Locales: en
+      static let tabs_mining = Rswift.StringResource(key: "tabs_mining", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Medium
       /// 
       /// Locales: en
       static let mining_number_of_threads_medium = Rswift.StringResource(key: "mining_number_of_threads_medium", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Meet the Blockchain Coin
+      /// en translation: Meet the BLOC
       /// 
       /// Locales: en
       static let about_us_meet = Rswift.StringResource(key: "about_us_meet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -893,10 +904,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let home_menu_mining_title = Rswift.StringResource(key: "home_menu_mining_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Mining
-      /// 
-      /// Locales: en
-      static let tabs_mining = Rswift.StringResource(key: "tabs_mining", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Mining pool
       /// 
       /// Locales: en
@@ -905,6 +912,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let mining_wallet_title = Rswift.StringResource(key: "mining_wallet_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: NEWS
+      /// 
+      /// Locales: en
+      static let tabs_news = Rswift.StringResource(key: "tabs_news", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Name for this wallet
       /// 
       /// Locales: en
@@ -913,6 +924,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let pool_stats_network = Rswift.StringResource(key: "pool_stats_network", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: News
+      /// 
+      /// Locales: en
+      static let home_menu_news_title = Rswift.StringResource(key: "home_menu_news_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Next step
       /// 
       /// Locales: en
@@ -1021,7 +1036,11 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_success_subtitle = Rswift.StringResource(key: "send_success_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Secure Private Decentralized Untraceable Fungible
+      /// en translation: SEND
+      /// 
+      /// Locales: en
+      static let tabs_send = Rswift.StringResource(key: "tabs_send", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Secure Private Decentralized Egalitarian Fungible Fast
       /// 
       /// Locales: en
       static let about_us_tagline = Rswift.StringResource(key: "about_us_tagline", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -1029,7 +1048,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_full_history = Rswift.StringResource(key: "wallet_full_history", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: See the full transaction details on the Blockchain Coin Explorer
+      /// en translation: See the full transaction details on the BLOC Explorer
       /// 
       /// Locales: en
       static let transaction_details_explorer = Rswift.StringResource(key: "transaction_details_explorer", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -1045,10 +1064,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let home_menu_send_title = Rswift.StringResource(key: "home_menu_send_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Send
-      /// 
-      /// Locales: en
-      static let tabs_send = Rswift.StringResource(key: "tabs_send", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Send the coins
       /// 
       /// Locales: en
@@ -1081,11 +1096,15 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let send_confirm_title_view = Rswift.StringResource(key: "send_confirm_title_view", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: TRANSACT.
+      /// 
+      /// Locales: en
+      static let tabs_transactions = Rswift.StringResource(key: "tabs_transactions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Tap on the button below to delete this wallet
       /// 
       /// Locales: en
       static let delete_wallet_before_action = Rswift.StringResource(key: "delete_wallet_before_action", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: The BlockChain Coin has been founded in 2018 by a group of talented friends and partners that has been working together for more than 10 years on IT, smartphone technology, web, API, hardware products, applications and many more. Experimented, smart, ambitious, fun and hard working are some of our main qualities. We love cryptocurrencies, we are early bitcoin investors, we are (still) amazed by the possibilities that the Blockchain technology brings to the world and we want to be a fundamental actor of this revolution. Visit our website to discover our universe, our application, our ecostystem, our roadmap and be a part of it; join us!
+      /// en translation: The BLOC.money : Symbol Ƀ - Ticker: BLOC is a fully decentralized cryptocurrency - Egalitarian Proof Of Work with Cryptonight algorithm - based on open source Cryptonote technology using low & fix rate fees per transaction. Including a brand new ecosystem and exclusive set of mining tools. One of our mission is to build a more open, accessible, and fair financial future. Our technology is revolutionizing the financial services industry by empowering users across the globe to authenticate and transact immediately and without costly intermediaries using the blockchain technology.
       /// 
       /// Locales: en
       static let about_us_content = Rswift.StringResource(key: "about_us_content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -1097,6 +1116,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let mining_could_not_connect = Rswift.StringResource(key: "mining_could_not_connect", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: There are no news at the moment
+      /// 
+      /// Locales: en
+      static let list_news_error_no_news = Rswift.StringResource(key: "list_news_error_no_news", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: This password will be required each time you make a transaction with someone and to export your private key
       /// 
       /// Locales: en
@@ -1121,10 +1144,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_list_item_balance = Rswift.StringResource(key: "wallet_list_item_balance", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Transact.
-      /// 
-      /// Locales: en
-      static let tabs_transactions = Rswift.StringResource(key: "tabs_transactions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Transaction hash:
       /// 
       /// Locales: en
@@ -1153,14 +1172,14 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_created_title_third_line = Rswift.StringResource(key: "wallet_created_title_third_line", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: WALLET
+      /// 
+      /// Locales: en
+      static let tabs_wallet = Rswift.StringResource(key: "tabs_wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Wallet
       /// 
       /// Locales: en
       static let home_menu_wallet_title = Rswift.StringResource(key: "home_menu_wallet_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Wallet
-      /// 
-      /// Locales: en
-      static let tabs_wallet = Rswift.StringResource(key: "tabs_wallet", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Wallet #%d
       /// 
       /// Locales: en
@@ -1193,7 +1212,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_list_no_wallet_instructions = Rswift.StringResource(key: "wallet_list_no_wallet_instructions", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: Your Blockchain Coins has been sent!
+      /// en translation: Your BLOC has been sent!
       /// 
       /// Locales: en
       static let send_success_title = Rswift.StringResource(key: "send_success_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -1221,7 +1240,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_created_qr_code = Rswift.StringResource(key: "wallet_created_qr_code", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: check every transactions
+      /// en translation: check your transactions
       /// 
       /// Locales: en
       static let home_menu_transactions_subtitle = Rswift.StringResource(key: "home_menu_transactions_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -1229,7 +1248,7 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let home_menu_wallet_subtitle = Rswift.StringResource(key: "home_menu_wallet_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: earn coins in minutes
+      /// en translation: earn BLOC in minutes
       /// 
       /// Locales: en
       static let home_menu_mining_subtitle = Rswift.StringResource(key: "home_menu_mining_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -1237,11 +1256,15 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let home_menu_about_subtitle = Rswift.StringResource(key: "home_menu_about_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: send coins instantly
+      /// en translation: send BLOC instantly
       /// 
       /// Locales: en
       static let home_menu_send_subtitle = Rswift.StringResource(key: "home_menu_send_subtitle", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: www.blockchain-coin.net
+      /// en translation: stay informed
+      /// 
+      /// Locales: en
+      static let home_menu_news_subtile = Rswift.StringResource(key: "home_menu_news_subtile", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: www.bloc.money
       /// 
       /// Locales: en
       static let about_us_url = Rswift.StringResource(key: "about_us_url", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
@@ -1673,6 +1696,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("mining_low_power_title", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: MINING
+      /// 
+      /// Locales: en
+      static func tabs_mining(_: Void = ()) -> String {
+        return NSLocalizedString("tabs_mining", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Medium
       /// 
       /// Locales: en
@@ -1680,7 +1710,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("mining_number_of_threads_medium", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Meet the Blockchain Coin
+      /// en translation: Meet the BLOC
       /// 
       /// Locales: en
       static func about_us_meet(_: Void = ()) -> String {
@@ -1692,13 +1722,6 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func home_menu_mining_title(_: Void = ()) -> String {
         return NSLocalizedString("home_menu_mining_title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Mining
-      /// 
-      /// Locales: en
-      static func tabs_mining(_: Void = ()) -> String {
-        return NSLocalizedString("tabs_mining", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Mining pool
@@ -1715,6 +1738,13 @@ struct R: Rswift.Validatable {
         return String(format: NSLocalizedString("mining_wallet_title", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
       }
       
+      /// en translation: NEWS
+      /// 
+      /// Locales: en
+      static func tabs_news(_: Void = ()) -> String {
+        return NSLocalizedString("tabs_news", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Name for this wallet
       /// 
       /// Locales: en
@@ -1727,6 +1757,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func pool_stats_network(_: Void = ()) -> String {
         return NSLocalizedString("pool_stats_network", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: News
+      /// 
+      /// Locales: en
+      static func home_menu_news_title(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_news_title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Next step
@@ -1918,7 +1955,14 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send_success_subtitle", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Secure Private Decentralized Untraceable Fungible
+      /// en translation: SEND
+      /// 
+      /// Locales: en
+      static func tabs_send(_: Void = ()) -> String {
+        return NSLocalizedString("tabs_send", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Secure Private Decentralized Egalitarian Fungible Fast
       /// 
       /// Locales: en
       static func about_us_tagline(_: Void = ()) -> String {
@@ -1932,7 +1976,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_full_history", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: See the full transaction details on the Blockchain Coin Explorer
+      /// en translation: See the full transaction details on the BLOC Explorer
       /// 
       /// Locales: en
       static func transaction_details_explorer(_: Void = ()) -> String {
@@ -1958,13 +2002,6 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func home_menu_send_title(_: Void = ()) -> String {
         return NSLocalizedString("home_menu_send_title", bundle: R.hostingBundle, comment: "")
-      }
-      
-      /// en translation: Send
-      /// 
-      /// Locales: en
-      static func tabs_send(_: Void = ()) -> String {
-        return NSLocalizedString("tabs_send", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Send the coins
@@ -2023,6 +2060,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("send_confirm_title_view", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: TRANSACT.
+      /// 
+      /// Locales: en
+      static func tabs_transactions(_: Void = ()) -> String {
+        return NSLocalizedString("tabs_transactions", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Tap on the button below to delete this wallet
       /// 
       /// Locales: en
@@ -2030,7 +2074,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("delete_wallet_before_action", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: The BlockChain Coin has been founded in 2018 by a group of talented friends and partners that has been working together for more than 10 years on IT, smartphone technology, web, API, hardware products, applications and many more. Experimented, smart, ambitious, fun and hard working are some of our main qualities. We love cryptocurrencies, we are early bitcoin investors, we are (still) amazed by the possibilities that the Blockchain technology brings to the world and we want to be a fundamental actor of this revolution. Visit our website to discover our universe, our application, our ecostystem, our roadmap and be a part of it; join us!
+      /// en translation: The BLOC.money : Symbol Ƀ - Ticker: BLOC is a fully decentralized cryptocurrency - Egalitarian Proof Of Work with Cryptonight algorithm - based on open source Cryptonote technology using low & fix rate fees per transaction. Including a brand new ecosystem and exclusive set of mining tools. One of our mission is to build a more open, accessible, and fair financial future. Our technology is revolutionizing the financial services industry by empowering users across the globe to authenticate and transact immediately and without costly intermediaries using the blockchain technology.
       /// 
       /// Locales: en
       static func about_us_content(_: Void = ()) -> String {
@@ -2049,6 +2093,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func mining_could_not_connect(_: Void = ()) -> String {
         return NSLocalizedString("mining_could_not_connect", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: There are no news at the moment
+      /// 
+      /// Locales: en
+      static func list_news_error_no_news(_: Void = ()) -> String {
+        return NSLocalizedString("list_news_error_no_news", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: This password will be required each time you make a transaction with someone and to export your private key
@@ -2091,13 +2142,6 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_list_item_balance(_ value1: String) -> String {
         return String(format: NSLocalizedString("wallet_list_item_balance", bundle: R.hostingBundle, comment: ""), locale: R.applicationLocale, value1)
-      }
-      
-      /// en translation: Transact.
-      /// 
-      /// Locales: en
-      static func tabs_transactions(_: Void = ()) -> String {
-        return NSLocalizedString("tabs_transactions", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Transaction hash:
@@ -2149,18 +2193,18 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_created_title_third_line", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Wallet
+      /// en translation: WALLET
       /// 
       /// Locales: en
-      static func home_menu_wallet_title(_: Void = ()) -> String {
-        return NSLocalizedString("home_menu_wallet_title", bundle: R.hostingBundle, comment: "")
+      static func tabs_wallet(_: Void = ()) -> String {
+        return NSLocalizedString("tabs_wallet", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Wallet
       /// 
       /// Locales: en
-      static func tabs_wallet(_: Void = ()) -> String {
-        return NSLocalizedString("tabs_wallet", bundle: R.hostingBundle, comment: "")
+      static func home_menu_wallet_title(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_wallet_title", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Wallet #%d
@@ -2219,7 +2263,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_list_no_wallet_instructions", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: Your Blockchain Coins has been sent!
+      /// en translation: Your BLOC has been sent!
       /// 
       /// Locales: en
       static func send_success_title(_: Void = ()) -> String {
@@ -2268,7 +2312,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_created_qr_code", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: check every transactions
+      /// en translation: check your transactions
       /// 
       /// Locales: en
       static func home_menu_transactions_subtitle(_: Void = ()) -> String {
@@ -2282,7 +2326,7 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("home_menu_wallet_subtitle", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: earn coins in minutes
+      /// en translation: earn BLOC in minutes
       /// 
       /// Locales: en
       static func home_menu_mining_subtitle(_: Void = ()) -> String {
@@ -2296,14 +2340,21 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("home_menu_about_subtitle", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: send coins instantly
+      /// en translation: send BLOC instantly
       /// 
       /// Locales: en
       static func home_menu_send_subtitle(_: Void = ()) -> String {
         return NSLocalizedString("home_menu_send_subtitle", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: www.blockchain-coin.net
+      /// en translation: stay informed
+      /// 
+      /// Locales: en
+      static func home_menu_news_subtile(_: Void = ()) -> String {
+        return NSLocalizedString("home_menu_news_subtile", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: www.bloc.money
       /// 
       /// Locales: en
       static func about_us_url(_: Void = ()) -> String {

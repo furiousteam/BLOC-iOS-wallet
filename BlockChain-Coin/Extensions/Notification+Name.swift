@@ -10,7 +10,7 @@ import Foundation
 
 extension Notification.Name {
     static let selectWalletTab = Notification.Name("selectWalletTab")
-    static let selectMiningTab = Notification.Name("selectMiningTab")
+    static let selectNewsTab = Notification.Name("selectNewsTab")
     static let selectSendTab = Notification.Name("selectSendTab")
     static let selectTransactionsTab = Notification.Name("selectTransactionsTab")
     static let selectMenuTab = Notification.Name("selectMenuTab")

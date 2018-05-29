@@ -252,6 +252,16 @@
 		9CBCC9C32062357F0006FBA7 /* NewTransactionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC9C22062357F0006FBA7 /* NewTransactionDataSource.swift */; };
 		9CBCC9C5206235BF0006FBA7 /* UICollectionView+Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC9C4206235BF0006FBA7 /* UICollectionView+Register.swift */; };
 		9CBCC9C7206241C40006FBA7 /* KeyPair+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBCC9C6206241C40006FBA7 /* KeyPair+Codable.swift */; };
+		9CC91EBD209DF8750009240B /* ListNewsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC91EB7209DF8740009240B /* ListNewsInteractor.swift */; };
+		9CC91EBE209DF8750009240B /* ListNewsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC91EB8209DF8740009240B /* ListNewsModels.swift */; };
+		9CC91EBF209DF8750009240B /* ListNewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC91EB9209DF8740009240B /* ListNewsRouter.swift */; };
+		9CC91EC0209DF8750009240B /* ListNewsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC91EBA209DF8740009240B /* ListNewsPresenter.swift */; };
+		9CC91EC1209DF8750009240B /* ListNewsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC91EBB209DF8740009240B /* ListNewsDataSource.swift */; };
+		9CC91EC2209DF8750009240B /* ListNewsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC91EBC209DF8740009240B /* ListNewsVC.swift */; };
+		9CC91EC4209E02290009240B /* NewsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC91EC3209E02290009240B /* NewsWorker.swift */; };
+		9CC91EC6209E02900009240B /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC91EC5209E02900009240B /* News.swift */; };
+		9CC91EC8209E03A00009240B /* NewsRSSFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC91EC7209E03A00009240B /* NewsRSSFeed.swift */; };
+		9CC91ECB209E074E0009240B /* ListNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CC91ECA209E074E0009240B /* ListNewsCell.swift */; };
 		9CE35C15206B7129002E7193 /* MineSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C14206B7129002E7193 /* MineSettingsCell.swift */; };
 		9CE35C17206B72C4002E7193 /* MiningSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C16206B72C4002E7193 /* MiningSettings.swift */; };
 		9CE35C19206B8A33002E7193 /* MiningBootCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C18206B8A33002E7193 /* MiningBootCell.swift */; };
@@ -580,6 +590,16 @@
 		9CBCC9C22062357F0006FBA7 /* NewTransactionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionDataSource.swift; sourceTree = "<group>"; };
 		9CBCC9C4206235BF0006FBA7 /* UICollectionView+Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Register.swift"; sourceTree = "<group>"; };
 		9CBCC9C6206241C40006FBA7 /* KeyPair+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyPair+Codable.swift"; sourceTree = "<group>"; };
+		9CC91EB7209DF8740009240B /* ListNewsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNewsInteractor.swift; sourceTree = "<group>"; };
+		9CC91EB8209DF8740009240B /* ListNewsModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNewsModels.swift; sourceTree = "<group>"; };
+		9CC91EB9209DF8740009240B /* ListNewsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNewsRouter.swift; sourceTree = "<group>"; };
+		9CC91EBA209DF8740009240B /* ListNewsPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNewsPresenter.swift; sourceTree = "<group>"; };
+		9CC91EBB209DF8740009240B /* ListNewsDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNewsDataSource.swift; sourceTree = "<group>"; };
+		9CC91EBC209DF8740009240B /* ListNewsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListNewsVC.swift; sourceTree = "<group>"; };
+		9CC91EC3209E02290009240B /* NewsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsWorker.swift; sourceTree = "<group>"; };
+		9CC91EC5209E02900009240B /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		9CC91EC7209E03A00009240B /* NewsRSSFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRSSFeed.swift; sourceTree = "<group>"; };
+		9CC91ECA209E074E0009240B /* ListNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListNewsCell.swift; sourceTree = "<group>"; };
 		9CE35C14206B7129002E7193 /* MineSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineSettingsCell.swift; sourceTree = "<group>"; };
 		9CE35C16206B72C4002E7193 /* MiningSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningSettings.swift; sourceTree = "<group>"; };
 		9CE35C18206B8A33002E7193 /* MiningBootCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MiningBootCell.swift; sourceTree = "<group>"; };
@@ -743,6 +763,7 @@
 				9CE35C16206B72C4002E7193 /* MiningSettings.swift */,
 				9CE35C67206E1932002E7193 /* PoolStats.swift */,
 				9C161EE420726C87004B4661 /* MiningAddressStats.swift */,
+				9CC91EC5209E02900009240B /* News.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -771,6 +792,7 @@
 				9C6623042036DD010083CE2E /* TransactionDiskStore.swift */,
 				9CE35C69206E1BAF002E7193 /* PoolAPI.swift */,
 				9C7DF71E207605BF00AF61F3 /* PoolSocket.swift */,
+				9CC91EC7209E03A00009240B /* NewsRSSFeed.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -793,6 +815,7 @@
 				9C043682202C9CD700671DA2 /* PoolWorker.swift */,
 				9C8A8F68202ED7B000F55736 /* WalletWorker.swift */,
 				9C6623002036D3B40083CE2E /* TransactionWorker.swift */,
+				9CC91EC3209E02290009240B /* NewsWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -862,6 +885,7 @@
 				9C161ED4207256F7004B4661 /* MineLowPower */,
 				9C161EEA20728127004B4661 /* ShowMiningStats */,
 				9C7DF70E2074AC2800AF61F3 /* DeleteWallet */,
+				9CC91EB6209DF8740009240B /* ListNews */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -1484,6 +1508,28 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		9CC91EB6209DF8740009240B /* ListNews */ = {
+			isa = PBXGroup;
+			children = (
+				9CC91EC9209E07370009240B /* Views */,
+				9CC91EB7209DF8740009240B /* ListNewsInteractor.swift */,
+				9CC91EB8209DF8740009240B /* ListNewsModels.swift */,
+				9CC91EB9209DF8740009240B /* ListNewsRouter.swift */,
+				9CC91EBA209DF8740009240B /* ListNewsPresenter.swift */,
+				9CC91EBB209DF8740009240B /* ListNewsDataSource.swift */,
+				9CC91EBC209DF8740009240B /* ListNewsVC.swift */,
+			);
+			path = ListNews;
+			sourceTree = "<group>";
+		};
+		9CC91EC9209E07370009240B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9CC91ECA209E074E0009240B /* ListNewsCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9CE35C1E206BF195002E7193 /* Video */ = {
 			isa = PBXGroup;
 			children = (
@@ -1667,6 +1713,14 @@
 						CreatedOnToolsVersion = 9.2;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.GameCenter.iOS = {
+								enabled = 0;
+							};
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 					9C575C962091973900FAE50A = {
 						CreatedOnToolsVersion = 9.3;
@@ -1750,6 +1804,7 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/CryptoSwift/CryptoSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/EFQRCode/EFQRCode.framework",
+				"${BUILT_PRODUCTS_DIR}/FeedKit/FeedKit.framework",
 				"${BUILT_PRODUCTS_DIR}/JSONRPCKit/JSONRPCKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -1778,6 +1833,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CryptoSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EFQRCode.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FeedKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONRPCKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
@@ -1878,11 +1934,13 @@
 				9C85E38C205A6C3200208DF6 /* FormToolbar.swift in Sources */,
 				9C63A392206790B700E9C33D /* ShowTransactionFormViews.swift in Sources */,
 				9C78F1D22056CD5A001ADA32 /* ListTransactionsModels.swift in Sources */,
+				9CC91EC4209E02290009240B /* NewsWorker.swift in Sources */,
 				9C04367D202C975800671DA2 /* HashContext.mm in Sources */,
 				9CE35C62206D59E0002E7193 /* MiningSliderView.swift in Sources */,
 				9C6623052036DD010083CE2E /* TransactionDiskStore.swift in Sources */,
 				9C5756B62064035E002BD079 /* CheckPasswordFormViews.swift in Sources */,
 				9CA7FB8E205D6DA300D48D5F /* ImportWalletQRCodeRouter.swift in Sources */,
+				9CC91EC2209DF8750009240B /* ListNewsVC.swift in Sources */,
 				9CE35C47206D11B0002E7193 /* SetMiningWalletInteractor.swift in Sources */,
 				9CBCC98F206101D50006FBA7 /* ShowWalletBalanceCell.swift in Sources */,
 				9C8A8F7F202EE13D00F55736 /* PoolSocketJobNotificationResponse.swift in Sources */,
@@ -1942,6 +2000,7 @@
 				9C85E381205A6A6800208DF6 /* SetWalletPasswordModels.swift in Sources */,
 				9C161EF520728127004B4661 /* ShowMiningStatsInteractor.swift in Sources */,
 				9CA7FB8C205D6DA300D48D5F /* ImportWalletQRCodePresenter.swift in Sources */,
+				9CC91EC6209E02900009240B /* News.swift in Sources */,
 				9C04367A202C968D00671DA2 /* aesb.c in Sources */,
 				9CA7FB8A205D6DA300D48D5F /* ImportWalletQRCodeVC.swift in Sources */,
 				9C78F1D52056CD5A001ADA32 /* ListTransactionsPresenter.swift in Sources */,
@@ -2057,11 +2116,15 @@
 				9C0325AA2056CE610009FA3B /* TabBarItem.swift in Sources */,
 				9CBB2F0620567DE100718EBA /* UIFont+BLOC.swift in Sources */,
 				9C63A354206419AC00E9C33D /* WalletAPITransferResponse.swift in Sources */,
+				9CC91EC1209DF8750009240B /* ListNewsDataSource.swift in Sources */,
+				9CC91EC0209DF8750009240B /* ListNewsPresenter.swift in Sources */,
 				9CBB2EF8205679FE00718EBA /* HomeModels.swift in Sources */,
 				9C85E3AB205ADA7200208DF6 /* ImportWalletKeyInteractor.swift in Sources */,
+				9CC91EBE209DF8750009240B /* ListNewsModels.swift in Sources */,
 				9C63A39E20679AB400E9C33D /* ShowTransactionExplorerView.swift in Sources */,
 				9CBCC98B2060E9A00006FBA7 /* PrintableWalletKeysView.swift in Sources */,
 				9CB6C33E20502C79002E610C /* PrimitiveSequence+ErrorHandling.swift in Sources */,
+				9CC91ECB209E074E0009240B /* ListNewsCell.swift in Sources */,
 				9CE35C15206B7129002E7193 /* MineSettingsCell.swift in Sources */,
 				9CBCC991206101EF0006FBA7 /* ShowWalletExportKeysCell.swift in Sources */,
 				9C78F1D02056CD5A001ADA32 /* ListTransactionsRouter.swift in Sources */,
@@ -2103,9 +2166,11 @@
 				9C04367F202C98E900671DA2 /* MinerWorker.swift in Sources */,
 				9C4AA4DE20348F430056152C /* ShowWalletPresenter.swift in Sources */,
 				9CE35C78206E1F3D002E7193 /* ListPoolsRouter.swift in Sources */,
+				9CC91EBD209DF8750009240B /* ListNewsInteractor.swift in Sources */,
 				9CBCC9AB20616FEA0006FBA7 /* WalletSettingsCell.swift in Sources */,
 				9CBCC9B8206224E40006FBA7 /* NewTransactionModels.swift in Sources */,
 				9CE35C5C206D2DF5002E7193 /* SetMiningThreadsViews.swift in Sources */,
+				9CC91EC8209E03A00009240B /* NewsRSSFeed.swift in Sources */,
 				9C043676202C968D00671DA2 /* oaes_lib.c in Sources */,
 				9C9A570120372B1A00B010D5 /* TransactionExtra.swift in Sources */,
 				9CBB2EF6205679FE00718EBA /* HomeRouter.swift in Sources */,
@@ -2115,6 +2180,7 @@
 				9C63A3702066B18900E9C33D /* ListTransactionsCell.swift in Sources */,
 				9C161EF220728127004B4661 /* ShowMiningStatsRouter.swift in Sources */,
 				9C161ED12072250D004B4661 /* StatsButton.swift in Sources */,
+				9CC91EBF209DF8750009240B /* ListNewsRouter.swift in Sources */,
 				9CE35C57206D2D9F002E7193 /* SetMiningThreadsModels.swift in Sources */,
 				9C161EF120728127004B4661 /* ShowMiningStatsModels.swift in Sources */,
 				9C8A8F69202ED7B000F55736 /* WalletWorker.swift in Sources */,
@@ -2310,13 +2376,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 86UQGV5K97;
+				DEVELOPMENT_TEAM = UV2JYV8RQQ;
 				INFOPLIST_FILE = "$(SRCROOT)/BlockChain-Coin/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.blockchain-coin.ios";
+				PRODUCT_BUNDLE_IDENTIFIER = money.bloc.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2332,14 +2399,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 86UQGV5K97;
+				DEVELOPMENT_TEAM = UV2JYV8RQQ;
 				GCC_OPTIMIZATION_LEVEL = fast;
 				INFOPLIST_FILE = "$(SRCROOT)/BlockChain-Coin/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "co.blockchain-coin.ios";
+				PRODUCT_BUNDLE_IDENTIFIER = money.bloc.ios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";

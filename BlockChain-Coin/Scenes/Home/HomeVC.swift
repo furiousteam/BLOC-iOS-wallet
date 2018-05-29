@@ -116,9 +116,9 @@ class HomeVC: ViewController, UITableViewDelegate, HomeDisplayLogic {
         tableView.allowsMultipleSelection = true
         
         dataSource.items = [ [ HomeItem(title: R.string.localizable.home_menu_wallet_title(), subtitle: R.string.localizable.home_menu_wallet_subtitle()),
-                               HomeItem(title: R.string.localizable.home_menu_mining_title(), subtitle: R.string.localizable.home_menu_mining_subtitle()),
                                HomeItem(title: R.string.localizable.home_menu_send_title(), subtitle: R.string.localizable.home_menu_send_subtitle()),
                                HomeItem(title: R.string.localizable.home_menu_transactions_title(), subtitle: R.string.localizable.home_menu_transactions_subtitle()),
+                               HomeItem(title: R.string.localizable.home_menu_news_title(), subtitle: R.string.localizable.home_menu_news_subtile()),
                                HomeItem(title: R.string.localizable.home_menu_about_title(), subtitle: R.string.localizable.home_menu_about_subtitle()) ] ]
     }
     
@@ -131,11 +131,11 @@ class HomeVC: ViewController, UITableViewDelegate, HomeDisplayLogic {
         case 0:
             router.showWallet()
         case 1:
-            router.showMining()
-        case 2:
             router.showSend()
-        case 3:
+        case 2:
             router.showTransactions()
+        case 3:
+            router.showNews()
         case 4:
             router.showAbout()
         default:

@@ -108,7 +108,7 @@ class AboutVC: ViewController, AboutDisplayLogic {
     // MARK: - Actions
 
     @objc func websiteTapped() {
-        UIApplication.shared.open(URL(string: "http://www.blockchain-coin.net")!, options: [:], completionHandler: nil)
+        UIApplication.shared.open(URL(string: "http://www.bloc.money")!, options: [:], completionHandler: nil)
     }
     
     @objc func backTapped() {

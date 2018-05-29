@@ -1,17 +1,17 @@
 "home_menu_wallet_title" = "Wallet";
 "home_menu_wallet_subtitle" = "create, configure, balance";
 "home_menu_mining_title" = "Mining";
-"home_menu_mining_subtitle" = "earn coins in minutes";
+"home_menu_mining_subtitle" = "earn BLOC in minutes";
 "home_menu_send_title" = "Send";
-"home_menu_send_subtitle" = "send coins instantly";
+"home_menu_send_subtitle" = "send BLOC instantly";
 "home_menu_transactions_title" = "Transactions";
-"home_menu_transactions_subtitle" = "check every transactions";
+"home_menu_transactions_subtitle" = "check your transactions";
 "home_menu_about_title" = "About";
 "home_menu_about_subtitle" = "more about us";
-"tabs_wallet" = "Wallet";
-"tabs_mining" = "Mining";
-"tabs_send" = "Send";
-"tabs_transactions" = "Transact.";
+"tabs_wallet" = "WALLET";
+"tabs_mining" = "MINING";
+"tabs_send" = "SEND";
+"tabs_transactions" = "TRANSACT.";
 "wallet_list_item_title" = "Wallet #%d";
 "wallet_list_item_balance" = "Total balance: %@";
 "wallet_list_no_wallet_title" = "You have no wallet for now";
@@ -70,7 +70,7 @@ Note: the key does not contain spaces.";
 "send_confirm_fee" = "Fee for this transaction: %@";
 "send_confirm_title_view" = "Summary";
 "send_confirm_slide_to_confirm" = "Slide to confirm";
-"send_success_title" = "Your Blockchain Coins has been sent!";
+"send_success_title" = "Your BLOC has been sent!";
 "send_success_subtitle" = "Remember: some time is required for the network to confirm the transaction";
 "send_error_title" = "A problem has occured!";
 "transaction_details_nav" = "Details";
@@ -83,17 +83,18 @@ Note: the key does not contain spaces.";
 "transaction_details_transfers" = "Transfers: %@";
 "transaction_details_fee" = "Fee: %@";
 "transaction_details_payment_id" = "Payment ID: %@";
-"transaction_details_explorer" = "See the full transaction details on the Blockchain Coin Explorer";
+"transaction_details_explorer" = "See the full transaction details on the BLOC Explorer";
 "about_us_tagline" = "Secure\
 Private\
 Decentralized\
-Untraceable\
-Fungible";
+Egalitarian\
+Fungible\
+Fast";
 "about_us_meet" = "Meet the\
-Blockchain Coin";
+BLOC";
 "about_us_bloc" = "(BLOC)";
-"about_us_url" = "www.blockchain-coin.net";
-"about_us_content" = "The BlockChain Coin has been founded in 2018 by a group of talented friends and partners that has been working together for more than 10 years on IT, smartphone technology, web, API, hardware products, applications and many more. Experimented, smart, ambitious, fun and hard working are some of our main qualities. We love cryptocurrencies, we are early bitcoin investors, we are (still) amazed by the possibilities that the Blockchain technology brings to the world and we want to be a fundamental actor of this revolution. Visit our website to discover our universe, our application, our ecostystem, our roadmap and be a part of it; join us!";
+"about_us_url" = "www.bloc.money";
+"about_us_content" = "The BLOC.money : Symbol Ƀ - Ticker: BLOC is a fully decentralized cryptocurrency - Egalitarian Proof Of Work with Cryptonight algorithm - based on open source Cryptonote technology using low & fix rate fees per transaction. Including a brand new ecosystem and exclusive set of mining tools. One of our mission is to build a more open, accessible, and fair financial future. Our technology is revolutionizing the financial services industry by empowering users across the globe to authenticate and transact immediately and without costly intermediaries using the blockchain technology.";
 "error_unknown" = "An unknown error has occured. Please try again.";
 "create_wallet_loading" = "Creating your wallet...";
 "import_wallet_key_invalid_key" = "The specified key is not in the right format or contains invalid data";
@@ -159,3 +160,7 @@ Miners: %@ - Last block found: %@";
 "delete_wallet_action" = "Delete this wallet";
 "mining_no_wallet" = "A wallet is required to start mining";
 "password_confirm_title" = "Please enter the password for this wallet";
+"tabs_news" = "NEWS";
+"home_menu_news_title" = "News";
+"home_menu_news_subtile" = "stay informed";
+"list_news_error_no_news" = "There are no news at the moment";

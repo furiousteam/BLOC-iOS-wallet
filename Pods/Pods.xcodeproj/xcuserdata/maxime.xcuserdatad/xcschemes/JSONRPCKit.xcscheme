@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -13,11 +13,11 @@
             buildForProfiling = "YES"
             buildForArchiving = "YES">
             <BuildableReference
-               BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F75C5D1D8F7F50C6D949CF16CC0519BB'
-               BlueprintName = 'JSONRPCKit'
-               ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'JSONRPCKit.framework'>
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "F75C5D1D8F7F50C6D949CF16CC0519BB"
+               BlueprintName = "JSONRPCKit"
+               ReferencedContainer = "container:Pods.xcodeproj"
+               BuildableName = "JSONRPCKit.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

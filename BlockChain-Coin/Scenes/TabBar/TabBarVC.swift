@@ -11,19 +11,19 @@ import SnapKit
 
 enum Tab: Int {
     case wallets = 0
-    case mining = 1
+    case send = 1
     case menu = 2
-    case send = 3
-    case transactions = 4
+    case transactions = 3
+    case news = 4
 }
 
 final class TabBarVC: ViewController {
     
     let walletsVC = ListWalletsVC()
-    let miningVC = MineVC()
     let sendVC = NewTransactionVC()
     let transactionsVC = ListTransactionsVC()
     let menuVC = HomeVC()
+    let newsVC = ListNewsVC()
     
     let tabBar = TabBarView()
     let container = HomeContainer()
@@ -41,10 +41,10 @@ final class TabBarVC: ViewController {
         configure()
         
         setControllers([ NavigationController(rootViewController: walletsVC),
-                         NavigationController(rootViewController: miningVC),
-                         menuVC,
                          NavigationController(rootViewController: sendVC),
-                         NavigationController(rootViewController: transactionsVC) ])
+                         menuVC,
+                         NavigationController(rootViewController: transactionsVC),
+                         NavigationController(rootViewController: newsVC) ])
         
         tabBar.didSelectTab = { [weak self] index in
             guard let tab = Tab(rawValue: index) else { return }
@@ -59,7 +59,7 @@ final class TabBarVC: ViewController {
         }
         
         NotificationCenter.default.addObserver(forName: .selectWalletTab, object: nil, queue: nil, using: handleSelectWalletTab)
-        NotificationCenter.default.addObserver(forName: .selectMiningTab, object: nil, queue: nil, using: handleSelectMiningTab)
+        NotificationCenter.default.addObserver(forName: .selectNewsTab, object: nil, queue: nil, using: handleSelectNewsTab)
         NotificationCenter.default.addObserver(forName: .selectSendTab, object: nil, queue: nil, using: handleSelectSendTab)
         NotificationCenter.default.addObserver(forName: .selectTransactionsTab, object: nil, queue: nil, using: handleSelectTransactionsTab)
         NotificationCenter.default.addObserver(forName: .selectMenuTab, object: nil, queue: nil, using: handleSelectMenuTab)
@@ -129,8 +129,8 @@ final class TabBarVC: ViewController {
         setSelectedTab(tab: .wallets)
     }
     
-    @objc func handleSelectMiningTab(notification: Notification) {
-        setSelectedTab(tab: .mining)
+    @objc func handleSelectNewsTab(notification: Notification) {
+        setSelectedTab(tab: .news)
     }
     
     @objc func handleSelectSendTab(notification: Notification) {

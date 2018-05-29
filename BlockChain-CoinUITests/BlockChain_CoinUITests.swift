@@ -32,14 +32,6 @@ class BlockChain_CoinUITests: XCTestCase {
         snapshot("02WalletDetails")
     }
     
-    func testMining() {
-        let tablesQuery = XCUIApplication().tables
-        tablesQuery/*@START_MENU_TOKEN@*/.staticTexts["MINING"]/*[[".cells.staticTexts[\"MINING\"]",".staticTexts[\"MINING\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()        
-        tablesQuery/*@START_MENU_TOKEN@*/.otherElements["Mining switch"]/*[[".cells.otherElements[\"Mining switch\"]",".otherElements[\"Mining switch\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        
-        snapshot("03Mining")
-    }
-    
     func testNewTransation() {
         let app = XCUIApplication()
         app.tables/*@START_MENU_TOKEN@*/.staticTexts["SEND"]/*[[".cells.staticTexts[\"SEND\"]",".staticTexts[\"SEND\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()

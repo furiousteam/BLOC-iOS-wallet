@@ -93,6 +93,10 @@ target 'BlockChain-Coin' do
   # https://github.com/swiftsocket/SwiftSocket
   pod 'SwiftSocket', '~> 2.0.2'
 
+  # An RSS, Atom and JSON Feed parser written in Swift 
+  # https://github.com/nmdias/FeedKit
+  pod 'FeedKit', '~> 7.1.0'
+
   # 🐛 Crash reporter and beta utilities
   # http://fabric.io
   pod 'Fabric'
