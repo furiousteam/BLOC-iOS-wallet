@@ -12,7 +12,7 @@ class AboutFormViews {
     let orderedViews: [UIView]
     
     let logo: UIImageView = {
-        let imageView = UIImageView(image: R.image.aboutLogo())
+        let imageView = UIImageView(image: R.image.splash_logo())
         imageView.contentMode = .scaleAspectFit
         return imageView
     }()
