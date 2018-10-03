@@ -21,7 +21,7 @@ class ShowTransactionRouter: Router, ShowTransactionRoutingLogic {
     }
     
     func showExplorer(blockHash: String, transactionHash: String) {
-        UIApplication.shared.open(URL(string: "https://blockchain-coin-explorer.com/block/\(blockHash)/\(transactionHash)")!, options: [:], completionHandler: nil)
+        UIApplication.shared.open(URL(string: "https://bloc-explorer.com/block/\(blockHash)/\(transactionHash)")!, options: [:], completionHandler: nil)
     }
 }
 
