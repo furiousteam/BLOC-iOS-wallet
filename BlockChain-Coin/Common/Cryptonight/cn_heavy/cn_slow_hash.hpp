@@ -178,10 +178,10 @@ private:
 };
 
 using cn_pow_hash_v1 = cn_slow_hash<2*1024*1024, 0x80000, 0>;
-using cn_pow_hash_v2 = cn_slow_hash<4*1024*1024, 0x40000, 1>;
+using cn_pow_hash_v2 = cn_slow_hash<4*1024*1024, 0x40000, 2>;
 
 extern template class cn_slow_hash<2*1024*1024, 0x80000, 0>;
-extern template class cn_slow_hash<4*1024*1024, 0x40000, 1>;
+extern template class cn_slow_hash<4*1024*1024, 0x40000, 2>;
 
 } //cn_heavy namespace
 
