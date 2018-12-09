@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2A3888342E1BA56209775395EFA3FCA0"
+               BlueprintIdentifier = "D3DD0FD5CB88ED8B0E49018AFA8024EA"
                BlueprintName = "CenterAlignedCollectionViewFlowLayout"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "CenterAlignedCollectionViewFlowLayout.framework">

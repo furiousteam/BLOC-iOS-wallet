@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F247A9C1300ADB460278B6924B01C812"
+               BlueprintIdentifier = "5FA4F18CE31D305C709BECC1F8BB71BF"
                BlueprintName = "SZTextView"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "SZTextView.framework">

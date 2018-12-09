@@ -1651,7 +1651,6 @@
 				9C043630202C908B00671DA2 /* Frameworks */,
 				9C043631202C908B00671DA2 /* Resources */,
 				7BC59555B1269A6EB9FD2305 /* [CP] Embed Pods Frameworks */,
-				A7878BB7F3EAA1350E40CE32 /* [CP] Copy Pods Resources */,
 				9C8A8F67202E21CB00F55736 /* Crashlytics */,
 			);
 			buildRules = (
@@ -1883,21 +1882,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 5c125ea22e04ebd8461f26d67ddc3cf0c99cfe8c 1712dbae323c0d1406326fe4b600d94d5de3dd477ef6474367e63f267eccbbba";
-		};
-		A7878BB7F3EAA1350E40CE32 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-BlockChain-Coin/Pods-BlockChain-Coin-resources.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 		D81DD7203BF6FFE8B98F5988 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -2424,7 +2408,7 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 86UQGV5K97;
+				DEVELOPMENT_TEAM = MN4JYY3B68;
 				INFOPLIST_FILE = "BlockChain-CoinUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2443,7 +2427,7 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 86UQGV5K97;
+				DEVELOPMENT_TEAM = MN4JYY3B68;
 				INFOPLIST_FILE = "BlockChain-CoinUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -2460,7 +2444,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 86UQGV5K97;
+				DEVELOPMENT_TEAM = MN4JYY3B68;
 				INFOPLIST_FILE = "BlockChain-CoinTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.blockchain-coin.ios.BlockChain-CoinTests";
@@ -2476,7 +2460,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 86UQGV5K97;
+				DEVELOPMENT_TEAM = MN4JYY3B68;
 				INFOPLIST_FILE = "BlockChain-CoinTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "net.blockchain-coin.ios.BlockChain-CoinTests";

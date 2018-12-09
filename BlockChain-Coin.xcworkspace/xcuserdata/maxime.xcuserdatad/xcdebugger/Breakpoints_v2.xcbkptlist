@@ -19,5 +19,53 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlockChain-Coin/Scenes/NewTransaction/NewTransactionModels.swift"
+            timestampString = "566042446.1463979"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "isValid"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BlockChain_Coin.NewTransactionForm.isValid.getter : Swift.Bool"
+                  moduleName = "BlockChain-Coin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maxime/Documents/Projects/BlockChain-Coin/BlockChain-Coin/Scenes/NewTransaction/NewTransactionModels.swift"
+                  timestampString = "565961377.988057"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "BlockChain_Coin.NewTransactionForm.isValid.getter : Swift.Bool"
+                  moduleName = "BlockChain-Coin"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/maxime/Documents/Projects/BlockChain-Coin/BlockChain-Coin/Scenes/NewTransaction/NewTransactionModels.swift"
+                  timestampString = "565961377.990185"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
+                  offsetFromSymbolStart = "93">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

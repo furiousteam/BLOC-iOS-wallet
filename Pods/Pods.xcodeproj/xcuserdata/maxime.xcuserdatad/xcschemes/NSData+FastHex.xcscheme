@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B46B19D0F974E59FA6AE7F04FF7C7AE3"
+               BlueprintIdentifier = "945569A70D55D2879595BF72166BEC29"
                BuildableName = "NSData_FastHex.framework"
                BlueprintName = "NSData+FastHex"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B46B19D0F974E59FA6AE7F04FF7C7AE3"
+            BlueprintIdentifier = "945569A70D55D2879595BF72166BEC29"
             BuildableName = "NSData_FastHex.framework"
             BlueprintName = "NSData+FastHex"
             ReferencedContainer = "container:Pods.xcodeproj">

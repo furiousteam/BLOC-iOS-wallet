@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "A292D7D946541BAA9AEF4FEC7E88B9BC"
+               BlueprintIdentifier = "FCB6681B6B08D812D41BE6B899FA09AC"
                BlueprintName = "FeedKit"
                ReferencedContainer = "container:Pods.xcodeproj"
                BuildableName = "FeedKit.framework">
