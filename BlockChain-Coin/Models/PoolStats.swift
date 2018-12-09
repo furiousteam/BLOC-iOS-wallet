@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PoolStatsModel {
-    var fee: Int { get }
+    var fee: Double { get }
     var hashRate: Int { get }
     var miners: Int { get }
     var lastBlockFound: Date { get }
@@ -33,7 +33,7 @@ class UnitHash: Dimension {
 }
 
 struct PoolStats: PoolStatsModel, Codable {
-    let fee: Int
+    let fee: Double
     let hashRate: Int
     let miners: Int
     let lastBlockFound: Date
@@ -100,7 +100,7 @@ struct PoolStats: PoolStatsModel, Codable {
         case blockTime = "blockTime"
     }
     
-    init(fee: Int, hashRate: Int, miners: Int, lastBlockFound: Date, blockTime: UInt, networkHashRate: UInt, networkLastBlockFound: Date, networkDifficulty: UInt, networkHeight: UInt, lastReward: Double) {
+    init(fee: Double, hashRate: Int, miners: Int, lastBlockFound: Date, blockTime: UInt, networkHashRate: UInt, networkLastBlockFound: Date, networkDifficulty: UInt, networkHeight: UInt, lastReward: Double) {
         self.fee = fee
         self.hashRate = hashRate
         self.miners = miners
@@ -118,7 +118,7 @@ struct PoolStats: PoolStatsModel, Codable {
         
         let configValues = try values.nestedContainer(keyedBy: ConfigCodingKeys.self, forKey: .config)
         
-        self.fee = try configValues.decode(Int.self, forKey: .fee)
+        self.fee = try configValues.decode(Double.self, forKey: .fee)
         self.blockTime = try configValues.decode(UInt.self, forKey: .blockTime)
         
         let poolValues = try values.nestedContainer(keyedBy: PoolCodingKeys.self, forKey: .pool)
