@@ -9,6 +9,7 @@
 import UIKit
 
 protocol HomeRoutingLogic {
+    func showMining()
     func showWallet()
     func showSend()
     func showTransactions()
@@ -25,6 +26,12 @@ class HomeRouter: Router, HomeRoutingLogic {
         viewController?.dismiss(animated: true, completion: nil)
     }
     
+    func showMining() {
+        NotificationCenter.default.post(name: .selectMiningTab, object: nil)
+        
+        viewController?.dismiss(animated: true, completion: nil)
+    }
+
     func showNews() {
         NotificationCenter.default.post(name: .selectNewsTab, object: nil)
 

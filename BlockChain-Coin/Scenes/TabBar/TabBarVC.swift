@@ -14,7 +14,7 @@ enum Tab: Int {
     case send = 1
     case menu = 2
     case transactions = 3
-    case news = 4
+    case mining = 4
 }
 
 final class TabBarVC: ViewController {
@@ -23,6 +23,7 @@ final class TabBarVC: ViewController {
     let sendVC = NewTransactionVC()
     let transactionsVC = ListTransactionsVC()
     let menuVC = HomeVC()
+    let miningVC = MineVC()
     let newsVC = ListNewsVC()
     
     let tabBar = TabBarView()
@@ -44,7 +45,7 @@ final class TabBarVC: ViewController {
                          NavigationController(rootViewController: sendVC),
                          menuVC,
                          NavigationController(rootViewController: transactionsVC),
-                         NavigationController(rootViewController: newsVC) ])
+                         NavigationController(rootViewController: miningVC) ])
         
         tabBar.didSelectTab = { [weak self] index in
             guard let tab = Tab(rawValue: index) else { return }
@@ -59,6 +60,7 @@ final class TabBarVC: ViewController {
         }
         
         NotificationCenter.default.addObserver(forName: .selectWalletTab, object: nil, queue: nil, using: handleSelectWalletTab)
+        NotificationCenter.default.addObserver(forName: .selectMiningTab, object: nil, queue: nil, using: handleSelectMiningTab)
         NotificationCenter.default.addObserver(forName: .selectNewsTab, object: nil, queue: nil, using: handleSelectNewsTab)
         NotificationCenter.default.addObserver(forName: .selectSendTab, object: nil, queue: nil, using: handleSelectSendTab)
         NotificationCenter.default.addObserver(forName: .selectTransactionsTab, object: nil, queue: nil, using: handleSelectTransactionsTab)
@@ -129,8 +131,12 @@ final class TabBarVC: ViewController {
         setSelectedTab(tab: .wallets)
     }
     
+    @objc func handleSelectMiningTab(notification: Notification) {
+        setSelectedTab(tab: .mining)
+    }
+    
     @objc func handleSelectNewsTab(notification: Notification) {
-        setSelectedTab(tab: .news)
+        //setSelectedTab(tab: .news)
     }
     
     @objc func handleSelectSendTab(notification: Notification) {

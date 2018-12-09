@@ -118,7 +118,7 @@ class HomeVC: ViewController, UITableViewDelegate, HomeDisplayLogic {
         dataSource.items = [ [ HomeItem(title: R.string.localizable.home_menu_wallet_title(), subtitle: R.string.localizable.home_menu_wallet_subtitle()),
                                HomeItem(title: R.string.localizable.home_menu_send_title(), subtitle: R.string.localizable.home_menu_send_subtitle()),
                                HomeItem(title: R.string.localizable.home_menu_transactions_title(), subtitle: R.string.localizable.home_menu_transactions_subtitle()),
-                               HomeItem(title: R.string.localizable.home_menu_news_title(), subtitle: R.string.localizable.home_menu_news_subtile()),
+                               HomeItem(title: R.string.localizable.home_menu_mining_title(), subtitle: R.string.localizable.home_menu_mining_subtitle()),
                                HomeItem(title: R.string.localizable.home_menu_about_title(), subtitle: R.string.localizable.home_menu_about_subtitle()) ] ]
     }
     
@@ -135,7 +135,7 @@ class HomeVC: ViewController, UITableViewDelegate, HomeDisplayLogic {
         case 2:
             router.showTransactions()
         case 3:
-            router.showNews()
+            router.showMining()
         case 4:
             router.showAbout()
         default:
