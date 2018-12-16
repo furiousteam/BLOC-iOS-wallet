@@ -84,6 +84,9 @@
 		9C4AA4E020348F4D0056152C /* ShowWalletModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4DF20348F4D0056152C /* ShowWalletModels.swift */; };
 		9C4AA4E5203490390056152C /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C4AA4E4203490390056152C /* Balance.swift */; };
 		9C5292CC2080744000EDCB15 /* cn_slow_hash_soft.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9C5292C92080744000EDCB15 /* cn_slow_hash_soft.cpp */; };
+		9C545A9221C6487100E023CC /* PriceWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C545A9121C6487100E023CC /* PriceWorker.swift */; };
+		9C545A9421C6493F00E023CC /* CoinGeckoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C545A9321C6493F00E023CC /* CoinGeckoAPI.swift */; };
+		9C545A9821C64B4100E023CC /* CoinGeckoPriceHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C545A9721C64B4100E023CC /* CoinGeckoPriceHistoryResponse.swift */; };
 		9C5756A42063A4CE002BD079 /* NewTransactionNoWalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756A32063A4CE002BD079 /* NewTransactionNoWalletCell.swift */; };
 		9C5756B220640323002BD079 /* CheckPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756AC20640323002BD079 /* CheckPasswordVC.swift */; };
 		9C5756B62064035E002BD079 /* CheckPasswordFormViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C5756B52064035E002BD079 /* CheckPasswordFormViews.swift */; };
@@ -418,6 +421,9 @@
 		9C4AA4E4203490390056152C /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		9C5292C92080744000EDCB15 /* cn_slow_hash_soft.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cn_slow_hash_soft.cpp; sourceTree = "<group>"; };
 		9C5292CA2080744000EDCB15 /* cn_slow_hash.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cn_slow_hash.hpp; sourceTree = "<group>"; };
+		9C545A9121C6487100E023CC /* PriceWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceWorker.swift; sourceTree = "<group>"; };
+		9C545A9321C6493F00E023CC /* CoinGeckoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoAPI.swift; sourceTree = "<group>"; };
+		9C545A9721C64B4100E023CC /* CoinGeckoPriceHistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinGeckoPriceHistoryResponse.swift; sourceTree = "<group>"; };
 		9C5756A32063A4CE002BD079 /* NewTransactionNoWalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransactionNoWalletCell.swift; sourceTree = "<group>"; };
 		9C5756AC20640323002BD079 /* CheckPasswordVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckPasswordVC.swift; sourceTree = "<group>"; };
 		9C5756B52064035E002BD079 /* CheckPasswordFormViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckPasswordFormViews.swift; sourceTree = "<group>"; };
@@ -793,6 +799,7 @@
 				9CE35C69206E1BAF002E7193 /* PoolAPI.swift */,
 				9C7DF71E207605BF00AF61F3 /* PoolSocket.swift */,
 				9CC91EC7209E03A00009240B /* NewsRSSFeed.swift */,
+				9C545A9321C6493F00E023CC /* CoinGeckoAPI.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -814,6 +821,7 @@
 				9C04367E202C98E900671DA2 /* MinerWorker.swift */,
 				9C043682202C9CD700671DA2 /* PoolWorker.swift */,
 				9C8A8F68202ED7B000F55736 /* WalletWorker.swift */,
+				9C545A9121C6487100E023CC /* PriceWorker.swift */,
 				9C6623002036D3B40083CE2E /* TransactionWorker.swift */,
 				9CC91EC3209E02290009240B /* NewsWorker.swift */,
 			);
@@ -952,6 +960,7 @@
 			children = (
 				9C8A8F7A202EE13D00F55736 /* Pool */,
 				9C8A8F7B202EE13D00F55736 /* Wallet */,
+				9C545A9621C64B3000E023CC /* CoinGecko */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -1098,6 +1107,14 @@
 				9C5292CA2080744000EDCB15 /* cn_slow_hash.hpp */,
 			);
 			path = cn_heavy;
+			sourceTree = "<group>";
+		};
+		9C545A9621C64B3000E023CC /* CoinGecko */ = {
+			isa = PBXGroup;
+			children = (
+				9C545A9721C64B4100E023CC /* CoinGeckoPriceHistoryResponse.swift */,
+			);
+			path = CoinGecko;
 			sourceTree = "<group>";
 		};
 		9C5756A720640323002BD079 /* CheckPassword */ = {
@@ -1983,6 +2000,7 @@
 				9C0325A22056CDAE0009FA3B /* AboutInteractor.swift in Sources */,
 				9C85E381205A6A6800208DF6 /* SetWalletPasswordModels.swift in Sources */,
 				9C161EF520728127004B4661 /* ShowMiningStatsInteractor.swift in Sources */,
+				9C545A9421C6493F00E023CC /* CoinGeckoAPI.swift in Sources */,
 				9CA7FB8C205D6DA300D48D5F /* ImportWalletQRCodePresenter.swift in Sources */,
 				9CC91EC6209E02900009240B /* News.swift in Sources */,
 				9C04367A202C968D00671DA2 /* aesb.c in Sources */,
@@ -2035,6 +2053,7 @@
 				9C043683202C9CD700671DA2 /* PoolWorker.swift in Sources */,
 				9C85E38E205A6DAF00208DF6 /* SpacerView.swift in Sources */,
 				9CE35C7C206E2044002E7193 /* ListPoolsCell.swift in Sources */,
+				9C545A9821C64B4100E023CC /* CoinGeckoPriceHistoryResponse.swift in Sources */,
 				9C07226A2035695100B012B6 /* Transfer.swift in Sources */,
 				9CA7FB7C205C11A000D48D5F /* CreateWalletAlertController.swift in Sources */,
 				9C4AA48320332C2B0056152C /* KeyPair.swift in Sources */,
@@ -2045,6 +2064,7 @@
 				9C78F1D42056CD5A001ADA32 /* ListTransactionsInteractor.swift in Sources */,
 				9C85E374205A6A2200208DF6 /* UIScrollView+Keyboard.swift in Sources */,
 				9C161EDD207256F8004B4661 /* MineLowPowerRouter.swift in Sources */,
+				9C545A9221C6487100E023CC /* PriceWorker.swift in Sources */,
 				9C04369A202CD1EC00671DA2 /* Stats.swift in Sources */,
 				9CE35C4A206D11F6002E7193 /* SetMiningWalletViews.swift in Sources */,
 				9C7DF71D2074B7FD00AF61F3 /* DeleteWalletViews.swift in Sources */,

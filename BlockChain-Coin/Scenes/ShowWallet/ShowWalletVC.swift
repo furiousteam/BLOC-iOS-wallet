@@ -75,7 +75,7 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        interactor.fetchDetails(wallet: wallet, password: wallet.password ?? "")
+        refresh()
     }
     
     // MARK: - Configuration
@@ -134,6 +134,7 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
     
     @objc func refresh() {
         interactor.fetchDetails(wallet: wallet, password: wallet.password ?? "")
+        interactor.fetchPriceHistory()
     }
 
     @objc func settingsTapped() {
