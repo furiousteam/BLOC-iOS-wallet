@@ -1,6 +1,45 @@
-# BlockChain-Coin
+# BLOC-iOS-wallet
 
 This is the repository of the BLOC app for iOS.
+
+The **master** branch is the actual version of the app present in the [App Store](https://itunes.apple.com/us/app/bloc-wallet-by-furiousteam-ltd/id1437924269?mt=8&ign-mpt=uo%3D2)
+
+The **mining** branch including the original built-in miner for iOS that was not accepted by Apple and has to be taken out of the app. You can still build this app on your iOS device yourself. 
+
+## Supported Features
+
+### WALLET
+
+- Create a new wallet
+- Import a wallet (using a private key)
+- Import a wallet (using a QR code)
+- Backup a wallet
+- Restore a wallet
+- Delete a wallet
+- View balance and transactions
+- The restore option works from :
+- iPhone to iPhone
+- iPhone to Desktop wallet
+
+### SEND
+
+- Pay and get paid with BLOC QR code
+- Enter the amount to send
+- Enter the receipient’s address
+- Select your wallet to use to process this transaction
+- Send BLOC
+
+### TRANSACTIONS
+
+- View a complete history of your BLOC transactions
+
+### NEWS
+
+- Stay connected with the BLOC community
+
+### MINING (Not present in the App Store)
+
+- Mining from your iOS device
 
 ## Building the app
 
