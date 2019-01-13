@@ -1148,7 +1148,7 @@
 				9C5756BD20640D73002BD079 /* ConfirmTransactionVC.swift */,
 			);
 			name = ConfirmTransaction;
-			path = "/Users/maxime/Documents/Projects/BlockChain-Coin/BlockChain-Coin/Scenes/ConfirmTransaction";
+			path = "/Users/steve/DEV/BLOC-iOS-wallet-mining/BlockChain-Coin/BlockChain-Coin/Scenes/ConfirmTransaction";
 			sourceTree = "<absolute>";
 		};
 		9C5756C520640FA6002BD079 /* Views */ = {
