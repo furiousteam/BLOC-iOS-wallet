@@ -18,7 +18,7 @@ struct Constants {
     static let transactionExtraPaymentId: UInt8 = 0x00
     
     static let addressLength = 72
-    static let addressPrefix = "TbLoc"
+    static let addressPrefix = "abLoc"
     static let addressPrefixLength = 4
     static let addressSpendPublicKeyLength = 32
     static let addressViewPublicKeyLength = 32
