@@ -107,6 +107,7 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
         
         ShowWalletBalanceCell.registerWith(tableView)
         ShowWalletExportKeysCell.registerWith(tableView)
+        ShowWalletValueCell.registerWith(tableView)
         ShowWalletTransactionsHeaderCell.registerWith(tableView)
         ShowWalletTransactionCell.registerWith(tableView)
         LoadingTableViewCell.registerWith(tableView)
@@ -128,13 +129,22 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
         dataSource.didTapQRCode = { self.showAddressAsQRCode() }
         dataSource.didTapCopy = { self.copyAddress() }
         dataSource.didTapFullHistory = { self.showFullHistory() }
+        dataSource.didTapCoinGecko = { self.router.showCoinGecko() }
+        dataSource.didTapCurrency = { currency in
+            let defaultCurrency = UserDefaults.standard.defaultCurrency
+            
+            guard defaultCurrency != currency else { return }
+            
+            UserDefaults.standard.defaultCurrency = currency
+            
+            self.refresh()
+        }
     }
     
     // MARK: - Actions
     
     @objc func refresh() {
         interactor.fetchDetails(wallet: wallet, password: wallet.password ?? "")
-        interactor.fetchPriceHistory()
     }
 
     @objc func settingsTapped() {
@@ -185,7 +195,7 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
     
     func handleUpdate(viewModel: ShowWalletDetailsViewModel) {
         switch viewModel.state {
-        case .loaded(let details):
+        case .loaded(let details, _):
             let availableBalance = Balance(value: Double(details.availableBalance) / Constants.walletCurrencyDivider, balanceType: .available)
             let lockedBalance = Balance(value: Double(details.lockedBalance) / Constants.walletCurrencyDivider, balanceType: .locked)
 
@@ -194,6 +204,9 @@ class ShowWalletVC: ViewController, ShowWalletDisplayLogic, UITableViewDelegate 
             dataSource.transactions = Array(details.transactions.prefix(10))
             dataSource.isLoading = false
             dataSource.errorText = nil
+            dataSource.blocValue = viewModel.blocValue
+            dataSource.priceChange24Hours = viewModel.lastDayChange
+            dataSource.currency = UserDefaults.standard.defaultCurrency
         case .loading:
             dataSource.errorText = nil
             dataSource.isLoading = true

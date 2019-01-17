@@ -48,6 +48,15 @@ extension Double {
         return numberFormatter
     }()
     
+    fileprivate static let blocOtherCurrencyNumberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.maximumFractionDigits = 8
+        numberFormatter.numberStyle = .currencyAccounting
+        numberFormatter.locale = Locale.current
+        numberFormatter.minimumIntegerDigits = 1
+        return numberFormatter
+    }()
+    
     func blocCurrency(mode: BLOCCurrencyMode = .withCurrency) -> String {
         switch mode {
         case .noCurrency:
@@ -85,6 +94,30 @@ extension Double {
 
             return attrString
         }
+    }
+    
+    func otherCurrency(code: String) -> String {
+        let numberFormatter = NumberFormatter()
+        
+        numberFormatter.maximumFractionDigits = 8
+        numberFormatter.numberStyle = .currencyAccounting
+        numberFormatter.locale = Locale.current
+        numberFormatter.minimumIntegerDigits = 1
+        numberFormatter.currencyCode = code
+
+        switch code {
+        case "USD":
+            numberFormatter.currencySymbol = "$"
+        case "EUR":
+            numberFormatter.currencySymbol = "€"
+        case "BTC":
+            numberFormatter.currencySymbol = "Ƀ"
+            numberFormatter.maximumFractionDigits = 10
+        default:
+            break
+        }
+        
+        return numberFormatter.string(from: NSNumber(value: self)) ?? "0 \(code)"
     }
 
 }

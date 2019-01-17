@@ -13,14 +13,20 @@ class ShowWalletDataSource: ArrayDataSource {
     var didTapCopy: () -> Void = { }
     var didTapQRCode: () -> Void = { }
     var didTapFullHistory: () -> Void = { }
+    var didTapCoinGecko: () -> Void = { }
+    var didTapCurrency: (String) -> Void = { _ in }
 
     var wallet: WalletModel? = nil
     var balances: [BalanceModel] = []
     var transactions: [TransactionModel] = []
+    var blocValue: Double? = nil
+    var priceChange24Hours: Double? = nil
+    var currency: String? = nil
 
     enum Section: Int {
         case balance
         case export
+        case value
         case transactionHeader
         case transactions
         case count
@@ -43,6 +49,8 @@ class ShowWalletDataSource: ArrayDataSource {
             return balances.isEmpty ? 0 : 1
         } else if section == Section.export.rawValue {
             return wallet == nil ? 0 : 1
+        } else if section == Section.value.rawValue {
+            return blocValue == nil ? 0 : 1
         } else if section == Section.transactionHeader.rawValue {
             return transactions.isEmpty ? 0 : 1
         } else {
@@ -74,6 +82,20 @@ class ShowWalletDataSource: ArrayDataSource {
                 cell.didTapQRCode = { self.didTapQRCode() }
             }
             
+            return cell
+        } else if indexPath.section == Section.value.rawValue {
+            let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletValueCell.reuseIdentifier(), for: indexPath) as! ShowWalletValueCell
+
+            
+            if let blocValue = blocValue {
+                let totalBalance = ((wallet?.details?.availableBalance ?? 0.0) + (wallet?.details?.lockedBalance ?? 0.0)) / Constants.walletCurrencyDivider
+
+                cell.configure(blocValue: blocValue, totalValue: totalBalance * blocValue, evolution: priceChange24Hours ?? 0.0, selectedCurrency: currency ?? "USD")
+            }
+            
+            cell.didTapCoinGecko = { self.didTapCoinGecko() }
+            cell.didTapCurrency = { self.didTapCurrency($0) }
+                        
             return cell
         } else if indexPath.section == Section.transactionHeader.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletTransactionsHeaderCell.reuseIdentifier(), for: indexPath) as! ShowWalletTransactionsHeaderCell

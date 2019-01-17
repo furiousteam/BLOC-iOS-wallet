@@ -52,7 +52,7 @@ class CoinGeckoPriceHistoryResponse: CoinGeckoPriceHistoryResponseModel, Decodab
         self.prices = pricesTuples.compactMap({ tuple -> PriceHistoryItemModel? in
             guard tuple.count == 2 else { return nil }
             
-            return PriceHistoryItem(timestamp: tuple[0], value: tuple[1])
+            return PriceHistoryItem(timestamp: tuple[0] / 1000, value: tuple[1])
         }).sorted(by: { (a, b) -> Bool in
             return a.timestamp < b.timestamp
         })

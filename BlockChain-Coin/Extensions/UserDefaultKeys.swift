@@ -10,6 +10,7 @@ import Foundation
 
 enum UserDefaultsKey: String {
     case environment = "environment"
+    case defaultCurrency = "defaultCurrency"
 }
 
 extension UserDefaults {
@@ -25,4 +26,14 @@ extension UserDefaults {
         }
     }
     
+    var defaultCurrency: String? {
+        set {
+            setValue(newValue, forKey: UserDefaultsKey.defaultCurrency.rawValue)
+        }
+        get {
+            guard let value = string(forKey: UserDefaultsKey.defaultCurrency.rawValue) else { return "USD" }
+            
+            return value
+        }
+    }
 }

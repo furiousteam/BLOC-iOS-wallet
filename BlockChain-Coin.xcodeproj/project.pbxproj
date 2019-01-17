@@ -300,6 +300,7 @@
 		9CE35C78206E1F3D002E7193 /* ListPoolsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C72206E1F3D002E7193 /* ListPoolsRouter.swift */; };
 		9CE35C79206E1F3D002E7193 /* ListPoolsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C73206E1F3D002E7193 /* ListPoolsInteractor.swift */; };
 		9CE35C7C206E2044002E7193 /* ListPoolsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE35C7B206E2044002E7193 /* ListPoolsCell.swift */; };
+		9CE5B6C821F115BA003D2F71 /* ShowWalletValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE5B6C721F115BA003D2F71 /* ShowWalletValueCell.swift */; };
 		9CF5A5B7206EAF1A00CA41FA /* AddPoolInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5A5B1206EAF1A00CA41FA /* AddPoolInteractor.swift */; };
 		9CF5A5B8206EAF1A00CA41FA /* AddPoolRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5A5B2206EAF1A00CA41FA /* AddPoolRouter.swift */; };
 		9CF5A5B9206EAF1A00CA41FA /* AddPoolModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF5A5B3206EAF1A00CA41FA /* AddPoolModels.swift */; };
@@ -641,6 +642,7 @@
 		9CE35C72206E1F3D002E7193 /* ListPoolsRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPoolsRouter.swift; sourceTree = "<group>"; };
 		9CE35C73206E1F3D002E7193 /* ListPoolsInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPoolsInteractor.swift; sourceTree = "<group>"; };
 		9CE35C7B206E2044002E7193 /* ListPoolsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListPoolsCell.swift; sourceTree = "<group>"; };
+		9CE5B6C721F115BA003D2F71 /* ShowWalletValueCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowWalletValueCell.swift; sourceTree = "<group>"; };
 		9CF5A5B1206EAF1A00CA41FA /* AddPoolInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPoolInteractor.swift; sourceTree = "<group>"; };
 		9CF5A5B2206EAF1A00CA41FA /* AddPoolRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPoolRouter.swift; sourceTree = "<group>"; };
 		9CF5A5B3206EAF1A00CA41FA /* AddPoolModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddPoolModels.swift; sourceTree = "<group>"; };
@@ -1096,6 +1098,7 @@
 				9CBCC992206102020006FBA7 /* ShowWalletTransactionsHeaderCell.swift */,
 				9CBCC994206102260006FBA7 /* ShowWalletTransactionCell.swift */,
 				9CBCC99620610A130006FBA7 /* ShowWalletBalanceView.swift */,
+				9CE5B6C721F115BA003D2F71 /* ShowWalletValueCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1952,6 +1955,7 @@
 				9C575CA520919CDC00FAE50A /* WalletMemStore.swift in Sources */,
 				9CE35C77206E1F3D002E7193 /* ListPoolsPresenter.swift in Sources */,
 				9C04369C202CDB9400671DA2 /* MineDataSource.swift in Sources */,
+				9CE5B6C821F115BA003D2F71 /* ShowWalletValueCell.swift in Sources */,
 				9C0E22092073C33D00D30530 /* PoolSocketErrorResponse.swift in Sources */,
 				9C4AA49A2033353C0056152C /* ListWalletsModels.swift in Sources */,
 				9CBCC9C7206241C40006FBA7 /* KeyPair+Codable.swift in Sources */,

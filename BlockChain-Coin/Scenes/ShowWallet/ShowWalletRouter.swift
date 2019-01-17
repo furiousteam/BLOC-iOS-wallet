@@ -13,6 +13,7 @@ protocol ShowWalletRoutingLogic {
     func goBack()
     func showTransactionsHistory(wallet: WalletModel)
     func showTransaction(transaction: ListTransactionItemViewModel)
+    func showCoinGecko()
 }
 
 class ShowWalletRouter: ShowWalletRoutingLogic {
@@ -36,5 +37,9 @@ class ShowWalletRouter: ShowWalletRoutingLogic {
         let vc = ShowTransactionVC(transaction: transaction)
         
         viewController?.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func showCoinGecko() {
+        UIApplication.shared.open(URL(string: "https://www.coingecko.com/en/coins/bloc-money")!, options: [:], completionHandler: nil)
     }
 }

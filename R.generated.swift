@@ -109,7 +109,7 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
   
-  /// This `R.image` struct is generated, and contains static references to 71 images.
+  /// This `R.image` struct is generated, and contains static references to 72 images.
   struct image {
     /// Image `about-logo`.
     static let aboutLogo = Rswift.ImageResource(bundle: R.hostingBundle, name: "about-logo")
@@ -249,6 +249,8 @@ struct R: Rswift.Validatable {
     static let walletMedium = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallet-medium")
     /// Image `wallet-transactions`.
     static let walletTransactions = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallet-transactions")
+    /// Image `wallet-value`.
+    static let walletValue = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallet-value")
     /// Image `wallet`.
     static let wallet = Rswift.ImageResource(bundle: R.hostingBundle, name: "wallet")
     /// Image `waves-bg`.
@@ -604,6 +606,11 @@ struct R: Rswift.Validatable {
       return UIKit.UIImage(resource: R.image.walletTransactions, compatibleWith: traitCollection)
     }
     
+    /// `UIImage(named: "wallet-value", bundle: ..., traitCollection: ...)`
+    static func walletValue(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.walletValue, compatibleWith: traitCollection)
+    }
+    
     /// `UIImage(named: "waves-bg", bundle: ..., traitCollection: ...)`
     static func wavesBg(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.wavesBg, compatibleWith: traitCollection)
@@ -642,7 +649,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 158 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 163 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -696,10 +703,18 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_bloc_available = Rswift.StringResource(key: "wallet_bloc_available", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: BLOC is a fast, easy to use and private decentralized cryptocurrency. Send money spacewide, worldwide or locally, immediately and without costly intermediaries using the blockchain technology. One of our main goal is to provide a cryptocurrency which is safe, easy to use and attractive combined with a powerful ecosystem for users, to benefits advantages from multiple type of industries like never done before. BLOC is easy to mine and makes getting started with cryptocurrencies easier than ever. Free your life today, enjoy the BLOC lifestyle. Join us.
+      /// 
+      /// Locales: en
+      static let about_us_content = Rswift.StringResource(key: "about_us_content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: BLOC locked
       /// 
       /// Locales: en
       static let wallet_bloc_locked = Rswift.StringResource(key: "wallet_bloc_locked", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: BTC
+      /// 
+      /// Locales: en
+      static let wallet_currency_btc = Rswift.StringResource(key: "wallet_currency_btc", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Backup wallet
       /// 
       /// Locales: en
@@ -728,6 +743,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let common_cancel = Rswift.StringResource(key: "common_cancel", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: CoinGecko
+      /// 
+      /// Locales: en
+      static let wallet_coingecko = Rswift.StringResource(key: "wallet_coingecko", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Connected Miners
       /// 
       /// Locales: en
@@ -792,6 +811,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_created_infos_last_line = Rswift.StringResource(key: "wallet_created_infos_last_line", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: EUR
+      /// 
+      /// Locales: en
+      static let wallet_currency_eur = Rswift.StringResource(key: "wallet_currency_eur", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Enter a Payment ID (optional)
       /// 
       /// Locales: en
@@ -1112,10 +1135,6 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let delete_wallet_before_action = Rswift.StringResource(key: "delete_wallet_before_action", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
-      /// en translation: The BLOC.money : Symbol Ƀ - Ticker: BLOC is a fully decentralized cryptocurrency - Egalitarian Proof Of Work with Cryptonight algorithm - based on open source Cryptonote technology using low & fix rate fees per transaction. Including a brand new ecosystem and exclusive set of mining tools. One of our mission is to build a more open, accessible, and fair financial future. Our technology is revolutionizing the financial services industry by empowering users across the globe to authenticate and transact immediately and without costly intermediaries using the blockchain technology.
-      /// 
-      /// Locales: en
-      static let about_us_content = Rswift.StringResource(key: "about_us_content", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: The specified key is not in the right format or contains invalid data
       /// 
       /// Locales: en
@@ -1168,6 +1187,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let mining_pool_url_placeholder = Rswift.StringResource(key: "mining_pool_url_placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: USD
+      /// 
+      /// Locales: en
+      static let wallet_currency_usd = Rswift.StringResource(key: "wallet_currency_usd", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Use QR code
       /// 
       /// Locales: en
@@ -1248,6 +1271,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_created_qr_code = Rswift.StringResource(key: "wallet_created_qr_code", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Your wallet value at this date
+      /// 
+      /// Locales: en
+      static let wallet_value = Rswift.StringResource(key: "wallet_value", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: check your transactions
       /// 
       /// Locales: en
@@ -1368,11 +1395,25 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_bloc_available", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: BLOC is a fast, easy to use and private decentralized cryptocurrency. Send money spacewide, worldwide or locally, immediately and without costly intermediaries using the blockchain technology. One of our main goal is to provide a cryptocurrency which is safe, easy to use and attractive combined with a powerful ecosystem for users, to benefits advantages from multiple type of industries like never done before. BLOC is easy to mine and makes getting started with cryptocurrencies easier than ever. Free your life today, enjoy the BLOC lifestyle. Join us.
+      /// 
+      /// Locales: en
+      static func about_us_content(_: Void = ()) -> String {
+        return NSLocalizedString("about_us_content", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: BLOC locked
       /// 
       /// Locales: en
       static func wallet_bloc_locked(_: Void = ()) -> String {
         return NSLocalizedString("wallet_bloc_locked", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: BTC
+      /// 
+      /// Locales: en
+      static func wallet_currency_btc(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_currency_btc", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Backup wallet
@@ -1422,6 +1463,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func common_cancel(_: Void = ()) -> String {
         return NSLocalizedString("common_cancel", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: CoinGecko
+      /// 
+      /// Locales: en
+      static func wallet_coingecko(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_coingecko", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Connected Miners
@@ -1534,6 +1582,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_created_infos_last_line(_: Void = ()) -> String {
         return NSLocalizedString("wallet_created_infos_last_line", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: EUR
+      /// 
+      /// Locales: en
+      static func wallet_currency_eur(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_currency_eur", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Enter a Payment ID (optional)
@@ -2096,13 +2151,6 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("delete_wallet_before_action", bundle: R.hostingBundle, comment: "")
       }
       
-      /// en translation: The BLOC.money : Symbol Ƀ - Ticker: BLOC is a fully decentralized cryptocurrency - Egalitarian Proof Of Work with Cryptonight algorithm - based on open source Cryptonote technology using low & fix rate fees per transaction. Including a brand new ecosystem and exclusive set of mining tools. One of our mission is to build a more open, accessible, and fair financial future. Our technology is revolutionizing the financial services industry by empowering users across the globe to authenticate and transact immediately and without costly intermediaries using the blockchain technology.
-      /// 
-      /// Locales: en
-      static func about_us_content(_: Void = ()) -> String {
-        return NSLocalizedString("about_us_content", bundle: R.hostingBundle, comment: "")
-      }
-      
       /// en translation: The specified key is not in the right format or contains invalid data
       /// 
       /// Locales: en
@@ -2192,6 +2240,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func mining_pool_url_placeholder(_: Void = ()) -> String {
         return NSLocalizedString("mining_pool_url_placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: USD
+      /// 
+      /// Locales: en
+      static func wallet_currency_usd(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_currency_usd", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Use QR code
@@ -2332,6 +2387,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func wallet_created_qr_code(_: Void = ()) -> String {
         return NSLocalizedString("wallet_created_qr_code", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Your wallet value at this date
+      /// 
+      /// Locales: en
+      static func wallet_value(_: Void = ()) -> String {
+        return NSLocalizedString("wallet_value", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: check your transactions

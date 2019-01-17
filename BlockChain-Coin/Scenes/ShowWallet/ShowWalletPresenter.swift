@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ShowWalletPresentationLogic {
-    func handleShowDetails(details: WalletDetails)
+    func handleShowDetails(details: WalletDetails, priceHistory: [PriceHistoryItemModel]?)
     func handleShowDetailsLoading()
     func handleShowDetailsError(error: WalletStoreError)
 }
@@ -19,8 +19,8 @@ class ShowWalletPresenter: ShowWalletPresentationLogic {
     
     // Balances
     
-    func handleShowDetails(details: WalletDetails) {
-        let viewModel = ShowWalletDetailsViewModel(state: .loaded(details))
+    func handleShowDetails(details: WalletDetails, priceHistory: [PriceHistoryItemModel]?) {
+        let viewModel = ShowWalletDetailsViewModel(state: .loaded(details: details, priceHistory: priceHistory))
         viewController?.handleUpdate(viewModel: viewModel)
     }
     
