@@ -29,7 +29,7 @@ class ConfirmTransactionInteractor: ConfirmTransactionBusinessLogic {
                               fee: UInt64(Constants.minimumFee),
                               anonymity: 0,
                               unlockHeight: nil,
-                              paymentId: nil) { [weak self] result in
+                              paymentId: request.form.paymentId) { [weak self] result in
                                 switch result {
                                 case .success(let transactionHash):
                                     self?.presenter?.handleShowTransactionHash(transactionHash: transactionHash)

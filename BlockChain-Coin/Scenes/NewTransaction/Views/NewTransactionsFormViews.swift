@@ -71,6 +71,37 @@ class NewTransactionsFormViews: NSObject, UITextViewDelegate {
         view.backgroundColor = UIColor(patternImage: R.image.separatorDash()!)
         return view
     }()
+    
+    // Payment ID
+    
+    let paymentIDTitleLabel: UILabel = {
+        let label = UILabel()
+        label.text = R.string.localizable.payment_id_title()
+        label.font = .regular(size: 10.0)
+        label.textColor = UIColor.white.withAlphaComponent(0.5)
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    let paymentIDTextView: SZTextView = {
+        let textView = SZTextView()
+        textView.placeholder = R.string.localizable.send_paste_payment_id()
+        textView.placeholderTextColor = UIColor.white.withAlphaComponent(0.5)
+        textView.font = .regular(size: 12.5)
+        textView.textColor = .white
+        textView.textContainerInset = UIEdgeInsets(top: 10.0, left: 0.0, bottom: 0.0, right: 0.0)
+        textView.textAlignment = .center
+        textView.backgroundColor = .clear
+        textView.accessibilityLabel = "Recipient address"
+        return textView
+    }()
+    
+    let paymentIDSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(patternImage: R.image.separatorDash()!)
+        return view
+    }()
 
     // Recipient
     
@@ -162,8 +193,16 @@ class NewTransactionsFormViews: NSObject, UITextViewDelegate {
             $0.height.equalTo(1.0)
         })
         
+        paymentIDSeparatorView.snp.makeConstraints({
+            $0.height.equalTo(1.0)
+        })
+        
         addressTextView.snp.makeConstraints({
             $0.height.greaterThanOrEqualTo(75.0)
+        })
+        
+        paymentIDTextView.snp.makeConstraints({
+            $0.height.greaterThanOrEqualTo(50.0)
         })
         
         NewTransactionWalletCell.registerWith(walletsCollectionView)
@@ -183,6 +222,12 @@ class NewTransactionsFormViews: NSObject, UITextViewDelegate {
                          feeLabel,
                          SpacerView(height: 15.0),
                          amountSeparatorView,
+                         SpacerView(height: 15.0),
+                         paymentIDTitleLabel,
+                         SpacerView(height: 10.0),
+                         paymentIDTextView,
+                         SpacerView(height: 15.0),
+                         paymentIDSeparatorView,
                          SpacerView(height: 15.0),
                          addressTitleLabel,
                          SpacerView(height: 10.0),

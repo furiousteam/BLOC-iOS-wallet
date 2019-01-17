@@ -34,6 +34,7 @@ struct NewTransactionForm {
     var amount: Double?
     var address: String?
     var sourceWallet: WalletModel?
+    var paymentId: String?
     
     var isValid: Bool {
         let isAmountValid: Bool = {
@@ -68,7 +69,17 @@ struct NewTransactionForm {
             }
         }()
         
-        return isAmountValid && isAddressValid && isSourceAddressValid
+        let isPaymentIdValid: Bool = {
+            guard let paymentId = paymentId?.uppercased() else { return true }
+            
+            guard paymentId.count == 64 else { return false }
+            
+            let characterSet = CharacterSet(charactersIn: "0123456789ABCDEF").inverted
+            
+            return (paymentId as NSString).rangeOfCharacter(from: characterSet).location == NSNotFound
+        }()
+        
+        return isAmountValid && isAddressValid && isSourceAddressValid && isPaymentIdValid
     }
 }
 

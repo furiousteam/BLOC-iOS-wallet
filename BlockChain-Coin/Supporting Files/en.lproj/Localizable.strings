@@ -164,3 +164,5 @@ Miners: %@ - Last block found: %@";
 "home_menu_news_title" = "News";
 "home_menu_news_subtile" = "stay informed";
 "list_news_error_no_news" = "There are no news at the moment";
+"payment_id_title" = "Enter a Payment ID (optional)";
+"send_paste_payment_id" = "Paste here the Payment ID";

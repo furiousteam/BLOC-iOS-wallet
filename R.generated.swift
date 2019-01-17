@@ -642,7 +642,7 @@ struct R: Rswift.Validatable {
   
   /// This `R.string` struct is generated, and contains static references to 1 localization tables.
   struct string {
-    /// This `R.string.localizable` struct is generated, and contains static references to 156 localization keys.
+    /// This `R.string.localizable` struct is generated, and contains static references to 158 localization keys.
     struct localizable {
       /// en translation: (BLOC)
       /// 
@@ -792,6 +792,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let wallet_created_infos_last_line = Rswift.StringResource(key: "wallet_created_infos_last_line", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Enter a Payment ID (optional)
+      /// 
+      /// Locales: en
+      static let payment_id_title = Rswift.StringResource(key: "payment_id_title", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Enter the amount of BLOC you want to send
       /// 
       /// Locales: en
@@ -956,6 +960,10 @@ struct R: Rswift.Validatable {
       /// 
       /// Locales: en
       static let create_wallet_password_placeholder = Rswift.StringResource(key: "create_wallet_password_placeholder", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
+      /// en translation: Paste here the Payment ID
+      /// 
+      /// Locales: en
+      static let send_paste_payment_id = Rswift.StringResource(key: "send_paste_payment_id", tableName: "Localizable", bundle: R.hostingBundle, locales: ["en"], comment: nil)
       /// en translation: Paste here the address of the recipient
       /// 
       /// Locales: en
@@ -1528,6 +1536,13 @@ struct R: Rswift.Validatable {
         return NSLocalizedString("wallet_created_infos_last_line", bundle: R.hostingBundle, comment: "")
       }
       
+      /// en translation: Enter a Payment ID (optional)
+      /// 
+      /// Locales: en
+      static func payment_id_title(_: Void = ()) -> String {
+        return NSLocalizedString("payment_id_title", bundle: R.hostingBundle, comment: "")
+      }
+      
       /// en translation: Enter the amount of BLOC you want to send
       /// 
       /// Locales: en
@@ -1813,6 +1828,13 @@ struct R: Rswift.Validatable {
       /// Locales: en
       static func create_wallet_password_placeholder(_: Void = ()) -> String {
         return NSLocalizedString("create_wallet_password_placeholder", bundle: R.hostingBundle, comment: "")
+      }
+      
+      /// en translation: Paste here the Payment ID
+      /// 
+      /// Locales: en
+      static func send_paste_payment_id(_: Void = ()) -> String {
+        return NSLocalizedString("send_paste_payment_id", bundle: R.hostingBundle, comment: "")
       }
       
       /// en translation: Paste here the address of the recipient

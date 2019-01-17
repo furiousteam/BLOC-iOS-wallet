@@ -167,14 +167,14 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         
         self.interactor.validateForm(request: NewTransactionRequest(form: self.form!))
         
-        Observable.combineLatest(formFields.amountTextField.rx.text.asObservable(), formFields.addressTextView.rx.text.asObservable()).subscribe(onNext: { [weak self] amount, address in
+        Observable.combineLatest(formFields.amountTextField.rx.text.asObservable(), formFields.addressTextView.rx.text.asObservable(), formFields.paymentIDTextView.rx.text.asObservable()).subscribe(onNext: { [weak self] amount, address, paymentId in
             let a = amount?.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: " ", with: "")
             
-            self?.updateForm(amount: Double(a ?? ""), address: address, indexPath: self?.formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
+            self?.updateForm(amount: Double(a ?? ""), address: address, paymentId: paymentId, indexPath: self?.formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
         }).disposed(by: disposeBag)
     }
     
-    func updateForm(amount: Double?, address: String?, indexPath: IndexPath?) {
+    func updateForm(amount: Double?, address: String?, paymentId: String?, indexPath: IndexPath?) {
         let wallet: WalletModel? = {
             if let wallets = self.dataSource.items.first, let indexPath = indexPath, indexPath.item < wallets.count {
                 return wallets[indexPath.item] as? Wallet
@@ -183,7 +183,7 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
             return nil
         }()
         
-        let form = NewTransactionForm(amount: amount, address: address, sourceWallet: wallet)
+        let form = NewTransactionForm(amount: amount, address: address, sourceWallet: wallet, paymentId: paymentId)
         
         self.form = form
         
@@ -197,13 +197,14 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         
         self.formFields.amountTextField.text = nil
         self.formFields.addressTextView.text = nil
+        self.formFields.paymentIDTextView.text = nil
         
         self.formFields.amountTextField.rx.text.onNext("")
 
-        self.form = NewTransactionForm(amount: nil, address: nil, sourceWallet: nil)
+        self.form = NewTransactionForm(amount: nil, address: nil, sourceWallet: nil, paymentId: nil)
         self.lastUpdateForm = self.form
         
-        self.updateForm(amount: nil, address: nil, indexPath: nil)
+        self.updateForm(amount: nil, address: nil, paymentId: nil, indexPath: nil)
         
         self.updateWalletsList()
     }
@@ -267,7 +268,7 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let a = formFields.amountTextField.text?.replacingOccurrences(of: ",", with: ".").replacingOccurrences(of: " ", with: "")
 
-        self.updateForm(amount: Double(a ?? ""), address: formFields.addressTextView.text, indexPath: self.formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
+        self.updateForm(amount: Double(a ?? ""), address: formFields.addressTextView.text, paymentId: formFields.paymentIDTextView.text, indexPath: self.formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
     }
     
     // MARK: - UI Update
@@ -351,7 +352,7 @@ class NewTransactionVC: ViewController, NewTransactionDisplayLogic, UICollection
         formFields.addressTextView.rx.text.asObserver().onNext(result.value)
         formFields.addressTextView.text = result.value
         
-        updateForm(amount: form?.amount, address: result.value, indexPath: formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
+        updateForm(amount: form?.amount, address: result.value, paymentId: form?.paymentId, indexPath: formFields.walletsCollectionView.indexPathsForSelectedItems?.first)
         
         reader.dismiss(animated: true) {
             self.shouldResetForm = true
