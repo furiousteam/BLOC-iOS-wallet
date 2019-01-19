@@ -3,7 +3,7 @@
 //  BlockChain-Coin
 //
 //  Created by Maxime Bornemann on 17/01/2019.
-//  Copyright © 2019 BlockChain-Coin.net. All rights reserved.
+//  Copyright © 2019 BLOC.MONEY. All rights reserved.
 //
 
 import UIKit

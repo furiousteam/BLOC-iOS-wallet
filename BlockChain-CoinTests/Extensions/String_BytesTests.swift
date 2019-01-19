@@ -3,7 +3,7 @@
 //  BlockChain-CoinTests
 //
 //  Created by Maxime Bornemann on 16/02/2018.
-//  Copyright © 2018 BlockChain-Coin.net. All rights reserved.
+//  Copyright © 2018 BLOC.MONEY. All rights reserved.
 //
 
 import Foundation
