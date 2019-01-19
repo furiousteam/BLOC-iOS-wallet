@@ -62,13 +62,13 @@ class ShowWalletDataSource: ArrayDataSource {
         if isLoading || errorText != nil {
             return super.tableView(tableView, cellForRowAt: indexPath)
         }
+        
+        let availableBalance = balances.first(where: { $0.balanceType == .available })?.value ?? 0.0
+        let lockedBalance = balances.first(where: { $0.balanceType == .locked })?.value ?? 0.0
 
         if indexPath.section == Section.balance.rawValue {
             let cell = tableView.dequeueReusableCell(withIdentifier: ShowWalletBalanceCell.reuseIdentifier(), for: indexPath) as! ShowWalletBalanceCell
             
-            let availableBalance = balances.first(where: { $0.balanceType == .available })?.value ?? 0.0
-            let lockedBalance = balances.first(where: { $0.balanceType == .locked })?.value ?? 0.0
-
             cell.configure(availableBalance: availableBalance, lockedBalance: lockedBalance)
             
             return cell
@@ -88,7 +88,7 @@ class ShowWalletDataSource: ArrayDataSource {
 
             
             if let blocValue = blocValue {
-                let totalBalance = ((wallet?.details?.availableBalance ?? 0.0) + (wallet?.details?.lockedBalance ?? 0.0)) / Constants.walletCurrencyDivider
+                let totalBalance = (availableBalance + lockedBalance)
 
                 cell.configure(blocValue: blocValue, totalValue: totalBalance * blocValue, evolution: priceChange24Hours ?? 0.0, selectedCurrency: currency ?? "USD")
             }
