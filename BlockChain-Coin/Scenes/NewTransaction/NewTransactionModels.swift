@@ -70,7 +70,7 @@ struct NewTransactionForm {
         }()
         
         let isPaymentIdValid: Bool = {
-            guard let paymentId = paymentId?.uppercased() else { return true }
+            guard let paymentId = paymentId?.uppercased(), !paymentId.isEmpty else { return true }
             
             guard paymentId.count == 64 else { return false }
             
