@@ -224,3 +224,9 @@ Following is a full list of all the emojis that must be append to the commit mes
 * ☢️ Trying stuff, not quite ready
 * ⛔️ Commit that does not compile
 * 💤 Developer needs sleep or caffeine
+
+### About BLOC
+
+If this is your first time hearing about BLOC, we recommend starting by visiting the official [BLOC.MONEY](https://bloc.money) website and/or the [BLOC Wiki](https://wiki.bloc.money)
+
+[![BLOC](https://wiki.bloc.money/images/BLOC-in-out_blue.gif)](https://bloc.money)
