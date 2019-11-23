@@ -94,7 +94,7 @@ Fast";
 BLOC";
 "about_us_bloc" = "(BLOC)";
 "about_us_url" = "www.bloc.money";
-"about_us_content" = "BLOC is a fast, easy to use and private decentralized cryptocurrency. Send money spacewide, worldwide or locally, immediately and without costly intermediaries using the blockchain technology. One of our main goal is to provide a cryptocurrency which is safe, easy to use and attractive combined with a powerful ecosystem for users, to benefits advantages from multiple type of industries like never done before. BLOC is easy to mine and makes getting started with cryptocurrencies easier than ever. Free your life today, enjoy the BLOC lifestyle. Join us.";
+"about_us_content" = "BLOC is a fast, easy to use and private decentralized cryptocurrency. Send money spacewide, worldwide or locally, immediately and without costly intermediaries using the blockchain technology. One of our main goals is to provide a safe, attractive, and easy to use cryptocurrency, which combined with a powerful ecosystem, allows users to benefit from the advantages of multiple types of industries like never before. BLOC is easy to mine and makes getting started with cryptocurrencies easier than ever. Free your life today, enjoy the BLOC lifestyle. Join us.";
 "error_unknown" = "An unknown error has occured. Please try again.";
 "create_wallet_loading" = "Creating your wallet...";
 "import_wallet_key_invalid_key" = "The specified key is not in the right format or contains invalid data";
