@@ -171,3 +171,4 @@ Miners: %@ - Last block found: %@";
 "wallet_currency_usd" = "USD";
 "wallet_currency_eur" = "EUR";
 "wallet_currency_btc" = "BTC";
+"wallet_created_copyKey" = "Copy Key";
