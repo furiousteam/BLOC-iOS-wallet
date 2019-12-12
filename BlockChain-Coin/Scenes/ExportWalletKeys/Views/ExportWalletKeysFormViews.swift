@@ -98,6 +98,12 @@ class ExportWalletKeysFormViews {
         return button
     }()
     
+    let saveKeyButton: ActionButton = {
+        let button = ActionButton()
+        button.setTitle(R.string.localizable.wallet_created_copyKey(), for: .normal)
+        return button
+    }()
+    
     let goToWalletButton: ActionButton = {
         let button = ActionButton()
         button.setTitle(R.string.localizable.wallet_created_go_to_wallet(), for: .normal)
@@ -122,6 +128,8 @@ class ExportWalletKeysFormViews {
                          walletKeyLabel,
                          SpacerView(height: 25.0),
                          printButton,
+                         SpacerView(height: 25.0),
+                         saveKeyButton,
                          SpacerView(height: 30.0),
                          goToWalletButton ]
     }
