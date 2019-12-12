@@ -16,7 +16,7 @@ class ListTransactionsPresenter: ListTransactionsPresentationLogic {
     weak var viewController: ListTransactionsDisplayLogic?
     
     func handleShowTransactions(wallets: [WalletModel]) {
-        let transactions = wallets.sorted(by: { a, b in return a.createdAt < b.createdAt }).enumerated().flatMap { index, wallet -> [ListTransactionItemViewModel]? in
+        let transactions = wallets.sorted(by: { a, b in return a.createdAt > b.createdAt }).enumerated().flatMap { index, wallet -> [ListTransactionItemViewModel]? in
             let transactions = wallet.details?.transactions.map({ transaction -> ListTransactionItemViewModel in
                 return ListTransactionItemViewModel(name: wallet.name, sourceAddress: wallet.address, transaction: transaction)
             })
@@ -27,7 +27,7 @@ class ListTransactionsPresenter: ListTransactionsPresentationLogic {
             
             return transactions
         }.flatMap({ $0 }).sorted { (a, b) -> Bool in
-            return a.transaction.createdAt < b.transaction.createdAt
+            return a.transaction.createdAt > b.transaction.createdAt
         }
         
         let viewModel = ListTransactionsViewModel(state: .loaded(transactions))
