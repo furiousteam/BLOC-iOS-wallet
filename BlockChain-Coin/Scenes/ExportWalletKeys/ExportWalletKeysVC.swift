@@ -98,6 +98,7 @@ class ExportWalletKeysVC: ViewController, ExportWalletKeysDisplayLogic {
         })
 
         formFields.printButton.addTarget(self, action: #selector(printTapped), for: .touchUpInside)
+        formFields.saveKeyButton.addTarget(self, action: #selector(saveKeyTapped), for: .touchUpInside)
         formFields.goToWalletButton.addTarget(self, action: #selector(goToWalletTapped), for: .touchUpInside)
 
         if mode == .export {
@@ -121,6 +122,12 @@ class ExportWalletKeysVC: ViewController, ExportWalletKeysDisplayLogic {
             router.showPrintPreview(keys: keys)
         }
     }
+    
+    @objc func saveKeyTapped() {
+           if let keys = keys {
+               router.showCopyKey(keys: keys)
+           }
+       }
     
     @objc func goToWalletTapped() {
         router.goToWallet(wallet: wallet)
