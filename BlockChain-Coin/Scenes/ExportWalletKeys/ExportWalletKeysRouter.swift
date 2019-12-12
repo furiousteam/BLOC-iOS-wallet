@@ -11,6 +11,7 @@ import SnapKit
 
 protocol ExportWalletKeysRoutingLogic {
     func showPrintPreview(keys: String)
+    func showCopyKey(keys: String)
     func goToWallet(wallet: WalletModel)
 }
 
@@ -61,5 +62,10 @@ class ExportWalletKeysRouter: Router, ExportWalletKeysRoutingLogic {
         // TODO: Show wallet
         viewController?.navigationController?.popToRootViewController(animated: true)
     }
+    
+    func showCopyKey(keys: String) {
+        print(keys)
+        UIPasteboard.general.string = (keys)
+        }
 }
 
